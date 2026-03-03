@@ -31,6 +31,31 @@ Format mengikuti prinsip [Keep a Changelog](https://keepachangelog.com/en/1.1.0/
 ### Changed
 - Belum ada.
 
+## [0.3.0] - 2026-03-03
+
+### Added
+- Menambahkan materi lengkap `advanced/01-closure-patterns.md` dengan pola section yang sama seperti Foundations.
+- Menambahkan materi lengkap `advanced/02-this-binding-lanjutan.md` dengan pola section yang sama.
+- Menambahkan materi lengkap `advanced/03-prototype-chain-lanjutan.md` dengan pola section yang sama.
+- Menambahkan materi lengkap `advanced/04-promise-async-await.md` dengan pola section yang sama.
+- Menambahkan materi lengkap `advanced/05-error-handling-defensive-coding.md` dengan pola section yang sama.
+- Menambahkan materi lengkap `advanced/06-module-organization-esm.md` dengan pola section yang sama (termasuk wireframe 3 jalur).
+
+### Changed
+- Memperbarui `docs/learning-path.md` dengan alur dan prasyarat awal untuk level Advanced.
+- Memperbarui `docs/learning-path.md` dengan prasyarat dan kamus bertahap untuk `advanced/02-this-binding-lanjutan.md`.
+- Memperbarui `docs/learning-path.md` dengan prasyarat dan kamus bertahap untuk `advanced/03-prototype-chain-lanjutan.md`.
+- Memperbarui `docs/learning-path.md` dengan prasyarat dan kamus bertahap untuk `advanced/04-promise-async-await.md`.
+- Memperbarui `docs/learning-path.md` dengan prasyarat dan kamus bertahap untuk `advanced/05-error-handling-defensive-coding.md`.
+- Memperbarui `docs/learning-path.md` dengan prasyarat dan kamus bertahap untuk `advanced/06-module-organization-esm.md`.
+- Menstandarkan format `Wireframe` pada materi yang sudah terisi menjadi 3 jalur: `Alur utama`, `Alur jalan`, dan `Alur error`.
+- Memperbarui `templates/topic-template.md` dan `README.md` agar aturan wireframe 3 jalur jadi standar penulisan.
+- Memperjelas aturan section `Big Picture` di `templates/topic-template.md` dan `README.md` agar selalu memuat masalah nyata, solusi konsep, dan dampak praktis.
+- Menambahkan panduan `Pengantar Singkat Topik` sebelum `Big Picture` pada template, README, dan menerapkannya di `foundations/01-values-types-coercion.md`.
+- Menyesuaikan placeholder `Big Picture` di template agar baris ringkas "Konsep ini menyelesaikan masalah apa" tetap ada, disertai panduan detail 3 poin.
+- Menyelaraskan semua materi yang sudah terisi (Foundations 02-06 dan Advanced 01-06) dengan penambahan section `Pengantar Singkat Topik` sebelum `Big Picture`, serta memperbarui urutan format wajib di `README.md`.
+- Merevisi section `Big Picture` di seluruh materi Foundations (01-06) agar mengikuti pola template terbaru: masalah nyata, solusi konsep, dan dampak keputusan teknis.
+
 ## [0.2.0] - 2026-03-03
 
 ### Added

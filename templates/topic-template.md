@@ -20,15 +20,32 @@ Kamus mini topik:
 - `[baru]` [...]: [...]
 - `[ulang]` [...]: [...]
 
+## Pengantar Singkat Topik
+[Jelaskan "apa itu topik ini" dalam 1-2 kalimat sederhana.
+Contoh gaya: "Values, types, dan coercion membahas bagaimana JavaScript membaca nilai, menentukan jenisnya, dan kapan tipe bisa berubah otomatis."]
+
 ## 1) Big Picture
 [Konsep ini menyelesaikan masalah apa]
+
+-------
+[Jelaskan 2-4 kalimat yang menjawab 3 hal ini:
+1) Masalah nyata yang sering terjadi tanpa konsep ini.
+2) Bagaimana konsep ini menyelesaikan masalah tersebut.
+3) Dampak hasil belajar: setelah paham, pembaca bisa mengambil keputusan teknis apa.]
 
 ## 2) Small Picture
 [Langkah kerja internal secara urut]
 
 ## 3) Wireframe
 ```text
-[Input Kode] -> [Proses] -> [Output]
+Alur utama:
+[Input] -> [Proses inti] -> [Hasil utama]
+
+Alur jalan:
+[Input valid] -> [Langkah normal berurutan] -> [Output normal]
+
+Alur error:
+[Input/State bermasalah] -> [Validasi gagal] -> [Error/penanganan]
 ```
 
 ## 4) Analogi

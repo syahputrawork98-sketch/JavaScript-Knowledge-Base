@@ -24,8 +24,11 @@ Kamus mini topik:
 - `[baru]` TDZ (Temporal Dead Zone): area saat variabel `let`/`const` sudah ada tetapi belum boleh diakses.
 - `[ulang]` Declaration: proses deklarasi variabel/fungsi.
 
+## Pengantar Singkat Topik
+Scope dan hoisting membahas di mana variabel bisa diakses dan kapan deklarasi dianggap tersedia saat kode dijalankan. Topik ini penting supaya kamu bisa membaca urutan eksekusi dengan benar dan menghindari error akses variabel.
+
 ## 1) Big Picture
-Topik ini menjawab pertanyaan: kenapa variabel tertentu bisa diakses dari satu tempat tapi gagal di tempat lain, dan kenapa sebagian deklarasi terlihat "naik ke atas".
+Error akses variabel sering terjadi karena developer tidak membedakan batas scope dan timing hoisting saat kode dieksekusi. Topik ini menjelaskan hubungan scope, creation phase, execution phase, dan TDZ agar perilaku `var`, `let`, `const`, serta function declaration jadi jelas. Setelah paham, kamu bisa memutuskan penempatan deklarasi dengan aman dan menghindari `ReferenceError` yang membingungkan.
 
 ## 2) Small Picture
 1. Saat kode masuk, JavaScript membuat execution context.
@@ -34,7 +37,14 @@ Topik ini menjawab pertanyaan: kenapa variabel tertentu bisa diakses dari satu t
 
 ## 3) Wireframe
 ```text
-[Kode dibaca] -> [Creation phase: daftar deklarasi] -> [Execution phase: baris jalan] -> [Akses variabel]
+Alur utama:
+[Kode dibaca] -> [Creation phase] -> [Execution phase] -> [Akses variabel]
+
+Alur jalan:
+[Akses var sebelum assignment] -> [nilai awal undefined] -> [lanjut eksekusi]
+
+Alur error:
+[Akses let/const sebelum deklarasi] -> [kena TDZ] -> [ReferenceError]
 ```
 
 ## 4) Analogi

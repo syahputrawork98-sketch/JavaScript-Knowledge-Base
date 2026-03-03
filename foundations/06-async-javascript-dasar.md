@@ -27,8 +27,11 @@ Kamus mini topik:
 - `[baru]` Event loop: mekanisme yang memindahkan tugas antrean ke call stack saat stack kosong.
 - `[ulang]` Callback: function yang dipanggil setelah proses lain selesai.
 
+## Pengantar Singkat Topik
+Asynchronous JavaScript membahas cara program menangani pekerjaan lambat tanpa memblokir alur utama. Intinya ada pada call stack, queue, dan event loop yang menentukan urutan eksekusi nyata di runtime.
+
 ## 1) Big Picture
-Topik ini menjawab kenapa output async sering "tidak urut dari atas ke bawah", dan bagaimana memahami urutan eksekusi agar tidak bingung saat debugging.
+Pada kode asynchronous, output sering terlihat "acak" karena urutan tulis kode berbeda dari urutan eksekusi runtime. Topik ini menjelaskan peran call stack, task queue, microtask queue, dan event loop agar alur sync-async bisa diprediksi dengan tepat. Setelah paham, kamu bisa memutuskan pola penulisan async yang aman, menghindari asumsi urutan yang salah, dan melakukan debug timing issue lebih cepat.
 
 ## 2) Small Picture
 1. Kode synchronous masuk call stack dan dieksekusi langsung.
@@ -39,11 +42,14 @@ Topik ini menjawab kenapa output async sering "tidak urut dari atas ke bawah", d
 
 ## 3) Wireframe
 ```text
-[Sync code jalan] -> [Async dijadwalkan]
--> [Call stack kosong]
--> [Cek microtask queue dulu]
--> [Cek task queue]
--> [Eksekusi callback]
+Alur utama:
+[Sync code jalan] -> [async dijadwalkan] -> [event loop kelola antrean]
+
+Alur jalan:
+[Call stack kosong] -> [microtask dieksekusi dulu] -> [task queue dieksekusi setelahnya]
+
+Alur error:
+[asumsi setTimeout(0) pasti paling cepat] -> [urutan output salah prediksi] -> [bug alur UI]
 ```
 
 ## 4) Analogi

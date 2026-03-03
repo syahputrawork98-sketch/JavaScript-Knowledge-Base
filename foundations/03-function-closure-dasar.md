@@ -26,8 +26,11 @@ Kamus mini topik:
 - `[baru]` Closure: fungsi yang "mengingat" lexical scope saat dibuat.
 - `[ulang]` Scope: wilayah akses variabel.
 
+## Pengantar Singkat Topik
+Function adalah blok logika yang bisa dipanggil ulang dengan input berbeda, sedangkan closure membuat fungsi tetap bisa mengakses data dari scope saat fungsi itu dibuat. Kombinasi keduanya adalah dasar untuk menulis kode modular dan stateful.
+
 ## 1) Big Picture
-Topik ini menjawab pertanyaan: kenapa fungsi bisa dipanggil berulang dengan input berbeda, dan kenapa ada fungsi yang tetap menyimpan state walau fungsi luarnya sudah selesai.
+Kode mudah berantakan saat logika diulang-ulang atau state disimpan sembarangan di global. Topik ini menjelaskan bagaimana function memecah logika jadi unit reusable dan bagaimana closure menjaga akses ke state dari lexical scope secara terkontrol. Setelah paham, kamu bisa memutuskan kapan membuat utility biasa, kapan memakai closure untuk state privat, dan bagaimana menjaga API tetap bersih.
 
 ## 2) Small Picture
 1. Function menerima input (parameter), memproses, lalu mengembalikan output (`return`).
@@ -37,8 +40,14 @@ Topik ini menjawab pertanyaan: kenapa fungsi bisa dipanggil berulang dengan inpu
 
 ## 3) Wireframe
 ```text
-[Outer function dipanggil] -> [Variable lokal dibuat] -> [Inner function terbentuk]
--> [Inner function dikembalikan] -> [Dipanggil lagi] -> [Akses variable lama via closure]
+Alur utama:
+[Outer function dipanggil] -> [State lokal dibuat] -> [Inner function di-return]
+
+Alur jalan:
+[Inner function dipanggil berulang] -> [akses state closure yang sama] -> [state bertambah]
+
+Alur error:
+[Outer function dipanggil ulang tanpa sadar] -> [state reset] -> [hasil selalu mulai dari awal]
 ```
 
 ## 4) Analogi

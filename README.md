@@ -135,17 +135,29 @@ Aturan nama file materi:
 Setiap topik harus ditulis dengan urutan ini:
 
 1. **Prasyarat dan Kamus Mini**
-2. **Big Picture**
-3. **Small Picture**
-4. **Wireframe Alur Konsep**
-5. **Analogi Dunia Nyata**
-6. **Dipakai untuk Apa + Alasan**
-7. **Contoh Sederhana + Bedah Output**
-8. **Jebakan Umum (Pitfalls)**
-9. **Prediksi Output Drill + Kunci Jawaban**
-10. **Debug Story**
-11. **Checkpoint Kelulusan Topik**
-12. **Jika Masih Bingung, Baca Ini Dulu**
+2. **Pengantar Singkat Topik**
+3. **Big Picture**
+4. **Small Picture**
+5. **Wireframe Alur Konsep**
+6. **Analogi Dunia Nyata**
+7. **Dipakai untuk Apa + Alasan**
+8. **Contoh Sederhana + Bedah Output**
+9. **Jebakan Umum (Pitfalls)**
+10. **Prediksi Output Drill + Kunci Jawaban**
+11. **Debug Story**
+12. **Checkpoint Kelulusan Topik**
+13. **Jika Masih Bingung, Baca Ini Dulu**
+
+Catatan wireframe:
+- Wireframe wajib memuat 3 jalur: `Alur utama`, `Alur jalan`, dan `Alur error`.
+
+Catatan Big Picture:
+- Wajib berisi 2-4 kalimat yang menjawab: masalah nyata apa yang diselesaikan, bagaimana konsep menyelesaikannya, dan dampak praktis setelah topik dikuasai.
+- Hindari kalimat abstrak seperti "membahas konsep X" tanpa konteks masalah dan manfaat.
+
+Catatan pengantar topik:
+- Tambahkan `Pengantar Singkat Topik` (1-2 kalimat) di antara section `0) Prasyarat dan Kamus Mini` dan `1) Big Picture`.
+- Tujuannya memberi jawaban cepat "topik ini tentang apa" sebelum masuk konteks masalah yang lebih besar.
 
 ## Template Isi Materi
 Gunakan template ini untuk setiap file materi: [`templates/topic-template.md`](./templates/topic-template.md).

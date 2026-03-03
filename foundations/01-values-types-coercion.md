@@ -27,8 +27,11 @@ Kamus mini topik:
 - `[baru]` Primitive: nilai dasar yang disalin langsung nilainya.
 - `[baru]` Reference: nilai yang menyimpan acuan/alamat ke data.
 
+## Pengantar Singkat Topik
+Values, types, dan coercion adalah fondasi cara JavaScript memperlakukan data saat disimpan, dibandingkan, dan diolah. Dengan memahami bagian ini, kamu bisa membaca perilaku kode lebih akurat sebelum masuk ke scope, function, dan object.
+
 ## 1) Big Picture
-Topik ini menjelaskan fondasi nilai di JavaScript: semua variabel menyimpan nilai, tetapi cara nilai dibandingkan, diubah tipe-nya, dan dipindahkan antar variabel bisa berbeda dampaknya.
+Di JavaScript, bug dasar sering muncul karena nilai terlihat sama tetapi tipe sebenarnya berbeda, atau karena coercion terjadi tanpa disadari. Topik ini menjelaskan aturan value, type, dan coercion supaya perubahan perilaku saat compare atau operasi campuran bisa diprediksi. Setelah paham, kamu bisa memutuskan kapan harus memakai `===`, kapan konversi eksplisit diperlukan, dan kapan risiko reference harus diwaspadai.
 
 ## 2) Small Picture
 1. JavaScript punya tipe primitive (`string`, `number`, `boolean`, `null`, `undefined`, `symbol`, `bigint`) dan reference (`object`, `array`, `function`).
@@ -37,7 +40,14 @@ Topik ini menjelaskan fondasi nilai di JavaScript: semua variabel menyimpan nila
 
 ## 3) Wireframe
 ```text
-[Value masuk] -> [Operator dipakai] -> [Coercion rule berjalan] -> [Perbandingan/operasi] -> [Output]
+Alur utama:
+[Value masuk] -> [Operator dipakai] -> [Rule coercion aktif] -> [Output]
+
+Alur jalan:
+['5' + 1] -> [number jadi string] -> ['51']
+
+Alur error:
+[Coercion tidak disadari] -> [logika if/comparison meleset] -> [bug hasil kondisi]
 ```
 
 ## 4) Analogi

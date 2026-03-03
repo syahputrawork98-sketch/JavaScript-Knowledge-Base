@@ -25,8 +25,11 @@ Kamus mini topik:
 - `[baru]` Arrow function: fungsi yang tidak punya `this` sendiri, mengambil `this` dari scope luar.
 - `[ulang]` Function call: pemanggilan fungsi biasa tanpa object receiver.
 
+## Pengantar Singkat Topik
+`this` bukan milik fungsi secara tetap; nilainya ditentukan dari cara fungsi dipanggil. Topik ini membantu kamu membaca konteks eksekusi function agar tidak salah akses data object.
+
 ## 1) Big Picture
-Topik ini menjawab pertanyaan utama: kenapa nilai `this` bisa berbeda walau fungsi yang dipakai sama, dan bagaimana mengendalikan `this` agar bug tidak muncul.
+Bug context sering muncul ketika function yang sama dipanggil dari call-site berbeda sehingga nilai `this` berubah tanpa disadari. Topik ini menjelaskan aturan dasar binding (`method call`, `function call`, explicit binding, dan arrow behavior) agar perubahan context bisa diprediksi. Setelah paham, kamu bisa memutuskan kapan memakai `bind/call/apply`, kapan cukup method call biasa, dan kapan lebih jelas memakai closure.
 
 ## 2) Small Picture
 1. Nilai `this` ditentukan saat function dipanggil, bukan saat ditulis (kecuali arrow function).
@@ -36,7 +39,14 @@ Topik ini menjawab pertanyaan utama: kenapa nilai `this` bisa berbeda walau fung
 
 ## 3) Wireframe
 ```text
-[Function yang sama] -> [Cara panggil berbeda] -> [Rule binding aktif] -> [Nilai this berbeda]
+Alur utama:
+[Function yang sama] -> [cara panggil berubah] -> [nilai this ditentukan saat call]
+
+Alur jalan:
+[obj.fn()] -> [this = obj] -> [property object terbaca]
+
+Alur error:
+[fn dipanggil langsung] -> [this hilang/undefined di strict mode] -> [TypeError atau hasil tak terduga]
 ```
 
 ## 4) Analogi

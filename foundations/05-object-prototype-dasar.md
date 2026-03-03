@@ -27,8 +27,11 @@ Kamus mini topik:
 - `[baru]` Prototype chain: rantai pencarian property dari object ke prototype-nya, lalu ke atas lagi.
 - `[ulang]` Reference: nilai yang menyimpan acuan/alamat ke data.
 
+## Pengantar Singkat Topik
+Object menyimpan data/perilaku dalam bentuk property dan method, sedangkan prototype menjadi jalur berbagi perilaku antar object. Dengan memahami keduanya, kamu bisa membaca proses lookup property tanpa menebak-nebak.
+
 ## 1) Big Picture
-Topik ini menjawab kenapa object bisa "mewarisi" property/method tanpa menyalin semua isi, dan bagaimana JavaScript mencari property saat kita mengakses `obj.sesuatu`.
+Pada object JavaScript, kesalahan desain sering terjadi karena lookup property dan pewarisan perilaku dianggap seperti copy data biasa. Topik ini menjelaskan cara object menyimpan own property dan bagaimana prototype chain dipakai untuk delegasi saat property tidak ditemukan. Setelah paham, kamu bisa memutuskan kapan menaruh data di instance, kapan berbagi method lewat prototype, dan bagaimana menghindari override yang tidak sengaja.
 
 ## 2) Small Picture
 1. Saat akses `obj.x`, engine cek dulu apakah `x` ada di `obj`.
@@ -39,8 +42,14 @@ Topik ini menjawab kenapa object bisa "mewarisi" property/method tanpa menyalin 
 
 ## 3) Wireframe
 ```text
-[Akses obj.prop] -> [Cek di obj] -> [Tidak ada?]
--> [Naik ke prototype] -> [Ulang sampai null] -> [Ketemu nilai / undefined]
+Alur utama:
+[Akses obj.prop] -> [cek own property] -> [jika tidak ada, naik prototype]
+
+Alur jalan:
+[prop ada di prototype] -> [lookup berhenti di level itu] -> [nilai dikembalikan]
+
+Alur error:
+[asumsi prop milik object sendiri] -> [ubah data di tempat salah] -> [bug pewarisan/override]
 ```
 
 ## 4) Analogi
