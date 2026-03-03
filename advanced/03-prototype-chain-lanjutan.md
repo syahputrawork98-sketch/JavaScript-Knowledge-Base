@@ -29,7 +29,7 @@ Kamus mini topik:
 Prototype chain lanjutan membahas delegasi perilaku antar object sekaligus risikonya saat prototype diubah. Ini penting untuk menjaga desain inheritance tetap aman di codebase yang berkembang.
 
 ## 1) Big Picture
-Topik ini membahas bagaimana prototype chain digunakan sebagai mekanisme delegasi, serta risiko saat prototype diubah di level shared object.
+Bug lintas modul sering muncul ketika perubahan pada prototype shared tidak dipahami dampaknya ke semua turunan. Topik ini menjelaskan prototype chain sebagai mekanisme delegasi sekaligus titik risiko seperti shadowing, mutasi shared parent, dan prototype pollution. Setelah paham, kamu bisa mengambil keputusan desain inheritance yang lebih aman dan menempatkan override di level yang tepat.
 
 ## 2) Small Picture
 1. Saat property diakses, engine cari di own property terlebih dahulu.

@@ -29,7 +29,7 @@ Kamus mini topik:
 Promise dan `async/await` adalah fondasi menulis alur asynchronous yang rapi, terbaca, dan mudah dirawat. Topik ini menekankan kapan perlu eksekusi berurutan dan kapan harus paralel untuk efisiensi.
 
 ## 1) Big Picture
-Topik ini membahas cara menulis alur async yang bersih, terbaca, dan terkontrol menggunakan Promise serta `async/await`.
+Alur asynchronous mudah jadi lambat atau rapuh jika semua operasi ditulis berantai tanpa strategi sequencing yang tepat. Topik ini menjelaskan cara menggabungkan Promise dan `async/await` agar alur tetap terbaca, error handling jelas, dan eksekusi bisa dioptimalkan (sequential vs parallel). Setelah paham, kamu bisa memutuskan pola orkestrasi async berdasarkan dependency nyata, bukan sekadar kebiasaan penulisan.
 
 ## 2) Small Picture
 1. Promise memberi bentuk standar untuk hasil async: sukses atau gagal.

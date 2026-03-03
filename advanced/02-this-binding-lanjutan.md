@@ -30,7 +30,7 @@ Kamus mini topik:
 `this` binding lanjutan fokus pada kontrol context di skenario callback, utility reusable, dan integrasi antar modul. Tujuannya agar perilaku function tetap stabil walau dipanggil dari call-site yang berbeda-beda.
 
 ## 1) Big Picture
-Topik ini membahas cara mengendalikan `this` pada skenario real-world: callback, reusable utility function, dan library code yang sering memanggil function dari context berbeda.
+Masalah context bug sering terjadi saat method dipindahkan jadi callback sehingga nilai `this` tidak lagi menunjuk object yang diharapkan. Topik ini menjelaskan teknik kontrol binding (`bind`, `call`, `apply`, dan strategi arrow/closure) agar perilaku function tetap konsisten di berbagai call-site. Setelah paham, kamu bisa mengambil keputusan kapan context perlu dikunci, kapan cukup dipinjam sementara, dan kapan lebih aman menghindari `this` sama sekali.
 
 ## 2) Small Picture
 1. `this` tetap ditentukan oleh call-site, bukan lokasi penulisan function.

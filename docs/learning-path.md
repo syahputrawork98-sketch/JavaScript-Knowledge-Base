@@ -18,6 +18,14 @@ Dokumen ini memetakan alur prasyarat per topik dan kamus istilah yang diperkenal
 5. `05-error-handling-defensive-coding.md`
 6. `06-module-organization-esm.md`
 
+## Internals Flow
+1. `01-execution-context-lifecycle.md`
+2. `02-call-stack-web-apis-queues.md`
+3. `03-event-loop-detail.md`
+4. `04-scope-chain-lookup.md`
+5. `05-prototype-chain-lookup.md`
+6. `06-memory-lifecycle-garbage-collection.md`
+
 ## Prasyarat Per Topik (Foundations)
 - `01-values-types-coercion.md`
   - prasyarat: variabel dasar dan `console.log`
@@ -58,6 +66,26 @@ Dokumen ini memetakan alur prasyarat per topik dan kamus istilah yang diperkenal
   - prasyarat: advanced topik 05
   - membuka jalan ke: transisi ke internals dengan boundary modul yang rapi
 
+## Prasyarat Per Topik (Internals)
+- `01-execution-context-lifecycle.md`
+  - prasyarat: advanced topik 06 + foundations topik 02-03
+  - membuka jalan ke: pemahaman mekanis call stack dan antrean event loop
+- `02-call-stack-web-apis-queues.md`
+  - prasyarat: internals topik 01 + foundations topik 06
+  - membuka jalan ke: pembahasan event loop scheduling yang lebih detail
+- `03-event-loop-detail.md`
+  - prasyarat: internals topik 02 + advanced topik 04
+  - membuka jalan ke: analisis urutan eksekusi async yang lebih presisi
+- `04-scope-chain-lookup.md`
+  - prasyarat: internals topik 01 + foundations topik 02
+  - membuka jalan ke: pemahaman lookup property vs lookup identifier secara terpisah
+- `05-prototype-chain-lookup.md`
+  - prasyarat: internals topik 04 + advanced topik 03
+  - membuka jalan ke: analisis lookup object dan persiapan topik memory lifecycle
+- `06-memory-lifecycle-garbage-collection.md`
+  - prasyarat: internals topik 05 + foundations topik 01 dan 03
+  - membuka jalan ke: pemahaman performa memory dan pencegahan memory leak
+
 ## Kamus Bertahap (Pertama Muncul)
 - `value`, `type`, `coercion`, `primitive`, `reference`: topik 01
 - `scope`, `hoisting`, `TDZ`, `execution context`: topik 02
@@ -73,6 +101,14 @@ Dokumen ini memetakan alur prasyarat per topik dan kamus istilah yang diperkenal
 - `promise chaining`, `sequential await`, `parallel await`, `fail-fast`: advanced topik 04
 - `error boundary`, `defensive coding`, `guard clause`, `fallback value`: advanced topik 05
 - `ESM`, `named export`, `default export`, `side-effect import`: advanced topik 06
+
+## Kamus Bertahap (Internals - Mulai)
+- `execution context`, `creation phase`, `execution phase`, `lexical environment`: internals topik 01
+- `stack frame`, `run-to-completion`, `Web APIs`, `queue handoff`: internals topik 02
+- `tick`, `microtask starvation`, `render opportunity`, `scheduling fairness`: internals topik 03
+- `identifier resolution`, `outer environment reference`, `shadowing lookup`, `unresolvable reference`: internals topik 04
+- `[[Prototype]] slot`, `own property check`, `lookup miss`, `terminal null`: internals topik 05
+- `allocation`, `reachability`, `mark-and-sweep`, `memory leak`: internals topik 06
 
 ## Aturan Penggunaan di Materi
 - Setiap section `0) Prasyarat dan Kamus Mini` wajib menandai istilah dengan:

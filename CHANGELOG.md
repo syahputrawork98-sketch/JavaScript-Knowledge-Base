@@ -31,6 +31,26 @@ Format mengikuti prinsip [Keep a Changelog](https://keepachangelog.com/en/1.1.0/
 ### Changed
 - Belum ada.
 
+## [0.4.0] - 2026-03-03
+
+### Added
+- Menambahkan materi lengkap `internals/01-execution-context-lifecycle.md` dengan pola section standar (termasuk `Pengantar Singkat Topik` dan wireframe 3 jalur).
+- Menambahkan materi lengkap `internals/02-call-stack-web-apis-queues.md` dengan pola section standar (termasuk `Pengantar Singkat Topik` dan wireframe 3 jalur).
+- Menambahkan materi lengkap `internals/03-event-loop-detail.md` dengan pola section standar (termasuk `Pengantar Singkat Topik` dan wireframe 3 jalur).
+- Menambahkan materi lengkap `internals/04-scope-chain-lookup.md` dengan pola section standar (termasuk `Pengantar Singkat Topik` dan wireframe 3 jalur).
+- Menambahkan materi lengkap `internals/05-prototype-chain-lookup.md` dengan pola section standar (termasuk `Pengantar Singkat Topik` dan wireframe 3 jalur).
+- Menambahkan materi lengkap `internals/06-memory-lifecycle-garbage-collection.md` dengan pola section standar (termasuk `Pengantar Singkat Topik` dan wireframe 3 jalur).
+
+### Changed
+- Memperbarui `docs/learning-path.md` dengan alur Internals awal, prasyarat, dan kamus bertahap untuk `internals/01-execution-context-lifecycle.md`.
+- Memperbarui `docs/learning-path.md` dengan prasyarat dan kamus bertahap untuk `internals/02-call-stack-web-apis-queues.md`.
+- Memperbarui `docs/learning-path.md` dengan prasyarat dan kamus bertahap untuk `internals/03-event-loop-detail.md`.
+- Memperbarui `docs/learning-path.md` dengan prasyarat dan kamus bertahap untuk `internals/04-scope-chain-lookup.md`.
+- Memperbarui `docs/learning-path.md` dengan prasyarat dan kamus bertahap untuk `internals/05-prototype-chain-lookup.md`.
+- Memperbarui `docs/learning-path.md` dengan prasyarat dan kamus bertahap untuk `internals/06-memory-lifecycle-garbage-collection.md`.
+- Merevisi section `Big Picture` pada `advanced/02` s.d. `advanced/06` agar konsisten dengan format template (masalah nyata, solusi konsep, dan dampak keputusan teknis).
+- Merapikan konsistensi path lintas level pada `advanced/06-module-organization-esm.md` untuk rujukan lanjut ke Internals.
+
 ## [0.3.0] - 2026-03-03
 
 ### Added

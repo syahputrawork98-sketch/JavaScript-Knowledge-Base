@@ -29,7 +29,7 @@ Kamus mini topik:
 Error handling dan defensive coding membahas cara membuat sistem tetap stabil saat input buruk atau dependency gagal. Fokusnya bukan sekadar menangkap error, tetapi menjaga alur tetap aman dan mudah di-debug.
 
 ## 1) Big Picture
-Topik ini membahas cara membuat program tetap stabil saat ada input buruk, network gagal, atau error tak terduga, tanpa membuat aplikasi berhenti total.
+Aplikasi sering gagal total bukan karena satu error, tetapi karena error boundary dan fallback tidak dirancang dengan jelas. Topik ini menjelaskan defensive coding untuk memisahkan error yang bisa dipulihkan dari error yang harus dihentikan, sambil menjaga konteks debug tetap tersedia. Setelah paham, kamu bisa mengambil keputusan validasi awal, desain return aman, dan strategi recovery yang realistis per fitur.
 
 ## 2) Small Picture
 1. Tetapkan titik error boundary per fungsi/fitur, jangan tangkap semua error di satu tempat global saja.

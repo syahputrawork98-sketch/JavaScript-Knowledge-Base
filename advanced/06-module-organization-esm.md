@@ -8,7 +8,7 @@ Rujukan cepat:
 Alur topik:
 - Topik ini ada di urutan ke-`6` pada Advanced.
 - Prasyarat langsung: `05-error-handling-defensive-coding.md`.
-- Lanjut setelah ini: `internals/01-execution-context-lifecycle.md`.
+- Lanjut setelah ini: `../internals/01-execution-context-lifecycle.md`.
 
 Prasyarat topik:
 - Sudah paham pemisahan tanggung jawab fungsi (single purpose).
@@ -30,7 +30,7 @@ Kamus mini topik:
 Module organization dengan ESM membahas cara memecah kode menjadi unit kecil yang punya boundary jelas lewat `import`/`export`. Dengan struktur modul yang rapi, codebase lebih mudah dirawat dan risiko coupling berkurang.
 
 ## 1) Big Picture
-Topik ini membahas cara menyusun file JavaScript menjadi modul kecil yang jelas tanggung jawabnya, supaya codebase mudah dirawat, mudah dites, dan minim coupling.
+Seiring codebase membesar, bug sering muncul karena boundary antar file tidak jelas dan dependency saling menarik tanpa kontrol. Topik ini menjelaskan organisasi modul ESM agar tanggung jawab tiap file tegas, API publik stabil, dan detail internal tidak bocor ke consumer. Setelah paham, kamu bisa mengambil keputusan struktur folder, pola export/import, dan cara mencegah circular dependency sejak awal.
 
 ## 2) Small Picture
 1. Pisahkan kode berdasarkan domain/fitur, bukan berdasarkan tipe file saja.
