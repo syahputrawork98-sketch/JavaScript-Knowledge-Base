@@ -1,4 +1,3 @@
-# 04-promise-async-await
+# Promise, Async, dan Await
 
-Draft awal. Gunakan 	emplates/topic-template.md untuk melengkapi materi ini.
-
+Draft awal. Gunakan `templates/topic-template.md` untuk melengkapi materi ini.

@@ -1,4 +1,3 @@
-# 02-call-stack-web-apis-queues
+# Call Stack, Web APIs, dan Queues
 
-Draft awal. Gunakan 	emplates/topic-template.md untuk melengkapi materi ini.
-
+Draft awal. Gunakan `templates/topic-template.md` untuk melengkapi materi ini.

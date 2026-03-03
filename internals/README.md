@@ -13,3 +13,8 @@ Level ini membedah mekanisme mesin JavaScript di balik kode yang kamu tulis.
 ## Estimasi
 - 1 topik: 90-180 menit.
 - Total internals: 8-16 sesi belajar.
+
+## Aturan Lulus Internals
+- Selesaikan semua topik berurutan.
+- Mampu memetakan alur kode ke call stack, task queue, dan microtask queue.
+- Mampu menjelaskan dampak keputusan kode terhadap memory dan performa dasar.

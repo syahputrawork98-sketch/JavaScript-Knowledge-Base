@@ -25,8 +25,36 @@ Format mengikuti prinsip [Keep a Changelog](https://keepachangelog.com/en/1.1.0/
 
 ## [Unreleased]
 
+### Added
+- Belum ada.
+
+### Changed
+- Belum ada.
+
+## [0.2.0] - 2026-03-03
+
+### Added
+- Menambahkan file rujukan global `PRASYARAT-DAN-KAMUS-MINI.md` untuk penguatan ulang istilah dasar dan prasyarat antar level.
+- Menambahkan `docs/learning-path.md` untuk memetakan alur prasyarat dan kamus bertahap per topik.
+- Menambahkan paket dokumen remedial prasyarat di `docs/prasyarat/` (console/if, variabel, function, object, promise) dengan contoh dan checklist.
+- Menambahkan section `Cara Pakai Repo` dan `Format Commit (Saran)` di `README.md`.
+- Menambahkan `Aturan Lulus Advanced` dan `Aturan Lulus Internals` pada README masing-masing level.
+- Menambahkan materi lengkap `foundations/03-function-closure-dasar.md`.
+- Menambahkan materi lengkap `foundations/04-this-binding-dasar.md`.
+- Menambahkan materi lengkap `foundations/05-object-prototype-dasar.md`.
+- Menambahkan materi lengkap `foundations/06-async-javascript-dasar.md`.
+
 ### Changed
 - Menambahkan penomoran versi rilis agar pencatatan changelog lebih rapi.
+- Menyinkronkan `README.md` agar format wajib materi mengikuti template terbaru (termasuk prasyarat, bedah output, kunci drill, dan jalur baca ulang).
+- Menstandarkan section `0) Prasyarat dan Kamus Mini` di semua materi Foundations dengan format alur topik + tag istilah `[baru]/[ulang]`.
+- Memperbarui `templates/topic-template.md` agar mengikuti format alur prasyarat dan kamus bertahap.
+- Menambahkan `Referensi remedial` di section prasyarat pada seluruh materi Foundations.
+- Memperbarui `README.md` dan `docs/learning-path.md` agar menampilkan jalur penggunaan dokumen remedial prasyarat.
+- Merapikan semua file draft skeleton: judul dibuat lebih manusiawi dan referensi template diperbaiki ke `templates/topic-template.md`.
+- Menambahkan rujukan cepat ke `PRASYARAT-DAN-KAMUS-MINI.md` pada template dan materi foundations yang sudah tersedia.
+- Memperbaiki akurasi penjelasan strict mode pada `foundations/04-this-binding-dasar.md` (kasus function call langsung).
+- Memperjelas alur `setTimeout` pada `foundations/06-async-javascript-dasar.md` (timer/Web API -> queue -> call stack).
 
 ## [0.1.0] - 2026-03-03
 

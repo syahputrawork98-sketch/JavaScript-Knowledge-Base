@@ -1,4 +1,3 @@
-# 03-prototype-chain-lanjutan
+# Prototype Chain Lanjutan
 
-Draft awal. Gunakan 	emplates/topic-template.md untuk melengkapi materi ini.
-
+Draft awal. Gunakan `templates/topic-template.md` untuk melengkapi materi ini.

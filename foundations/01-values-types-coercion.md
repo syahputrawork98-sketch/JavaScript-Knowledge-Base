@@ -1,18 +1,31 @@
 # Values, Types, and Coercion
 
 ## 0) Prasyarat dan Kamus Mini
-Prasyarat:
+Rujukan cepat:
+- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
+- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+
+Alur topik:
+- Topik ini ada di urutan ke-`1` pada Foundations.
+- Prasyarat langsung: belum ada (topik pembuka).
+- Lanjut setelah ini: `02-scope-hoisting.md`.
+
+Prasyarat topik:
 - Sudah pernah pakai `let`, `const`, dan `console.log`.
 - Sudah pernah lihat `if` sederhana.
 
-Kamus mini:
-- Nilai (value): isi yang disimpan variabel.
-- Tipe data (type): jenis nilai, misalnya angka atau teks.
-- Coercion: perubahan tipe data secara otomatis oleh JavaScript.
-- Implicit: terjadi otomatis.
-- Explicit: kita ubah sendiri secara sengaja.
-- Primitive: nilai dasar yang disalin langsung nilainya.
-- Reference: nilai yang menyimpan acuan/alamat ke data.
+Referensi remedial:
+- [`../docs/prasyarat/variabel-dasar.md`](../docs/prasyarat/variabel-dasar.md)
+- [`../docs/prasyarat/console-dan-if-dasar.md`](../docs/prasyarat/console-dan-if-dasar.md)
+
+Kamus mini topik:
+- `[baru]` Nilai (value): isi yang disimpan variabel.
+- `[baru]` Tipe data (type): jenis nilai, misalnya angka atau teks.
+- `[baru]` Coercion: perubahan tipe data secara otomatis oleh JavaScript.
+- `[baru]` Implicit: terjadi otomatis.
+- `[baru]` Explicit: kita ubah sendiri secara sengaja.
+- `[baru]` Primitive: nilai dasar yang disalin langsung nilainya.
+- `[baru]` Reference: nilai yang menyimpan acuan/alamat ke data.
 
 ## 1) Big Picture
 Topik ini menjelaskan fondasi nilai di JavaScript: semua variabel menyimpan nilai, tetapi cara nilai dibandingkan, diubah tipe-nya, dan dipindahkan antar variabel bisa berbeda dampaknya.

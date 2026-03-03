@@ -1,14 +1,28 @@
 # Scope dan Hoisting
 
 ## 0) Prasyarat dan Kamus Mini
-Prasyarat:
+Rujukan cepat:
+- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
+- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+
+Alur topik:
+- Topik ini ada di urutan ke-`2` pada Foundations.
+- Prasyarat langsung: `01-values-types-coercion.md`.
+- Lanjut setelah ini: `03-function-closure-dasar.md`.
+
+Prasyarat topik:
 - Sudah paham variabel `let`, `const`, `var`.
 - Sudah paham fungsi dasar.
 
-Kamus mini:
-- Scope: wilayah akses variabel.
-- Hoisting: perilaku deklarasi yang diproses lebih awal saat fase pembuatan konteks eksekusi.
-- TDZ (Temporal Dead Zone): area saat variabel `let`/`const` sudah ada tetapi belum boleh diakses.
+Referensi remedial:
+- [`../docs/prasyarat/variabel-dasar.md`](../docs/prasyarat/variabel-dasar.md)
+- [`../docs/prasyarat/function-dasar.md`](../docs/prasyarat/function-dasar.md)
+
+Kamus mini topik:
+- `[baru]` Scope: wilayah akses variabel.
+- `[baru]` Hoisting: perilaku deklarasi yang diproses lebih awal saat fase pembuatan konteks eksekusi.
+- `[baru]` TDZ (Temporal Dead Zone): area saat variabel `let`/`const` sudah ada tetapi belum boleh diakses.
+- `[ulang]` Declaration: proses deklarasi variabel/fungsi.
 
 ## 1) Big Picture
 Topik ini menjawab pertanyaan: kenapa variabel tertentu bisa diakses dari satu tempat tapi gagal di tempat lain, dan kenapa sebagian deklarasi terlihat "naik ke atas".

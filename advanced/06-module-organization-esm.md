@@ -1,4 +1,3 @@
-# 06-module-organization-esm
+# Organisasi Module ESM
 
-Draft awal. Gunakan 	emplates/topic-template.md untuk melengkapi materi ini.
-
+Draft awal. Gunakan `templates/topic-template.md` untuk melengkapi materi ini.

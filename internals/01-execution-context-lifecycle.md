@@ -1,4 +1,3 @@
-# 01-execution-context-lifecycle
+# Execution Context Lifecycle
 
-Draft awal. Gunakan 	emplates/topic-template.md untuk melengkapi materi ini.
-
+Draft awal. Gunakan `templates/topic-template.md` untuk melengkapi materi ini.

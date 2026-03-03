@@ -1,4 +1,3 @@
-# 05-error-handling-defensive-coding
+# Error Handling dan Defensive Coding
 
-Draft awal. Gunakan 	emplates/topic-template.md untuk melengkapi materi ini.
-
+Draft awal. Gunakan `templates/topic-template.md` untuk melengkapi materi ini.

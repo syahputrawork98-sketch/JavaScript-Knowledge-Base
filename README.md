@@ -64,6 +64,15 @@ Struktur konten mengikuti level belajar:
 |-- README.md
 |-- CHANGELOG.md
 |-- CHANGELOG-ARCHIVE.md
+|-- PRASYARAT-DAN-KAMUS-MINI.md
+|-- docs/
+|   |-- learning-path.md
+|   |-- prasyarat/
+|       |-- console-dan-if-dasar.md
+|       |-- variabel-dasar.md
+|       |-- function-dasar.md
+|       |-- object-dasar.md
+|       |-- promise-dasar.md
 |-- templates/
 |   |-- topic-template.md
 |-- foundations/
@@ -113,68 +122,34 @@ Aturan nama file materi:
 - Mampu memetakan alur eksekusi kode ke call stack, task queue, dan microtask queue.
 - Mampu menjelaskan dampak keputusan kode terhadap memory dan performa dasar.
 
+## Cara Pakai Repo
+1. Baca [`PRASYARAT-DAN-KAMUS-MINI.md`](./PRASYARAT-DAN-KAMUS-MINI.md) sebagai pemanasan.
+2. Baca alur materi di [`docs/learning-path.md`](./docs/learning-path.md).
+3. Pilih level aktif (`foundations/`, `advanced/`, atau `internals/`) dan ikuti urutan file.
+4. Jika ada prasyarat yang belum kuat, buka dokumen remedial di folder `docs/prasyarat/`.
+5. Di setiap topik, kerjakan `Prediksi Output Drill` sebelum melihat `Kunci Jawaban`.
+6. Ulang topik sampai seluruh `Checkpoint` terpenuhi.
+7. Catat perubahan materi atau struktur ke `CHANGELOG.md`.
+
 ## Format Wajib Tiap Materi
 Setiap topik harus ditulis dengan urutan ini:
 
-1. **Big Picture**
-2. **Small Picture**
-3. **Wireframe Alur Konsep**
-4. **Analogi Dunia Nyata**
-5. **Dipakai untuk Apa + Alasan**
-6. **Contoh Sederhana**
-7. **Jebakan Umum (Pitfalls)**
-8. **Prediksi Output Drill**
-9. **Debug Story**
-10. **Checkpoint Kelulusan Topik**
+1. **Prasyarat dan Kamus Mini**
+2. **Big Picture**
+3. **Small Picture**
+4. **Wireframe Alur Konsep**
+5. **Analogi Dunia Nyata**
+6. **Dipakai untuk Apa + Alasan**
+7. **Contoh Sederhana + Bedah Output**
+8. **Jebakan Umum (Pitfalls)**
+9. **Prediksi Output Drill + Kunci Jawaban**
+10. **Debug Story**
+11. **Checkpoint Kelulusan Topik**
+12. **Jika Masih Bingung, Baca Ini Dulu**
 
 ## Template Isi Materi
-Gunakan template ini untuk setiap file materi: [`templates/topic-template.md`](./templates/topic-template.md)
-
-Contoh isi template:
-
-````md
-# [Nama Topik]
-
-## 1) Big Picture
-[Konsep ini menyelesaikan masalah apa]
-
-## 2) Small Picture
-[Langkah kerja internal secara urut]
-
-## 3) Wireframe
-```text
-[Input Kode] -> [Parsing] -> [Execution Context] -> [Output]
-```
-
-## 4) Analogi
-[Analogi sederhana yang relevan]
-
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: [...]
-- Alasan pakai: [...]
-- Kapan tidak dipakai: [...]
-
-## 6) Contoh Sederhana
-```js
-// contoh
-```
-
-## 7) Jebakan Umum
-- [...]
-
-## 8) Prediksi Output Drill
-```js
-// soal prediksi output
-```
-
-## 9) Debug Story
-[Kasus bug mini + langkah membongkar]
-
-## 10) Checkpoint
-- [ ] Bisa jelaskan ulang tanpa baca catatan
-- [ ] Bisa prediksi output 3 soal berturut-turut
-- [ ] Bisa jelaskan kapan konsep ini digunakan
-````
+Gunakan template ini untuk setiap file materi: [`templates/topic-template.md`](./templates/topic-template.md).
+`README.md` menjadi panduan kurikulum, sedangkan struktur detail penulisan dijaga di template agar tidak drift.
 
 ## Prinsip Penulisan
 - Bahasa sederhana, tetap akurat secara teknis.
@@ -191,3 +166,10 @@ Contoh isi template:
 - Semua perubahan penting wajib dicatat di [`CHANGELOG.md`](./CHANGELOG.md).
 - Gunakan section `Unreleased` untuk perubahan terbaru sebelum rilis versi.
 - Batas `CHANGELOG.md` adalah 200 baris; jika lebih, pindahkan entri lama ke [`CHANGELOG-ARCHIVE.md`](./CHANGELOG-ARCHIVE.md).
+
+## Format Commit (Saran)
+- Gunakan format: `<type>(<scope>): <ringkasan>`
+- Contoh:
+  - `docs(readme): tambah cara pakai repo`
+  - `docs(foundations): tambah materi scope dan hoisting`
+  - `chore(changelog): rilis 0.1.1`

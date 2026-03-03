@@ -13,3 +13,8 @@ Level ini menggabungkan konsep dasar untuk menyelesaikan problem nyata dengan po
 ## Estimasi
 - 1 topik: 90-150 menit.
 - Total advanced: 8-14 sesi belajar.
+
+## Aturan Lulus Advanced
+- Selesaikan semua topik berurutan.
+- Selesaikan minimal 3 studi kasus kecil berbasis async, error handling, dan module.
+- Jelaskan alasan teknis dari pattern yang dipakai pada solusi.
