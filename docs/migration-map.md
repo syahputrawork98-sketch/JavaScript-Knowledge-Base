@@ -98,6 +98,6 @@ Dokumen ini adalah peta resmi migrasi dari struktur lama (4 track) ke struktur b
 ## Status Ringkas Saat Ini
 - `01-javascript-tutorial`: migrated (tetap).
 - `02-javascript-first-principles` -> `02/03/04/05`: in_progress.
-- `03-javascript-advanced-patterns` -> `03/04/06`: migrated.
-- `04-javascript-exercises-katas` -> `06`: migrated.
+- `03-javascript-advanced-patterns` -> `03/04/06`: migrated (folder legacy sudah dihapus).
+- `04-javascript-exercises-katas` -> `06`: migrated (folder legacy sudah dihapus).
 - `07-javascript-specification-companion`: planned (belum berisi materi inti).
