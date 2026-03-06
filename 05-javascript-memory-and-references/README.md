@@ -6,13 +6,18 @@ Track ini fokus memahami bagaimana data disimpan, direferensikan, dan berubah.
 - Memahami primitive vs reference values.
 - Memahami mutation vs immutability.
 - Memahami bug yang muncul karena shared references.
+- Memahami memory lifecycle dan pola memory leak umum.
 
 ## Scope
 - Primitive values
 - Reference values
 - Referential equality
 - Mutation vs immutability
+- Memory lifecycle
 - Garbage collection (high-level)
+- Leak patterns and cleanup strategy
+- Copy strategies (shallow vs deep)
+- WeakMap/WeakSet for ephemeral metadata cache
 
 ## Out of Scope
 - VM internals detail.
@@ -22,14 +27,27 @@ Track ini fokus memahami bagaimana data disimpan, direferensikan, dan berubah.
 - Studi kasus bug reference/mutation + strategi perbaikan.
 
 ## Struktur Konten
-- `topics/`: materi memory/reference hasil normalisasi awal.
-- `migrated-from-02-first-principles/`: sumber migrasi tahap 1.
+- `topics/`: materi utama yang dipakai belajar.
+- `docs/`: jalur belajar dan catatan pendukung.
+
+## Visualisasi Konsep
+- `assets/memory-lifecycle-gc-map.svg`: peta lifecycle memori dan reachability.
+- `assets/primitive-vs-reference-map.svg`: peta copy by value vs copy by reference.
+- `assets/mutation-vs-immutability-map.svg`: peta tradeoff mutasi vs update immutable.
+- `assets/referential-equality-map.svg`: peta identity/reference pada `===`.
+- `assets/memory-leak-patterns-cleanup-map.svg`: peta leak pattern dan cleanup checklist.
+- `assets/copy-strategies-shallow-vs-deep-map.svg`: peta pilihan shallow vs deep copy.
+- `assets/closure-retention-memory-traps-map.svg`: peta trap closure retention dan cleanup.
+- `assets/weakmap-weakset-ephemeral-cache-map.svg`: peta kapan pakai WeakMap/WeakSet.
+
+## Mulai Belajar
+1. Buka `docs/learning-path.md`.
+2. Ikuti urutan di `topics/README.md`.
+3. Kembali ke track 04 jika masih bingung sumber property/prototype behavior.
 
 ## Exit Criteria
 - Bisa mengidentifikasi bug referensi pada object/array.
 - Bisa memilih pendekatan immutable sederhana saat dibutuhkan.
-
-## Status Migrasi
-- `in_progress`
-- Baseline memory lifecycle sudah masuk.
-- Tahap berikutnya: tambah drill referential equality dan mutation pitfalls.
+- Bisa membaca indikasi memory leak dan menentukan cleanup yang tepat.
+- Bisa memilih strategi copy shallow/deep secara sadar.
+- Bisa memahami kapan WeakMap/WeakSet cocok dipakai.

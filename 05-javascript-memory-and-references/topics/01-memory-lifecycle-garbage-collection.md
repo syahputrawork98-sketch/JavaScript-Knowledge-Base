@@ -1,23 +1,24 @@
-# Memory Lifecycle dan Garbage Collection
+﻿# Memory Lifecycle dan Garbage Collection
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/memory-lifecycle-gc-map.svg`](../assets/memory-lifecycle-gc-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`6` pada Internals.
-- Prasyarat langsung: `05-prototype-chain-lookup.md`.
-- Lanjut setelah ini: selesai level Internals.
+- Topik ini ada di urutan ke-`1` pada Track 05.
+- Prasyarat langsung: `../../04-javascript-object-model/topics/03-prototype-chain-lookup.md`.
+- Lanjut setelah ini: `02-primitive-vs-reference-behavior.md`.
 
 Prasyarat topik:
 - Sudah paham reference pada object/function dan efek closure.
 - Sudah paham relation object melalui scope chain dan prototype chain.
 
 Referensi remedial:
-- [`../foundations/01-values-types-coercion.md`](../foundations/01-values-types-coercion.md)
-- [`../foundations/03-function-closure-dasar.md`](../foundations/03-function-closure-dasar.md)
-- [`05-prototype-chain-lookup.md`](./05-prototype-chain-lookup.md)
+- [`../../02-javascript-runtime-first-principles/topics/01-values-types-coercion.md`](../../02-javascript-runtime-first-principles/topics/01-values-types-coercion.md)
+- [`../../02-javascript-runtime-first-principles/topics/03-function-closure-dasar.md`](../../02-javascript-runtime-first-principles/topics/03-function-closure-dasar.md)
+- [`../../04-javascript-object-model/topics/03-prototype-chain-lookup.md`](../../04-javascript-object-model/topics/03-prototype-chain-lookup.md)
 
 Kamus mini topik:
 - `[baru]` Allocation: proses runtime menyediakan memori untuk nilai/object baru.
@@ -128,6 +129,8 @@ Langkah debug:
 - [ ] Bisa menyebut minimal 3 sumber memory leak umum di JavaScript.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `foundations/01-values-types-coercion.md` bagian reference.
-2. Ulangi `foundations/03-function-closure-dasar.md` untuk efek closure pada lifecycle data.
+1. Ulangi `../../02-javascript-runtime-first-principles/topics/01-values-types-coercion.md` bagian reference.
+2. Ulangi `../../02-javascript-runtime-first-principles/topics/03-function-closure-dasar.md` untuk efek closure pada lifecycle data.
 3. Latih eksperimen kecil: object dengan 2 reference, lalu lepas satu per satu sambil prediksi eligibility GC.
+
+

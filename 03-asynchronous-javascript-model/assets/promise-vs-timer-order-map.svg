@@ -1,70 +1,80 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
-  <title id="title">Promise vs Timer Execution Timeline</title>
-  <desc id="desc">Timeline style visualization for sync logs, microtask processing, and task processing order.</desc>
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">Promise vs Timer Order - Timeline</title>
+  <desc id="desc">Step-by-step timeline showing why Promise microtasks run before timer tasks.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#fffaf4"/>
-      <stop offset="100%" stop-color="#eef6ff"/>
+      <stop offset="100%" stop-color="#edf6ff"/>
     </linearGradient>
-    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#111827"/>
       <stop offset="100%" stop-color="#1e40af"/>
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="170%">
-      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.14"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.14"/>
     </filter>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#1f2937"/>
+    </marker>
     <style>
-      .hero{fill:url(#hero);rx:18;filter:url(#shadow)}
+      .header{fill:url(#header);rx:16;filter:url(#shadow)}
       .code{fill:#0f172a;stroke:#1f2937;stroke-width:2;rx:14;filter:url(#shadow)}
       .lane{fill:#ffffff;stroke:#334155;stroke-width:2;rx:14;filter:url(#shadow)}
-      .sync{fill:#dbeafe;stroke:#1d4ed8;stroke-width:2;rx:10}
-      .micro{fill:#dcfce7;stroke:#15803d;stroke-width:2;rx:10}
-      .task{fill:#fde68a;stroke:#b45309;stroke-width:2;rx:10}
-      .title{font:700 33px 'Segoe UI','Trebuchet MS',sans-serif;fill:#ffffff}
-      .subtitle{font:500 17px 'Segoe UI','Trebuchet MS',sans-serif;fill:#dbeafe}
-      .h{font:700 20px 'Segoe UI','Trebuchet MS',sans-serif;fill:#0f172a}
-      .p{font:500 15px 'Segoe UI','Trebuchet MS',sans-serif;fill:#334155}
+      .sync{fill:#dbeafe;stroke:#1d4ed8;stroke-width:2;rx:12;filter:url(#shadow)}
+      .micro{fill:#dcfce7;stroke:#166534;stroke-width:2;rx:12;filter:url(#shadow)}
+      .task{fill:#fde68a;stroke:#b45309;stroke-width:2;rx:12;filter:url(#shadow)}
+      .result{fill:#ede9fe;stroke:#6d28d9;stroke-width:2;rx:12;filter:url(#shadow)}
+      .title{font:700 32px 'Segoe UI Emoji','Segoe UI',sans-serif;fill:#ffffff}
+      .sub{font:500 17px 'Segoe UI',sans-serif;fill:#dbeafe}
+      .h{font:700 20px 'Segoe UI Emoji','Segoe UI',sans-serif;fill:#0f172a}
+      .p{font:500 15px 'Segoe UI',sans-serif;fill:#334155}
       .mono{font:600 14px Consolas,'Courier New',monospace;fill:#e5e7eb}
-      .small{font:600 13px 'Segoe UI','Trebuchet MS',sans-serif;fill:#1f2937}
+      .s{font:600 13px 'Segoe UI',sans-serif;fill:#1f2937}
+      .arrow{stroke:#1f2937;stroke-width:3;fill:none;marker-end:url(#arrow)}
     </style>
   </defs>
 
-  <rect width="1280" height="860" fill="url(#bg)"/>
+  <rect width="1280" height="900" fill="url(#bg)"/>
 
-  <rect class="hero" x="48" y="32" width="1184" height="122"/>
-  <text class="title" x="82" y="82">Promise vs setTimeout - Execution Timeline</text>
-  <text class="subtitle" x="82" y="112">Membaca urutan output tanpa menebak.</text>
+  <rect class="header" x="46" y="28" width="1188" height="118"/>
+  <text class="title" x="80" y="76">⏱️ Promise vs setTimeout(0) - Timeline Visual</text>
+  <text class="sub" x="80" y="104">Kenapa output jadi `A, D, C, B` walau timer ditulis lebih dulu dari Promise?</text>
 
-  <rect class="code" x="70" y="190" width="520" height="214"/>
-  <text class="mono" x="92" y="226">console.log('A');</text>
-  <text class="mono" x="92" y="254">setTimeout(() =&gt; console.log('B'), 0);</text>
-  <text class="mono" x="92" y="282">Promise.resolve().then(() =&gt; console.log('C'));</text>
-  <text class="mono" x="92" y="310">console.log('D');</text>
+  <rect class="code" x="70" y="176" width="560" height="238"/>
+  <text class="h" x="94" y="214" fill="#e5e7eb">🧪 Contoh Kode</text>
+  <text class="mono" x="94" y="246">console.log('A');</text>
+  <text class="mono" x="94" y="274">setTimeout(() =&gt; console.log('B'), 0);</text>
+  <text class="mono" x="94" y="302">Promise.resolve().then(() =&gt; console.log('C'));</text>
+  <text class="mono" x="94" y="330">console.log('D');</text>
 
-  <rect class="lane" x="620" y="190" width="590" height="620"/>
-  <text class="h" x="646" y="228">Timeline per Fase</text>
+  <rect class="lane" x="660" y="176" width="550" height="620"/>
+  <text class="h" x="686" y="214">🛤️ Urutan Eksekusi Nyata</text>
 
-  <rect class="sync" x="646" y="252" width="538" height="100"/>
-  <text class="h" x="668" y="286">Fase 1: Sync</text>
-  <text class="p" x="668" y="312">Output langsung: A, D</text>
+  <rect class="sync" x="686" y="236" width="500" height="108"/>
+  <text class="h" x="708" y="270">1️⃣ Sync Phase</text>
+  <text class="p" x="708" y="296">Cetak `A`, daftar timer + Promise, cetak `D`</text>
 
-  <rect class="micro" x="646" y="374" width="538" height="100"/>
-  <text class="h" x="668" y="408">Fase 2: Microtask</text>
-  <text class="p" x="668" y="434">Promise.then dieksekusi: C</text>
+  <rect class="micro" x="686" y="368" width="500" height="108"/>
+  <text class="h" x="708" y="402">2️⃣ Microtask Phase</text>
+  <text class="p" x="708" y="428">Jalankan `Promise.then` -> cetak `C`</text>
 
-  <rect class="task" x="646" y="496" width="538" height="100"/>
-  <text class="h" x="668" y="530">Fase 3: Task Queue</text>
-  <text class="p" x="668" y="556">Timer callback dieksekusi: B</text>
+  <rect class="task" x="686" y="500" width="500" height="108"/>
+  <text class="h" x="708" y="534">3️⃣ Task Queue Phase</text>
+  <text class="p" x="708" y="560">Baru jalankan callback timer -> cetak `B`</text>
 
-  <rect class="lane" x="70" y="436" width="520" height="374"/>
-  <text class="h" x="94" y="474">Mental Model</text>
-  <text class="small" x="112" y="504">1. setTimeout 0ms = dijadwalkan, bukan langsung jalan.</text>
-  <text class="small" x="112" y="530">2. Promise callback = microtask prioritas tinggi.</text>
-  <text class="small" x="112" y="556">3. Task queue diproses setelah microtask habis.</text>
-  <text class="small" x="112" y="582">4. Output final: A -> D -> C -> B.</text>
+  <rect class="result" x="686" y="632" width="500" height="136"/>
+  <text class="h" x="708" y="668">🎯 Output Akhir</text>
+  <text class="p" x="708" y="696">`A` -> `D` -> `C` -> `B`</text>
+  <text class="s" x="708" y="722">Rule: microtask selalu diproses sebelum task queue.</text>
 
-  <rect class="sync" x="646" y="642" width="538" height="140"/>
-  <text class="h" x="668" y="678">Checkpoint</text>
-  <text class="p" x="668" y="704">Jika prediksi urutan salah, cek asumsi prioritas queue.</text>
-  <text class="p" x="668" y="728">Biasanya sumber salahnya: menganggap timer mengalahkan Promise.</text>
+  <path class="arrow" d="M936 344 L936 368"/>
+  <path class="arrow" d="M936 476 L936 500"/>
+  <path class="arrow" d="M936 608 L936 632"/>
+
+  <rect class="lane" x="70" y="448" width="560" height="348"/>
+  <text class="h" x="94" y="486">✅ Cara Cepat Prediksi</text>
+  <text class="s" x="114" y="516">1. Jalankan semua baris sync dulu.</text>
+  <text class="s" x="114" y="542">2. Setelah stack kosong, jalankan microtask.</text>
+  <text class="s" x="114" y="568">3. Setelah microtask habis, baru task queue.</text>
+  <text class="s" x="114" y="594">4. Timer 0ms bukan prioritas tertinggi.</text>
 </svg>
