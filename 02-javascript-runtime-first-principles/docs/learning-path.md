@@ -12,6 +12,8 @@ Dokumen ini adalah jalur belajar aktif untuk track 02.
 7. `../topics/07-execution-context-lifecycle.md`
 8. `../topics/08-call-stack-web-apis-queues.md`
 9. `../topics/09-scope-chain-lookup.md`
+10. `../topics/10-lexical-environment-dan-environment-record.md`
+11. `../topics/11-memory-model-high-level.md`
 
 ## Boundary ke Track Lain
 - Async queue/event loop detail lanjutan: `../../03-asynchronous-javascript-model/topics/`
@@ -25,6 +27,6 @@ Dokumen ini adalah jalur belajar aktif untuk track 02.
 - `../PRASYARAT-DAN-KAMUS-MINI.md`
 
 ## Exit Criteria Track 02
-- Bisa menjelaskan execution context, scope, closure, hoisting, dan `this` dengan bahasa sendiri.
+- Bisa menjelaskan execution context, lexical environment, scope, closure, hoisting, `this`, dan call stack dengan bahasa sendiri.
 - Bisa memprediksi output sync/closure/this cases sebelum run.
-- Bisa memetakan call stack reasoning untuk kasus sinkron utama.
+- Bisa menjelaskan memory model high-level untuk primitive vs reference behavior.

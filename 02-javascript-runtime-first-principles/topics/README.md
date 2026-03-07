@@ -11,6 +11,8 @@
 7. `07-execution-context-lifecycle.md`
 8. `08-call-stack-web-apis-queues.md`
 9. `09-scope-chain-lookup.md`
+10. `10-lexical-environment-dan-environment-record.md`
+11. `11-memory-model-high-level.md`
 
 ## Standar Topik
 
@@ -27,10 +29,11 @@ Setiap topik idealnya punya:
 - Folder `topics/` adalah materi utama yang dipakai belajar.
 - Jika topik mulai masuk async scheduling detail, lanjut ke track 03.
 - Jika topik masuk object/prototype detail, lanjut ke track 04.
-- Jika topik masuk memory/reference behavior detail, lanjut ke track 05.
+- Jika topik masuk memory/reference behavior detail mendalam, lanjut ke track 05.
 
 ## Cross-Track
 
 - Async model: `../../03-asynchronous-javascript-model/topics/`
 - Object model: `../../04-javascript-object-model/topics/`
 - Memory and references: `../../05-javascript-memory-and-references/topics/`
+- Spec companion: `../../07-javascript-specification-companion/topics/`

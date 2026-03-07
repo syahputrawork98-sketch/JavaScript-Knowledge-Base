@@ -15,11 +15,17 @@
 - Menghapus section metadata migrasi dari seluruh topik (`01-09`) agar materi lebih fokus ke pembaca.
 - Menyelaraskan `topics/README.md` dengan standar struktur topik saat ini.
 - Menyelaraskan `docs/learning-path.md` ke wording rilis non-migrasi.
+- Menyelaraskan `README.md` track 02 agar konsisten dengan scope final.
+
+### Added
+- Menambahkan `topics/10-lexical-environment-dan-environment-record.md`.
+- Menambahkan `topics/11-memory-model-high-level.md`.
 
 ### Notes
 - Batch A selesai (topik 01-03).
 - Batch B selesai (topik 04-06).
 - Batch C selesai (topik 07-09).
+- Scope extension selesai (topik 10-11).
 - Seluruh topik utama track 02 telah melewati editorial pass.
 
 ## 2026-03-06 - v0.2.0

@@ -1,4 +1,4 @@
-﻿# 02 - JavaScript Runtime First Principles
+# 02 - JavaScript Runtime First Principles
 
 Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi oleh engine.
 
@@ -25,7 +25,7 @@ Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi o
 - Catatan konsep runtime inti + contoh eksperimen kecil.
 
 ## Struktur Konten
-- `topics/`: materi normalisasi utama track 02.
+- `topics/`: materi utama track 02.
 - `docs/`: dokumen pendukung track (learning path, catatan).
 - `assets/`: visualisasi konsep runtime untuk pembaca pemula.
 
@@ -42,4 +42,4 @@ Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi o
 ## Exit Criteria
 - Bisa menjelaskan alur eksekusi kode sync secara internal.
 - Bisa menganalisis bug dasar terkait scope/closure/hoisting/`this`.
-
+- Bisa menjelaskan perilaku primitive vs reference pada level high-level.

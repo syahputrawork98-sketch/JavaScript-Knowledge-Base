@@ -12,6 +12,9 @@
 - Menghapus section metadata migrasi dari topik batch C.
 - Menyamakan format topik 07-09 dengan pola buku rilis.
 - Menyelaraskan `docs/learning-path.md` ke wording rilis final.
+- Menambahkan topik 10 untuk lexical environment dan environment record.
+- Menambahkan topik 11 untuk memory model high-level.
+- Menyelaraskan `README.md`, `topics/README.md`, dan `docs/learning-path.md` dengan urutan final 01-11.
 
 ## 2026-03-06
 - Menormalisasi topik utama ke folder `topics/`.
@@ -24,4 +27,5 @@
 - [x] Batch A (topik 01-03) selesai.
 - [x] Batch B (topik 04-06).
 - [x] Batch C (topik 07-09).
+- [x] Scope extension (topik 10-11).
 - [x] Final consistency pass lintas seluruh topik.
