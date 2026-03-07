@@ -1,37 +1,32 @@
 # JavaScript Tutorial
 
-Buku ini merupakan pintu masuk untuk memahami bahasa JavaScript.
+Buku ini merupakan pintu masuk untuk memahami JavaScript sebagai bahasa pemrograman.
 
-Fokus utama buku ini adalah memperkenalkan **dasar penggunaan JavaScript sebagai bahasa pemrograman** sebelum mempelajari mekanisme runtime yang lebih dalam.
+Fokus utama buku ini adalah memperkenalkan **dasar penggunaan JavaScript** sebelum masuk ke pembahasan yang lebih dalam tentang runtime behavior, execution model, dan mekanisme internal bahasa.
 
-Pembahasan dalam buku ini berfokus pada bagaimana menulis program JavaScript menggunakan fitur dasar bahasa.
-
-Topik yang dibahas di sini membangun fondasi yang diperlukan untuk memahami buku-buku berikutnya dalam repository ini.
+Buku ini membangun fondasi yang diperlukan untuk memahami buku-buku berikutnya dalam repository ini.
 
 ---
 
 # Tujuan Buku
 
-Tujuan utama buku ini adalah membantu pembaca memahami:
+Tujuan buku ini adalah membantu pembaca memahami bagaimana JavaScript digunakan untuk menulis program.
+
+Secara khusus, buku ini membantu pembaca memahami:
 
 - bagaimana sintaks dasar JavaScript digunakan
-- bagaimana menulis program JavaScript sederhana
-- bagaimana struktur dasar program JavaScript dibangun
+- bagaimana menyusun program JavaScript sederhana
+- bagaimana fitur dasar bahasa JavaScript bekerja dalam praktik
 
-Buku ini berfungsi sebagai fondasi sebelum mempelajari:
-
-- bagaimana JavaScript menjalankan kode
-- bagaimana asynchronous behavior bekerja
-- bagaimana object model JavaScript dibangun
-- bagaimana runtime JavaScript mengelola data
+Buku ini berfungsi sebagai fondasi awal sebelum mempelajari konsep JavaScript yang lebih mendalam.
 
 ---
 
-# Ruang Lingkup Materi
+# Ruang Lingkup
 
-Buku ini membahas penggunaan fitur dasar JavaScript.
+Buku ini membahas fitur dasar bahasa JavaScript yang digunakan untuk menulis program.
 
-Beberapa topik utama yang dibahas antara lain:
+Topik utama yang akan dibahas meliputi:
 
 - variables
 - functions
@@ -42,48 +37,41 @@ Beberapa topik utama yang dibahas antara lain:
 - modules
 - error handling
 
-Setiap topik akan dijelaskan dengan contoh kode sederhana untuk membantu memahami cara penggunaan fitur tersebut.
+Setiap topik akan dijelaskan dengan contoh kode sederhana untuk membantu memahami penggunaan fitur tersebut.
+
+Buku ini berfokus pada **penggunaan bahasa**, bukan pada mekanisme internal JavaScript engine.
 
 ---
 
 # Pendekatan Pembelajaran
 
-Materi dalam buku ini disusun dengan pendekatan berikut:
+Materi dalam buku ini disusun dengan pendekatan bertahap.
+
+Setiap topik biasanya dijelaskan dengan urutan berikut:
 
 1. memperkenalkan fitur bahasa
-2. menunjukkan contoh penggunaan
-3. menjelaskan perilaku dasar fitur tersebut
+2. menjelaskan bentuk sintaks
+3. memberikan contoh kode sederhana
+4. menunjukkan perilaku dasar fitur tersebut
 
-Pendekatan ini membantu pembaca memahami **bagaimana JavaScript digunakan dalam praktik** sebelum mempelajari mekanisme internal bahasa tersebut.
+Pendekatan ini bertujuan membantu pembaca memahami **cara menggunakan JavaScript secara praktis** sebelum mempelajari mekanisme runtime yang lebih kompleks.
 
 ---
 
 # Hubungan dengan Buku Lain
 
-Buku ini hanya membahas **cara menggunakan JavaScript**, bukan mekanisme internalnya.
+Buku ini hanya membahas **cara menggunakan fitur JavaScript**, bukan bagaimana fitur tersebut diimplementasikan dalam runtime.
 
-Beberapa konsep yang muncul di buku ini akan dijelaskan lebih dalam pada buku lain.
+Beberapa konsep yang muncul di buku ini akan dijelaskan lebih dalam pada buku lain dalam repository ini.
 
 Contoh:
 
-- cara kerja `this` akan dibahas lebih dalam di buku **JavaScript Runtime First Principles**
-- perilaku asynchronous akan dibahas di buku **Asynchronous JavaScript Model**
-- mekanisme prototype akan dibahas di buku **JavaScript Object Model**
+- bagaimana JavaScript menjalankan kode akan dibahas dalam **JavaScript Runtime First Principles**
+- bagaimana asynchronous behavior bekerja akan dibahas dalam **Asynchronous JavaScript Model**
+- bagaimana object dan prototype bekerja akan dibahas dalam **JavaScript Object Model**
+- bagaimana nilai dan referensi direpresentasikan akan dibahas dalam **JavaScript Memory and References**
 
-Dengan pendekatan ini, setiap buku dalam repository memiliki fokus yang jelas.
-
----
-
-# Prasyarat
-
-Buku ini tidak memerlukan pengetahuan JavaScript sebelumnya.
-
-Namun pembaca diharapkan sudah memahami konsep dasar pemrograman seperti:
-
-- variable
-- fungsi
-- kondisi
-- perulangan
+Dengan pemisahan ini, setiap buku memiliki fokus yang jelas.
 
 ---
 
@@ -95,4 +83,4 @@ Setelah menyelesaikan buku ini, pembaca diharapkan mampu:
 - memahami struktur dasar program JavaScript
 - membaca dan memahami kode JavaScript dasar
 
-Pemahaman ini akan menjadi fondasi untuk mempelajari mekanisme JavaScript yang lebih dalam pada buku berikutnya.
+Pemahaman ini akan menjadi fondasi untuk mempelajari mekanisme JavaScript yang lebih dalam pada buku-buku berikutnya dalam repository ini.
