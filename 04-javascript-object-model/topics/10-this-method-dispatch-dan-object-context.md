@@ -1,6 +1,19 @@
-# This, Method Dispatch, dan Object Context
+﻿# This, Method Dispatch, dan Object Context
 
-## 0) Prasyarat dan Kamus Mini
+## Tujuan Pembelajaran
+
+- Bisa menjelaskan `this` berdasarkan call-site method.
+- Bisa mendeteksi bug detached method.
+- Bisa memilih solusi bind/call/arrow sesuai konteks.
+
+## Konsep Utama
+
+- Method dispatch: cara runtime menentukan method dan context panggil.
+- Detached method: method yang dipanggil tanpa receiver object asal.
+- Call-site: bentuk pemanggilan yang menentukan `this`.
+
+### Prasyarat dan Kamus Mini
+
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/this-method-dispatch-object-context-map.svg`](../assets/this-method-dispatch-object-context-map.svg)
@@ -23,20 +36,30 @@ Kamus mini topik:
 - `[baru]` Detached method: method yang dipanggil tanpa receiver object asal.
 - `[ulang]` Call-site: bentuk pemanggilan yang menentukan `this`.
 
-## Pengantar Singkat Topik
+## Penjelasan
+
+### Pengantar Singkat Topik
+
 Topik ini fokus ke perilaku `this` saat method object dipanggil langsung, diwariskan, atau terlepas dari object asal.
 
-## 1) Big Picture
+### Big Picture
+
 Banyak bug object model sebenarnya bug dispatch + context. Dengan memahami cara method dipilih dan bagaimana `this` ditetapkan, kamu bisa menghindari bug `undefined`, `NaN`, atau side-effect ke object yang salah.
 
-## 2) Small Picture
+### Small Picture
+
 1. `obj.fn()` memberi context `this = obj`.
 2. `const f = obj.fn; f()` melepas context asal.
 3. Method inherited tetap dieksekusi dengan `this` receiver aktual.
 4. `bind/call/apply` bisa mengunci atau mengganti context.
 5. Arrow function tidak punya `this` dinamis seperti function biasa.
 
-## 3) Wireframe
+## Diagram Konsep (Opsional)
+
+![This, Method Dispatch, dan Object Context Map](../assets/this-method-dispatch-object-context-map.svg)
+
+### Wireframe
+
 ```text
 Alur utama:
 [method call] -> [tentukan receiver] -> [this binding]
@@ -48,15 +71,8 @@ Alur error:
 [detached method] -> [this hilang] -> [TypeError/hasil salah]
 ```
 
-## 4) Analogi
-Seperti kartu akses kantor: nama fungsi sama, tapi hak akses tergantung siapa yang men-scan kartu saat dipanggil.
+## Contoh Kode
 
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: desain method object/class yang aman dari context leak.
-- Alasan pakai: mengurangi bug runtime saat method dipassing sebagai callback.
-- Kapan tidak dipakai: jika fungsi benar-benar pure dan tidak butuh `this`.
-
-## 6) Contoh Sederhana
 ```js
 const counter = {
   value: 0,
@@ -77,12 +93,12 @@ console.log(f());
 3. Pada strict mode, `this` jadi `undefined` dan bisa TypeError.
 4. Pada non-strict, bisa memicu hasil tidak diinginkan.
 
-## 7) Jebakan Umum
-- Menyimpan method ke variabel lalu dipanggil tanpa bind.
-- Menggunakan arrow method di object literal tanpa memahami lexical `this`.
-- Mengira method inherited otomatis bind permanen.
+## Analogi Singkat (Opsional)
 
-## 8) Prediksi Output Drill
+Seperti kartu akses kantor: nama fungsi sama, tapi hak akses tergantung siapa yang men-scan kartu saat dipanggil.
+
+## Eksperimen Kode
+
 ```js
 const obj = {
   n: 1,
@@ -97,20 +113,51 @@ console.log(other.get());
 - Output: `5`
 - Alasan: call-site `other.get()` membuat `this = other`.
 
-## 9) Debug Story
+## Common Misconception (Opsional)
+
+- Menyimpan method ke variabel lalu dipanggil tanpa bind.
+- Menggunakan arrow method di object literal tanpa memahami lexical `this`.
+- Mengira method inherited otomatis bind permanen.
+
+## Cakupan dan Batasan
+
+- Dipakai untuk: desain method object/class yang aman dari context leak.
+- Alasan pakai: mengurangi bug runtime saat method dipassing sebagai callback.
+- Kapan tidak dipakai: jika fungsi benar-benar pure dan tidak butuh `this`.
+
+## Latihan
+
+1. Buat tiga call-site berbeda untuk method yang sama (obj.fn(), detach call, dan call/apply) lalu bandingkan 	his.
+2. Temukan satu bug 	his hilang pada callback, lalu perbaiki dengan strategi yang paling tepat.
+3. Jelaskan kapan perlu `bind` permanen dan kapan cukup pakai wrapper function.
+
+### Debug Story
+
 Kasus: method class dipassing sebagai callback event dan value jadi undefined.
 Langkah debug:
 1. Cek apakah callback dipanggil tanpa receiver asli.
 2. Gunakan `bind` saat registrasi callback.
 3. Alternatif: bungkus dengan arrow function di lokasi pemanggilan.
 
-## 10) Checkpoint
+### Checkpoint
+
 - [ ] Bisa menjelaskan `this` berdasarkan call-site method.
 - [ ] Bisa mendeteksi bug detached method.
 - [ ] Bisa memilih solusi bind/call/arrow sesuai konteks.
 
-## Jika Masih Bingung, Baca Ini Dulu
+### Bacaan Remedial
+
 1. Ulangi topik `06-this-binding` di track 02.
 2. Uji perbedaan `obj.fn()` vs `const f=obj.fn; f()`.
 3. Praktikkan `bind` pada callback nyata.
+
+## Ringkasan
+
+- Nilai 	his ditentukan oleh call-site dispatch, bukan lokasi deklarasi method.
+- Pemisahan method dari object asal sering menjadi sumber bug context yang tersembunyi.
+- Pemilihan teknik binding yang tepat menjaga code tetap stabil dan mudah dipelihara.
+
+## Lanjut Setelah Ini
+
+- [11-built-in-objects-dan-behavior-khusus.md](./11-built-in-objects-dan-behavior-khusus.md)
 

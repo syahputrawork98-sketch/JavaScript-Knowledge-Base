@@ -1,6 +1,19 @@
-# Object.create dan Delegation Patterns
+﻿# Object.create dan Delegation Patterns
 
-## 0) Prasyarat dan Kamus Mini
+## Tujuan Pembelajaran
+
+- Bisa menjelaskan delegation berbasis prototype tanpa class.
+- Bisa memakai `Object.create` untuk factory sederhana.
+- Bisa mendeteksi bug shadowing pada own property.
+
+## Konsep Utama
+
+- Delegation: object meneruskan lookup behavior ke prototype.
+- Factory delegation: pembuatan object tanpa class, berbasis prototype delegation.
+- `Object.create`: membuat object dengan prototype eksplisit.
+
+### Prasyarat dan Kamus Mini
+
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
@@ -24,20 +37,30 @@ Kamus mini topik:
 - `[baru]` Factory delegation: pembuatan object tanpa class, berbasis prototype delegation.
 - `[ulang]` `Object.create`: membuat object dengan prototype eksplisit.
 
-## Pengantar Singkat Topik
+## Penjelasan
+
+### Pengantar Singkat Topik
+
 `Object.create` memberi kontrol langsung terhadap prototype object. Topik ini membahas pola delegation tanpa class ketika kamu butuh object yang ringan dan eksplisit.
 
-## 1) Big Picture
+### Big Picture
+
 Banyak codebase terlalu cepat lompat ke class. Padahal untuk beberapa kasus, delegation lewat `Object.create` lebih sederhana, fleksibel, dan minim boilerplate. Topik ini membantu kamu memilih model object berbasis prototype secara sadar.
 
-## 2) Small Picture
+### Small Picture
+
 1. Tentukan object prototype berisi behavior umum.
 2. Buat instance dengan `Object.create(proto)`.
 3. Tambahkan own property spesifik pada instance.
 4. Akses method lewat delegation ke prototype.
 5. Gunakan ini saat tidak butuh hierarchy class kompleks.
 
-## 3) Wireframe
+## Diagram Konsep (Opsional)
+
+![Object.create dan Delegation Patterns Map](../assets/object-create-delegation-patterns-map.svg)
+
+### Wireframe
+
 ```text
 Alur utama:
 [define prototype behavior] -> [Object.create] -> [instance pakai delegation]
@@ -49,15 +72,8 @@ Alur error:
 [salah set prototype] -> [lookup tidak sesuai] -> [method undefined]
 ```
 
-## 4) Analogi
-Seperti punya template SOP tim. Member tim baru mengacu SOP pusat, tapi tetap punya catatan personal masing-masing.
+## Contoh Kode
 
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: object factory ringan, plugin behavior, mock object sederhana.
-- Alasan pakai: kontrol prototype eksplisit, tanpa overhead class inheritance.
-- Kapan tidak dipakai: jika tim kamu sudah sangat bergantung pada idiom class untuk konsistensi.
-
-## 6) Contoh Sederhana
 ```js
 const userProto = {
   greet() {
@@ -77,12 +93,12 @@ console.log(u1.greet());
 3. Method dieksekusi dengan `this = u1`.
 4. Output: `Halo Nina`.
 
-## 7) Jebakan Umum
-- Menaruh state mutable shared di prototype.
-- Lupa set own property yang dibutuhkan method.
-- Mengira `Object.create(null)` punya method bawaan object.
+## Analogi Singkat (Opsional)
 
-## 8) Prediksi Output Drill
+Seperti punya template SOP tim. Member tim baru mengacu SOP pusat, tapi tetap punya catatan personal masing-masing.
+
+## Eksperimen Kode
+
 ```js
 const base = { x: 1 };
 const obj = Object.create(base);
@@ -94,20 +110,51 @@ console.log(obj.x, base.x);
 - Output: `2 1`
 - Alasan: `obj.x` menjadi own property yang men-shadow `base.x`.
 
-## 9) Debug Story
+## Common Misconception (Opsional)
+
+- Menaruh state mutable shared di prototype.
+- Lupa set own property yang dibutuhkan method.
+- Mengira `Object.create(null)` punya method bawaan object.
+
+## Cakupan dan Batasan
+
+- Dipakai untuk: object factory ringan, plugin behavior, mock object sederhana.
+- Alasan pakai: kontrol prototype eksplisit, tanpa overhead class inheritance.
+- Kapan tidak dipakai: jika tim kamu sudah sangat bergantung pada idiom class untuk konsistensi.
+
+## Latihan
+
+1. Buat factory berbasis Object.create untuk menghasilkan beberapa object dengan behavior shared.
+2. Tambahkan override method pada salah satu turunan dan buktikan object lain tidak terdampak.
+3. Bandingkan readability dan footprint kode antara pola delegation ini dengan class sederhana.
+
+### Debug Story
+
 Kasus: method object tiba-tiba `undefined` setelah refactor factory.
 Langkah debug:
 1. Cek hasil `Object.getPrototypeOf(instance)`.
 2. Pastikan prototype mengarah ke object behavior yang benar.
 3. Pastikan method tidak tertimpa own property non-function.
 
-## 10) Checkpoint
+### Checkpoint
+
 - [ ] Bisa menjelaskan delegation berbasis prototype tanpa class.
 - [ ] Bisa memakai `Object.create` untuk factory sederhana.
 - [ ] Bisa mendeteksi bug shadowing pada own property.
 
-## Jika Masih Bingung, Baca Ini Dulu
+### Bacaan Remedial
+
 1. Ulangi `02-prototype-chain-lanjutan.md`.
 2. Uji `Object.getPrototypeOf` di beberapa object.
 3. Bandingkan factory class vs factory `Object.create`.
+
+## Ringkasan
+
+- Object.create memberi kontrol eksplisit terhadap hubungan prototype antar object.
+- Delegation pattern efektif untuk berbagi behavior tanpa boilerplate class yang berlebihan.
+- Override lokal tetap perlu disiplin agar alur lookup tidak menjadi implicit dan sulit dibaca.
+
+## Lanjut Setelah Ini
+
+- [08-property-descriptors-lanjutan-dan-defineproperty.md](./08-property-descriptors-lanjutan-dan-defineproperty.md)
 
