@@ -18,6 +18,10 @@ Buku ini fokus memahami bagaimana data disimpan, direferensikan, dan berubah.
 - Leak patterns and cleanup strategy
 - Copy strategies (shallow vs deep)
 - WeakMap/WeakSet for ephemeral metadata cache
+- WeakRef/FinalizationRegistry (pengantar + batasan)
+- Circular reference dan serialization traps
+- Memory profiling workflow (heap snapshot, allocation timeline, retention path)
+- SharedArrayBuffer/Atomics memory model dasar (pengantar)
 
 ## Out of Scope
 - VM internals detail.
@@ -44,6 +48,18 @@ Buku ini fokus memahami bagaimana data disimpan, direferensikan, dan berubah.
 1. Buka `docs/learning-path.md`.
 2. Ikuti urutan di `topics/README.md`.
 3. Kembali ke buku 04 jika masih bingung sumber property/prototype behavior.
+
+## Roadmap Topik
+
+Buku 05 ditargetkan sebagai rute **12 topik inti**:
+- Topik `01-08`: fondasi memory/reference yang sudah aktif.
+- Topik `09-12`: perluasan advanced-menengah agar coverage tidak tanggung.
+
+Mapping perluasan:
+- `09-weakref-dan-finalizationregistry-dasar.md`
+- `10-circular-references-dan-serialization-traps.md`
+- `11-memory-profiling-heap-snapshot-dan-retention-path.md`
+- `12-sharedarraybuffer-atomics-memory-model-dasar.md`
 
 ## Exit Criteria
 - Bisa mengidentifikasi bug referensi pada object/array.

@@ -29,7 +29,7 @@ Kamus mini topik:
 Topik ini membantu memilih strategi copy data yang tepat agar perubahan nested data tidak menimbulkan efek samping yang mengejutkan.
 
 ## 1) Big Picture
-Mayoritas bug state modern muncul saat developer merasa sudah â€œcopy objectâ€, padahal yang terjadi hanya shallow copy dan nested data tetap sharing reference. Dengan memahami strategi copy, kamu bisa menghindari mutasi tersembunyi.
+Mayoritas bug state modern muncul saat developer merasa sudah "copy object", padahal yang terjadi hanya shallow copy dan nested data tetap sharing reference. Dengan memahami strategi copy, kamu bisa menghindari mutasi tersembunyi.
 
 ## 2) Small Picture
 1. Spread/Object.assign membuat shallow copy.
