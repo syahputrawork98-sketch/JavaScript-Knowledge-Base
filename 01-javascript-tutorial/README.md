@@ -1,145 +1,98 @@
-# Documentation Governance
+# JavaScript Tutorial
 
-Folder `docs/` berisi kumpulan dokumen yang mengatur **arsitektur, filosofi konten, dan aturan operasional** dari repository ini.
+Buku ini merupakan pintu masuk untuk memahami bahasa JavaScript.
 
-Jika folder root repository dapat dianalogikan sebagai **rak buku**, maka setiap folder seperti `01-javascript-tutorial`, `02-javascript-runtime-first-principles`, dan seterusnya adalah **buku-buku yang berada di dalam rak tersebut**.
+Fokus utama buku ini adalah memperkenalkan **dasar penggunaan JavaScript sebagai bahasa pemrograman** sebelum mempelajari mekanisme runtime yang lebih dalam.
 
-Folder `docs/` berfungsi sebagai **lapisan governance** yang memastikan seluruh buku dalam repository ini memiliki:
+Pembahasan dalam buku ini berfokus pada bagaimana menulis program JavaScript menggunakan fitur dasar bahasa.
 
-* struktur yang konsisten
-* istilah teknis yang akurat
-* batasan topik yang jelas
-* kualitas penjelasan yang terjaga
-
-Dokumen dalam folder ini tidak berisi materi pembelajaran JavaScript secara langsung.
-Sebaliknya, dokumen-dokumen ini mengatur **bagaimana materi tersebut ditulis, disusun, dan dikembangkan**.
+Topik yang dibahas di sini membangun fondasi yang diperlukan untuk memahami buku-buku berikutnya dalam repository ini.
 
 ---
 
-# Struktur Dokumentasi
+# Tujuan Buku
 
-Dokumen dalam folder ini dibagi menjadi tiga lapisan utama:
+Tujuan utama buku ini adalah membantu pembaca memahami:
 
-## Strategic Layer
+- bagaimana sintaks dasar JavaScript digunakan
+- bagaimana menulis program JavaScript sederhana
+- bagaimana struktur dasar program JavaScript dibangun
 
-Lapisan ini menjelaskan **arsitektur pengetahuan repository secara keseluruhan**.
+Buku ini berfungsi sebagai fondasi sebelum mempelajari:
 
-Dokumen dalam lapisan ini menjawab pertanyaan seperti:
-
-* bagaimana repository ini dibagi menjadi beberapa buku
-* bagaimana urutan domain JavaScript dipelajari
-* bagaimana batas topik antar buku ditentukan
-
-Dokumen:
-
-```
-01-repository-roadmap.md
-02-content-philosophy.md
-03-track-boundaries.md
-```
+- bagaimana JavaScript menjalankan kode
+- bagaimana asynchronous behavior bekerja
+- bagaimana object model JavaScript dibangun
+- bagaimana runtime JavaScript mengelola data
 
 ---
 
-## Editorial Layer
+# Ruang Lingkup Materi
 
-Lapisan ini mengatur **bagaimana materi teknis ditulis**.
+Buku ini membahas penggunaan fitur dasar JavaScript.
 
-Fokus utama dari lapisan ini adalah menjaga:
+Beberapa topik utama yang dibahas antara lain:
 
-* konsistensi struktur penjelasan
-* penggunaan istilah resmi JavaScript
-* akurasi mental model yang dibangun
+- variables
+- functions
+- objects
+- arrays
+- conditionals
+- loops
+- modules
+- error handling
 
-Dokumen:
-
-```
-10-topic-writing-standard.md
-11-terminology-policy.md
-```
-
----
-
-## Operational Layer
-
-Lapisan ini mengatur **proses pengembangan repository**.
-
-Dokumen dalam lapisan ini digunakan untuk memastikan bahwa perubahan pada repository tetap mengikuti standar yang telah ditentukan.
-
-Dokumen:
-
-```
-20-operating-rules.md
-21-quality-gate.md
-22-repository-status.md
-```
+Setiap topik akan dijelaskan dengan contoh kode sederhana untuk membantu memahami cara penggunaan fitur tersebut.
 
 ---
 
-# Prinsip Umum Repository
+# Pendekatan Pembelajaran
 
-Repository ini dibangun dengan beberapa prinsip dasar:
+Materi dalam buku ini disusun dengan pendekatan berikut:
 
-**1. Fokus pada JavaScript sebagai bahasa**
+1. memperkenalkan fitur bahasa
+2. menunjukkan contoh penggunaan
+3. menjelaskan perilaku dasar fitur tersebut
 
-Repository ini berfokus pada:
-
-* JavaScript language semantics
-* runtime behavior
-* execution model
-
-Framework seperti React atau Next.js tidak menjadi fokus utama.
+Pendekatan ini membantu pembaca memahami **bagaimana JavaScript digunakan dalam praktik** sebelum mempelajari mekanisme internal bahasa tersebut.
 
 ---
 
-**2. Membangun mental model yang benar**
+# Hubungan dengan Buku Lain
 
-Tujuan utama dari repository ini adalah membantu memahami:
+Buku ini hanya membahas **cara menggunakan JavaScript**, bukan mekanisme internalnya.
 
-* bagaimana JavaScript dijalankan oleh engine
-* bagaimana kode dievaluasi
-* bagaimana asynchronous execution bekerja
+Beberapa konsep yang muncul di buku ini akan dijelaskan lebih dalam pada buku lain.
 
-Materi tidak hanya menjelaskan **cara menggunakan JavaScript**, tetapi juga **mengapa JavaScript berperilaku seperti itu**.
+Contoh:
 
----
+- cara kerja `this` akan dibahas lebih dalam di buku **JavaScript Runtime First Principles**
+- perilaku asynchronous akan dibahas di buku **Asynchronous JavaScript Model**
+- mekanisme prototype akan dibahas di buku **JavaScript Object Model**
 
-**3. Menggunakan terminologi resmi**
-
-Penjelasan dalam repository ini menggunakan istilah teknis yang sesuai dengan konsep JavaScript seperti:
-
-* Execution Context
-* Lexical Environment
-* Closure
-* Prototype Chain
-* Event Loop
-* Referential Equality
-* Garbage Collection
-
-Istilah populer yang berpotensi menyesatkan akan dihindari atau diluruskan.
+Dengan pendekatan ini, setiap buku dalam repository memiliki fokus yang jelas.
 
 ---
 
-**4. Menghindari miskonsepsi umum**
+# Prasyarat
 
-Banyak miskonsepsi JavaScript muncul karena:
+Buku ini tidak memerlukan pengetahuan JavaScript sebelumnya.
 
-* belajar langsung dari framework
-* menggunakan analogi yang terlalu disederhanakan
-* memahami perilaku bahasa hanya dari contoh praktis
+Namun pembaca diharapkan sudah memahami konsep dasar pemrograman seperti:
 
-Repository ini berusaha menjelaskan konsep JavaScript dengan **mental model yang lebih akurat**.
+- variable
+- fungsi
+- kondisi
+- perulangan
 
 ---
 
-# Cara Menggunakan Dokumen Ini
+# Tujuan Akhir
 
-Dokumen dalam folder `docs/` terutama digunakan ketika:
+Setelah menyelesaikan buku ini, pembaca diharapkan mampu:
 
-* menambahkan topik baru
-* memperbaiki struktur materi
-* meninjau kualitas penjelasan
-* menjaga konsistensi terminologi
+- menulis program JavaScript sederhana
+- memahami struktur dasar program JavaScript
+- membaca dan memahami kode JavaScript dasar
 
-Setiap perubahan besar pada repository sebaiknya merujuk pada dokumen dalam folder ini terlebih dahulu.
-
-Dengan cara ini, repository dapat berkembang secara konsisten sebagai **knowledge base JavaScript jangka panjang**.
+Pemahaman ini akan menjadi fondasi untuk mempelajari mekanisme JavaScript yang lebih dalam pada buku berikutnya.
