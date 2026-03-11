@@ -80,11 +80,9 @@ Perubahan di `b` tidak memengaruhi `a`.
 2. Kenapa perubahan `b` tidak memengaruhi `a` pada assignment primitive?
 3. Kenapa operasi `1n + 1` melempar error?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Primitive types adalah nilai dasar yang langsung merepresentasikan data.
-- Analogi: Seperti kartu identitas kecil yang berisi satu informasi spesifik dan ringkas.
-- Batas Analogi: Walau sederhana, setiap primitive punya aturan operasi dan konversi yang berbeda.
+Primitive types itu seperti kartu kecil yang masing-masing membawa satu informasi dasar secara ringkas. Mereka terlihat sederhana, tetapi tiap jenis tetap punya aturan perilaku yang berbeda di JavaScript.
 
 ## Ringkasan
 

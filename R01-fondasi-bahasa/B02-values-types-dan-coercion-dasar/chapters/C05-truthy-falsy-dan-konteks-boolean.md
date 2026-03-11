@@ -69,6 +69,10 @@ console.log(fallback); // Anonymous
 2. Kenapa `if ([])` tetap masuk blok?
 3. Kapan `??` lebih aman daripada `||`?
 
+## Analogi Singkat
+
+Truthy dan falsy bisa dibayangkan seperti sensor yang hanya punya dua keputusan akhir: aktif atau tidak aktif. Nilai yang masuk bisa bermacam-macam, tetapi konteks boolean akan tetap menyederhanakannya ke dua kemungkinan itu.
+
 ## Analogi
 
 - Intuisi Singkat: Truthy/falsy menentukan bagaimana nilai dibaca dalam konteks boolean.

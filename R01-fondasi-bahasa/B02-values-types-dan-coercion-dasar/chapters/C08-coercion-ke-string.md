@@ -65,11 +65,9 @@ Gunakan `String(value)` jika nilai bisa nullish.
 2. Kenapa `String(value)` lebih aman dari `value.toString()`?
 3. Apa keuntungan template literal dalam code review?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Coercion ke string mengubah nilai menjadi bentuk teks yang bisa dibaca/ditampilkan.
-- Analogi: Seperti membuat label cetak dari data mentah agar cocok di etalase.
-- Batas Analogi: Representasi string tidak selalu cocok untuk komputasi lanjutan tanpa parsing balik.
+Coercion ke string itu seperti mengubah data mentah menjadi label teks yang siap dibaca manusia. Bentuk ini cocok untuk tampilan atau logging, tetapi belum tentu ideal untuk perhitungan lanjutan.
 
 ## Ringkasan
 
