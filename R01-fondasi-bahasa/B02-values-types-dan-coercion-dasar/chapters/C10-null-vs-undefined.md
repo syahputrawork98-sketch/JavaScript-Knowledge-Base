@@ -72,6 +72,12 @@ Pola `value != null` dipakai untuk mengecek bukan `null` dan bukan `undefined` s
 2. Kapan `null` lebih tepat daripada `undefined`?
 3. Kenapa `value != null` kadang dianggap idiom yang valid?
 
+## Analogi
+
+- Intuisi Singkat: `null` dan `undefined` sama-sama “tidak ada nilai”, tapi asal konteksnya berbeda.
+- Analogi: Seperti kursi yang sengaja dikosongkan vs kursi yang belum disiapkan.
+- Batas Analogi: Perbedaan asal ini penting untuk desain API, validasi data, dan debugging.
+
 ## Ringkasan
 
 - `undefined` umumnya berarti nilai belum tersedia.

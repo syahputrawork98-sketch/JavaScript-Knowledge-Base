@@ -65,6 +65,12 @@ Dua object dengan isi identik tetap berbeda jika referensinya berbeda.
 2. Kenapa dua object literal dengan isi sama bisa `false` saat dibandingkan?
 3. Apa beda copy referensi vs copy nilai?
 
+## Analogi
+
+- Intuisi Singkat: Non-primitive disimpan dan diperlakukan lewat referensi.
+- Analogi: Seperti alamat rumah: yang dibagikan alamatnya, bukan memindahkan rumah fisiknya.
+- Batas Analogi: Perbandingan object defaultnya berbasis referensi, bukan isi mendalam otomatis.
+
 ## Ringkasan
 
 - Non-primitive di JavaScript bekerja berbasis reference.

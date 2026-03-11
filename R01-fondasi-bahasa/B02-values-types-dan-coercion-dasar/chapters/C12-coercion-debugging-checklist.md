@@ -71,6 +71,12 @@ Minimal tambahkan test untuk:
 - Menambal gejala tanpa mengunci akar masalah dengan test.
 - Menganggap semua masalah coercion bisa selesai dengan ganti `==` ke `===` saja.
 
+## Analogi
+
+- Intuisi Singkat: Checklist coercion membantu debugging lebih sistematis dari gejala ke akar masalah.
+- Analogi: Seperti prosedur teknisi: cek indikator, isolasi komponen, uji ulang sebelum menutup kasus.
+- Batas Analogi: Checklist tidak menggantikan pemahaman konsep, tapi mengurangi blind trial-and-error.
+
 ## Ringkasan
 
 - Debugging coercion butuh observasi tipe yang konkret.

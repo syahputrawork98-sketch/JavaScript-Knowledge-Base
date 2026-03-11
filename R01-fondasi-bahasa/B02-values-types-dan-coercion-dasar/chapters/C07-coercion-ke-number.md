@@ -67,6 +67,12 @@ Selalu verifikasi hasil jika sumber data berasal dari input user.
 2. Kenapa `Number('')` menghasilkan `0`?
 3. Cara paling aman mengecek hasil konversi gagal apa?
 
+## Analogi
+
+- Intuisi Singkat: Coercion ke number mengubah berbagai input menjadi representasi numerik.
+- Analogi: Seperti menimbang berbagai bahan ke satuan gram agar bisa dihitung seragam.
+- Batas Analogi: Tidak semua input bisa jadi angka valid; sebagian berakhir sebagai `NaN`.
+
 ## Ringkasan
 
 - Coercion ke number bisa eksplisit atau implicit.

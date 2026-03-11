@@ -72,6 +72,12 @@ function detectType(value) {
 2. Cara paling tepat mendeteksi array apa?
 3. Kapan cukup `typeof`, kapan perlu helper tambahan?
 
+## Analogi
+
+- Intuisi Singkat: `typeof` memberi deteksi tipe cepat, tapi ada batas kasus khusus.
+- Analogi: Seperti scanner barcode cepat di kasir: membantu awal, tapi tidak selalu cukup untuk verifikasi detail.
+- Batas Analogi: Kasus seperti `null` dan array butuh teknik cek tambahan di luar `typeof` saja.
+
 ## Ringkasan
 
 - `typeof` efektif untuk banyak primitive.

@@ -63,6 +63,12 @@ console.log(NaN === NaN);        // false
 2. Kenapa `null == undefined` bernilai `true`?
 3. Bagaimana cara benar mengecek `NaN`?
 
+## Analogi
+
+- Intuisi Singkat: `===` dan `==` punya aturan kesetaraan yang berbeda tingkat ketatnya.
+- Analogi: Seperti pemeriksaan identitas: satu mode cek sangat ketat, satu mode mengizinkan normalisasi dulu.
+- Batas Analogi: Mode longgar (`==`) menjalankan coercion yang bisa menghasilkan kejutan bila tidak dipahami.
+
 ## Ringkasan
 
 - `===` membandingkan tanpa coercion dan lebih prediktif.

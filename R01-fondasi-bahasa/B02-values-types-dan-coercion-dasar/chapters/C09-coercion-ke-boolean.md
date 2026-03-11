@@ -65,6 +65,12 @@ console.log(qty ?? 10); // 0
 2. Kenapa `&&` tidak selalu menghasilkan boolean?
 3. Kapan `Boolean(value)` lebih jelas daripada coercion implicit?
 
+## Analogi
+
+- Intuisi Singkat: Coercion ke boolean menyederhanakan nilai ke dua keadaan: true atau false.
+- Analogi: Seperti saklar lampu yang akhirnya hanya punya posisi ON atau OFF.
+- Batas Analogi: Konversi ini mengikuti tabel truthy/falsy JS, bukan intuisi semantik sehari-hari.
+
 ## Ringkasan
 
 - Coercion boolean terjadi luas di control flow.

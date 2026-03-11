@@ -70,6 +70,12 @@ function isFiniteNumber(value) {
 2. Kapan `Infinity` bisa muncul dalam aplikasi?
 3. Fungsi apa yang tepat untuk membedakan `0` dan `-0`?
 
+## Analogi
+
+- Intuisi Singkat: `NaN`, `Infinity`, dan `-0` adalah nilai numerik edge case yang sering mengecoh.
+- Analogi: Seperti rambu lalu lintas khusus yang terlihat mirip jalan biasa tapi punya aturan unik.
+- Batas Analogi: Deteksinya butuh API yang tepat (`Number.isNaN`, `Object.is`) agar tidak salah tafsir.
+
 ## Ringkasan
 
 - `NaN`, `Infinity`, dan `-0` adalah edge value numerik penting.

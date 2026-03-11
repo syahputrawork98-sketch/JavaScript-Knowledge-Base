@@ -69,6 +69,12 @@ console.log(fallback); // Anonymous
 2. Kenapa `if ([])` tetap masuk blok?
 3. Kapan `??` lebih aman daripada `||`?
 
+## Analogi
+
+- Intuisi Singkat: Truthy/falsy menentukan bagaimana nilai dibaca dalam konteks boolean.
+- Analogi: Seperti sensor pintu: sebagian sinyal dianggap aktif, sebagian dianggap tidak aktif.
+- Batas Analogi: Penilaian truthy/falsy bukan penilaian “baik/buruk”, hanya aturan konversi boolean.
+
 ## Ringkasan
 
 - JavaScript memiliki daftar falsy yang terbatas.

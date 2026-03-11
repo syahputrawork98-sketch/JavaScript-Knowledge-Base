@@ -70,6 +70,12 @@ Operator yang berbeda bisa memicu coercion yang berbeda.
 2. Kenapa memahami primitive vs non-primitive penting?
 3. Mengapa `'5' + 1` beda hasil dengan `'5' - 1`?
 
+## Analogi
+
+- Intuisi Singkat: Values adalah isi datanya, sedangkan types adalah kategori perilakunya.
+- Analogi: Seperti barang di gudang: barangnya nyata, label kategorinya menentukan cara penanganan.
+- Batas Analogi: Di JavaScript, label tipe tidak hanya klasifikasi; ia memengaruhi operasi dan coercion runtime.
+
 ## Ringkasan
 
 - Value adalah data yang diproses program, type adalah kategorinya.
