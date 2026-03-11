@@ -10,7 +10,9 @@ Dokumen ini mengatur aturan khusus buku B06.
 
 ## Struktur Konten Buku
 
-- Folder materi utama: $(System.Collections.Hashtable.Main)/
+- Folder materi utama: `chapters/`
+- Folder contoh runnable: `examples/`
+- Folder visual pendukung: `assets/`
 - Pola urutan bab: dari konsep dasar ke latihan/aplikasi.
 - Pola latihan: checkpoint singkat per bab.
 - Pola visual: secukupnya untuk memperjelas konsep.

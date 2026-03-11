@@ -4,11 +4,14 @@ Fondasi ketahanan program dan pemecahan kode antar modul.
 
 ## Status
 
-- Struktur awal buku sudah dibuat.
-- Penulisan bab belum dimulai.
+- Blueprint bab `C01-C12` sudah ditetapkan.
+- Struktur pendukung buku sudah dirapikan.
+- Chapter `C01-C12` dan examples runnable penuh sudah tersedia.
+- Buku siap dipakai sebagai fondasi error handling dan modules dasar untuk `R01`.
 
 ## Struktur
 
-- $(System.Collections.Hashtable.Main)/ untuk materi utama.
-- ssets/ untuk visual pendukung.
+- `chapters/` untuk materi utama.
+- `examples/` untuk contoh runnable per bab.
+- `assets/` untuk visual pendukung.
 - docs/ untuk aturan khusus buku.
