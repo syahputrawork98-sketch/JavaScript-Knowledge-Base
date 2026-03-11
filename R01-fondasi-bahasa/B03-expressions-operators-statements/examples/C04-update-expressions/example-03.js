@@ -1,0 +1,8 @@
+// C04 - Example 03: update in loop
+
+let total = 0;
+for (let i = 1; i <= 3; i++) {
+  total += i;
+}
+
+console.log(total);
