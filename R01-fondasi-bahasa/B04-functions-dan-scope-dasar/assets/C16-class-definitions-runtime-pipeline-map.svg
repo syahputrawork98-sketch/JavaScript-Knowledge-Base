@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#f0fdfa"/>
+  <rect x="24" y="24" width="592" height="312" rx="20" fill="#ffffff" stroke="#1f2937" stroke-width="2"/>
+  <text x="48" y="62" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">C16 Class Definitions Runtime Pipeline</text>
+  <text x="48" y="92" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">Binding time -> class creation -> instance field timing</text>
+  <rect x="48" y="124" width="168" height="156" rx="16" fill="#99f6e4"/>
+  <rect x="236" y="124" width="168" height="156" rx="16" fill="#fecaca"/>
+  <rect x="424" y="124" width="168" height="156" rx="16" fill="#ddd6fe"/>
+  <text x="64" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Binding</text>
+  <text x="64" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- class not usable early</text>
+  <text x="64" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- declaration has timing</text>
+  <text x="64" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- expression is explicit</text>
+  <text x="252" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Build</text>
+  <text x="252" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- methods attached</text>
+  <text x="252" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- inheritance resolved</text>
+  <text x="252" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- class object finalizes</text>
+  <text x="440" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Instance</text>
+  <text x="440" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- field init on new</text>
+  <text x="440" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- not at class parse time</text>
+  <text x="440" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- runtime order matters</text>
+</svg>

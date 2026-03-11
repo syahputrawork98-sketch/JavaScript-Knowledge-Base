@@ -4,9 +4,9 @@ Contoh runnable untuk bab **C14 - Class Definitions Static Semantics Bagian 2**.
 
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` (elemen static vs instance)
+- `example-02.js` (validasi private identifier)
+- `example-03.js` (error saat static method dipanggil dari instance)
 
 ## Jalankan
 

@@ -14,6 +14,10 @@ Arrow function sangat sering dipakai pada callback dan functional-style code. Ji
 2. Arrow function tidak punya `prototype` untuk dipakai sebagai constructor.
 3. Beberapa bentuk sintaks memicu early error (misalnya penggunaan parameter duplikat dalam konteks strict-like tertentu).
 
+## Analogi Singkat
+
+Bayangkan arrow function seperti catatan singkat yang dipakai saat kita ingin menulis instruksi cepat. Karena bentuknya ringkas, formatnya juga lebih ketat: kalau penulisannya meleset sedikit, catatan itu langsung sulit dibaca. Dalam JavaScript, arrow function memang mempersingkat penulisan, tetapi aturan sintaksnya lebih sensitif daripada function biasa.
+
 Contoh bentuk dasar:
 
 ```js

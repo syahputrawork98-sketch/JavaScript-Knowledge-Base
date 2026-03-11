@@ -4,9 +4,9 @@ Contoh runnable untuk bab **C20 - Tail Position Calls Dasar Praktis**.
 
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` (contoh call pada tail position)
+- `example-02.js` (contoh call yang bukan tail position)
+- `example-03.js` (bentuk rekursi tail-style sederhana)
 
 ## Jalankan
 

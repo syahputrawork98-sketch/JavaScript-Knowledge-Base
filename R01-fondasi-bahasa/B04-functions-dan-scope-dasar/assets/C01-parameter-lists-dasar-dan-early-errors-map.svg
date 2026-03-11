@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#f6f2e8"/>
+  <rect x="24" y="24" width="592" height="312" rx="20" fill="#fffdf8" stroke="#1f2937" stroke-width="2"/>
+  <text x="48" y="62" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">C01 Parameter Lists Dasar dan Early Errors</text>
+  <text x="48" y="92" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">Valid parameter shape -> duplicate checks -> ready to define function</text>
+  <rect x="48" y="124" width="168" height="156" rx="16" fill="#fde68a"/>
+  <rect x="236" y="124" width="168" height="156" rx="16" fill="#bfdbfe"/>
+  <rect x="424" y="124" width="168" height="156" rx="16" fill="#c7f9cc"/>
+  <text x="64" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Shape</text>
+  <text x="64" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- simple names</text>
+  <text x="64" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- commas and rest</text>
+  <text x="64" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- parser friendly form</text>
+  <text x="252" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Checks</text>
+  <text x="252" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- no duplicate names</text>
+  <text x="252" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- early error first</text>
+  <text x="252" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- fail before runtime</text>
+  <text x="440" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Result</text>
+  <text x="440" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- valid header</text>
+  <text x="440" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- clearer function intent</text>
+  <text x="440" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- base for next chapters</text>
+</svg>

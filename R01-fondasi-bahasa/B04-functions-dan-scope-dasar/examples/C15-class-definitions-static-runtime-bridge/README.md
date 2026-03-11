@@ -4,9 +4,9 @@ Contoh runnable untuk bab **C15 - Class Definitions Static Runtime Bridge**.
 
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` (computed method name dan static field initializer)
+- `example-02.js` (nama internal pada class expression)
+- `example-03.js` (evaluasi ekspresi `extends`)
 
 ## Jalankan
 

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#f0f9ff"/>
+  <rect x="24" y="24" width="592" height="312" rx="20" fill="#ffffff" stroke="#1f2937" stroke-width="2"/>
+  <text x="48" y="62" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">C14 Class Static Semantics Bagian 2</text>
+  <text x="48" y="92" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">Static elements -> private identifiers -> stronger class validation</text>
+  <rect x="48" y="124" width="168" height="156" rx="16" fill="#bae6fd"/>
+  <rect x="236" y="124" width="168" height="156" rx="16" fill="#ddd6fe"/>
+  <rect x="424" y="124" width="168" height="156" rx="16" fill="#bbf7d0"/>
+  <text x="64" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Static</text>
+  <text x="64" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- lives on class</text>
+  <text x="64" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- not on instance</text>
+  <text x="64" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- shared entry points</text>
+  <text x="252" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Private</text>
+  <text x="252" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- declare before use</text>
+  <text x="252" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- class local access</text>
+  <text x="252" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- stricter checks</text>
+  <text x="440" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Result</text>
+  <text x="440" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- clearer class layers</text>
+  <text x="440" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- better encapsulation</text>
+  <text x="440" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- safer class bodies</text>
+</svg>

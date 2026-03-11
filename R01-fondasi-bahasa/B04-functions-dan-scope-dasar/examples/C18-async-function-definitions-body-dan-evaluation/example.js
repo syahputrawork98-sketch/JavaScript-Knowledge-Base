@@ -1,3 +1,10 @@
 // C18 - Async Function Definitions Body dan Evaluation
-// Placeholder contoh utama. Isi konkret akan ditambahkan pada tahap penulisan materi.
-console.log('C18 main example placeholder');
+// Eksekusi berhenti sementara saat bertemu await.
+
+async function readFlow() {
+  console.log('before await');
+  const value = await Promise.resolve('done');
+  console.log('after await =>', value);
+}
+
+readFlow();

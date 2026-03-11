@@ -6,33 +6,49 @@ Bab ini bertujuan memahami tail position calls dan implikasi praktisnya.
 
 ## Kenapa Bab Ini Penting
 
-Bagian ini melanjutkan fondasi B04 agar pembaca memahami transisi dari aturan sintaks ke perilaku runtime.
+Tail position calls adalah topik yang sering muncul saat membahas struktur evaluasi function, meskipun dukungan optimasinya tidak selalu terlihat di engine JavaScript modern. Bab ini penting karena membantu pembaca membedakan antara pemanggilan biasa dan pemanggilan yang terjadi di posisi akhir evaluasi.
 
 ## Konsep Inti
 
-1. Konsep utama pertama (akan diisi pada tahap penulisan materi).
-2. Konsep utama kedua (akan diisi pada tahap penulisan materi).
-3. Konsep utama ketiga (akan diisi pada tahap penulisan materi).
+1. Tail position terjadi ketika hasil pemanggilan function langsung menjadi hasil akhir dari expression atau return.
+2. Tidak semua pemanggilan di akhir baris otomatis berada pada tail position.
+3. Walau optimasi tidak selalu diaktifkan engine, cara berpikir tail position tetap berguna untuk membaca struktur fungsi rekursif dan alur return.
+
+## Analogi Singkat
+
+Bayangkan tail position seperti estafet terakhir dalam lomba lari. Pelari terakhir hanya menerima tongkat dan langsung menyentuh garis akhir, tanpa ada langkah tambahan dari tim setelah itu. Dalam JavaScript, sebuah call berada pada tail position bila hasil call itu langsung menjadi hasil akhir function, tanpa operasi lanjutan sesudahnya.
+
+Contoh singkat:
+
+```js
+function forward(value) {
+  return identity(value);
+}
+```
 
 ## Praktik yang Direkomendasikan
 
-- Uji tiap aturan dengan contoh runnable kecil.
-- Pisahkan eksperimen compile-time dan runtime agar hasil observasi akurat.
+- Fokus dulu mengenali bentuk tail position sebelum membahas optimasi engine.
+- Bandingkan contoh `return fn(x)` dengan `return fn(x) + 1` agar bedanya jelas.
+- Gunakan contoh kecil dan eksplisit karena topik ini mudah kabur jika terlalu abstrak.
 
 ## Kesalahan Umum
 
-- Menganggap semua aturan statis terlihat langsung saat eksekusi.
-- Mengabaikan urutan evaluasi saat membaca contoh kode.
+- Mengira semua `return fn()` otomatis setara dengan optimasi tail call di runtime.
+- Tidak membedakan call yang masih dipakai untuk operasi lanjutan setelahnya.
+- Membahas optimasi engine dulu sebelum memahami posisi evaluasinya.
 
 ## Checkpoint Cepat
 
-1. Apa aturan utama pada bab ini?
-2. Apa perilaku runtime yang paling penting dipahami?
-3. Contoh mana yang paling membantu memvalidasi konsep bab ini?
+1. Kapan sebuah function call berada pada tail position?
+2. Kenapa `return fn(x) + 1` bukan tail position call?
+3. Apa manfaat praktis memahami tail position meski engine tidak selalu mengoptimalkannya?
 
 ## Ringkasan
 
-- Ringkasan final bab akan diisi setelah materi lengkap.
+- Tail position calls membantu kita membaca bentuk akhir evaluasi return dengan lebih presisi.
+- Konsep ini lebih penting sebagai alat berpikir daripada janji optimasi otomatis.
+- Bab ini menutup jalur B04 dengan menegaskan kembali hubungan antara bentuk fungsi dan perilaku evaluasinya.
 
 ## Spec Coverage
 

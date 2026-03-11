@@ -4,9 +4,9 @@ Contoh runnable untuk bab **C13 - Class Definitions Static Semantics Bagian 1**.
 
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` (class dasar: constructor dan instance method)
+- `example-02.js` (simulasi duplicate constructor sebagai early error)
+- `example-03.js` (perbandingan instance method vs static method)
 
 ## Jalankan
 

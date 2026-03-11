@@ -14,6 +14,10 @@ Sebelum membahas pipeline runtime, kita harus paham bentuk sintaks function mana
 2. Strict mode memperketat beberapa aturan, termasuk duplicate parameter pada function biasa.
 3. Bentuk function yang benar membantu engine membangun perilaku runtime secara konsisten.
 
+## Analogi Singkat
+
+Bayangkan function seperti dokumen resmi yang bisa diumumkan sebagai pengumuman umum atau disimpan sebagai lampiran khusus. Keduanya sama-sama berisi aturan kerja, tetapi cara dokumen itu diperkenalkan memengaruhi kapan orang lain bisa memakainya. Dalam JavaScript, perbedaan declaration, expression, dan strict mode menentukan kapan function tersedia dan aturan apa yang langsung diberlakukan.
+
 Contoh bentuk dasar:
 
 ```js
@@ -46,7 +50,7 @@ const multiply = function (a, b) {
 
 ## Ringkasan
 
-- Bentuk function yang valid adalah fondasi sebelum runtime evaluation.
+- Bentuk function yang valid adalah fondasi sebelum evaluasi runtime.
 - Strict mode menambah constraint untuk mencegah ambiguitas.
 - Konsistensi bentuk function memudahkan debugging bab berikutnya.
 

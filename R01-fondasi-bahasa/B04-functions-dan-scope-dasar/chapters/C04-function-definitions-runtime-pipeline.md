@@ -14,6 +14,10 @@ Banyak miskonsepsi function berasal dari salah paham urutan proses: parsing, ins
 2. Function expression dievaluasi saat baris ekspresinya dijalankan.
 3. Perbedaan waktu instansiasi memengaruhi kapan function bisa dipanggil.
 
+## Analogi Singkat
+
+Bayangkan ada dua jenis stan di acara pameran: stan permanen yang sudah siap sejak pintu dibuka, dan stan lipat yang baru aktif setelah panitianya datang dan memasangnya. Keduanya bisa dipakai pengunjung, tetapi waktu siapnya berbeda. Dalam JavaScript, declaration mirip stan permanen, sedangkan expression mirip stan yang baru tersedia saat proses evaluasi sampai ke sana.
+
 Contoh singkat:
 
 ```js

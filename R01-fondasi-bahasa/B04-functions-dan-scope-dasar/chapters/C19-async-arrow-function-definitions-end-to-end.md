@@ -6,33 +6,47 @@ Bab ini bertujuan memahami async arrow function secara utuh.
 
 ## Kenapa Bab Ini Penting
 
-Bagian ini melanjutkan fondasi B04 agar pembaca memahami transisi dari aturan sintaks ke perilaku runtime.
+Async arrow function menggabungkan dua karakter penting: bentuk ringkas arrow function dan model Promise dari async function. Bab ini penting karena banyak kode modern JavaScript memakai bentuk ini untuk callback, mapping asynchronous, dan handler berbasis closure.
 
 ## Konsep Inti
 
-1. Konsep utama pertama (akan diisi pada tahap penulisan materi).
-2. Konsep utama kedua (akan diisi pada tahap penulisan materi).
-3. Konsep utama ketiga (akan diisi pada tahap penulisan materi).
+1. Async arrow function ditulis dengan `async (...) => ...` atau `async param => ...`.
+2. Ia tetap memakai perilaku lexical khas arrow function, seperti `this` yang mengikuti scope luar.
+3. Hasil akhirnya tetap Promise, sehingga konsumsi nilainya perlu `await` atau `.then()`.
+
+## Analogi Singkat
+
+Bayangkan async arrow function seperti catatan singkat yang dikirim asisten atas nama timnya, sambil tetap membawa konteks ruangan tempat catatan itu dibuat. Catatannya pendek, tetapi hasil kerjanya bisa tetap datang belakangan. Dalam JavaScript, async arrow menggabungkan bentuk ringkas arrow dengan hasil Promise dan konteks lexical dari scope luar.
+
+Contoh singkat:
+
+```js
+const doubleLater = async (value) => value * 2;
+```
 
 ## Praktik yang Direkomendasikan
 
-- Uji tiap aturan dengan contoh runnable kecil.
-- Pisahkan eksperimen compile-time dan runtime agar hasil observasi akurat.
+- Gunakan async arrow untuk callback pendek yang tetap perlu `await`.
+- Ingat bahwa `this` pada async arrow tidak membuat binding baru.
+- Saat body mulai panjang, pertimbangkan block body agar urutan langkah lebih terbaca.
 
 ## Kesalahan Umum
 
-- Menganggap semua aturan statis terlihat langsung saat eksekusi.
-- Mengabaikan urutan evaluasi saat membaca contoh kode.
+- Mengira async arrow punya `this` sendiri seperti function biasa.
+- Lupa bahwa ekspresi singkat tetap dibungkus Promise.
+- Sulit membaca callback async bertingkat karena semua terlihat ringkas, padahal alurnya tetap asynchronous.
 
 ## Checkpoint Cepat
 
-1. Apa aturan utama pada bab ini?
-2. Apa perilaku runtime yang paling penting dipahami?
-3. Contoh mana yang paling membantu memvalidasi konsep bab ini?
+1. Apa persamaan async arrow function dan async function biasa?
+2. Apa pengaruh lexical `this` pada async arrow function?
+3. Kapan lebih nyaman memakai block body dibanding expression body?
 
 ## Ringkasan
 
-- Ringkasan final bab akan diisi setelah materi lengkap.
+- Async arrow function adalah bentuk ringkas untuk alur async yang tetap mengikuti aturan arrow function.
+- Promise result dan lexical binding adalah dua ciri utamanya.
+- Ini menjadi penutup alami sebelum masuk ke tail position calls sebagai topik praktis penutup buku.
 
 ## Spec Coverage
 

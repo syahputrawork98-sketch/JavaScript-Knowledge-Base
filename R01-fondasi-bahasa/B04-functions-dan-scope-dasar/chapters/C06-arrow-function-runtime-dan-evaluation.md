@@ -14,6 +14,10 @@ Setelah bentuk sintaks dipahami, langkah berikutnya adalah memahami bagaimana ar
 2. Arrow function tidak memiliki `arguments` sendiri; yang dipakai adalah `arguments` milik scope terdekat non-arrow.
 3. Instansiasi arrow function terjadi saat ekspresinya dievaluasi.
 
+## Analogi Singkat
+
+Bayangkan arrow function seperti anak yang berbicara mewakili orang tuanya, bukan atas identitas baru miliknya sendiri. Saat ia berkata "saya" atau membawa catatan lama, yang dipakai tetap konteks dari luar. Dalam JavaScript, itulah sebabnya `this` dan `arguments` pada arrow function mengikuti scope tempat arrow itu dibuat.
+
 Contoh lexical `this`:
 
 ```js

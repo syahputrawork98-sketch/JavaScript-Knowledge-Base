@@ -1,3 +1,21 @@
 // C15 - Class Definitions Static Runtime Bridge
-// Placeholder contoh tambahan 2.
-console.log('C15 example-03 placeholder');
+// Ekspresi extends dievaluasi saat class dibentuk.
+
+function chooseBase(label) {
+  console.log('evaluating extends ->', label);
+
+  return class Base {
+    describe() {
+      return `base:${label}`;
+    }
+  };
+}
+
+class Child extends chooseBase('service') {
+  info() {
+    return `${super.describe()} -> child`;
+  }
+}
+
+const child = new Child();
+console.log(child.info());

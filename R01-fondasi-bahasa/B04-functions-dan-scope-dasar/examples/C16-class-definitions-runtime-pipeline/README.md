@@ -4,9 +4,9 @@ Contoh runnable untuk bab **C16 - Class Definitions Runtime Pipeline**.
 
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` (akses class sebelum dan sesudah declaration)
+- `example-02.js` (timing evaluasi class expression)
+- `example-03.js` (instance field initializer saat membuat instance)
 
 ## Jalankan
 

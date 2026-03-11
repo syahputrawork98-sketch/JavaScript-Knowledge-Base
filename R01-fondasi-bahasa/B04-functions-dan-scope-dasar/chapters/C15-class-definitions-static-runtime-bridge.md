@@ -6,33 +6,55 @@ Bab ini bertujuan menjembatani static checks ke class element runtime behavior.
 
 ## Kenapa Bab Ini Penting
 
-Bagian ini melanjutkan fondasi B04 agar pembaca memahami transisi dari aturan sintaks ke perilaku runtime.
+Sesudah memahami aturan statis pada class, kita perlu melihat momen ketika struktur yang sudah lolos validasi mulai dievaluasi di runtime. Bab ini penting karena memperlihatkan bahwa nama elemen terhitung, ekspresi `extends`, dan initializer class tidak sekadar "terdaftar", tetapi benar-benar dijalankan pada fase evaluasi.
 
 ## Konsep Inti
 
-1. Konsep utama pertama (akan diisi pada tahap penulisan materi).
-2. Konsep utama kedua (akan diisi pada tahap penulisan materi).
-3. Konsep utama ketiga (akan diisi pada tahap penulisan materi).
+1. Static semantics memutuskan bentuk class valid atau tidak sebelum evaluasi runtime dilanjutkan.
+2. Beberapa bagian class, seperti computed property names dan `extends`, dievaluasi saat class dibentuk.
+3. Hasil evaluasi runtime itu lalu menentukan method, field, dan relasi pewarisan yang benar-benar dipasang pada class.
+
+## Analogi Singkat
+
+Bayangkan kita sedang merakit papan nama digital untuk sebuah toko. Sebelum dinyalakan, desainnya dicek dulu; setelah lolos, lampu, tulisan bergerak, dan sambungan listriknya mulai aktif satu per satu. Dalam JavaScript, static semantics memastikan bentuk class valid lebih dulu, lalu bagian runtime seperti computed names dan `extends` benar-benar dievaluasi saat class dibentuk.
+
+Contoh singkat:
+
+```js
+const methodName = 'hello';
+
+class Greeter {
+  static label = 'greeter';
+
+  [methodName]() {
+    return 'Hi';
+  }
+}
+```
 
 ## Praktik yang Direkomendasikan
 
-- Uji tiap aturan dengan contoh runnable kecil.
-- Pisahkan eksperimen compile-time dan runtime agar hasil observasi akurat.
+- Gunakan log sederhana untuk melihat urutan evaluasi pada `extends`, computed names, dan static fields.
+- Pisahkan contoh yang membahas validasi awal dari contoh yang membahas efek runtime setelah class terbentuk.
+- Saat membaca class kompleks, tanyakan dua hal: mana yang hanya divalidasi, dan mana yang benar-benar dieksekusi.
 
 ## Kesalahan Umum
 
-- Menganggap semua aturan statis terlihat langsung saat eksekusi.
-- Mengabaikan urutan evaluasi saat membaca contoh kode.
+- Mengira computed property name baru dihitung saat method dipanggil.
+- Lupa bahwa ekspresi `extends` dievaluasi saat class definition diproses.
+- Mengira nama internal class expression selalu bisa diakses dari scope luar.
 
 ## Checkpoint Cepat
 
-1. Apa aturan utama pada bab ini?
-2. Apa perilaku runtime yang paling penting dipahami?
-3. Contoh mana yang paling membantu memvalidasi konsep bab ini?
+1. Kapan computed property name pada class dievaluasi?
+2. Apa yang terjadi lebih dulu: validasi bentuk class atau inisialisasi elemennya?
+3. Kenapa nama internal class expression berguna, tetapi tidak bocor ke scope luar?
 
 ## Ringkasan
 
-- Ringkasan final bab akan diisi setelah materi lengkap.
+- Bab ini menjadi jembatan dari aturan statis menuju perilaku runtime class.
+- Evaluasi class dapat memicu efek runtime pada `extends`, computed names, dan initializers.
+- Memahami transisi ini memudahkan pembacaan pipeline runtime class pada bab berikutnya.
 
 ## Spec Coverage
 

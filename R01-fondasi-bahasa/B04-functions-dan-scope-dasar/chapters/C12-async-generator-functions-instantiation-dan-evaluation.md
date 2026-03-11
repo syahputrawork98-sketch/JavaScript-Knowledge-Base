@@ -6,33 +6,50 @@ Bab ini bertujuan memahami instansiasi dan evaluasi async generator function.
 
 ## Kenapa Bab Ini Penting
 
-Bagian ini melanjutkan fondasi B04 agar pembaca memahami transisi dari aturan sintaks ke perilaku runtime.
+Setelah bentuk dasar dipahami, kita perlu membaca bagaimana async generator diinstansiasi, bagaimana state bergerak dari satu `yield` ke `yield` berikutnya, dan bagaimana konsumsi async iterator berjalan di runtime.
 
 ## Konsep Inti
 
-1. Konsep utama pertama (akan diisi pada tahap penulisan materi).
-2. Konsep utama kedua (akan diisi pada tahap penulisan materi).
-3. Konsep utama ketiga (akan diisi pada tahap penulisan materi).
+1. Instansiasi async generator menghasilkan async iterator dengan state internal.
+2. Setiap langkah `next()` menghasilkan Promise yang harus di-`await`.
+3. Perpindahan state dipengaruhi oleh kombinasi `await`, `yield`, `return`, dan `throw`.
+
+## Analogi Singkat
+
+Bayangkan async generator seperti dashboard pengiriman yang hanya menampilkan update berikutnya setelah sistem selesai memproses status terbaru. Setiap kali kita meminta pembaruan, kita tidak langsung menerima jawaban final; kita menunggu sebentar sampai sistem mengirim langkah berikutnya. Dalam JavaScript, itulah sebabnya `next()` pada async generator menghasilkan Promise dan state-nya bergerak bertahap.
+
+Contoh alur:
+
+```js
+async function* flow() {
+  const a = yield 'step-1';
+  yield a + 1;
+}
+```
 
 ## Praktik yang Direkomendasikan
 
-- Uji tiap aturan dengan contoh runnable kecil.
-- Pisahkan eksperimen compile-time dan runtime agar hasil observasi akurat.
+- Uji async generator dengan `await iterator.next()` langkah demi langkah.
+- Catat nilai `value` dan `done` agar state transition mudah terlihat.
+- Gunakan `for await...of` untuk konsumsi umum dan kontrol manual untuk debugging mendalam.
 
 ## Kesalahan Umum
 
-- Menganggap semua aturan statis terlihat langsung saat eksekusi.
-- Mengabaikan urutan evaluasi saat membaca contoh kode.
+- Mengira `next()` pada async generator langsung mengembalikan object biasa, bukan Promise.
+- Lupa bahwa `return()` juga menghentikan async iterator lebih awal.
+- Sulit membedakan kapan `await` terjadi di dalam generator vs di sisi konsumen.
 
 ## Checkpoint Cepat
 
-1. Apa aturan utama pada bab ini?
-2. Apa perilaku runtime yang paling penting dipahami?
-3. Contoh mana yang paling membantu memvalidasi konsep bab ini?
+1. Kenapa `iterator.next()` pada async generator harus di-`await`?
+2. Apa efek `return()` pada async iterator?
+3. Kapan lebih baik memakai kontrol manual dibanding `for await...of`?
 
 ## Ringkasan
 
-- Ringkasan final bab akan diisi setelah materi lengkap.
+- Async generator dievaluasi langkah demi langkah lewat Promise-based iteration.
+- `await` dan `yield` bersama-sama membentuk state transition yang khas.
+- Memahami runtime pipeline ini penting sebelum masuk async function biasa dan async arrow.
 
 ## Spec Coverage
 

@@ -4,9 +4,9 @@ Contoh runnable untuk bab **C17 - Async Function Definitions Syntax dan Instanti
 
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` (async function mengembalikan Promise)
+- `example-02.js` (async declaration tetap mengembalikan Promise)
+- `example-03.js` (async method pada object)
 
 ## Jalankan
 

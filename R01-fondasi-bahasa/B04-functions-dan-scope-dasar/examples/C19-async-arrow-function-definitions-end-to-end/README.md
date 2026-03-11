@@ -4,9 +4,9 @@ Contoh runnable untuk bab **C19 - Async Arrow Function Definitions End to End**.
 
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` (expression body pada async arrow)
+- `example-02.js` (lexical `this` pada async arrow)
+- `example-03.js` (block body untuk langkah async bertahap)
 
 ## Jalankan
 

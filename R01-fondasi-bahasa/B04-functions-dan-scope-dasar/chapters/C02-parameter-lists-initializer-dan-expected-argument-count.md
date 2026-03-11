@@ -14,6 +14,10 @@ Default initializer sering terlihat sederhana, tetapi punya aturan evaluasi yang
 2. Initializer dievaluasi dari kiri ke kanan, sehingga urutan parameter penting.
 3. `function.length` merepresentasikan expected argument count dengan aturan tertentu.
 
+## Analogi Singkat
+
+Bayangkan initializer seperti isian default di formulir online. Kalau pengguna membiarkan satu kolom kosong, sistem akan mengisi nilai bawaan, tetapi urutan kolom tetap penting karena satu kolom bisa bergantung pada kolom sebelumnya. Dalam JavaScript, pola ini terlihat saat parameter default dijalankan dan saat `function.length` hanya menghitung bagian signature yang dianggap "wajib" lebih dulu.
+
 Contoh initializer:
 
 ```js

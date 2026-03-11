@@ -14,6 +14,10 @@ Setelah bentuk method dipahami, langkah berikutnya adalah runtime behavior: kapa
 2. Call-site (`obj.method()`) menentukan `this` pada method biasa.
 3. Memindahkan reference method ke variabel lepas bisa mengubah konteks `this`.
 
+## Analogi Singkat
+
+Bayangkan method seperti mikrofon ruangan yang suaranya bergantung pada ruangan tempat ia dipakai. Saat mikrofon itu masih dipakai di ruangan aslinya, suaranya sesuai konteks; ketika dilepas dan dipindah sembarang tempat, konteks suaranya bisa hilang. Dalam JavaScript, call-site menentukan konteks `this`, bukan sekadar lokasi method itu pertama kali ditulis.
+
 Contoh call-site:
 
 ```js
@@ -44,7 +48,7 @@ Pemanggilan `counter.inc()` berbeda efek dengan menyimpan `const fn = counter.in
 
 1. Apa hubungan call-site dengan nilai `this` di method?
 2. Kapan `bind` diperlukan saat method dijadikan callback?
-3. Bagaimana membedakan bug syntax method dan bug runtime context?
+3. Bagaimana membedakan bug sintaks method dan bug runtime context?
 
 ## Ringkasan
 

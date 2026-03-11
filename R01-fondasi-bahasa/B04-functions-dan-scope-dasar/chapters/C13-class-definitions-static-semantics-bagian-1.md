@@ -6,33 +6,55 @@ Bab ini bertujuan memahami static semantics awal pada class definitions.
 
 ## Kenapa Bab Ini Penting
 
-Bagian ini melanjutkan fondasi B04 agar pembaca memahami transisi dari aturan sintaks ke perilaku runtime.
+Class definitions memperluas model function dan method dengan aturan statis tambahan. Memahami aturan awal ini penting supaya kita tidak hanya menulis class yang "jalan", tetapi juga mengerti kenapa bentuk tertentu dianggap valid atau invalid.
 
 ## Konsep Inti
 
-1. Konsep utama pertama (akan diisi pada tahap penulisan materi).
-2. Konsep utama kedua (akan diisi pada tahap penulisan materi).
-3. Konsep utama ketiga (akan diisi pada tahap penulisan materi).
+1. Class punya aturan early errors yang lebih ketat dibanding object literal biasa.
+2. Constructor method punya peran khusus dan tidak diperlakukan seperti method biasa.
+3. Static semantics membantu membedakan elemen class sebelum runtime evaluation dimulai.
+
+## Analogi Singkat
+
+Bayangkan class seperti cetakan resmi untuk membuat kartu identitas. Sebelum kartu itu dipakai, cetakannya harus dicek dulu: formatnya harus benar, bagian utamanya harus lengkap, dan tidak boleh ada dua slot yang sama untuk fungsi khusus. Dalam JavaScript, static semantics melakukan pengecekan struktur class lebih dulu sebelum class benar-benar masuk ke tahap runtime.
+
+Contoh class dasar:
+
+```js
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    return `Hi, ${this.name}`;
+  }
+}
+```
 
 ## Praktik yang Direkomendasikan
 
-- Uji tiap aturan dengan contoh runnable kecil.
-- Pisahkan eksperimen compile-time dan runtime agar hasil observasi akurat.
+- Uji satu aturan class per contoh agar pesan error mudah ditafsirkan.
+- Pisahkan eksperimen constructor, instance method, dan static method.
+- Saat membaca class, bedakan dulu mana elemen normal dan mana elemen khusus.
 
 ## Kesalahan Umum
 
-- Menganggap semua aturan statis terlihat langsung saat eksekusi.
-- Mengabaikan urutan evaluasi saat membaca contoh kode.
+- Mengira `constructor` hanyalah method biasa yang bisa dinamai ulang secara bebas.
+- Menggunakan lebih dari satu constructor dalam satu class.
+- Tidak membedakan method instance dengan method static saat membaca API class.
 
 ## Checkpoint Cepat
 
-1. Apa aturan utama pada bab ini?
-2. Apa perilaku runtime yang paling penting dipahami?
-3. Contoh mana yang paling membantu memvalidasi konsep bab ini?
+1. Kenapa constructor dianggap elemen khusus dalam class?
+2. Apa contoh early error sederhana pada class definition?
+3. Bagaimana membedakan method instance dan static dari bentuk deklarasinya?
 
 ## Ringkasan
 
-- Ringkasan final bab akan diisi setelah materi lengkap.
+- Static semantics awal class membantu kita memvalidasi struktur class sebelum runtime.
+- Constructor punya status khusus dibanding method lain.
+- Dasar ini memudahkan pembahasan elemen class lanjutan pada bab berikutnya.
 
 ## Spec Coverage
 

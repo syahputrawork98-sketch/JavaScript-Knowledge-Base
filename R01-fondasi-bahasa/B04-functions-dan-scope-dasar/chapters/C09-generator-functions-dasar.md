@@ -14,6 +14,10 @@ Generator memperkenalkan model eksekusi bertahap (`pause` dan `resume`) yang ber
 2. Kata kunci `yield` menghentikan sementara eksekusi dan mengembalikan nilai.
 3. Pemanggilan generator tidak langsung menjalankan body sampai `next()` dipanggil.
 
+## Analogi Singkat
+
+Bayangkan generator seperti mesin tiket antrean di loket. Mesin itu tidak mengeluarkan semua tiket sekaligus; ia baru mengeluarkan tiket berikutnya setiap kali tombol ditekan. Dalam JavaScript, `next()` adalah tombolnya, sedangkan `yield` adalah momen ketika generator mengeluarkan satu nilai lalu berhenti sebentar.
+
 Contoh dasar:
 
 ```js

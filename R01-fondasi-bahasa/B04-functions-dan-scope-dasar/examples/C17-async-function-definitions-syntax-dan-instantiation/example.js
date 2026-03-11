@@ -1,3 +1,12 @@
 // C17 - Async Function Definitions Syntax dan Instantiation
-// Placeholder contoh utama. Isi konkret akan ditambahkan pada tahap penulisan materi.
-console.log('C17 main example placeholder');
+// Async function selalu mengembalikan Promise.
+
+async function getLabel() {
+  return 'async-ready';
+}
+
+const result = getLabel();
+console.log('result instanceof Promise =', result instanceof Promise);
+result.then((value) => {
+  console.log('resolved value =', value);
+});

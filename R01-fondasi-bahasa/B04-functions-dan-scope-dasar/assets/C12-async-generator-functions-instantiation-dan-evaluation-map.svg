@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#f0fdf4"/>
+  <rect x="24" y="24" width="592" height="312" rx="20" fill="#ffffff" stroke="#1f2937" stroke-width="2"/>
+  <text x="48" y="62" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">C12 Async Generator Instantiation dan Evaluation</text>
+  <text x="48" y="92" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">Promise based next -> await plus yield -> state transitions</text>
+  <rect x="48" y="124" width="168" height="156" rx="16" fill="#86efac"/>
+  <rect x="236" y="124" width="168" height="156" rx="16" fill="#bfdbfe"/>
+  <rect x="424" y="124" width="168" height="156" rx="16" fill="#fecaca"/>
+  <text x="64" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Next</text>
+  <text x="64" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- returns Promise</text>
+  <text x="64" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- await each step</text>
+  <text x="64" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- inspect value done</text>
+  <text x="252" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Flow</text>
+  <text x="252" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- await pauses body</text>
+  <text x="252" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- yield exposes step</text>
+  <text x="252" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- return closes iterator</text>
+  <text x="440" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Debug</text>
+  <text x="440" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- manual stepping helps</text>
+  <text x="440" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- compare loop vs next</text>
+  <text x="440" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- state becomes visible</text>
+</svg>

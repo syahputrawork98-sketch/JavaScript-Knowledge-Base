@@ -4,9 +4,9 @@ Contoh runnable untuk bab **C12 - Async Generator Functions Instantiation dan Ev
 
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` (alur `next(value)` pada async generator)
+- `example-02.js` (manual iteration dengan `value` dan `done`)
+- `example-03.js` (penghentian awal via `return()`)
 
 ## Jalankan
 

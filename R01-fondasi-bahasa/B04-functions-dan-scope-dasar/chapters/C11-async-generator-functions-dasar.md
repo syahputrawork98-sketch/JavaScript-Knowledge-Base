@@ -6,33 +6,50 @@ Bab ini bertujuan memahami dasar async generator function.
 
 ## Kenapa Bab Ini Penting
 
-Bagian ini melanjutkan fondasi B04 agar pembaca memahami transisi dari aturan sintaks ke perilaku runtime.
+Async generator menggabungkan dua ide penting: `async` dan `yield`. Topik ini penting karena memperlihatkan bagaimana nilai dapat diproduksi bertahap sekaligus menunggu operasi asynchronous di antaranya.
 
 ## Konsep Inti
 
-1. Konsep utama pertama (akan diisi pada tahap penulisan materi).
-2. Konsep utama kedua (akan diisi pada tahap penulisan materi).
-3. Konsep utama ketiga (akan diisi pada tahap penulisan materi).
+1. Async generator ditulis dengan `async function*` dan menghasilkan async iterator.
+2. Nilai dikirim keluar dengan `yield`, tetapi konsumsinya perlu `for await...of` atau `await iterator.next()`.
+3. Di dalam body, kita bisa memakai `await` dan `yield` dalam satu alur.
+
+## Analogi Singkat
+
+Bayangkan async generator seperti kurir yang mengirim paket satu per satu, tetapi di antara pengiriman itu ia kadang harus menunggu barang berikutnya siap dulu. Jadi alurnya tidak sekaligus selesai, melainkan kirim, tunggu, lalu kirim lagi. Dalam JavaScript, pola ini muncul saat `await` dan `yield` dipakai bersama untuk menghasilkan nilai bertahap secara asynchronous.
+
+Contoh dasar:
+
+```js
+async function* sequence() {
+  yield 1;
+  yield 2;
+}
+```
 
 ## Praktik yang Direkomendasikan
 
-- Uji tiap aturan dengan contoh runnable kecil.
-- Pisahkan eksperimen compile-time dan runtime agar hasil observasi akurat.
+- Mulai dari async generator kecil sebelum menambahkan `await` yang lebih kompleks.
+- Bedakan antara async function yang mengembalikan satu Promise dan async generator yang menghasilkan banyak langkah async.
+- Gunakan `for await...of` saat ingin membaca alur konsumsi secara natural.
 
 ## Kesalahan Umum
 
-- Menganggap semua aturan statis terlihat langsung saat eksekusi.
-- Mengabaikan urutan evaluasi saat membaca contoh kode.
+- Mengira async generator langsung mengembalikan array atau Promise biasa.
+- Lupa bahwa konsumsi nilainya membutuhkan mekanisme async iterator.
+- Mencampur `yield` dan `return` tanpa memahami efeknya pada akhir iterasi.
 
 ## Checkpoint Cepat
 
-1. Apa aturan utama pada bab ini?
-2. Apa perilaku runtime yang paling penting dipahami?
-3. Contoh mana yang paling membantu memvalidasi konsep bab ini?
+1. Apa beda async generator dan generator biasa?
+2. Kapan kita memakai `for await...of`?
+3. Kenapa async generator cocok untuk stream bertahap?
 
 ## Ringkasan
 
-- Ringkasan final bab akan diisi setelah materi lengkap.
+- Async generator adalah generator yang juga bisa menunggu operasi asynchronous.
+- Nilai keluar bertahap melalui async iterator.
+- Topik ini menjadi jembatan ke evaluasi runtime async generator pada bab berikutnya.
 
 ## Spec Coverage
 

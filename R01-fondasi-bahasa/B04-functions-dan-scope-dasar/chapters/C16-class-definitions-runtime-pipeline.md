@@ -6,33 +6,53 @@ Bab ini bertujuan memahami pipeline evaluasi class declaration dan expression.
 
 ## Kenapa Bab Ini Penting
 
-Bagian ini melanjutkan fondasi B04 agar pembaca memahami transisi dari aturan sintaks ke perilaku runtime.
+Sesudah melihat jembatan dari static checks ke runtime, langkah berikutnya adalah membaca pipeline evaluasi class secara lebih utuh. Bab ini penting karena class tidak berperilaku seperti function declaration biasa: ada momen binding dibuat, body dievaluasi, dan hasil akhirnya baru bisa dipakai setelah seluruh definisi class selesai diproses.
 
 ## Konsep Inti
 
-1. Konsep utama pertama (akan diisi pada tahap penulisan materi).
-2. Konsep utama kedua (akan diisi pada tahap penulisan materi).
-3. Konsep utama ketiga (akan diisi pada tahap penulisan materi).
+1. Class declaration membuat binding yang baru benar-benar aman dipakai setelah evaluasi class selesai.
+2. Class expression dievaluasi di tempat ekspresi itu muncul, sehingga timing pembentukannya lebih eksplisit.
+3. Constructor, methods, fields, dan inheritance dipasang sebagai bagian dari pipeline pembentukan class, bukan saat instance pertama dibuat.
+
+## Analogi Singkat
+
+Bayangkan class seperti mesin produksi yang harus dirakit penuh sebelum dipakai operator. Nama mesinnya mungkin sudah direncanakan, tetapi selama perakitannya belum selesai, mesin itu belum aman dinyalakan. Dalam JavaScript, class baru benar-benar siap dipakai setelah pipeline pembentukannya selesai, termasuk binding, methods, dan fields-nya.
+
+Contoh singkat:
+
+```js
+class User {
+  static role = 'member';
+
+  constructor(name) {
+    this.name = name;
+  }
+}
+```
 
 ## Praktik yang Direkomendasikan
 
-- Uji tiap aturan dengan contoh runnable kecil.
-- Pisahkan eksperimen compile-time dan runtime agar hasil observasi akurat.
+- Amati urutan evaluasi dengan `console.log` kecil di sekitar deklarasi class.
+- Bedakan waktu pembentukan class dari waktu pembuatan instance.
+- Saat membandingkan declaration dan expression, lihat kapan nama class tersedia dan di scope mana.
 
 ## Kesalahan Umum
 
-- Menganggap semua aturan statis terlihat langsung saat eksekusi.
-- Mengabaikan urutan evaluasi saat membaca contoh kode.
+- Mengira class declaration bisa dipakai sebelum deklarasinya seperti function declaration.
+- Mengira field initializer baru dijalankan saat method dipanggil.
+- Sulit membedakan binding luar class expression dengan nama internal class expression.
 
 ## Checkpoint Cepat
 
-1. Apa aturan utama pada bab ini?
-2. Apa perilaku runtime yang paling penting dipahami?
-3. Contoh mana yang paling membantu memvalidasi konsep bab ini?
+1. Kenapa akses class sebelum deklarasi menghasilkan error?
+2. Apa perbedaan timing evaluasi class declaration dan class expression?
+3. Kapan field initializer instance dijalankan dalam pipeline runtime class?
 
 ## Ringkasan
 
-- Ringkasan final bab akan diisi setelah materi lengkap.
+- Runtime pipeline class menentukan kapan binding, inheritance, methods, dan fields benar-benar dibentuk.
+- Class declaration dan class expression sama-sama membangun class object, tetapi titik evaluasinya berbeda.
+- Dasar ini menyiapkan pembaca untuk topik async function dan evaluasi runtime berikutnya.
 
 ## Spec Coverage
 

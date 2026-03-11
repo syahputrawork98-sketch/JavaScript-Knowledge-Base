@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#eff6ff"/>
+  <rect x="24" y="24" width="592" height="312" rx="20" fill="#ffffff" stroke="#1f2937" stroke-width="2"/>
+  <text x="48" y="62" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">C11 Async Generator Functions Dasar</text>
+  <text x="48" y="92" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">async function* -> yield over time -> consume with for await</text>
+  <rect x="48" y="124" width="168" height="156" rx="16" fill="#bfdbfe"/>
+  <rect x="236" y="124" width="168" height="156" rx="16" fill="#a7f3d0"/>
+  <rect x="424" y="124" width="168" height="156" rx="16" fill="#fde68a"/>
+  <text x="64" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Async</text>
+  <text x="64" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- Promise friendly body</text>
+  <text x="64" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- await inside</text>
+  <text x="64" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- gradual production</text>
+  <text x="252" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Yield</text>
+  <text x="252" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- many async steps</text>
+  <text x="252" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- values over time</text>
+  <text x="252" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- iterator interface</text>
+  <text x="440" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Consume</text>
+  <text x="440" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- for await loop</text>
+  <text x="440" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- await next manually</text>
+  <text x="440" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- stream like reading</text>
+</svg>

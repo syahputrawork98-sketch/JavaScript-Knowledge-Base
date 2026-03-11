@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#eff6ff"/>
+  <rect x="24" y="24" width="592" height="312" rx="20" fill="#ffffff" stroke="#1f2937" stroke-width="2"/>
+  <text x="48" y="62" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">C17 Async Function Syntax dan Instantiation</text>
+  <text x="48" y="92" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">async function syntax -> Promise result -> expression timing</text>
+  <rect x="48" y="124" width="168" height="156" rx="16" fill="#bfdbfe"/>
+  <rect x="236" y="124" width="168" height="156" rx="16" fill="#fde68a"/>
+  <rect x="424" y="124" width="168" height="156" rx="16" fill="#bbf7d0"/>
+  <text x="64" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Syntax</text>
+  <text x="64" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- async declaration</text>
+  <text x="64" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- async expression</text>
+  <text x="64" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- async method form</text>
+  <text x="252" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Result</text>
+  <text x="252" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- always Promise</text>
+  <text x="252" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- return wraps value</text>
+  <text x="252" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- await reads final data</text>
+  <text x="440" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Timing</text>
+  <text x="440" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- declaration available</text>
+  <text x="440" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- expression after eval</text>
+  <text x="440" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- body runs on call</text>
+</svg>

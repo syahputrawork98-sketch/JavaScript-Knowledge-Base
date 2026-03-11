@@ -4,9 +4,9 @@ Contoh runnable untuk bab **C11 - Async Generator Functions Dasar**.
 
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` (async generator dasar dengan `for await...of`)
+- `example-02.js` (kombinasi `await` dan `yield`)
+- `example-03.js` (perbandingan async function vs async generator)
 
 ## Jalankan
 

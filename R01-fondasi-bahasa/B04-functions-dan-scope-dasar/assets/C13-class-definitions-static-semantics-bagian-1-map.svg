@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#fff7ed"/>
+  <rect x="24" y="24" width="592" height="312" rx="20" fill="#fffcf7" stroke="#1f2937" stroke-width="2"/>
+  <text x="48" y="62" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">C13 Class Static Semantics Bagian 1</text>
+  <text x="48" y="92" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">Constructor rules -> early errors -> instance vs static reading</text>
+  <rect x="48" y="124" width="168" height="156" rx="16" fill="#fed7aa"/>
+  <rect x="236" y="124" width="168" height="156" rx="16" fill="#fecaca"/>
+  <rect x="424" y="124" width="168" height="156" rx="16" fill="#bfdbfe"/>
+  <text x="64" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Constructor</text>
+  <text x="64" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- special method</text>
+  <text x="64" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- one per class</text>
+  <text x="64" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- sets instance state</text>
+  <text x="252" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Errors</text>
+  <text x="252" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- duplicate constructor</text>
+  <text x="252" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- invalid structure first</text>
+  <text x="252" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- fail before runtime</text>
+  <text x="440" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Reading</text>
+  <text x="440" y="182" font-family="Arial, sans-serif" font-size="14" fill="#111827">- instance methods</text>
+  <text x="440" y="204" font-family="Arial, sans-serif" font-size="14" fill="#111827">- static later contrast</text>
+  <text x="440" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">- structure before runtime</text>
+</svg>

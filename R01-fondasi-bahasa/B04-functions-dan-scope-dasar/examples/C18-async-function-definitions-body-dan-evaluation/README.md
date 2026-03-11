@@ -4,9 +4,9 @@ Contoh runnable untuk bab **C18 - Async Function Definitions Body dan Evaluation
 
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` (alur sebelum dan sesudah `await`)
+- `example-02.js` (timing async function expression)
+- `example-03.js` (`throw` menghasilkan Promise rejection)
 
 ## Jalankan
 

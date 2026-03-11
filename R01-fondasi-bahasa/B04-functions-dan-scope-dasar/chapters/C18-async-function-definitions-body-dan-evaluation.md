@@ -6,33 +6,50 @@ Bab ini bertujuan memahami evaluasi async function body.
 
 ## Kenapa Bab Ini Penting
 
-Bagian ini melanjutkan fondasi B04 agar pembaca memahami transisi dari aturan sintaks ke perilaku runtime.
+Setelah bentuk async function dipahami, kita perlu melihat apa yang terjadi saat body benar-benar dijalankan. Bab ini penting karena `await`, error handling, dan nilai `return` di async function membentuk alur evaluasi yang berbeda dari function sinkron biasa.
 
 ## Konsep Inti
 
-1. Konsep utama pertama (akan diisi pada tahap penulisan materi).
-2. Konsep utama kedua (akan diisi pada tahap penulisan materi).
-3. Konsep utama ketiga (akan diisi pada tahap penulisan materi).
+1. Async function expression baru terbentuk setelah ekspresi atau assignment yang memuatnya dievaluasi.
+2. Body async function berjalan sampai bertemu `await`, lalu melanjutkan kembali setelah Promise terkait selesai.
+3. `return` dan `throw` menentukan apakah Promise hasil akan resolve atau reject.
+
+## Analogi Singkat
+
+Bayangkan async function seperti koki yang mulai memasak, lalu berhenti sebentar menunggu bahan matang atau datang dari dapur lain. Setelah bahan siap, koki melanjutkan proses sampai makanan selesai atau gagal disajikan. Dalam JavaScript, `await` adalah titik tunggu itu, sedangkan `return` dan `throw` menentukan bagaimana hasil akhirnya dikirim ke pemanggil.
+
+Contoh singkat:
+
+```js
+async function load() {
+  const data = await Promise.resolve('ok');
+  return data;
+}
+```
 
 ## Praktik yang Direkomendasikan
 
-- Uji tiap aturan dengan contoh runnable kecil.
-- Pisahkan eksperimen compile-time dan runtime agar hasil observasi akurat.
+- Gunakan log sederhana untuk membedakan kapan async function expression tersedia dan kapan body mulai berjalan.
+- Gunakan log sederhana sebelum dan sesudah `await` untuk melihat perpindahan alur.
+- Uji sukses dan gagal (`resolve` dan `reject`) agar mekanisme Promise lebih jelas.
 
 ## Kesalahan Umum
 
-- Menganggap semua aturan statis terlihat langsung saat eksekusi.
-- Mengabaikan urutan evaluasi saat membaca contoh kode.
+- Mengira async function expression sudah tersedia sebelum assignment dievaluasi.
+- Mengira `await` memblokir seluruh program, padahal ia hanya menunda kelanjutan async function.
+- Lupa menangani Promise rejection dari async function.
 
 ## Checkpoint Cepat
 
-1. Apa aturan utama pada bab ini?
-2. Apa perilaku runtime yang paling penting dipahami?
-3. Contoh mana yang paling membantu memvalidasi konsep bab ini?
+1. Kapan async function expression mulai bisa dipanggil?
+2. Apa yang terjadi pada eksekusi body saat `await` ditemui?
+3. Bagaimana `return` dan `throw` memengaruhi Promise hasil?
 
 ## Ringkasan
 
-- Ringkasan final bab akan diisi setelah materi lengkap.
+- Evaluasi async function mencakup timing expression, `await`, `return`, dan `throw`.
+- Promise hasil async function adalah jembatan utama antara body function dan konsumennya.
+- Pemahaman ini memudahkan pembacaan async arrow function pada bab berikutnya.
 
 ## Spec Coverage
 

@@ -2,7 +2,7 @@
 
 `B04` menutup domain fungsi dan scope dengan cakupan penuh source `ECMAScript Clause 15` (`15.1-15.10`).
 
-## Daftar Bab (Blueprint C01-C20)
+## Daftar Bab (C01-C20)
 
 1. `C01-parameter-lists-dasar-dan-early-errors.md`  
    Tujuan: memahami fondasi parameter list dan validasi awal deklaratif.
@@ -29,15 +29,15 @@
 12. `C12-async-generator-functions-instantiation-dan-evaluation.md`  
     Tujuan: memahami instansiasi dan evaluasi async generator function.
 13. `C13-class-definitions-static-semantics-bagian-1.md`  
-    Tujuan: memahami static semantics awal pada class definitions.
+    Tujuan: memahami static semantics awal pada class definition.
 14. `C14-class-definitions-static-semantics-bagian-2.md`  
-    Tujuan: memahami static semantics lanjutan pada class definitions.
+    Tujuan: memahami static semantics lanjutan pada class definition.
 15. `C15-class-definitions-static-runtime-bridge.md`  
     Tujuan: menjembatani static checks ke class element runtime behavior.
 16. `C16-class-definitions-runtime-pipeline.md`  
     Tujuan: memahami pipeline evaluasi class declaration/expression.
 17. `C17-async-function-definitions-syntax-dan-instantiation.md`  
-    Tujuan: memahami syntax dan instansiasi async function.
+    Tujuan: memahami sintaks dan instansiasi async function.
 18. `C18-async-function-definitions-body-dan-evaluation.md`  
     Tujuan: memahami evaluasi async function body.
 19. `C19-async-arrow-function-definitions-end-to-end.md`  
@@ -57,3 +57,10 @@
 - `C01-C12`: jalur fondasi fungsi.
 - `C13-C16`: class definitions sebagai kelanjutan model function/object.
 - `C17-C20`: async function/async arrow/tail position sebagai penutup scope B04.
+
+## Status
+
+- Seluruh chapter `C01-C20` sudah terisi materi awal yang siap dibaca.
+- Setiap chapter sudah terhubung ke folder examples runnable masing-masing.
+- Visual map `C01-C20` juga sudah tersedia sehingga referensi aset chapter kini lengkap.
+- Penyempurnaan berikutnya berfokus pada perluasan latihan atau pendalaman pembahasan bila dibutuhkan.
