@@ -47,6 +47,12 @@ Declaration menambah binding baru, sedangkan expression statement mengeksekusi e
 2. Kenapa nilai balik expression statement sering diabaikan?
 3. Kapan expression statement sebaiknya dipecah?
 
+## Analogi
+
+- Intuisi Singkat: Expression statement mengeksekusi ekspresi demi efek samping.
+- Analogi: Seperti menekan tombol kirim: aksinya yang penting, bukan nilai tombolnya.
+- Batas Analogi: Ada batas grammar: tidak semua ekspresi boleh berdiri sebagai statement.
+
 ## Ringkasan
 
 - Expression statement mengeksekusi expression sebagai aksi.
@@ -61,4 +67,3 @@ Declaration menambah binding baru, sedangkan expression statement mengeksekusi e
 
 - Lihat contoh: ../examples/C21-expression-statement/example.js
 - Panduan: ../examples/C21-expression-statement/README.md
-

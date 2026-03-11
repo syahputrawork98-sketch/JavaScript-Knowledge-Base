@@ -56,6 +56,12 @@ Jika salah satu operand string, hasil cenderung string.
 2. Apa hasil `1 + 2 + '3'` dan kenapa?
 3. Kapan template literal lebih aman dari `+` berantai?
 
+## Analogi
+
+- Intuisi Singkat: Additive operators bisa menambah angka atau menggabung string.
+- Analogi: Seperti kasir yang kadang menjumlah harga, kadang menyambung teks catatan.
+- Batas Analogi: Makna `+` bergantung tipe operand saat runtime.
+
 ## Ringkasan
 
 - `+` bisa berarti penjumlahan atau konkatenasi.
@@ -70,4 +76,3 @@ Jika salah satu operand string, hasil cenderung string.
 
 - Lihat contoh: ../examples/C08-additive-operators/example.js
 - Panduan: ../examples/C08-additive-operators/README.md
-

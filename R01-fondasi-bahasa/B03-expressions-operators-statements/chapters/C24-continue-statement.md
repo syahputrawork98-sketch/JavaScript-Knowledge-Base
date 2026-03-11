@@ -51,6 +51,12 @@ Terlalu banyak `continue` bisa membuat jalur eksekusi sulit diikuti.
 2. Risiko `continue` pada `while` apa?
 3. Kapan lebih baik ganti ke `if` biasa tanpa continue?
 
+## Analogi
+
+- Intuisi Singkat: Continue melewati sisa proses iterasi saat ini dan lompat ke berikutnya.
+- Analogi: Seperti sortir barang yang langsung melewati item rusak ke item selanjutnya.
+- Batas Analogi: Hanya valid di konteks loop yang sesuai.
+
 ## Ringkasan
 
 - `continue` melewati iterasi aktif dan lanjut ke iterasi berikutnya.
@@ -65,4 +71,3 @@ Terlalu banyak `continue` bisa membuat jalur eksekusi sulit diikuti.
 
 - Lihat contoh: ../examples/C24-continue-statement/example.js
 - Panduan: ../examples/C24-continue-statement/README.md
-

@@ -64,6 +64,12 @@ Nilai `this` bergantung pada context eksekusi.
 2. Kenapa `(1 + 2) * 3` beda dengan `1 + 2 * 3`?
 3. Kapan object literal perlu dibungkus `(...)`?
 
+## Analogi
+
+- Intuisi Singkat: Primary expression adalah unit paling dasar pembentuk ekspresi lain.
+- Analogi: Seperti bahan baku dapur yang jadi pondasi semua menu berikutnya.
+- Batas Analogi: Ia hanya unit sintaks dasar, bukan keseluruhan alur evaluasi program.
+
 ## Ringkasan
 
 - Primary expression adalah unit ekspresi paling dasar.
@@ -78,4 +84,3 @@ Nilai `this` bergantung pada context eksekusi.
 
 - Lihat contoh: ../examples/C02-primary-expressions/example.js
 - Panduan: ../examples/C02-primary-expressions/README.md
-

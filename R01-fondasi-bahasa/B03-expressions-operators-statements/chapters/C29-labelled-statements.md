@@ -48,6 +48,12 @@ Label bisa efektif tapi mudah membuat flow sulit dipahami.
 2. Apa beda `break label` dan `continue label`?
 3. Kenapa label sebaiknya dipakai terbatas?
 
+## Analogi
+
+- Intuisi Singkat: Labelled statement memberi target bernama untuk break/continue.
+- Analogi: Seperti penanda lantai agar perpindahan titik bisa eksplisit.
+- Batas Analogi: Terlalu banyak label membuat alur sulit dibaca.
+
 ## Ringkasan
 
 - Label adalah fitur kontrol flow tingkat lanjut di statement.
@@ -62,4 +68,3 @@ Label bisa efektif tapi mudah membuat flow sulit dipahami.
 
 - Lihat contoh: ../examples/C29-labelled-statements/example.js
 - Panduan: ../examples/C29-labelled-statements/README.md
-

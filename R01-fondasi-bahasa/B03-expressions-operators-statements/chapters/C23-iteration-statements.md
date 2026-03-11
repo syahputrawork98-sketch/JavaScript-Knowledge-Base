@@ -49,6 +49,12 @@ Body dijalankan dulu, kondisi dicek belakangan.
 2. Apa beda `for...of` dan `for...in`?
 3. Kenapa `do...while` unik dibanding loop lain?
 
+## Analogi
+
+- Intuisi Singkat: Iteration statements mengulang proses selama syarat terpenuhi.
+- Analogi: Seperti lini produksi yang terus berjalan sampai target selesai.
+- Batas Analogi: Setiap jenis loop punya timing evaluasi berbeda.
+
 ## Ringkasan
 
 - JavaScript punya beberapa bentuk iteration statement.
@@ -63,4 +69,3 @@ Body dijalankan dulu, kondisi dicek belakangan.
 
 - Lihat contoh: ../examples/C23-iteration-statements/example.js
 - Panduan: ../examples/C23-iteration-statements/README.md
-

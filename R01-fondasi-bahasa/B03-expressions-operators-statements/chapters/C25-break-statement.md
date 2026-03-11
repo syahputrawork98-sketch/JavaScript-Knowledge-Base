@@ -50,6 +50,12 @@ Labelled break dipakai untuk keluar dari nested loop tertentu.
 2. Kenapa `break` penting di `switch`?
 3. Kapan labelled break layak dipertimbangkan?
 
+## Analogi
+
+- Intuisi Singkat: Break menghentikan loop atau switch lebih cepat.
+- Analogi: Seperti tombol stop darurat pada mesin.
+- Batas Analogi: Tanpa label, ia hanya keluar dari struktur terdekat.
+
 ## Ringkasan
 
 - `break` menghentikan flow statement saat ini secara langsung.
@@ -64,4 +70,3 @@ Labelled break dipakai untuk keluar dari nested loop tertentu.
 
 - Lihat contoh: ../examples/C25-break-statement/example.js
 - Panduan: ../examples/C25-break-statement/README.md
-

@@ -52,6 +52,12 @@ Jika cabang mulai banyak atau perlu side effect, `if/else` biasanya lebih jelas.
 2. Apa tanda nested ternary perlu direfaktor?
 3. Kenapa ternary disebut expression, bukan statement?
 
+## Analogi
+
+- Intuisi Singkat: Conditional operator memilih salah satu dari dua ekspresi.
+- Analogi: Seperti petunjuk jalur A/B berdasarkan satu syarat.
+- Batas Analogi: Nested ternary cepat jadi sulit dibaca jika berlebihan.
+
 ## Ringkasan
 
 - Ternary adalah expression kondisional ringkas.
@@ -66,4 +72,3 @@ Jika cabang mulai banyak atau perlu side effect, `if/else` biasanya lebih jelas.
 
 - Lihat contoh: ../examples/C14-conditional-operator/example.js
 - Panduan: ../examples/C14-conditional-operator/README.md
-

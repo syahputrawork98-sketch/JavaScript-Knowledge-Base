@@ -53,6 +53,12 @@ NaN === NaN;       // false
 2. Kapan `== null` masih layak dipakai?
 3. Cara benar mengecek `NaN` apa?
 
+## Analogi
+
+- Intuisi Singkat: Equality operator mengecek kesetaraan dengan aturan longgar atau ketat.
+- Analogi: Seperti verifikasi identitas: ada cek mirip dan cek identik.
+- Batas Analogi: `==` melakukan coercion, `===` tidak.
+
 ## Ringkasan
 
 - Strict equality aman sebagai default.
@@ -67,4 +73,3 @@ NaN === NaN;       // false
 
 - Lihat contoh: ../examples/C11-equality-operators/example.js
 - Panduan: ../examples/C11-equality-operators/README.md
-

@@ -52,6 +52,12 @@ Pada kebanyakan kasus, menulis statement terpisah lebih jelas.
 2. Kenapa comma operator jarang direkomendasikan?
 3. Apa beda comma operator dan comma separator?
 
+## Analogi
+
+- Intuisi Singkat: Comma operator mengevaluasi berurutan dan mengambil nilai terakhir.
+- Analogi: Seperti checklist banyak langkah yang keputusan akhirnya memakai langkah terakhir.
+- Batas Analogi: Berbeda dari koma pemisah argumen/parameter.
+
 ## Ringkasan
 
 - Comma operator mengembalikan operand terakhir.
@@ -66,4 +72,3 @@ Pada kebanyakan kasus, menulis statement terpisah lebih jelas.
 
 - Lihat contoh: ../examples/C16-comma-operator/example.js
 - Panduan: ../examples/C16-comma-operator/README.md
-

@@ -53,6 +53,12 @@ Expression menghasilkan nilai, statement mengatur jalannya program.
 2. Contoh abrupt flow apa saja?
 3. Kenapa urutan statement penting untuk hasil program?
 
+## Analogi
+
+- Intuisi Singkat: Statement mengatur alur eksekusi, bukan sekadar menghasilkan nilai.
+- Analogi: Seperti sutradara yang menentukan adegan lanjut, lompat, atau berhenti.
+- Batas Analogi: Statement punya completion flow normal vs abrupt.
+
 ## Ringkasan
 
 - Statement adalah alat kontrol alur program.
@@ -67,4 +73,3 @@ Expression menghasilkan nilai, statement mengatur jalannya program.
 
 - Lihat contoh: ../examples/C17-statement-semantics-overview/example.js
 - Panduan: ../examples/C17-statement-semantics-overview/README.md
-

@@ -42,6 +42,12 @@ Private fields menggunakan prefix # dan hanya valid dalam class body.
 2. Kenapa 2score invalid sebagai identifier?
 3. Kapan #id boleh dipakai?
 
+## Analogi
+
+- Intuisi Singkat: Identifier memastikan nama dikenali parser sejak awal.
+- Analogi: Seperti mengisi nama kontak dengan format yang harus valid dulu sebelum tersimpan.
+- Batas Analogi: Aturan JavaScript bersifat formal (lexical grammar), jadi lebih ketat dari analogi sehari-hari.
+
 ## Ringkasan
 
 - Identifier mengikuti aturan lexical yang ketat.
@@ -56,4 +62,3 @@ Private fields menggunakan prefix # dan hanya valid dalam class body.
 
 - Lihat contoh: ../examples/C01-identifiers-dan-private-names/example.js
 - Panduan: ../examples/C01-identifiers-dan-private-names/README.md
-

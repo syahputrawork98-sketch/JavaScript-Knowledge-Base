@@ -48,6 +48,12 @@ Error yang dilempar bisa ditangkap oleh `catch` di call stack yang relevan.
 2. Kapan `throw` tepat digunakan?
 3. Apa hubungan `throw` dengan `try/catch`?
 
+## Analogi
+
+- Intuisi Singkat: Throw menghentikan flow normal dengan melempar exception.
+- Analogi: Seperti alarm darurat yang memaksa proses normal berhenti.
+- Batas Analogi: Nilai apa pun bisa dilempar, tapi `Error` lebih baik untuk debugging.
+
 ## Ringkasan
 
 - `throw` menghentikan flow normal dan melempar sinyal error.
@@ -62,4 +68,3 @@ Error yang dilempar bisa ditangkap oleh `catch` di call stack yang relevan.
 
 - Lihat contoh: ../examples/C30-throw-statement/example.js
 - Panduan: ../examples/C30-throw-statement/README.md
-

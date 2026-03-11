@@ -48,6 +48,12 @@ Setelah logging/transformasi, error dapat di-throw lagi jika perlu.
 2. Kenapa area `try` sebaiknya kecil?
 3. Kapan error sebaiknya dilempar ulang?
 
+## Analogi
+
+- Intuisi Singkat: Try/catch/finally menangani kegagalan sambil menjaga cleanup.
+- Analogi: Seperti prosedur teknisi: coba jalankan, tangani gagal, lalu rapikan.
+- Batas Analogi: `finally` tetap jalan meskipun ada `return` atau `throw`.
+
 ## Ringkasan
 
 - `try/catch/finally` memberi kontrol alur saat error terjadi.
@@ -62,4 +68,3 @@ Setelah logging/transformasi, error dapat di-throw lagi jika perlu.
 
 - Lihat contoh: ../examples/C31-try-statement/example.js
 - Panduan: ../examples/C31-try-statement/README.md
-

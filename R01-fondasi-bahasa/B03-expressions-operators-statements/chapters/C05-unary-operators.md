@@ -14,7 +14,7 @@ Unary operator sering dipakai di code real, tapi perilakunya berbeda-beda: ada y
 
 ```js
 +'42'; // 42
--'5';  // -5
+- '5';  // -5
 ```
 
 Unary plus sering dipakai untuk coercion ke number.
@@ -58,6 +58,12 @@ Operator ini bekerja pada representasi 32-bit integer.
 2. Kenapa `delete` cocok untuk properti object, bukan variabel `let/const`?
 3. Kapan `!!value` layak dipakai?
 
+## Analogi
+
+- Intuisi Singkat: Unary operator memproses satu operand untuk mengubah nilai atau tipe.
+- Analogi: Seperti satu tombol efek pada foto: satu input, satu output baru.
+- Batas Analogi: Setiap unary operator punya aturan efek yang berbeda.
+
 ## Ringkasan
 
 - Unary operator memproses satu operand dengan efek berbeda-beda.
@@ -72,4 +78,3 @@ Operator ini bekerja pada representasi 32-bit integer.
 
 - Lihat contoh: ../examples/C05-unary-operators/example.js
 - Panduan: ../examples/C05-unary-operators/README.md
-

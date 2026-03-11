@@ -29,7 +29,7 @@ Mempertahankan tanda bilangan (signed).
 ### 3. Right Shift Unsigned (`>>>`)
 
 ```js
--1 >>> 1; // 2147483647
+- 1 >>> 1; // 2147483647
 ```
 
 Mengisi bit kiri dengan nol (unsigned behavior).
@@ -56,6 +56,12 @@ Hasil shift tidak cocok untuk seluruh skenario number floating besar.
 2. Kenapa `5 << 1` menghasilkan `10`?
 3. Kapan shift operator sebaiknya dihindari?
 
+## Analogi
+
+- Intuisi Singkat: Shift operator memindahkan bit pada representasi bilangan.
+- Analogi: Seperti menggeser posisi kursi satu langkah ke kiri atau kanan.
+- Batas Analogi: Operasi terjadi pada integer 32-bit, bukan digit desimal biasa.
+
 ## Ringkasan
 
 - Shift operator memanipulasi representasi bit 32-bit.
@@ -70,4 +76,3 @@ Hasil shift tidak cocok untuk seluruh skenario number floating besar.
 
 - Lihat contoh: ../examples/C09-shift-operators/example.js
 - Panduan: ../examples/C09-shift-operators/README.md
-

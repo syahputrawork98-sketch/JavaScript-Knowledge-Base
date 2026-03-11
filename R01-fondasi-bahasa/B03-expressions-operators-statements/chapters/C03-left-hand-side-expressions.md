@@ -57,6 +57,12 @@ config.api?.timeout;
 2. Kapan bracket notation wajib dipakai?
 3. Apa manfaat optional chaining di access chain panjang?
 
+## Analogi
+
+- Intuisi Singkat: Left-hand-side expression menentukan target yang sah untuk akses/panggil/assign.
+- Analogi: Seperti alamat tujuan yang harus valid sebelum paket bisa dikirim.
+- Batas Analogi: Tidak semua ekspresi boleh menjadi target assignment.
+
 ## Ringkasan
 
 - Left-hand-side expression adalah target akses/call/assignment.
@@ -71,4 +77,3 @@ config.api?.timeout;
 
 - Lihat contoh: ../examples/C03-left-hand-side-expressions/example.js
 - Panduan: ../examples/C03-left-hand-side-expressions/README.md
-

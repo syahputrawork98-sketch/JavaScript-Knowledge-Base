@@ -51,6 +51,12 @@ Declaration mengikat nama ke environment saat eksekusi mencapai titik tersebut.
 2. Kenapa `var` bisa muncul di luar block?
 3. Apa risiko utama jika `var` dipakai sembarangan?
 
+## Analogi
+
+- Intuisi Singkat: Declaration/variable statement mengatur pembuatan dan inisialisasi binding.
+- Analogi: Seperti registrasi anggota: nama dicatat lalu statusnya mengikuti jenis pendaftaran.
+- Batas Analogi: `var`, `let`, `const` berbeda pada scope dan perilaku hoisting.
+
 ## Ringkasan
 
 - Declaration statement memengaruhi stabilitas state program.
@@ -65,4 +71,3 @@ Declaration mengikat nama ke environment saat eksekusi mencapai titik tersebut.
 
 - Lihat contoh: ../examples/C19-declarations-dan-variable-statement/example.js
 - Panduan: ../examples/C19-declarations-dan-variable-statement/README.md
-

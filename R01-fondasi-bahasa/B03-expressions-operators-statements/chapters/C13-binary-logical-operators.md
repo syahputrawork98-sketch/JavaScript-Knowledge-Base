@@ -53,6 +53,12 @@ null ?? 'empty';  // 'empty'
 2. Kenapa `&&` bisa mengembalikan string?
 3. Apa risiko chain logika panjang tanpa grouping?
 
+## Analogi
+
+- Intuisi Singkat: Logical operator mengatur hasil dengan truthiness dan short-circuit.
+- Analogi: Seperti rantai pemeriksaan: jika gerbang awal gagal, langkah berikutnya dilewati.
+- Batas Analogi: `&&`/`||` mengembalikan operand asli, bukan selalu boolean.
+
 ## Ringkasan
 
 - Logical binary operator menggunakan short-circuit.
@@ -67,4 +73,3 @@ null ?? 'empty';  // 'empty'
 
 - Lihat contoh: ../examples/C13-binary-logical-operators/example.js
 - Panduan: ../examples/C13-binary-logical-operators/README.md
-

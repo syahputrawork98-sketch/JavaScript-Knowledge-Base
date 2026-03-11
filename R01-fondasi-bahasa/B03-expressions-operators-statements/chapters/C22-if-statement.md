@@ -54,6 +54,12 @@ Expression kondisi dievaluasi dengan aturan truthy/falsy.
 2. Apa manfaat guard clause pada fungsi?
 3. Kenapa urutan kondisi penting?
 
+## Analogi
+
+- Intuisi Singkat: If statement memilih cabang eksekusi berdasarkan kondisi.
+- Analogi: Seperti petugas parkir yang mengarahkan masuk atau putar balik.
+- Batas Analogi: Kondisi dinilai lewat truthiness, tidak harus boolean literal.
+
 ## Ringkasan
 
 - `if` adalah alat utama percabangan.
@@ -68,4 +74,3 @@ Expression kondisi dievaluasi dengan aturan truthy/falsy.
 
 - Lihat contoh: ../examples/C22-if-statement/example.js
 - Panduan: ../examples/C22-if-statement/README.md
-

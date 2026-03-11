@@ -53,6 +53,12 @@ Empty statement tanpa alasan jelas biasanya anti-pattern.
 2. Kapan empty statement masih bisa diterima?
 3. Bagaimana mencegah bug ini di tim?
 
+## Analogi
+
+- Intuisi Singkat: Empty statement adalah statement legal yang tidak melakukan aksi.
+- Analogi: Seperti tanda jeda di dokumen tanpa menambah isi baru.
+- Batas Analogi: Mudah membingungkan jika dipakai tanpa alasan jelas.
+
 ## Ringkasan
 
 - Empty statement legal namun rawan bug.
@@ -67,4 +73,3 @@ Empty statement tanpa alasan jelas biasanya anti-pattern.
 
 - Lihat contoh: ../examples/C20-empty-statement/example.js
 - Panduan: ../examples/C20-empty-statement/README.md
-

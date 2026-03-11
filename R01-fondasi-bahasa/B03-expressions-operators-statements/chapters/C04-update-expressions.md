@@ -56,6 +56,12 @@ Keterbacaan menurun saat update expression dicampur dengan operasi lain secara b
 2. Kenapa `1++` invalid?
 3. Kapan lebih baik mengganti `x++` dengan `x = x + 1`?
 
+## Analogi
+
+- Intuisi Singkat: Update expression menggabungkan baca nilai dan ubah nilai dalam satu langkah.
+- Analogi: Seperti melihat angka meteran lalu langsung menambah satu klik.
+- Batas Analogi: Prefix dan postfix memberi hasil nilai balik yang berbeda.
+
 ## Ringkasan
 
 - Prefix dan postfix punya urutan evaluasi berbeda.
@@ -70,4 +76,3 @@ Keterbacaan menurun saat update expression dicampur dengan operasi lain secara b
 
 - Lihat contoh: ../examples/C04-update-expressions/example.js
 - Panduan: ../examples/C04-update-expressions/README.md
-

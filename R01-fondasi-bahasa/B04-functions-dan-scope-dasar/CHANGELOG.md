@@ -23,7 +23,7 @@ Rilis awal stabil untuk buku `R01-fondasi-bahasa/B04-functions-dan-scope-dasar`.
 ### Changed
 
 - `README.md`, `chapters/README.md`, `examples/README.md`, dan `assets/README.md` diperbarui agar mencerminkan status materi final.
-- Gaya editorial dibakukan menjadi “Indonesia dengan istilah teknis Inggris seperlunya” melalui [docs/writing-rules.md](../docs/writing-rules.md).
+- Gaya editorial dibakukan menjadi "Indonesia dengan istilah teknis Inggris seperlunya" melalui [docs/writing-rules.md](../docs/writing-rules.md).
 - `C17` dan `C18` diselaraskan kembali dengan `spec-mapping-70.md` agar pembahasan async function expression berada pada bab yang tepat.
 - Contoh detached method pada `C08` dibuat lebih deterministik dengan output strict-mode yang konsisten.
 

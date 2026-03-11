@@ -44,6 +44,12 @@ Gunakan destructuring atau alias object eksplisit.
 2. Kenapa strict mode menolak `with`?
 3. Alternatif modern yang aman apa?
 
+## Analogi
+
+- Intuisi Singkat: With menambah objek ke rantai resolusi nama secara implisit.
+- Analogi: Seperti meminjam meja kerja orang lain sehingga asal alat jadi tidak jelas.
+- Batas Analogi: Meningkatkan ambigu resolusi identifier dan tidak direkomendasikan.
+
 ## Ringkasan
 
 - `with` adalah fitur legacy yang sebaiknya dihindari.
@@ -58,4 +64,3 @@ Gunakan destructuring atau alias object eksplisit.
 
 - Lihat contoh: ../examples/C27-with-statement/example.js
 - Panduan: ../examples/C27-with-statement/README.md
-

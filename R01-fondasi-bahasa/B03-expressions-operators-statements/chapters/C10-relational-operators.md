@@ -57,6 +57,12 @@ new Date() instanceof Date; // true
 2. Kenapa `'10' < '2'` bisa `true`?
 3. Kapan wajib konversi ke number sebelum perbandingan?
 
+## Analogi
+
+- Intuisi Singkat: Relational operator membandingkan urutan/relasi antar nilai.
+- Analogi: Seperti menyusun peserta berdasarkan urutan lalu cek siapa lebih depan.
+- Batas Analogi: Perbandingan string mengikuti code point, bukan makna bahasa alami.
+
 ## Ringkasan
 
 - Relational operators mencakup perbandingan nilai, cek properti, dan cek instans.
@@ -71,4 +77,3 @@ new Date() instanceof Date; // true
 
 - Lihat contoh: ../examples/C10-relational-operators/example.js
 - Panduan: ../examples/C10-relational-operators/README.md
-

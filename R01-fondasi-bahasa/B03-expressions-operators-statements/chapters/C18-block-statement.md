@@ -56,6 +56,12 @@ Block kosong legal, namun biasanya menandakan logic belum lengkap.
 2. Apa keuntungan memakai block walau statement cuma satu?
 3. Kapan nested block mulai jadi masalah keterbacaan?
 
+## Analogi
+
+- Intuisi Singkat: Block statement mengelompokkan beberapa statement sebagai satu unit.
+- Analogi: Seperti map proyek berisi beberapa dokumen yang diproses bersama.
+- Batas Analogi: Blok adalah wadah; kontrol alur ditentukan isi di dalamnya.
+
 ## Ringkasan
 
 - Block statement mengelompokkan alur kode.
@@ -70,4 +76,3 @@ Block kosong legal, namun biasanya menandakan logic belum lengkap.
 
 - Lihat contoh: ../examples/C18-block-statement/example.js
 - Panduan: ../examples/C18-block-statement/README.md
-

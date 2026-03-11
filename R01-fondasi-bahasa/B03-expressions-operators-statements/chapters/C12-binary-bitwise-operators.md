@@ -52,6 +52,12 @@ Hasil bisa berbeda dari ekspektasi number biasa (floating/angka besar).
 2. Kenapa bitwise bisa membingungkan pada number besar?
 3. Kapan bitwise layak dipakai?
 
+## Analogi
+
+- Intuisi Singkat: Bitwise operator memanipulasi data per bit.
+- Analogi: Seperti panel saklar ON/OFF yang diatur satu per satu.
+- Batas Analogi: Nilai diproyeksikan ke 32-bit signed integer saat operasi.
+
 ## Ringkasan
 
 - Bitwise binary operator bekerja di level bit 32-bit.
@@ -66,4 +72,3 @@ Hasil bisa berbeda dari ekspektasi number biasa (floating/angka besar).
 
 - Lihat contoh: ../examples/C12-binary-bitwise-operators/example.js
 - Panduan: ../examples/C12-binary-bitwise-operators/README.md
-
