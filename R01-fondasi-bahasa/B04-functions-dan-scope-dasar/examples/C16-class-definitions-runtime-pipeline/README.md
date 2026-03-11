@@ -1,0 +1,28 @@
+# Example C16
+
+Contoh runnable untuk bab **C16 - Class Definitions Runtime Pipeline**.
+
+## Daftar File
+
+- `example.js` (utama)
+- `example-02.js` (tambahan 1)
+- `example-03.js` (tambahan 2)
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`
+
+## Spec Alignment
+
+Contoh pada folder ini terutama selaras dengan section ECMAScript berikut:
+
+- `15.7.12`
+- `15.7.13`
+- `15.7.14`
+- `15.7.15`
+- `15.7.16`
+
+Referensi chapter: `../../chapters/C16-class-definitions-runtime-pipeline.md`.
+Referensi mapping penuh: `../../docs/spec-mapping-70.md`.
