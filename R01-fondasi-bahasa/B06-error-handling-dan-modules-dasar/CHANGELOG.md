@@ -4,7 +4,15 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.0.1`.
+Belum ada perubahan setelah rilis `v1.0.2`.
+
+## [v1.0.2] - 2026-03-12
+
+Kode versi: `JVS-R01-B06-v1.0.2`
+
+- Merevisi ulang `README.md` pada seluruh folder `examples/C01-C12` agar kualitas penjelasannya setara dengan standar examples `B02-B05` hasil revisi.
+- Menambahkan section `Tujuan Example`, `Daftar File`, `Penjelasan Per File`, dan `Catatan Belajar` pada seluruh examples B06 sambil mempertahankan panduan menjalankan contoh.
+- Memperdalam README examples B06 agar pembaca lebih terbantu memahami runtime error, alur `try/catch/finally/throw`, serta relasi file pada examples modules secara bertahap.
 
 ## [v1.0.1] - 2026-03-12
 
