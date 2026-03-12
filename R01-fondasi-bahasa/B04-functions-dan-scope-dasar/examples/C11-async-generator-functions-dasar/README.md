@@ -12,11 +12,47 @@ Folder ini memperlihatkan dasar async generator: `yield` bertahap dalam konteks 
 - `example-02.js` menunjukkan kombinasi `await` dan `yield`.
 - `example-03.js` membandingkan async function dengan async generator.
 
-## Poin Penting
+## Penjelasan Per File
 
-- Async generator menggabungkan konsep generator dan async function.
-- Konsumsinya biasanya memakai `for await...of`.
-- Nilai dapat dihasilkan bertahap sambil tetap menunggu proses async.
+### `example.js`
+
+File utama ini menunjukkan async generator yang menghasilkan nilai bertahap:
+
+```js
+async function* ids() {
+  yield 101;
+  yield 102;
+  yield 103;
+}
+```
+
+Lalu dikonsumsi dengan `for await...of`, sehingga pembaca melihat bentuk paling natural untuk membaca stream async bertahap.
+
+### `example-02.js`
+
+Contoh ini penting karena menaruh `await` di antara `yield`:
+
+```js
+await wait(10);
+yield 'first';
+```
+
+Jadi pembaca bisa melihat bahwa async generator tidak hanya “generator yang async”, tetapi benar-benar dapat menunggu pekerjaan asynchronous di antara nilai-nilai yang dihasilkan.
+
+### `example-03.js`
+
+File ini membandingkan:
+
+- async function yang mengembalikan seluruh data sekaligus
+- async generator yang menyalurkan data satu per satu
+
+Perbandingan ini penting untuk membantu pembaca memilih mental model yang tepat.
+
+## Catatan Belajar
+
+- Async generator cocok saat hasil datang bertahap, bukan sekaligus.
+- `for await...of` adalah pasangan alami untuk membaca async generator.
+- Bandingkan selalu dengan async function biasa agar perannya tidak tercampur.
 
 ## Jalankan
 

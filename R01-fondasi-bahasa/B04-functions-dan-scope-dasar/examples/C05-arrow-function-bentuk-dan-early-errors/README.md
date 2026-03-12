@@ -4,7 +4,7 @@ Contoh runnable untuk bab **C05 - Arrow Function Bentuk dan Early Errors**.
 
 ## Tujuan Example
 
-Folder ini membantu pembaca melihat bentuk arrow function, perbedaan body-nya, dan beberapa batasan sintaksnya.
+Folder ini membantu pembaca melihat bentuk arrow function, perbedaan body-nya, dan beberapa batasan sintaks penting.
 
 ## Daftar File
 
@@ -12,11 +12,41 @@ Folder ini membantu pembaca melihat bentuk arrow function, perbedaan body-nya, d
 - `example-02.js` menunjukkan bahwa arrow function bukan constructor.
 - `example-03.js` mensimulasikan bentuk valid dan syntax error dasar.
 
-## Poin Penting
+## Penjelasan Per File
 
-- Arrow function cocok untuk expression ringkas.
-- Concise body mengembalikan nilai secara implisit.
-- Arrow function tidak punya `[[Construct]]`, jadi tidak dipakai dengan `new`.
+### `example.js`
+
+File utama ini memperlihatkan dua gaya arrow:
+
+```js
+const add = (a, b) => a + b;
+const describe = (name) => {
+  ...
+  return ...
+};
+```
+
+Tujuannya adalah menunjukkan bahwa concise body cocok untuk expression pendek, sedangkan block body lebih nyaman untuk langkah yang lebih banyak.
+
+### `example-02.js`
+
+Contoh ini menegaskan batasan penting:
+
+```js
+const p = new makePoint(1, 2);
+```
+
+Arrow function tidak punya `[[Construct]]`, jadi tidak bisa dipakai dengan `new`.
+
+### `example-03.js`
+
+File ini memakai `Function(source)` untuk membandingkan bentuk valid dan invalid, misalnya duplicate parameter pada bentuk strict-like. Ini membantu pembaca melihat bahwa sebagian masalah arrow function gagal di level parse, bukan saat runtime biasa.
+
+## Catatan Belajar
+
+- Arrow function bagus untuk expression ringkas dan callback.
+- Jangan pakai arrow jika kamu butuh constructor.
+- Saat syntax arrow terasa rumit, pecah dulu ke bentuk yang paling jelas.
 
 ## Jalankan
 

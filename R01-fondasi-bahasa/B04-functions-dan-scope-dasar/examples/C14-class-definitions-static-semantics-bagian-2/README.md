@@ -12,11 +12,36 @@ Folder ini memperlihatkan pemisahan elemen static dan instance, serta validasi p
 - `example-02.js` menunjukkan validasi private identifier.
 - `example-03.js` menunjukkan error saat static method dipanggil dari instance.
 
-## Poin Penting
+## Penjelasan Per File
 
-- Static field dan static method hidup pada class.
-- Instance field dan instance method hidup pada object hasil instansiasi.
-- Private identifier punya aturan akses yang ketat.
+### `example.js`
+
+Contoh utama ini membandingkan:
+
+- `Counter.description` sebagai static field
+- `counter.value` sebagai state instance
+
+Dengan begitu, pembaca bisa melihat bahwa class punya “ruang sendiri” yang berbeda dari object hasil `new`.
+
+### `example-02.js`
+
+File ini memperlihatkan validasi private identifier melalui parse simulation, misalnya saat field private dipakai tanpa deklarasi yang sah. Ini penting karena private field punya aturan yang jauh lebih ketat daripada property biasa.
+
+### `example-03.js`
+
+Contoh ini menunjukkan kesalahan umum:
+
+```js
+user.create('Nabila')
+```
+
+Padahal `create` adalah static method. Ini membantu pembaca membedakan “dipanggil dari class” dan “dipanggil dari instance”.
+
+## Catatan Belajar
+
+- Static dan instance hidup di tempat yang berbeda.
+- Private identifier bukan sekadar gaya penamaan; ia bagian dari grammar class yang ketat.
+- Banyak error class muncul karena salah memetakan apakah anggota itu static atau instance.
 
 ## Jalankan
 

@@ -12,11 +12,40 @@ Folder ini memperlihatkan dasar generator: `yield`, urutan `next()`, perbedaan `
 - `example-02.js` membandingkan `yield` dan `return`.
 - `example-03.js` menunjukkan konsumsi generator dengan `for...of`.
 
-## Poin Penting
+## Penjelasan Per File
 
-- Generator menghasilkan iterator yang bergerak bertahap.
-- `yield` menunda eksekusi dan mengembalikan value sementara.
-- `return` menutup generator dan menandai iterasi selesai.
+### `example.js`
+
+File utama ini memperlihatkan generator sederhana:
+
+```js
+function* ticketQueue() {
+  yield 'ticket-1';
+  yield 'ticket-2';
+  yield 'ticket-3';
+}
+```
+
+Setiap `next()` menggerakkan eksekusi ke `yield` berikutnya. Ini adalah mental model inti generator.
+
+### `example-02.js`
+
+Contoh ini sangat penting karena membedakan:
+
+- `yield` yang menghasilkan nilai sementara
+- `return` yang menutup generator
+
+Setelah `return`, iterasi dianggap selesai.
+
+### `example-03.js`
+
+File ini menunjukkan konsumsi generator dengan `for...of`, sehingga pembaca melihat bahwa generator tidak harus selalu diakses manual lewat `next()`.
+
+## Catatan Belajar
+
+- Generator bukan langsung “menghasilkan semua data”, tetapi menyalurkannya bertahap.
+- `yield` dan `return` punya peran yang berbeda jelas.
+- `for...of` sering menjadi cara konsumsi yang paling nyaman dibaca.
 
 ## Jalankan
 

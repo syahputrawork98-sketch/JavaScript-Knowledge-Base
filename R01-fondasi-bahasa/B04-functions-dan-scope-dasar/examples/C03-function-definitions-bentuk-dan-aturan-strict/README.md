@@ -12,11 +12,44 @@ Folder ini membantu pembaca membedakan function declaration, function expression
 - `example-02.js` mensimulasikan duplicate parameter error pada strict mode.
 - `example-03.js` menunjukkan named function expression dan scope namanya.
 
-## Poin Penting
+## Penjelasan Per File
 
-- Declaration dan expression sama-sama membuat fungsi, tetapi perilaku runtime-nya tidak identik.
-- Strict mode melarang beberapa pola parameter yang lebih longgar.
-- Nama internal function expression punya scope khusus.
+### `example.js`
+
+File utama ini memperlihatkan dua bentuk definisi fungsi:
+
+```js
+function declarationSum(a, b) { ... }
+const expressionMultiply = function (a, b) { ... };
+```
+
+Tujuannya untuk memperjelas bahwa keduanya sama-sama membuat fungsi, tetapi berasal dari bentuk sintaks yang berbeda.
+
+### `example-02.js`
+
+Contoh ini memfokuskan perhatian ke strict mode:
+
+```js
+const source = "'use strict'; function bad(a, a) { return a; }";
+```
+
+Melalui `Function(source)`, pembaca bisa melihat bahwa duplicate parameter pada strict mode ditolak sebagai syntax-level problem.
+
+### `example-03.js`
+
+File ini menunjukkan named function expression:
+
+```js
+const calculator = function compute(a, b) { ... };
+```
+
+Nama `compute` berguna di dalam body fungsi, tetapi tidak tersedia sebagai binding biasa di outer scope.
+
+## Catatan Belajar
+
+- Function declaration dan function expression terlihat mirip, tetapi konteks pembuatannya berbeda.
+- Strict mode membuat beberapa bentuk function menjadi lebih ketat.
+- Nama internal pada function expression berguna untuk debugging, tetapi tidak otomatis bocor keluar.
 
 ## Jalankan
 

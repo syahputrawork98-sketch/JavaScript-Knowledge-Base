@@ -4,7 +4,15 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.0.2`.
+Belum ada perubahan setelah rilis `v1.0.3`.
+
+## [v1.0.3] - 2026-03-12
+
+Kode versi: `JVS-R01-B04-v1.0.3`
+
+- Merevisi ulang `README.md` pada seluruh folder `examples/C01-C20` agar kualitas penjelasannya setara dengan standar examples `B01-B02` dan hasil revisi `B03`.
+- Menambahkan kembali section `Penjelasan Per File` pada seluruh examples B04, lengkap dengan konteks runtime, potongan kode relevan, dan catatan belajar praktis.
+- Memperdalam README examples B04 agar lebih membantu pembaca memahami perilaku parameter list, function, method, generator, class, async function, dan tail position calls secara bertahap.
 
 ## [v1.0.2] - 2026-03-12
 

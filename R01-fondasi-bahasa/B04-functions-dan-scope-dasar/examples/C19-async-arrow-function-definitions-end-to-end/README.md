@@ -4,7 +4,7 @@ Contoh runnable untuk bab **C19 - Async Arrow Function Definitions End to End**.
 
 ## Tujuan Example
 
-Folder ini memperlihatkan async arrow function dari bentuk expression body sampai block body dan keterkaitannya dengan lexical `this`.
+Folder ini memperlihatkan async arrow function dari bentuk expression body sampai block body dan hubungannya dengan lexical `this`.
 
 ## Daftar File
 
@@ -12,11 +12,44 @@ Folder ini memperlihatkan async arrow function dari bentuk expression body sampa
 - `example-02.js` menunjukkan lexical `this` pada async arrow.
 - `example-03.js` menunjukkan block body untuk langkah async bertahap.
 
-## Poin Penting
+## Penjelasan Per File
 
-- Async arrow tetap menghasilkan Promise.
-- Ia tetap mewarisi karakter lexical arrow biasa, termasuk `this`.
-- Block body lebih cocok saat langkah async mulai bertambah.
+### `example.js`
+
+File utama ini menunjukkan bentuk paling ringkas:
+
+```js
+const doubleLater = async (value) => value * 2;
+```
+
+Walaupun bentuknya sangat singkat, hasilnya tetap Promise yang harus di-`then` atau `await`.
+
+### `example-02.js`
+
+Contoh ini menyorot lexical `this`:
+
+```js
+return async () => this.value;
+```
+
+Async arrow mewarisi perilaku arrow biasa, jadi `this` tetap diambil dari lingkungan lexical tempat ia dibuat.
+
+### `example-03.js`
+
+File ini menunjukkan kapan block body terasa lebih tepat:
+
+```js
+const upper = await Promise.resolve(name.toUpperCase());
+return `USER:${upper}`;
+```
+
+Begitu langkah async bertambah, block body memberi ruang baca yang lebih nyaman daripada expression body satu baris.
+
+## Catatan Belajar
+
+- Async arrow tetap Promise-based seperti async function lain.
+- Ia juga tetap punya sifat lexical khas arrow function.
+- Pilih expression body atau block body berdasarkan kejernihan baca, bukan hanya demi singkat.
 
 ## Jalankan
 

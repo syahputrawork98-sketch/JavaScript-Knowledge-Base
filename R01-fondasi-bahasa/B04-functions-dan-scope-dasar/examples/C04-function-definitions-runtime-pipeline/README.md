@@ -12,11 +12,49 @@ Folder ini memperlihatkan bagaimana function definition terhubung ke hoisting, e
 - `example-02.js` menunjukkan evaluation order function expression.
 - `example-03.js` menunjukkan closure saat fungsi dibuat dan dipanggil.
 
-## Poin Penting
+## Penjelasan Per File
 
-- Function declaration bisa dipanggil sebelum definisi tekstualnya.
+### `example.js`
+
+Contoh utamanya:
+
+```js
+console.log(greet('Arta'));
+function greet(name) { ... }
+```
+
+Ini menunjukkan bahwa function declaration sudah tersedia sebelum posisi tekstualnya dieksekusi.
+
+### `example-02.js`
+
+File ini membandingkannya dengan function expression:
+
+```js
+console.log(runTask('draft'));
+const runTask = function (task) { ... };
+```
+
+Hasilnya berbeda karena binding `const` belum siap dipakai sebelum inisialisasinya selesai.
+
+### `example-03.js`
+
+Contoh ini memperkenalkan closure:
+
+```js
+function makeLogger(prefix) {
+  return function log(message) {
+    return `${prefix}: ${message}`;
+  };
+}
+```
+
+Setiap fungsi hasil `makeLogger(...)` tetap “mengingat” nilai `prefix` saat ia dibuat.
+
+## Catatan Belajar
+
+- Hoisting paling terasa pada function declaration.
 - Function expression mengikuti urutan evaluasi runtime biasa.
-- Closure membuat fungsi tetap bisa mengakses lingkungan lexical yang relevan.
+- Closure adalah salah satu fondasi terpenting dalam JavaScript modern.
 
 ## Jalankan
 

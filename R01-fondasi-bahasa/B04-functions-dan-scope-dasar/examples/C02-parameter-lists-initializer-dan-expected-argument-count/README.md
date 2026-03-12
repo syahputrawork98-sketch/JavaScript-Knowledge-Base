@@ -4,7 +4,7 @@ Contoh runnable untuk bab **C02 - Parameter Lists Initializer dan Expected Argum
 
 ## Tujuan Example
 
-Folder ini memperlihatkan kapan default initializer dipakai dan bagaimana `function.length` dihitung.
+Folder ini menunjukkan kapan default initializer dipakai, bagaimana urutan parameter memengaruhi evaluasi default, dan kenapa `function.length` tidak selalu sama dengan jumlah parameter tertulis.
 
 ## Daftar File
 
@@ -12,11 +12,51 @@ Folder ini memperlihatkan kapan default initializer dipakai dan bagaimana `funct
 - `example-02.js` memperlihatkan efek urutan initializer antar-parameter.
 - `example-03.js` menunjukkan aturan `function.length`.
 
-## Poin Penting
+## Penjelasan Per File
 
-- `null` tidak memicu default initializer.
-- Urutan parameter memengaruhi nilai default yang bisa dipakai.
-- `function.length` tidak selalu sama dengan jumlah parameter tekstual.
+### `example.js`
+
+Contoh utamanya:
+
+```js
+greet()
+greet(undefined)
+greet(null)
+```
+
+Poin pentingnya:
+
+- default initializer aktif saat argumen bernilai `undefined`
+- `null` tetap dianggap nilai nyata, jadi tidak memicu default
+
+### `example-02.js`
+
+File ini membandingkan:
+
+```js
+function safeOrder(a, b = a + 1)
+function riskyOrder(a = b, b = 10)
+```
+
+Tujuannya adalah menunjukkan bahwa urutan parameter bukan sekadar urutan tulis, tetapi memengaruhi apakah initializer bisa mereferensikan nilai sebelumnya secara aman.
+
+### `example-03.js`
+
+Contoh ini mengajak pembaca membaca `function.length`:
+
+```js
+withDefault.length
+defaultFirst.length
+withRest.length
+```
+
+Yang dihitung oleh `length` adalah expected argument count, bukan jumlah semua parameter yang tampak di source.
+
+## Catatan Belajar
+
+- Default parameter berguna, tetapi tetap punya aturan evaluasi yang ketat.
+- Jangan menganggap semua parameter setelah tanda `=` ikut dihitung sama oleh `function.length`.
+- Urutan parameter penting lebih dari yang sering dibayangkan.
 
 ## Jalankan
 

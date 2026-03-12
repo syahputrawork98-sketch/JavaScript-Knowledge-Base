@@ -12,11 +12,44 @@ Folder ini memperlihatkan timing evaluasi class declaration dan class expression
 - `example-02.js` menunjukkan timing evaluasi class expression.
 - `example-03.js` menunjukkan instance field initializer saat membuat instance.
 
-## Poin Penting
+## Penjelasan Per File
 
-- Class declaration tidak bisa diakses sebelum selesai dievaluasi.
-- Class expression mengikuti alur evaluasi expression biasa.
-- Instance field initializer dijalankan saat instansiasi.
+### `example.js`
+
+Contoh ini sangat penting untuk mental model runtime:
+
+```js
+console.log(Book);
+class Book { ... }
+```
+
+Pembaca bisa langsung melihat bahwa class declaration tidak bisa dipakai sebelum selesai dievaluasi.
+
+### `example-02.js`
+
+File ini menunjukkan class expression yang dibangun secara dinamis:
+
+```js
+return class Logger { ... };
+```
+
+Setiap pemanggilan `buildLoggerClass(...)` menghasilkan class yang dibentuk saat expression dijalankan.
+
+### `example-03.js`
+
+Contoh ini menyorot instance field initializer:
+
+```js
+token = this.createToken();
+```
+
+Saat `new Session()` dipanggil, inisialisasi field berjalan dan menghasilkan efek log yang bisa diamati.
+
+## Catatan Belajar
+
+- Class declaration tidak berperilaku seperti function declaration biasa.
+- Class expression sangat dekat dengan konsep “buat class saat expression ini dijalankan”.
+- Field initializer adalah bagian penting dari pipeline instansiasi class modern.
 
 ## Jalankan
 

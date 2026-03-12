@@ -12,11 +12,39 @@ Folder ini memperkenalkan struktur dasar class: constructor, instance method, da
 - `example-02.js` mensimulasikan duplicate constructor sebagai early error.
 - `example-03.js` membandingkan instance method dan static method.
 
-## Poin Penting
+## Penjelasan Per File
 
-- Constructor dipakai untuk inisialisasi instance.
-- Instance method dipanggil dari object hasil `new`.
-- Static method menempel pada class, bukan pada instance.
+### `example.js`
+
+File utama ini memperlihatkan bentuk class yang paling dasar:
+
+```js
+class User {
+  constructor(name) { ... }
+  greet() { ... }
+}
+```
+
+Tujuannya agar pembaca melihat hubungan antara constructor, instance, dan method dalam satu contoh kecil.
+
+### `example-02.js`
+
+Contoh ini memakai `Function(source)` untuk menunjukkan bahwa duplicate constructor ditolak sebagai early error. Ini penting karena pembaca melihat bahwa sebagian aturan class diverifikasi bahkan sebelum instance dibuat.
+
+### `example-03.js`
+
+File ini membandingkan:
+
+- `tool.double(5)` sebagai instance method
+- `MathTool.version()` sebagai static method
+
+Perbedaan lokasinya penting untuk membangun intuisi tentang apa yang menempel pada class dan apa yang menempel pada instance.
+
+## Catatan Belajar
+
+- Constructor dan instance method adalah dua fondasi class yang paling awal harus dipahami.
+- Static method tidak hidup pada instance.
+- Banyak aturan class bersifat lebih ketat daripada object literal biasa.
 
 ## Jalankan
 

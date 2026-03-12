@@ -12,11 +12,44 @@ Folder ini menunjukkan perilaku runtime arrow function, terutama lexical `this` 
 - `example-02.js` membandingkan `this` pada normal function dan arrow.
 - `example-03.js` menunjukkan lexical `arguments`.
 
-## Poin Penting
+## Penjelasan Per File
+
+### `example.js`
+
+File utama ini menaruh arrow di dalam method object:
+
+```js
+const run = () => `user id is ${this.id}`;
+```
+
+Poin pentingnya: arrow mengambil `this` dari lingkungan lexical, bukan dari cara ia dipanggil kemudian.
+
+### `example-02.js`
+
+Contoh ini membandingkan:
+
+```js
+normal.call(context)
+arrowFromGlobal.call(context)
+```
+
+Normal function bisa menerima `this` baru lewat `call`, sedangkan arrow tidak benar-benar mengganti `this` dengan cara yang sama.
+
+### `example-03.js`
+
+File ini menunjukkan bahwa arrow tidak punya `arguments` sendiri:
+
+```js
+const arrow = () => arguments.length;
+```
+
+Nilai `arguments` yang dibaca berasal dari fungsi luar, bukan dari arrow itu sendiri.
+
+## Catatan Belajar
 
 - Arrow function tidak membuat `this` baru.
-- Nilai `this` diambil dari lingkungan lexical terdekat.
-- Arrow juga tidak punya `arguments` sendiri seperti fungsi biasa.
+- `call`, `apply`, dan `bind` tidak memengaruhi `this` arrow seperti pada function biasa.
+- Lexical behavior ini adalah salah satu alasan arrow sangat berguna, sekaligus salah satu sumber kebingungan pemula.
 
 ## Jalankan
 
