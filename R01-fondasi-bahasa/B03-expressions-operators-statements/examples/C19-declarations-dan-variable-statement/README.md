@@ -1,13 +1,25 @@
-# Contoh: [14.3] Declarations dan Variable Statement
+# Example C19
 
-Jalankan:
+Contoh runnable untuk bab **C19 - Declarations dan Variable Statement**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini membantu pembaca membedakan `const`, `let`, dan `var`, termasuk jebakan scope `var`.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` menunjukkan `const`, `let`, dan kebocoran scope `var`.
+- `example-02.js` fokus pada pitfall `var`.
+- `example-03.js` menunjukkan bahwa `const` pada object tidak berarti object-nya immutable total.
+
+## Poin Penting
+
+- `var` tidak block-scoped seperti `let` dan `const`.
+- `const` mencegah reassignment binding, bukan mutasi isi object.
+- Untuk code modern, `let` dan `const` lebih aman dibiasakan.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`

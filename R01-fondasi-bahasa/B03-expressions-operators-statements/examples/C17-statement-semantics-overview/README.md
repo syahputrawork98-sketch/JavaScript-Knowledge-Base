@@ -1,13 +1,25 @@
-# Contoh: [14.1] Statement Semantics Overview
+# Example C17
 
-Jalankan:
+Contoh runnable untuk bab **C17 - Statement Semantics Overview**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini memperlihatkan perbedaan alur normal, `return`, dan `throw` sebagai bagian dari semantic flow statement.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` menunjukkan flow normal, `return`, dan `throw` dalam satu fungsi.
+- `example-02.js` membandingkan normal completion dan abrupt completion.
+- `example-03.js` memperlihatkan tracing flow path sederhana.
+
+## Poin Penting
+
+- Statement tidak hanya "jalan", tetapi juga bisa menghentikan atau memindahkan alur.
+- `return` dan `throw` termasuk abrupt flow.
+- Memahami ini penting sebelum masuk `break`, `continue`, `try`, dan `throw`.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`

@@ -1,13 +1,25 @@
-# Contoh: [13.8] Additive Operators
+# Example C08
 
-Jalankan:
+Contoh runnable untuk bab **C08 - Additive Operators**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini membantu pembaca melihat bahwa `+` dan `-` punya perilaku berbeda, terutama saat string terlibat.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` membandingkan penjumlahan, pengurangan, dan coercion string pada operator aditif.
+- `example-02.js` memperkuat urutan evaluasi pada kombinasi string dan number.
+- `example-03.js` menunjukkan pendekatan aman dengan konversi eksplisit.
+
+## Poin Penting
+
+- `+` bisa menjadi penjumlahan atau concatenation.
+- `-` selalu mendorong coercion ke number.
+- Konversi eksplisit sering lebih mudah dipahami daripada mengandalkan coercion.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`

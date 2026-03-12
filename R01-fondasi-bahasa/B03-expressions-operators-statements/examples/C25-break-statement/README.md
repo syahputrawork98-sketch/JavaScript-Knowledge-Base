@@ -1,13 +1,25 @@
-# Contoh: [14.9] break Statement
+# Example C25
 
-Jalankan:
+Contoh runnable untuk bab **C25 - break Statement**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini menunjukkan bagaimana `break` menghentikan loop atau `switch` lebih awal.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` menunjukkan `break` pada loop dan `switch`.
+- `example-02.js` menunjukkan `break` pada nested loop.
+- `example-03.js` menunjukkan `break` pada `while`.
+
+## Poin Penting
+
+- `break` menghentikan statement pengulangan atau `switch` saat itu.
+- Pada nested loop, `break` default hanya keluar dari loop terdalam.
+- `break` sangat berguna saat kondisi pencarian sudah terpenuhi.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`

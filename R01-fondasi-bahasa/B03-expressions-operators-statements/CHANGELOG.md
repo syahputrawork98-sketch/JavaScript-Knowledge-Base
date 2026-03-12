@@ -4,7 +4,16 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.0.2`.
+Belum ada perubahan setelah rilis `v1.0.3`.
+
+## [v1.0.3] - 2026-03-12
+
+Kode versi: `JVS-R01-B03-v1.0.3`
+
+- Merombak `README.md` pada seluruh folder `examples/C01-C32` agar tidak lagi hanya berisi panduan eksekusi singkat.
+- Menambahkan penjelasan ringkas dan terarah per example untuk membantu pembaca memahami tujuan contoh, fungsi tiap file, dan poin perilaku operator atau statement yang perlu diperhatikan.
+- Menyelaraskan seluruh examples B03 dengan karakter buku yang berfokus pada expressions, operators, dan statements sebagai materi praktik bertahap yang mudah dipindai.
+- Mengubah examples B03 menjadi panduan kasus konkret yang lebih ramah dibaca untuk topik expression, operator, control flow, dan statement semantics dasar.
 
 ## [v1.0.2] - 2026-03-12
 

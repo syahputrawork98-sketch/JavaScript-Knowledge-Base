@@ -1,13 +1,25 @@
-# Contoh: [14.14] throw Statement
+# Example C30
 
-Jalankan:
+Contoh runnable untuk bab **C30 - throw Statement**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini menunjukkan cara melempar error untuk menandai kondisi tidak valid secara eksplisit.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` menunjukkan `throw` pada validasi pembagian.
+- `example-02.js` menunjukkan `throw` untuk validasi angka positif.
+- `example-03.js` menunjukkan custom error class sederhana.
+
+## Poin Penting
+
+- `throw` menghentikan alur normal dan memindahkan kontrol ke `catch` terdekat.
+- Validasi input adalah tempat yang umum untuk `throw`.
+- Custom error class membantu membedakan jenis kegagalan.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`

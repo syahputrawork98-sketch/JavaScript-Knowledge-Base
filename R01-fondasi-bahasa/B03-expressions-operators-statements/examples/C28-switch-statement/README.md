@@ -1,13 +1,25 @@
-# Contoh: [14.12] switch Statement
+# Example C28
 
-Jalankan:
+Contoh runnable untuk bab **C28 - switch Statement**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini menunjukkan percabangan `switch`, pentingnya `break`, dan contoh fallthrough yang disengaja.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` menunjukkan `switch` dasar dengan beberapa `case`.
+- `example-02.js` menunjukkan fallthrough yang disengaja.
+- `example-03.js` menunjukkan `default` pada kode yang tidak cocok.
+
+## Poin Penting
+
+- `switch` cocok saat membandingkan satu nilai terhadap banyak cabang tetap.
+- Tanpa `break`, eksekusi bisa jatuh ke `case` berikutnya.
+- Fallthrough valid, tetapi harus jelas agar tidak membingungkan.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`

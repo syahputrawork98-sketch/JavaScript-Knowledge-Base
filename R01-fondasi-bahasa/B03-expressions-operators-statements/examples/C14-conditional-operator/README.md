@@ -1,13 +1,25 @@
-# Contoh: [13.14] Conditional Operator
+# Example C14
 
-Jalankan:
+Contoh runnable untuk bab **C14 - Conditional Operator**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini menunjukkan operator ternary sebagai expression ringkas untuk memilih nilai.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` menunjukkan ternary dasar, nested ternary, dan pemilihan harga.
+- `example-02.js` menyorot nested ternary dan risiko keterbacaannya.
+- `example-03.js` menunjukkan ternary di dalam `return`.
+
+## Poin Penting
+
+- Ternary cocok untuk pemilihan nilai yang pendek dan jelas.
+- Nested ternary cepat menjadi sulit dibaca.
+- Jika logika bercabang mulai panjang, `if` biasanya lebih jelas.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`

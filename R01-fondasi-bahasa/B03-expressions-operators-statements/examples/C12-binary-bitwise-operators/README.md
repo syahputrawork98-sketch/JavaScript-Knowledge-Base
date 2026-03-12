@@ -1,13 +1,25 @@
-# Contoh: [13.12] Binary Bitwise Operators
+# Example C12
 
-Jalankan:
+Contoh runnable untuk bab **C12 - Binary Bitwise Operators**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini memperlihatkan `&`, `|`, `^`, serta penggunaan mask bit untuk flag sederhana.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` menunjukkan operator bitwise dasar dan mask permission sederhana.
+- `example-02.js` memperkuat pola bitmask untuk permission.
+- `example-03.js` menunjukkan toggle flag dengan XOR.
+
+## Poin Penting
+
+- Bitwise operator bekerja di level bit, bukan nilai boolean biasa.
+- `|` sering dipakai untuk menggabungkan flag.
+- `&` sering dipakai untuk mengecek apakah flag tertentu aktif.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`

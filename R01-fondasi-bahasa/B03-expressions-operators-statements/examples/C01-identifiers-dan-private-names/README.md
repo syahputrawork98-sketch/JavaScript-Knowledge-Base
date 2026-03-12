@@ -1,13 +1,25 @@
-# Contoh: [13.1] Identifiers dan Private Names
+# Example C01
 
-Jalankan:
+Contoh runnable untuk bab **C01 - Identifiers dan Private Names**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini menunjukkan identifier biasa yang valid, serta pengenalan private field class dengan prefix `#`.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` menunjukkan identifier umum dan private field pada class.
+- `example-02.js` memperkuat bentuk identifier valid seperti `_` dan `$`.
+- `example-03.js` fokus pada update private field melalui method class.
+
+## Poin Penting
+
+- Identifier seperti `totalScore`, `_cache`, dan `$meta` valid dipakai.
+- Private name seperti `#id` hanya valid di dalam body class terkait.
+- Private field tidak diakses langsung dari luar object, tetapi lewat method.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`

@@ -1,13 +1,25 @@
-# Contoh: [13.10] Relational Operators
+# Example C10
 
-Jalankan:
+Contoh runnable untuk bab **C10 - Relational Operators**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini menunjukkan operator perbandingan, `in`, dan `instanceof` pada kasus dasar.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` memperlihatkan perbandingan angka/string, operator `in`, dan `instanceof`.
+- `example-02.js` fokus pada `in` untuk cek property.
+- `example-03.js` fokus pada `instanceof` dasar.
+
+## Poin Penting
+
+- Perbandingan string mengikuti urutan lexicographic, bukan numeric.
+- `in` mengecek keberadaan property, bukan nilainya.
+- `instanceof` bergantung pada prototype chain object.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`

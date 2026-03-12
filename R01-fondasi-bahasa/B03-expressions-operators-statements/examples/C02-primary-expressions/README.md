@@ -1,13 +1,25 @@
-# Contoh: [13.2] Primary Expressions
+# Example C02
 
-Jalankan:
+Contoh runnable untuk bab **C02 - Primary Expressions**.
 
-- node example.js
-- node example-02.js
-- node example-03.js
+## Tujuan Example
 
-Tujuan contoh:
+Folder ini memperlihatkan bentuk expression paling dasar: literal, grouping `()`, object literal, dan method call sederhana.
 
-- Menunjukkan perilaku inti topik bab.
-- Menunjukkan edge case penting.
-- Memberi baseline eksperimen mandiri.
+## Daftar File
+
+- `example.js` memperlihatkan literal number, string, array, object, dan grouping expression.
+- `example-02.js` menekankan peran grouping dan object literal expression.
+- `example-03.js` menunjukkan method object yang memakai `this`.
+
+## Poin Penting
+
+- Literal adalah bahan paling dasar pembentuk expression.
+- Tanda kurung dapat mengubah prioritas evaluasi.
+- Method object tetap bagian dari expression saat dipanggil.
+
+## Jalankan
+
+- `node example.js`
+- `node example-02.js`
+- `node example-03.js`
