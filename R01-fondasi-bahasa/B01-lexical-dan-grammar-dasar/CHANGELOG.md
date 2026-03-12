@@ -4,7 +4,16 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.0.2`.
+Belum ada perubahan setelah rilis `v1.0.3`.
+
+## [v1.0.3] - 2026-03-12
+
+Kode versi: `JVS-R01-B01-v1.0.3`
+
+- Merombak `README.md` pada seluruh folder `examples/C01-C15` agar tidak lagi hanya berisi daftar file dan cara menjalankan.
+- Menambahkan penjelasan detail per example yang mencakup tujuan contoh, fungsi tiap file, konteks konsep, dan catatan belajar praktis.
+- Menambahkan uraian output atau makna hasil eksekusi pada example yang relevan agar pembaca lebih mudah menghubungkan kode dengan perilakunya.
+- Menyelaraskan examples `B01` dengan karakter buku sebagai materi belajar bertahap yang lebih mudah dibaca, dipahami, dan dipakai sebagai kasus konkret.
 
 ## [v1.0.2] - 2026-03-11
 
