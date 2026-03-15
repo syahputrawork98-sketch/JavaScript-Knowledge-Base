@@ -12,9 +12,9 @@ Berikut adalah pemetaannya ke dalam direktori bertingkat:
 | :--- | :--- | :--- | :--- |
 | **Level 1** | **Perpustakaan** | `/` (root) | Seluruh sistem proyek (Fokus murni ke inti bahasa JS). |
 | **Level 2** | **Rak (Shelf)** | `RAK-01-core/` | Rak utama pembeda kedalaman ilmu (*The Brain*). |
-| **Level 3** | **Sub-Rak (Sub-shelf)** | `.../01_notational_conventions/` | Pemetaan granular dari Clause ECMA-262 (Total 12 Sub-Rak). |
-| **Level 4** | **Buku** | `.../01_js_basics/` | Kumpulan topik khusus yang dipelajari utuh. |
-| **Level 5** | **Bab (Chapter)** | `01_variables/` | Folder berisi materi spesifik: `README.md`, `assets/`, dan `examples/`. |
+| **Level 3** | **Sub-Rak (Sub-shelf)** | `SR-01_NationalConvention/` | Prefix `SR-XX_` + PascalCase. |
+| **Level 4** | **Buku (Book)** | `BK-01_PrimitiveTypes/` | Prefix `BK-XX_` + PascalCase. |
+| **Level 5** | **Bab (Chapter)** | `CH-01_StringInternals/` | Prefix `CH-XX_` + PascalCase. |
 
 ## Aturan Pewajiban `README.md`
 
@@ -22,12 +22,16 @@ Guna memudahkan orientasi (agar pembaca tahu mereka sedang ada di level sebelah 
 
 - **Di level Root** (`/README.md`): Menjelaskan visi keseluruhan perpustakaan ini (3 Pilar Rak Utama).
 - **Di level Rak** (`RAK-01-core/README.md`): Menjelaskan tujuan Rak tersebut.
-- **Di level Sub-Rak** (`.../01_notational_conventions/README.md`): Menjelaskan Clause spesifik yang dibahas.
-- **Di level Buku** (`.../01_js_basics/README.md`): Pengantar materi bab-bab di dalamnya.
+- **Di level Sub-Rak** (`SR-01_NationalConvention/README.md`): Menjelaskan Clause spesifik yang dibahas.
+- **Di level Buku** (`BK-01_PrimitiveTypes/README.md`): Pengantar materi chapter-chapter di dalamnya.
 
 ## Konvensi Penamaan
 
-1. **Folder (Selain Bab)**: Menggunakan format `RAK-XX-nama` untuk Rak Utama, dan `XX_nama` untuk folder internal lainnya (Sub-Rak, Buku).
+1. **Folder (Prefix System)**:
+   - **Rak (Shelf)**: `RAK-XX-nama` (e.g., `RAK-01-core`).
+   - **Sub-Rak (Sub-shelf)**: `SR-XX_PascalCase` (e.g., `SR-02_DataTypesAndValues`).
+   - **Buku (Book)**: `BK-XX_PascalCase` (e.g., `BK-01_PrimitiveTypes`).
+   - **Bab (Chapter)**: `CH-XX_PascalCase` (e.g., `CH-01_StringInternals`).
 2. **Konvensi Bab**:
    - Seluruh Bab adalah **sebuah folder**, bukan file Markdown tunggal.
    - Di dalamnya terdapat `README.md` (Narasi), `assets/` (Gambar), dan `examples/` (Kode).
@@ -54,10 +58,10 @@ Untuk memastikan kualitas materi di versi `V3` tidak "setengah-setengah", setiap
 ## Templat Buku & Bab
 Setiap folder Buku baru wajib distrukturkan seperti ini:
 ```text
-<urutan>_<nama_buku>/
+BK-<urutan>_<NamaBuku>/
 |-- README.md        <- Wajib ada. Menjelaskan isi buku (Pengantar/Daftar Isi).
 |-- CHANGELOG.md     <- Aturan log & versioning draf.
-`-- 01_<nama_bab>/   <- FOLDER BAB TERPISAH
+`-- CH-01_<NamaChapter>/   <- FOLDER BAB TERPISAH
     |-- README.md    <- Berupa materi teks murni (Tahap 1).
     |-- assets/      <- Gambar/Diagram penjelasan (Tahap 3).
     `-- examples/    <- Koleksi skrip JavaScript pembuktian (Tahap 2).
@@ -69,7 +73,7 @@ Setiap Buku wajib memiliki file `CHANGELOG.md` untuk merekam jejak pengerjaan (*
 
 1. **Format Versi (`v3.rak.subrak.buku`)**:
    - Versi dirangkai berdasarkan angka hierarki foldernya di versi `v3`.
-   - Contoh: Jika sedang mengerjakan Rak 1 (`01-core`), Sub-Rak 2 (`02_data_types_and_values`), Buku 1 (`01_primitive_types`), maka versinya adalah **`v3.01.02.01`**. Revisi lanjutan pada buku ini increment angka terakhirnya menjadi `v3.01.02.02`, dst.
+   - Contoh: Jika sedang mengerjakan Rak 1 (`01-core`), Sub-Rak 2 (`SR-02`), Buku 1 (`BK-01`), maka versinya adalah **`v3.01.02.01`**.
 2. **Tahap Pengerjaan (`[Unreleased]`)**:
    - Selama menyusun bab atau materi, catat detail perubahannya di bawah *header* `## [Unreleased]`.
    - Sebutkan secara spesifik apa saja yang dikerjakan (contoh: "Mengerjakan Bab 1: Menambahkan materi, 2 skrip *examples*, dan 1 *assets* diagram").
@@ -97,8 +101,8 @@ Karena repositori ini mengikuti **ECMA-262 Specification** (yang terus berkemban
 
 1. **Penambahan Fitur Skala Kecil/Menengah (Sintaks & API Baru)**
    - Jika ECMAScript merilis sintaks atau *Built-in Object* tambahan (misal: *Pattern Matching*, operator baru), fitur tersebut akan dimasukkan sebagai **Bab atau Buku baru** di dalam Sub-Rak yang paling relevan tanpa harus menambah Sub-Rak baru.
-     - *Contoh: Tipe data baru (seperti Records/Tuples) akan dimasukkan ke Sub-Rak `02_data_types_and_values`.*
+     - *Contoh: Tipe data baru (seperti Records/Tuples) akan dimasukkan ke Sub-Rak `SR-02_DataTypesAndValues`.*
 2. **Penambahan Fitur Skala Dasar (Konsep Formal Baru)**
-   - Jika ECMA-262 merombak keseluruhan paradigma atau menambahkan *Clause* fundamental baru yang melompat dari pemetaan saat ini, maka **Sub-Rak baru** dapat diciptakan menggunakan seri angka selanjutnya (misal: `13_<nama_konsep_baru>`).
+   - Jika ECMA-262 merombak keseluruhan paradigma atau menambahkan *Clause* fundamental baru yang melompat dari pemetaan saat ini, maka **Sub-Rak baru** dapat diciptakan menggunakan seri angka selanjutnya (misal: `SR-13_NewConcept`).
 3. **Standar Masuk (Stage 4 Only)**
    - Untuk menjaga kemurnian "The Brain" yang stabil dan absolut (*Single Source of Truth*), repositori ini HANYA mendokumentasikan fitur-fitur yang sudah mencapai **Stage 4 (Finished)** di proposal TC39. Proposal Stage 1-3 tidak akan dibahas agar tidak mengotori repositori dengan *draft* yang dapat berubah-ubah.
