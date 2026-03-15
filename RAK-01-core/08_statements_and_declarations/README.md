@@ -5,6 +5,4 @@
 Fase ini membedah unit eksekusi yang lebih besar. Membedah segala jenis *Statement* (If, While, For, Switch) dan deklarasi variabel tingkat dasar (`var`, `let`, `const`).
 
 ## Buku
-- `01_control_abstraction/` (Iterasi, Kondisional)
-- `02_scoping_declarations/` (Block-level scoping)
-- `03_error_handling_internals/` (Try-Catch-Finally semantics)
+- **[01_control_flow](./01_control_flow/)**: Membedah struktur kontrol alur (Statements), deklarasi variabel, pengulangan, dan penanganan error.
