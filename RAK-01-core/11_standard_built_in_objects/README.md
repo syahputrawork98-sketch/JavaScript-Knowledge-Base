@@ -1,11 +1,9 @@
 # Sub-Rak: 11 Standard Built-in Objects
 
-*Pemetaan ECMA-262: Clauses 18 - 28*
+*Pemetaan ECMA-262: Clause 18-28*
 
-Fase ini menelusuri pustaka utilitas bawaan ECMAScript. Termasuk *Global Object*, *Fundamental Objects*, *Control Abstraction* (Promise), dan *Reflective* objects.
+Fase ini membedah "Perkakas Standar" yang disediakan oleh spesifikasi ECMAScript. Kita akan melihat melampaui objek literal biasa, menuju koleksi data tingkat lanjut, abstraksi kontrol asinkron, dan teknik metaprogramming.
 
 ## Buku
-- `01_fundamental_objects/` (Math, JSON, Error)
-- `02_structured_data/` (ArrayBuffer, DataView, TypedArray)
-- `03_promises_internals/`
-- `04_intl_api/` (Internationalization context)
+- **[01_keyed_collections](./01_keyed_collections/)**: Membedah Map, Set, WeakMap, dan WeakSet (Manajemen Memori & Koleksi Cerdas).
+- **[02_control_abstraction](./02_control_abstraction/)**: Membedah Promise, Proxy, dan Reflect (Asinkronitas & Metaprogramming).
