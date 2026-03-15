@@ -5,5 +5,5 @@
 Fase ini membedah representasi data di JavaScript. Mempelajari tipe data *Language* dan tipe data *Specification*, serta cara *Engine* mengelola nilai-nilai tersebut secara internal.
 
 ## Buku
-- `01_primitive_types/` (String, Number, BigInt, Symbol, dsb)
+- **[BK-01_PrimitiveTypes](./BK-01_PrimitiveTypes/)**: Membedah String, Number, BigInt, Boolean, Null, Undefined, dan Symbol.
 - `02_specification_types/` (Internal representation)

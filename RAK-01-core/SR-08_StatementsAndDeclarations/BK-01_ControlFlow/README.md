@@ -7,9 +7,9 @@ Program tanpa kontrol alur hanyalah daftar instruksi linear yang kaku. Dengan me
 
 ## Daftar Bab
 
-1. **[Bab 01: Block & Variable Statements (Sekat Ruangan)](./01_block_and_variable_statements/)**
-2. **[Bab 02: Conditional & Iteration (Rel Kereta Api)](./02_conditional_and_iteration/)**
-3. **[Bab 03: Exception Handling (Jaring Keselamatan)](./03_exception_handling/)**
+1. **[Bab 01: Block & Variable Statements (Kandang Variabel)](./CH-01_BlockAndVariableStatements/)**
+2. **[Bab 02: Conditional & Iteration (Seleksi & Perulangan)](./CH-02_ConditionalAndIteration/)**
+3. **[Bab 03: Exception Handling (Jaring Keselamatan)](./CH-03_ExceptionHandling/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / SR-04_ExecutableCodeAndContexts / Buku 01: Execution Contexts](../../SR-04_ExecutableCodeAndContexts/01_execution_contexts/)**: Memahami bagaimana *Environment Records* menyimpan variabel sangat penting sebelum membedah `let` vs `var`.
+- **[RAK-01-core / SR-04_ExecutableCodeAndContexts / Buku 01: Execution Contexts](../../SR-04_ExecutableCodeAndContexts/BK-01_ExecutionContexts/)**: Memahami bagaimana *Environment Records* menyimpan variabel sangat penting sebelum membedah `let` vs `var`.

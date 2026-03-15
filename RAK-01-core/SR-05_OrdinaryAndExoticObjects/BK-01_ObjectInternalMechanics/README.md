@@ -7,10 +7,10 @@ Objek adalah blok pembangun utama JavaScript. Tanpa memahami mekanika internalny
 
 ## Daftar Bab
 
-1. **[Bab 01: Internal Slots & Methods (Operasi Rahasia)](./01_internal_slots_and_methods/)**
-2. **[Bab 02: Reference Behavior (Alamat Memori vs Nilai)](./02_reference_behavior/)**
-3. **[Bab 03: Array Exotic Behavior (Sihir Properti Length)](./03_array_exotic_behavior/)**
+1. **[Bab 01: Internal Slots & Methods (Mesin di Balik Cangkang)](./CH-01_InternalSlotsAndMethods/)**
+2. **[Bab 02: Reference Behavior (Variabel vs Objek)](./CH-02_ReferenceBehavior/)**
+3. **[Bab 03: Array Exotic Behavior (Sihir Properti Length)](./CH-03_ArrayExoticBehavior/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/01_primitive_types/)**: Memahami perbedaan objek dengan tipe primitif.
-- **[RAK-01-core / SR-04_ExecutableCodeAndContexts / Buku 01: Execution Contexts](../../SR-04_ExecutableCodeAndContexts/01_execution_contexts/)**: Memahami bagaimana objek disimpan di dalam *Environment Records*.
+- **[RAK-01-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/BK-01_PrimitiveTypes/)**: Memahami perbedaan objek dengan tipe primitif.
+- **[RAK-01-core / SR-04_ExecutableCodeAndContexts / Buku 01: Execution Contexts](../../SR-04_ExecutableCodeAndContexts/BK-01_ExecutionContexts/)**: Memahami bagaimana objek disimpan di dalam *Environment Records*.

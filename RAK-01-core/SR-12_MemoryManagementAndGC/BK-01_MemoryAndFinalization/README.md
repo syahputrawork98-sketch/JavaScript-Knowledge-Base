@@ -7,8 +7,8 @@ Seorang Senior Architect harus memahami bahwa memori bukanlah sumber daya tak te
 
 ## Daftar Bab
 
-1. **[Bab 01: Weak References & Reachability (Tali Tipis)](./01_weak_references_and_reachability/)**
-2. **[Bab 02: Finalization & Cleanup (Tukang Bersih-bersih)](./02_finalization_and_cleanup/)**
+1. **[Bab 01: Referensi Lemah & Jangkauan (WeakRef)](./CH-01_WeakReferencesAndReachability/)**
+2. **[Bab 02: Finalization & Cleanup (Tukang Bersih-bersih)](./CH-02_FinalizationAndCleanup/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / SR-11_StandardBuiltInObjects / Buku 01: Keyed Collections](../../SR-11_StandardBuiltInObjects/01_keyed_collections/)**: Memahami `WeakMap` membantu Anda mengerti perbedaan mendasar antara koleksi lemah dan referensi lemah individual.
+- **[RAK-01-core / SR-11_StandardBuiltInObjects / Buku 01: Keyed Collections](../../SR-11_StandardBuiltInObjects/BK-01_KeyedCollections/)**: Memahami `WeakMap` membantu Anda mengerti perbedaan mendasar antara koleksi lemah dan referensi lemah individual.

@@ -7,10 +7,10 @@ Memahami *Execution Context* adalah pembeda antara pengembang yang menebak-nebak
 
 ## Daftar Bab
 
-1. **[Bab 01: The Global Stage (Realms & Contexts)](./01_the_global_stage/)**
-2. **[Bab 02: Mekanika Call Stack (Execution Context Stack)](./02_call_stack_mechanics/)**
-3. **[Bab 03: Hoisting dan Registration (Environment Records)](./03_hoisting_and_registration/)**
-4. **[Bab 04: Closure Persistence (Lexical Environments)](./04_closure_persistence/)**
+1. **[Bab 01: The Global Stage (Realms & Context)](./CH-01_TheGlobalStage/)**
+2. **[Bab 02: Mekanika Call Stack (Execution Context Stack)](./CH-02_CallStackMechanics/)**
+3. **[Bab 03: Hoisting & Registration (Environment Records)](./CH-03_HoistingAndRegistration/)**
+4. **[Bab 04: Closure Persistence (Lexical Environments)](./CH-04_ClosurePersistence/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/01_primitive_types/)**: Memahami warga dasar yang akan diolah di dalam konteks eksekusi.
+- **[RAK-01-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/BK-01_PrimitiveTypes/)**: Memahami warga dasar yang akan diolah di dalam konteks eksekusi.

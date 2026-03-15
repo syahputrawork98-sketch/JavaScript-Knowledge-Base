@@ -7,9 +7,10 @@ Kebingungan antara `==` (Loose Equality) dan `===` (Strict Equality) adalah "tra
 
 ## Daftar Bab
 
-1. **[Bab 01: Mekanika IsStrictlyEqual (===)](./01_isStrictlyEqual_mechanics/)**
-2. **[Bab 02: Mekanika IsLooselyEqual (==)](./02_isLooselyEqual_mechanics/)**
-3. **[Bab 03: Mekanika SameValue & SameValueZero](./03_sameValue_mechanics/)** (Planned)
+1. **[Bab 01: Mekanika Strict Equality (===)](./CH-01_IsStrictlyEqualMechanics/)**
+2. **[Bab 02: Mekanika Loose Equality (==)](./CH-02_IsLooselyEqualMechanics/)**
+3. **[Bab 03: Mekanika SameValue (Pondasi Internal)](./CH-03_SameValueMechanics/)**
+ (Planned)
 
 ## Prasyarat Pembaca
 - **[RAK-01-core / 03_abstract_operations / Buku 01: Type Conversion](../01_type_conversion/)**: Memahami bagaimana tipe data berubah secara otomatis sebelum dibandingkan.

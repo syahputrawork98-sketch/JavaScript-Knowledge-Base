@@ -5,4 +5,4 @@
 Fase ini membedah arsitektur *Object*. Membedakan antara *Ordinary Object* (Object biasa) dengan *Exotic Object* (Object dengan perilaku khusus seperti Array, Proxy, dan Bound Functions).
 
 ## Buku
-- **[01_object_internal_mechanics](./01_object_internal_mechanics/)**: Membedah mekanisme internal objek, referensi, dan perilaku eksotis Array.
+- **[BK-01_ObjectInternalMechanics](./BK-01_ObjectInternalMechanics/)**: Membedah slot internal, referensi vs nilai, dan Array exotic behavior.

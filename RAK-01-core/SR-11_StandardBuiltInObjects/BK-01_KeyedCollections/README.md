@@ -7,8 +7,8 @@ Seorang Senior Architect tahu bahwa Objek literal bukanlah alat yang tepat untuk
 
 ## Daftar Bab
 
-1. **[Bab 01: Maps & Sets (Loker Cerdas)](./01_maps_and_sets/)**
-2. **[Bab 02: Weak Collections & GC (Loker Berhantu)](./02_weak_collections_and_gc/)**
+1. **[Bab 01: Maps & Sets (Loker Cerdas)](./CH-01_MapsAndSets/)**
+2. **[Bab 02: Weak Collections & GC (Loker Berhantu)](./CH-02_WeakCollectionsAndGc/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / SR-05_OrdinaryAndExoticObjects / Buku 01: Object Internal Mechanics](../../SR-05_OrdinaryAndExoticObjects/01_object_internal_mechanics/)**: Memahami bagaimana properti objek bekerja membantu Anda mengerti kenapa `Map` berbeda.
+- **[RAK-01-core / SR-05_OrdinaryAndExoticObjects / Buku 01: Object Internal Mechanics](../../SR-05_OrdinaryAndExoticObjects/BK-01_ObjectInternalMechanics/)**: Memahami bagaimana properti objek bekerja membantu Anda mengerti kenapa `Map` berbeda.

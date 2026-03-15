@@ -7,9 +7,9 @@ Menulis kode tanpa memahami prioritas operator seperti mengemudi tanpa memahami 
 
 ## Daftar Bab
 
-1. **[Bab 01: Precedence & Associativity (Antrean VIP)](./01_precedence_and_associativity/)**
-2. **[Bab 02: Short-Circuit Evaluation (Sekring Pengaman)](./02_short_circuit_evaluation/)**
-3. **[Bab 03: Comma & Void Operators (Niche Operators)](./03_comma_and_void_operators/)**
+1. **[Bab 01: Precedence & Associativity (Daftar Prioritas)](./CH-01_PrecedenceAndAssociativity/)**
+2. **[Bab 02: Short-Circuit Evaluation (Logika Malas)](./CH-02_ShortCircuitEvaluation/)**
+3. **[Bab 03: Comma & Void Operators (Niche Operators)](./CH-03_CommaAndVoidOperators/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / SR-03_AbstractOperations / Buku 01: Type Conversion](../../SR-03_AbstractOperations/01_type_conversion/)**: Sangat penting! Banyak operator memicu Coercion sebelum perhitungan dimulai.
+- **[RAK-01-core / SR-03_AbstractOperations / Buku 01: Type Conversion](../../SR-03_AbstractOperations/BK-01_TypeConversion/)**: Sangat penting! Banyak operator memicu Coercion sebelum perhitungan dimulai.

@@ -11,10 +11,10 @@ Memahami operasi abstrak seperti `ToNumber`, `ToString`, dan `ToBoolean` adalah 
 
 Sepanjang buku ini, kita akan membedah operasi konversi utama:
 
-1. **[Bab 01: Mekanika ToNumber (Konversi Numerik)](./01_toNumber_mechanics/)**
-2. **[Bab 02: Mekanika ToString (Representasi Teks)](./02_toString_mechanics/)**
-3. **[Bab 03: Mekanika ToBoolean (Gerbang Logika)](./03_toBoolean_mechanics/)**
+1. **[Bab 01: Mekanika ToNumber (Konversi Numerik)](./CH-01_ToNumberMechanics/)**
+2. **[Bab 02: Mekanika ToString (Representasi Teks)](./CH-02_ToStringMechanics/)**
+3. **[Bab 03: Mekanika ToBoolean (Gerbang Logika)](./CH-03_ToBooleanMechanics/)**
 
 ## Prasyarat Pembaca
 Sebelum menyelami buku ini, pastikan Anda telah menyelesaikan:
-- **[RAK-01-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/01_primitive_types/)**: Memahami representasi memori dari *String*, *Number*, dll.
+- **[RAK-01-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/BK-01_PrimitiveTypes/)**: Memahami representasi memori dari *String*, *Number*, dll.

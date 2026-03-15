@@ -5,5 +5,5 @@
 Fase ini membedah "Operasi Gaib" atau *Abstract Operations* yang terjadi di balik layar. Area paling krusial adalah memahami aturan *Type Conversion* dan *Type Coercion* yang sering membuat *Developer* bingung.
 
 ## Buku
-- `01_type_conversion/` (ToNumber, ToString, ToBoolean)
-- `02_testing_and_comparison/` (SameValue, IsStrictlyEqual)
+- **[BK-01_TypeConversion](./BK-01_TypeConversion/)**: Mekanisme koersi (ToNumber, ToString, ToBoolean).
+- **[BK-02_TestingAndComparison](./BK-02_TestingAndComparison/)**: Algoritma perbandingan (Strict vs Loose Equality).

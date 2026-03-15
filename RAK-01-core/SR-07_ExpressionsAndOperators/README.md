@@ -5,4 +5,4 @@
 Fase ini membedah evaluasi ekspresi dan prioritas operator di JavaScript. Mencakup segalanya mulai dari *Primary Expressions*, *Update Operators*, *Binary Operators*, hingga *Assignment Operations*.
 
 ## Buku
-- **[01_operator_mechanics](./01_operator_mechanics/)**: Membedah logika evaluasi ekspresi, prioritas operator (Precedence), dan teknik Short-circuiting.
+- **[BK-01_OperatorMechanics](./BK-01_OperatorMechanics/)**: Membedah presedensi, short-circuiting, dan operator khusus.
