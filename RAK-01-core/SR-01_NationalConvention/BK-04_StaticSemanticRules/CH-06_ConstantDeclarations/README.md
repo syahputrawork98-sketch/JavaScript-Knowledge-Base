@@ -21,7 +21,7 @@ Engine JavaScript melakukan pemeriksaan statis untuk melihat apakah ada operasi 
 - Jika Anda menulis `const x = 1; x = 2;`, engine seringkali bisa mendeteksi ini sebagai **Early Error** bahkan sebelum menjalankan baris pertama (tergantung implementasi optimasi parser).
 
 ## 3. Const vs Immutability
-Jangan salah paham: **Constant Binding** ≠ **Immutable Value**.
+Jangan salah paham: **Constant Binding** Ã¢Â  **Immutable Value**.
 - `const obj = {}` bersifat statis (Binding-nya tidak bisa diubah).
 - Tapi isi dari `obj` bisa diubah. 
 Aturan semantik statis hanya menjaga "Alamat" atau "Nama" variabel, bukan isi dari objek yang dirujuknya.
