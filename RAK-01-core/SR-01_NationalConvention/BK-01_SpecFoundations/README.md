@@ -1,26 +1,25 @@
-# Buku: 01 Spec Foundations
+# BK-01: Spec Foundations (Terminology)
 
-*Pemetaan ECMA-262: Clause 4.4 (Terms and Definitions)*
+Buku ini adalah "Kamus Besar" dan fondasi konseptual sebelum Anda menyelami algoritma yang lebih kompleks. Seluruh konten di sini diambil langsung dari **ECMA-262 Clause 4.4**.
 
-Buku ini adalah "Kamus Besar" bagi siapapun yang ingin membaca spesifikasi ECMAScript. Sebelum masuk ke algoritma dan grammar, Anda harus memahami definisi formal dari istilah-istilah yang digunakan oleh komite TC39.
-
-## Mental Model
-**"Kamus Besar & Peta Lokasi"**
-Bayangkan Anda sedang berada di sebuah negara asing (Spesifikasi). Sebelum Anda belajar memasak (Algoritma) atau membaca rambu (Grammar), Anda harus tahu apa itu "Air", "Api", "Meja", dan "Kursi" dalam bahasa mereka.
-
-## Daftar Bab (PPM V3)
-1. **[CH-01_IntroductionToSpecTerms](./CH-01_IntroductionToSpecTerms/)**: Mengapa definisi formal itu penting?
-2. **[CH-02_ImplementationDefined](./CH-02_ImplementationDefined/)**: Memahami *Implementation-defined* vs *Host-defined*.
-3. **[CH-03_TypesAndValues](./CH-03_TypesAndValues/)**: Definisi formal *Type* dan *Value*.
-4. **[CH-04_ObjectDefined](./CH-04_ObjectDefined/)**: Apa itu "Object" di mata spesifikasi?
-5. **[CH-05_OrdinaryVsExotic](./CH-05_OrdinaryVsExotic/)**: Perbedaan fundamental *Ordinary* dan *Exotic object*.
-6. **[CH-06_PrototypesAndConstructors](./CH-06_PrototypesAndConstructors/)**: Definisi formal mekanisme pewarisan.
-7. **[CH-07_PropertiesAndAttributes](./CH-07_PropertiesAndAttributes/)**: Memahami *Property, Method*, dan *Attribute*.
-8. **[CH-08_PrimitiveTypes](./CH-08_PrimitiveTypes/)**: Penjelasan singkat 7 tipe data primitif sebagai definisi.
-9. **[CH-09_StandardAndBuiltin](./CH-09_StandardAndBuiltin/)**: Apa itu *Standard Object* vs *Built-in Object*?
-10. **[CH-10_FunctionDefinitions](./CH-10_FunctionDefinitions/)**: Definisi formal *Function* sebagai *Callable Object*.
-11. **[CH-11_IdentityAndValues](./CH-11_IdentityAndValues/)**: Konsep identitas objek.
-12. **[CH-12_SpecOrganization](./CH-12_SpecOrganization/)**: Bagaimana Clause 4-28 disusun secara menyeluruh.
+## Daftar Isi: Kamus Arsitek
+- [CH-01: Overview & Implementation Context](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-01/README.md) (4.4.1 - 4.4.3)
+- [CH-02: The Concept of Type](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-02/README.md) (4.4.4)
+- [CH-03: Primitive Values & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-03/README.md) (4.4.5 - 4.4.6)
+- [CH-04: Inheritance Foundations](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-04/README.md) (4.4.7 - 4.4.8)
+- [CH-05: Ordinary vs Exotic Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-05/README.md) (4.4.9 - 4.4.10)
+- [CH-06: Standard vs Built-in Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-06/README.md) (4.4.11 - 4.4.12)
+- [CH-07: The Undefined & Null Types](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-07/README.md) (4.4.13 - 4.4.16)
+- [CH-08: The Boolean Type & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-08/README.md) (4.4.17 - 4.4.19)
+- [CH-09: The String Type & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-09/README.md) (4.4.20 - 4.4.22)
+- [CH-10: The Number Type, Infinity & NaN](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-10/README.md) (4.4.23 - 4.4.27)
+- [CH-11: The BigInt Type & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-11/README.md) (4.4.28 - 4.4.30)
+- [CH-12: The Symbol Type & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-12/README.md) (4.4.31 - 4.4.33)
+- [CH-13: Functions & Callables](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-13/README.md) (4.4.34 - 4.4.36)
+- [CH-14: Properties & Methods](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-14/README.md) (4.4.37 - 4.4.39)
+- [CH-15: Property Attributes](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-15/README.md) (4.4.40)
+- [CH-16: Own vs Inherited Properties](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-16/README.md) (4.4.41 - 4.4.42)
 
 ---
-*Status: Draft (Versi v3.01.01.01)*
+> [!NOTE]
+> Buku ini telah diekspansi menjadi 16 Bab untuk menjamin granulasi 1:1 dengan ECMA-262 Clause 4.4.

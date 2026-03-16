@@ -1,24 +1,24 @@
-# Buku 02: Grammar Notation System
+# BK-02: Grammar Notation System (Clause 5.1)
 
-Dalam spesifikasi ECMA-262, aturan pembentukan kode (apa yang valid secara sintaks) didefinisikan melalui sistem notasi tata bahasa (*Grammar*). Buku ini menjelaskan bagaimana blueprint bahasa disusun secara leksikal dan sintaksis.
+Memahami bagaimana "Blueprint" bahasa JavaScript digambar. Tanpa notasi grammar, Anda tidak akan pernah memahami bagaimana mesin membedakan antara angka, teks, dan instruksi logika.
 
-*Mental Model: "Blueprint Tata Bahasa"*
+## Daftar Isi: Membedah Blueprint
+- [CH-01: Context-Free Grammars](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-01/README.md) (5.1.1)
+- [CH-02: Lexical and RegExp Grammars](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-02/README.md) (5.1.2)
+- [CH-03: The Numeric String Grammar](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-03/README.md) (5.1.3)
+- [CH-04: The Syntactic Grammar](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-04/README.md) (5.1.4)
+- [CH-05: Grammar Notation Overview](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-05/README.md) (5.1.5)
+- [CH-06: Terminal Symbols](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-06/README.md) (5.1.5.1)
+- [CH-07: Nonterminal Symbols and Productions](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-07/README.md) (5.1.5.2)
+- [CH-08: Optional Symbols](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-08/README.md) (5.1.5.3)
+- [CH-09: Grammatical Parameters](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-09/README.md) (5.1.5.4)
+- [CH-10: The "one of" Notation](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-10/README.md) (5.1.5.5)
+- [CH-11: The "[empty]" Notation](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-11/README.md) (5.1.5.6)
+- [CH-12: Lookahead Restrictions](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-12/README.md) (5.1.5.7)
+- [CH-13: LineTerminator Restrictions](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-13/README.md) (5.1.5.8)
+- [CH-14: The "but not" Notation](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-14/README.md) (5.1.5.9)
+- [CH-15: Descriptive Phrases](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/CH-15/README.md) (5.1.5.10)
 
-## Daftar Chapter
-
-1. **[CH-01: Context-Free Grammars](./CH-01_ContextFreeGrammars/)** - Dasar Terminal dan Non-terminal.
-2. **[CH-02: Lexical Grammar Foundations](./CH-02_LexicalGrammarFoundations/)** - Goal symbols dan Input elements.
-3. **[CH-03: Syntactic Grammar Foundations](./CH-03_SyntacticGrammarFoundations/)** - Token hingga Script/Module.
-4. **[CH-04: Grammar Notation Basic](./CH-04_GrammarNotationBasic/)** - Terminal, Non-terminal, dan Layout.
-5. **[CH-05: Optional & Alternates](./CH-05_OptionalAndAlternates/)** - `opt`, `one of`, dan `[empty]`.
-6. **[CH-06: Grammatical Parameters](./CH-06_GrammaticalParameters/)** - Parameter kontekstual (misal: `[Yield]`).
-7. **[CH-07: Lookahead Restrictions](./CH-07_LookaheadRestrictions/)** - Logika lookahead negatif.
-8. **[CH-08: Line Terminator Restrictions](./CH-08_LineTerminatorRestrictions/)** - Batasan tata bahasa terkait ASI.
-9. **[CH-09: Exclusion & Descriptions](./CH-09_ExclusionAndDescriptions/)** - `but not` dan frase bantu spesifikasi.
-10. **[CH-10: Numeric String & JSON Grammars](./CH-10_NumericAndJSONGrammars/)** - Tata bahasa khusus angka dan data.
-11. **[CH-11: Grammar Puzzles](./CH-12_GrammarPuzzles/)** - Studi kasus kompleksitas parsing (ASI, dll).
-12. **[CH-12: Advanced Notation (Planned)](./)** - Pendalaman notasi otomatis.
-
-## Prasyarat Pembaca
-- Telah membaca [BK-01: Spec Foundations](../BK-01_SpecFoundations/).
-- Memahami konsep dasar Parsing atau Tokenizing (opsional namun membantu).
+---
+> [!IMPORTANT]
+> Buku ini mengikuti standar granulasi ES2025 terbaru untuk Clause 5.1.
