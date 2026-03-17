@@ -16,7 +16,10 @@ Menentukan format folder (Prefix `RAK-`, `SR-`, `BK-`, `CH-`) dan struktur inter
 Detail tiga tahapan pengerjaan materi (Narasi, Kode, Visualisasi) serta penggunaan Mental Model.
 
 ### 4. [Governance & Kebijakan Evolusi](./standards/governance.md)
-Aturan *Versioning*, prosedur sinkronisasi *Bottom-Up*, dan strategi menangani pembaruan spesifikasi ECMA-262 (Stage 4 Only).
+Aturan *Versioning*, prosedur sinkronisasi *Bottom-Up*, dan strategi menangani pembaruan spesifikasi ECMA-262.
+
+### 5. [Aturan Pemetaan Dinamis (Spec-Sync)](./standards/mapping-rules.md)
+Definisi teknis pemetaan 1:1 antara Bab dan Klausul ECMA-262 serta mekanisme audit dinamis.
 
 ---
 > [!NOTE]  

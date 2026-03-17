@@ -3,6 +3,15 @@
 Semua perubahan signifikan pada buku ini akan didokumentasikan di file ini.
 Format versi: `v3.01.01.01` (v3.rak.subrak.buku)
 
+## [v3.01.02.02] - 2026-03-17
+### Added
+- **Gold Standard Refinement**: Peningkatan seluruh 15 bab dengan narasi mendalam, visualisasi SVG, dan simulasi kode.
+- Sinkronisasi final dengan ECMA-262 ES2024 (Clause 5.1).
+
+### Changed
+- Restrukturisasi Buku: Memisahkan Daftar Isi (TOC) dari `README.md` utama ke `docs/contents.md`.
+- Transformasi `README.md` menjadi Sinopsis "Blueprint Arsitektur".
+
 ## [v3.01.01.04] - 2026-03-17
 ### Added
 - Penyesuaian struktur buku dengan `structure-guide.md`.

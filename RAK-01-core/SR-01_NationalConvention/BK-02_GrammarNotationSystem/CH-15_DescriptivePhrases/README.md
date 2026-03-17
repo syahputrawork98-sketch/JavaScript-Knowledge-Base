@@ -1,20 +1,34 @@
 # CH-15: Descriptive Phrases
 
-Inilah bab terakhir untuk **Buku 02**. Kadangkala, aturan tata bahasa terlalu kompleks untuk dijelaskan hanya dengan simbol. Di sinilah **Descriptive Phrases** (Clause 5.1.5.10) berperan.
+Jembatan antara bahasa formal dan realitas Unicode. (Clause 5.1.5.10).
 
-## Penggunaan Frasa Deskriptif
-Jika spesifikasi menemui kondisi yang sangat rumit, ia akan menggunakan kalimat deskriptif dalam tanda kurung atau sebagai produksi. Contoh:
-`SourceCharacter : any Unicode code point`
+## Dasar Pemikiran: "Catatan di Pinggir Halaman" 📝
+Terkadang, mendefinisikan sebuah aturan hanya dengan simbol matematika atau grammar akan menjadi sangat rumit dan tidak praktis. Bayangkan jika spesifikasi harus mendaftarkan jutaan karakter Unicode satu per satu. Untuk menjaga agar tetap ringkas namun presisi, spesifikasi menggunakan **Descriptive Phrases**—sebuah kalimat deskriptif yang menggantikan simbol formal.
 
-Alih-alih mendaftarkan jutaan karakter Unicode secara manual, spesifikasi menggunakan frasa deskriptif untuk merujuk pada standar eksternal (Unicode).
-
-## Mengapa Penting?
-Ini adalah "Jembatan" antara bahasa formal spesifikasi dengan realitas dunia luar yang dinamis (seperti Unicode atau standar IETF). Ia menjaga agar spesifikasi tetap ringkas namun tetap memiliki otoritas yang jelas.
+![Mental Model: Prose vs Formal](./assets/prose_vs_formal.svg)
 
 ---
+
+## 1. Karakteristik Frasa Deskriptif
+Jika sebuah produksi tidak bisa dijelaskan dengan Terminal atau Nonterminal biasa, spesifikasi menggunakan teks bahasa Inggris yang deskriptif.
+
+Contoh paling umum (Clause 6):
+`SourceCharacter : any Unicode code point`
+
+Alih-alih membuat ribuan baris produksi untuk setiap karakter Unicode, spesifikasi cukup memberikan satu kalimat sakti yang merujuk pada standar Unicode eksternal.
+
+## 2. Mengapa Ini Penting?
+Ini adalah bab penutup dari sistem notasi karena ia adalah "katup pengaman" terakhir. Ia memungkinkan spesifikasi ECMAScript untuk tetap kompatibel dengan standar lain (seperti Unicode, IETF, atau ISO) tanpa harus menduplikasi seluruh isi standar tersebut ke dalam dokumen ECMA-262.
+
+---
+
 ## Penutup Buku 02: Grammar Notation System
-Selamat! Anda telah menguasai cara membaca blueprint bahasa JavaScript. Kini, tiap kali Anda melihat error "SyntaxError", Anda bisa melacaknya langsung ke produksi grammar yang dilanggar di dokumen ECMA-262.
+Selamat! Anda kini telah memiliki kacamata seorang Arsitek Bahasa. Anda tidak lagi hanya melihat *syntax*, tetapi Anda melihat *hukum*. Setiap kali Anda menulis kode, Anda sekarang tahu bahwa di balik setiap baris tersebut ada blueprint yang sangat presisi yang menjaga agar JavaScript tetap menjadi bahasa yang kita kenal.
+
+---
+## Arsitek Mindset: The Hybrid Language
+Seorang arsitek tingkat senior menghargai kombinasi antara kekakuan (formal grammar) dan fleksibilitas (descriptive phrases). Memahami kapan spesifikasi menggunakan simbol murni dan kapan ia menggunakan deskripsi manusia adalah kunci untuk navigasi spec yang efektif.
 
 ---
 > [!IMPORTANT]
-> **Key Takeaway:** Grammar adalah hukum. descriptive phrases adalah kebijakan yang menjaga hukum tersebut tetap relevan dengan dunia luar.
+> **Final Takeaway:** Grammar adalah kerangka bangunan, sedangkan Descriptive Phrases adalah instruksi khusus yang menjaga agar bangunan tersebut tetap terhubung dengan lingkungannya.

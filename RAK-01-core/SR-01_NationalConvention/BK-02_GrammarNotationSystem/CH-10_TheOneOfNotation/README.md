@@ -1,17 +1,31 @@
-# CH-10: one of
+# CH-10: The "one of" Notation
 
 Daftar pilihan ringkas untuk token tunggal. (Clause 5.1.5.5).
 
-## Notasi: one of
-Jika sebuah produksi diikuti oleh kata **one of**, artinya Nonterminal tersebut bisa berupa salah satu dari Terminal yang disebutkan di baris-baris berikutnya.
+## Dasar Pemikiran: "Menu Seleksi Cepat" 🎯
+Dalam spesifikasi, seringkali sebuah simbol didefinisikan sebagai salah satu dari sekian banyak pilihan (misalnya daftar operator atau keyword). Alih-alih menulis ratusan baris aturan, spesifikasi menggunakan notasi **`one of`** untuk menyajikan pilihan tersebut dalam format tabel atau daftar yang padat.
 
-Contoh:
+![Mental Model: one of selector](./assets/one_of_selector.svg)
+
+---
+
+## 1. Notasi: `one of` (Clause 5.1.5.5)
+Jika sebuah produksi diikuti oleh frasa `one of`, maka simbol-simbol yang tercantum setelahnya adalah kumpulan **Terminal** alternatif. Anda harus memilih tepat satu dari daftar tersebut agar produksi dianggap valid.
+
+Contoh `AssignmentOperator`:
 `AssignmentOperator : one of`
   `=` `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `>>>=` `&=` `^=` `|=` `**=`
 
-## Kenapa Ini Digunakan?
-Tanpa notasi **one of**, spesifikasi harus menuliskan satu baris baru untuk setiap operator. Ini sangat memboroskan ruang dan sulit dibaca. Dengan **one of**, semua pilihan disatukan dalam satu blok yang rapi.
+Artinya: Operator penugasan apa pun dari daftar di atas akan memenuhi kriteria `AssignmentOperator`.
+
+## 2. Efisiensi Spesifikasi
+Notasi ini murni bertujuan untuk kemudahan baca (**Readability**). Tanpa `one of`, spesifikasi ECMAScript akan menjadi sangat tebal karena setiap operator akan butuh satu baris produksi sendiri. `one of` membuat struktur internal bahasa tetap ringkas dan elegan.
+
+---
+
+## Arsitek Mindset: Grouping and Abstraction
+Seorang arsitek memahami pentingnya pengelompokan. Menggunakan `one of` adalah cara spesifikasi melakukan "Enum" di level bahasa. Ini membantu Anda melihat kesamaan fungsi di antara banyak simbol yang berbeda; misalnya, semua simbol dalam daftar `AssignmentOperator` memiliki prioritas (precedence) yang serupa dalam alur evaluasi.
 
 ---
 > [!TIP]
-> Saat Anda melihat **one of**, anggaplah itu sebagai sebuah **Enum** (Enumeration) di bahasa pemrograman lain.
+> Saat Anda membaca spec dan bertemu `one of`, perhatikan bahwa semua pilihan di dalamnya biasanya adalah **Terminal Symbols**. Jika ada Nonterminal, biasanya tidak menggunakan notasi `one of` melainkan daftar baris alternatif biasa.

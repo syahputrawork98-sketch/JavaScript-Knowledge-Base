@@ -1,13 +1,31 @@
 # CH-02: Lexical and RegExp Grammars
 
-Sebelum kode dipahami sebagai logika, ia harus dipecah menjadi unit-unit terkecil yang disebut **Tokens**. (Clause 5.1.2).
+Bagaimana mesin membedakan antara "Teks Biasa" dan "Perintah"? (Clause 5.1.2).
 
-## 1. Lexical Grammar
-Grammar ini bertugas mengubah aliran karakter (source text) menjadi aliran token. Ia mendefinisikan apa itu *white space*, komentar, dan bagaimana membedakan antara angka `123` dan nama variabel `a123`.
+## Dasar Pemikiran: "Mikroskop Kode" 🔍
+Sebelum mesin memahami apa itu *loop* atau *function*, ia harus melihat kode sebagai deretan karakter atomik. **Lexical Grammar** adalah aturan yang menetapkan pola karakter tersebut untuk digabungkan menjadi sebuah **Token**.
 
-## 2. RegExp Grammar
-Dunia pencarian pola! Grammar ini khusus mendefinisikan bagaimana ekspresi reguler (RegExp) dikonstruksi. Ia memiliki aturan sendiri yang sedikit berbeda dari grammar utama untuk tujuan efisiensi pencarian teks.
+![Mental Model: Lexical Flow](./assets/lexical_flow.svg)
 
 ---
-> [!IMPORTANT]
-> **Architect Insight:** Proses Lexical (Lexing) adalah filter pertama. Jika ada karakter ilegal yang tidak dikenali oleh Lexical Grammar, program Anda akan mati bahkan sebelum mesin mencoba memahami apa maksud dari kode tersebut.
+
+## 1. Lexical vs Syntactic
+Penting untuk membedakan dua tahap ini:
+- **Lexical Grammar** (Clause 5.1.2): Bekerja di level karakter. Menentukan pola untuk *tokens* seperti `if`, `var`, `123`, atau `+`. Inputnya adalah string mentah, outputnya adalah *Tokens*.
+- **Syntactic Grammar**: Bekerja di level *tokens*. Menentukan bagaimana *tokens* tersebut disusun menjadi struktur yang bermakna (seperti `if (x) { ... }`).
+
+## 2. Input Elements
+Di level terendah, spesifikasi mendefinisikan elemen input sebagai:
+- **Tokens**: Keyword, Identifier, Punctuator, StringLiteral.
+- **Divisor**: Spasi, pindah baris (Line Terminator), dan komentar. Komentar dan spasi seringkali dibuang oleh Lexer setelah proses scanning selesai.
+
+---
+
+## Arsitek Mindset: The Regular Expression of Life
+Hampir seluruh aturan di Lexical Grammar dapat direpresentasikan dengan **Regular Expressions**. Itulah sebabnya pemahaman Regex sangat krusial bagi seorang arsitek bahasa; karena itulah cara mesin JS membedah niat Anda dari tumpukan karakter mentah.
+
+[Lihat Demo Tokenizer Sederhana](./examples/tokenizer_demo.js)
+
+---
+> [!TIP]
+> Pernahkah Anda bertanya kenapa spasi tidak berpengaruh di JS? Itu karena Lexical Grammar mengklasifikasikannya sebagai *White Space* yang biasanya diabaikan oleh parser setelah tahap identifikasi token selesai.

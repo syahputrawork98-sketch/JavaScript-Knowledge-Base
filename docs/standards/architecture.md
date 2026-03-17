@@ -23,7 +23,8 @@ Guna memudahkan orientasi, setiap tingkatan direktori **WAJIB** memiliki file `R
 
 - **Root (`/README.md`)**: Visi keseluruhan perpustakaan (3 Pilar Rak).
 - **Rak (`RAK-XX/README.md`)**: Tujuan dan cakupan Rak tersebut.
-- **Buku (`BK-XX/README.md`)**: Pengantar materi dan daftar bab di dalamnya.
+- **Buku (`BK-XX/README.md`)**: Sinopsis, pengantar mendalam, dan orientasi filosofis materi.
+- **Daftar Isi Buku (`BK-XX/docs/contents.md`)**: Peta navigasi detail seluruh Bab dalam Buku tersebut.
 - **Section (`SEC-XX/README.md`)**: Penjelasan spesifik sub-topik (jika menggunakan Level 6).
 
 ---

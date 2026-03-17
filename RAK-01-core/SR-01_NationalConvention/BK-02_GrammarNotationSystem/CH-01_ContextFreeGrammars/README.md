@@ -2,13 +2,40 @@
 
 Bagaimana aturan main diatur agar sebuah bahasa bisa dipahami oleh mesin? (Clause 5.1.1).
 
-## Definisi Formal
-ECMAScript menggunakan **Context-Free Grammar (CFG)** untuk mendefinisikan struktur bahasanya. CFG adalah kumpulan aturan yang menjelaskan bagaimana simbol-simbol tingkat rendah (seperti karakter) digabungkan menjadi simbol tingkat tinggi (seperti statement atau expression).
+## Dasar Pemikiran: "Pohon Bahasa" 🌳
+Bayangkan Anda sedang membangun sebuah kalimat. Anda punya aturan:
+`Kalimat` -> `Subjek` + `Predikat` + `Objek`.
+- `Subjek` bisa diganti menjadi "Budi".
+- `Predikat` bisa diganti menjadi "Makan".
+- `Objek` bisa diganti menjadi "Nasi".
 
-## Karakteristik CFG di ES:
-- **Productions:** Aturan yang dimulai dengan simbol "Nonterminal" diikuti oleh `:` dan daftar simbol penggantinya.
-- **Terminals:** Simbol akhir yang tidak bisa dipecah lagi (seperti keyword `if` atau token `{`).
+Inilah inti dari **Context-Free Grammar (CFG)**. JavaScript menggunakan pola yang sama untuk memastikan kode Anda valid sebelum dijalankan.
+
+![Mental Model: CFG Structure](./assets/cfg_structure.svg)
 
 ---
-> [!NOTE]
-> Memahami CFG membantu Anda mengerti kenapa urutan penulisan kode sangat penting. Jika urutan token Anda tidak sesuai dengan "Production" yang ada di CFG, mesin akan melemparkan **SyntaxError**.
+
+## 1. Komponen Utama (Clause 5.1.1)
+Dalam spesifikasi, CFG dibagi menjadi dua jenis simbol:
+
+1.  **Non-terminal Symbols** (Abstraksi):
+    - Simbol yang ditulis dengan huruf miring atau kurung siku ganda (misal: *Statement*, *Expression*).
+    - Berfungsi sebagai "wadah" atau "cetakan" yang bisa dipecah lagi menjadi bagian yang lebih kecil.
+2.  **Terminal Symbols** (Nyata):
+    - Karakter atau kata kunci riil (misal: `let`, `if`, `{`, `;`).
+    - Merupakan ujung dari hirarki; tidak bisa dipecah lagi.
+
+## 2. Kenapa "Context-Free"?
+Disebut *Context-Free* karena aturan substitusinya berlaku di mana saja, tanpa peduli apa yang ada di kiri atau kanannya. Jika spesifikasi bilang *Expression* bisa berubah jadi *Number*, maka itu berlaku universal di dalam blok kode manapun.
+
+---
+
+## Arsitek Mindset: The Parser's Compass
+Sebagai arsitek, memahami CFG membantu Anda mengerti alasan di balik kesalahan paling umum: **SyntaxError**. 
+Saat Anda melihat pesan tersebut, itu artinya Parser mesin JS sedang mencoba mencocokkan kode Anda ke dalam pohon aturan CFG, namun gagal menemukan "jalur" yang valid.
+
+[Lihat Simulasi Kode CFG](./examples/simple_cfg_sim.js)
+
+---
+> [!IMPORTANT]
+> Urutan penulisan kode di JavaScript bukanlah saran, melainkan hukum fisika yang didefinisikan oleh pohon CFG ini.

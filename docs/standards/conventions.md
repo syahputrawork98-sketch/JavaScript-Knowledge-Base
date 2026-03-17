@@ -31,6 +31,7 @@ CH-XX_NamaBab/
 
 Setiap folder Buku harus memiliki:
 
-- `README.md`: Daftar isi dan pengantar.
+- `README.md`: Sinopsis dan orientasi filosofis.
+- `docs/contents.md`: Daftar Isi (TOC) mendetail.
 - `CHANGELOG.md`: Log perubahan dan versioning draf.
 - Folder-folder `CH-XX` di dalamnya.

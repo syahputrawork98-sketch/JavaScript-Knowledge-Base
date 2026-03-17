@@ -1,19 +1,34 @@
-# CH-11: [empty]
+# CH-11: The [empty] Notation
 
 Mewakili ketiadaan simbol secara eksplisit. (Clause 5.1.5.6).
 
-## Notasi: [empty]
-Kapan sebuah aturan boleh tidak menghasilkan apa-apa? Jawabannya ada pada notasi **[empty]**.
+## Dasar Pemikiran: "Kekosongan yang Sah" 🕳️
+Dalam tata bahasa, terkadang "tidak ada apa-apa" adalah jawaban yang benar. Bayangkan sebuah kotak surat; bisa berisi surat, atau bisa juga **kosong**. Keduanya adalah status kotak surat yang valid. Spesifikasi ECMAScript menggunakan notasi **`[empty]`** untuk menyatakan bahwa ketiadaan token di titik tersebut adalah hasil yang sah.
 
-Jika sebuah alternatif produksi hanya berisi **[empty]**, artinya Nonterminal tersebut valid meskipun tidak ada token yang cocok (kosong).
+![Mental Model: [empty] Concept](./assets/empty_concept.svg)
 
-Contoh:
+---
+
+## 1. Notasi: `[empty]` (Clause 5.1.5.6)
+Jika sebuah alternatif produksi hanya berisi simbol `[empty]`, artinya Nonterminal tersebut tidak membutuhkan input apa pun untuk dianggap sukses (cocok).
+
+Contoh `Elision` (tanda koma kosong dalam array):
 `Elision :`
   `,`
   `Elision ,`
 
-Sebenarnya, banyak aturan menggunakan notasi implisit untuk kekosongan, tapi **[empty]** digunakan saat spesifikasi ingin sangat eksplisit bahwa "Tidak ada apa-apa di sini adalah hasil yang sah".
+Meskipun terlihat sederhana, di balik layar spesifikasi sering menggunakan logika "kosong" ini untuk menangani struktur opsional yang kompleks.
+
+## 2. Kenapa Harus Eksplisit?
+Walaupun ada cara implisit untuk menyatakan kekosongan (seperti tidak menuliskan alternatif sama sekali), penggunaan `[empty]` memberikan kejelasan bagi pengembang engine dan pembaca spek bahwa kekosongan tersebut adalah **sengaja** dan memiliki makna semantik.
 
 ---
-> [!NOTE]
-> Contoh klasik kekosongan adalah tanda koma ekstra di akhir Array: `[1, 2, ]`. Koma terakhir itu tidak diikuti elemen apapun, dan spesifikasi menggunakan logika "Empty" untuk menanganinya.
+
+## Arsitek Mindset: The Value of Zero
+Seorang arsitek memahami bahwa `null` atau `empty` bukan berarti error. Memahami `[empty]` membantu Anda memahami bagaimana JavaScript menangani *trailing commas* atau pemanggilan fungsi tanpa argumen (`func()`). Anda akan belajar bahwa dalam grammar, ketiadaan sering kali memiliki bobot yang sama dengan kehadiran.
+
+[Lihat Simulasi Kecocokan [empty]](./examples/empty_match_sim.js)
+
+---
+> [!TIP]
+> Saat Anda melihat `[empty]` di spec, bayangkan sebuah "jalan tol" yang tidak memiliki gerbang. Anda bisa lewat begitu saja tanpa harus menyerahkan tiket (token) apa pun.

@@ -1,16 +1,31 @@
 # CH-12: Lookahead Restrictions
 
-Bagaimana mesin JavaScript tahu bahwa ia tidak boleh mengambil sebuah token jika token berikutnya adalah sesuatu yang dilarang? Inilah kegunaan dari **Lookahead Restrictions** (Clause 5.1.5.7).
+Bagaimana mesin JavaScript "mengintip" masa depan? (Clause 5.1.5.7).
 
-## Notasi: [lookahead ∉ ...]
-Dalam spesifikasi, Anda akan sering melihat notasi seperti:
-`ExpressionStatement : [lookahead ∉ { {, function, async [no LineTerminator here] function, class, let [ }] Expression ;`
+## Dasar Pemikiran: "Radar Pendeteksi" 🛡️
+Bayangkan Anda sedang mengemudi dan melihat persimpangan. Sebelum berbelok, Anda melihat lampu lalu lintas. Anda tidak "memakan" lampu tersebut, Anda hanya melihatnya untuk memutuskan tindakan selanjutnya. Spesifikasi ECMAScript menggunakan **Lookahead Restrictions** sebagai radar untuk memeriksa token berikutnya tanpa memakannya (*without consuming it*).
 
-Artinya: Sebuah *ExpressionStatement* tidak boleh dimulai dengan `{`, `function`, `class`, atau `let`.
+![Mental Model: Lookahead Guard](./assets/lookahead_guard.svg)
 
-## Mengapa Penting?
-Lookahead digunakan untuk menghindari ambiguitas atau konflik tata bahasa. Misalnya, mesin harus tahu apakah `{` pembuka adalah awal dari sebuah **Object Literal** atau awal dari sebuah **Block Statement**. Dengan aturan lookahead, mesin bisa memutuskan jalur mana yang harus diambil tanpa harus membaca seluruh isi blok tersebut.
+---
+
+## 1. Notasi: `[lookahead ∉ { ... }]`
+Simbol `∉` (bukan elemen dari) menandakan bahwa produksi ini hanya boleh dilanjutkan jika token berikutnya **BUKAN** salah satu dari simbol di dalam kurung kurawal.
+
+Contoh `ExpressionStatement`:
+`ExpressionStatement : [lookahead ∉ { {, function, class, let [ }] Expression ;`
+Artinya: Sebuah statement ekspresi tidak boleh dimulai dengan `{` karena jika ya, parser akan bingung apakah itu awal dari *Object Literal* atau *Block Statement*.
+
+## 2. Mengapa Sangat Penting?
+Lookahead adalah pahlawan tanpa tanda jasa yang menyelesaikan ambiguitas tata bahasa. Tanpa lookahead, bahasa JavaScript akan menjadi sangat kaku atau sangat membingungkan bagi mesin parser. Lookahead memberikan fleksibilitas bagi kita (pengembang) sambil tetap menjaga presisi bagi mesin.
+
+---
+
+## Arsitek Mindset: Resolving Ambiguity
+Seorang arsitek tingkat senior tahu bahwa ambiguitas adalah musuh utama sistem yang stabil. Memahami Lookahead Restrictions memberikan Anda wawasan tentang batasan sintaksis. Anda akan mengerti kenapa Anda perlu membungkus objek literal dengan kurung `({ a: 1 })` saat menggunakan arrow function atau statement tertentu—itu semua karena aturan Guard Lookahead ini.
+
+[Lihat Simulasi Validator Lookahead](./examples/lookahead_validator.js)
 
 ---
 > [!IMPORTANT]
-> **Spec Secret:** Lookahead adalah "Radar" pendeteksi konflik tata bahasa sebelum mesin terlanjur melangkah terlalu jauh.
+> Lookahead adalah satu-satunya momen di mana spesifikasi memberikan kemampuan "meramal" bagi parser untuk memastikan jalur yang diambil adalah jalur yang benar secara hukum bahasa.

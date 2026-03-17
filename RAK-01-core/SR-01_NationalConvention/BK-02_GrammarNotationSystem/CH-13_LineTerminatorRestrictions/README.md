@@ -1,21 +1,35 @@
-# CH-13: LineTerminator Restrictions
+# CH-13: Line Terminator Restrictions
 
-JavaScript terkenal dengan fitur ASI (Automatic Semicolon Insertion). Rahasia di baliknya ada pada **LineTerminator Restrictions** (Clause 5.1.5.8).
+Rahasia di balik Automatic Semicolon Insertion (ASI). (Clause 5.1.5.8).
 
-## Notasi: [no LineTerminator here]
-Spesifikasi memberikan batasan ketat di mana sebuah baris baru **TIDAK BOLEH** muncul. Contoh paling klasik:
-`UpdateExpression : LeftHandSideExpression [no LineTerminator here] ++`
+## Dasar Pemikiran: "Larangan Berjarak" 🚫
+Pernahkah Anda menulis `return` lalu menaruh nilainya di baris baru, dan tiba-tiba hasilnya `undefined`? Itu bukan sihir, itu adalah hukum **Line Terminator Restrictions**. Spesifikasi ECMAScript menggunakan notasi ini untuk memastikan bahwa elemen-elemen tertentu tetap "berdekatan" dan tidak dipisahkan oleh baris baru (Enter).
 
-Artinya, jika Anda menulis:
+![Mental Model: No Line Terminator](./assets/no_line_terminator.svg)
+
+---
+
+## 1. Notasi: `[no LineTerminator here]`
+Jika notasi ini muncul di antara dua simbol dalam sebuah produksi, artinya parser tidak akan menganggap produksi tersebut cocok jika ada satu atau lebih karakter *Line Terminator* di antara kedua simbol tersebut.
+
+Contoh `ReturnStatement`:
+`ReturnStatement : return [no LineTerminator here] Expression ;`
+
+Jika Anda menulis:
 ```javascript
-x
-++
+return 
+  "Data";
 ```
-Mesin tidak akan menganggap itu sebagai `x++`, melainkan `x` (statement selesai) diikuti oleh `++` (error).
+Parser akan berhenti setelah kata `return`, memicu ASI (Automatic Semicolon Insertion), dan membuat fungsi Anda mengembalikan `undefined`. Kata `"Data"` akan dianggap sebagai statement baru yang tidak pernah dieksekusi.
 
-## Mengapa Penting?
-Aturan ini menjaga agar kode tidak ambigu saat semicolon tidak ditulis secara eksplisit. Ia memaksa elemen-elemen tertentu untuk tetap satu baris dengan pasangannya.
+## 2. Kenapa Aturan Ini Ada?
+Tanpa batasan ini, sintaks JavaScript akan menjadi sangat ambigu karena fitur semicolon opsional. Aturan ini menjaga agar kita tidak salah memberikan instruksi kepada mesin hanya karena tata letak baris yang buruk.
+
+---
+
+## Arsitek Mindset: Understanding ASI
+Seorang arsitek tingkat senior tidak menebak-nebak di mana semicolon akan muncul. Ia memahami aturan `[no LineTerminator here]` sebagai fondasi dari perilaku ASI. Dengan memahami bab ini, Anda tidak akan lagi terjebak oleh "bug hantu" yang disebabkan oleh pemisahan baris pada `return`, `yield`, `continue`, `break`, atau operator `++`/`--`.
 
 ---
 > [!TIP]
-> **Architect Wisdom:** Jika Anda ingin tahu kenapa `return` yang Anda tulis menghasilkan `undefined` saat isinya ditaruh di baris bawah, carilah aturan `[no LineTerminator here]` pada produksi `ReturnStatement` di spesifikasi.
+> Saat membaca spec, carilah teks dalam kurung siku `[no LineTerminator here]`. Itu adalah peringatan keras bahwa Enter adalah karakter terlarang di titik tersebut.

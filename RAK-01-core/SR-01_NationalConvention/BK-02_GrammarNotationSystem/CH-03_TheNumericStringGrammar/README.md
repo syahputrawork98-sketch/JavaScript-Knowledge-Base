@@ -1,16 +1,30 @@
 # CH-03: The Numeric String Grammar
 
-Bagaimana JavaScript mengubah teks `"123.45"` menjadi angka biner yang bisa dihitung? (Clause 5.1.3).
+Bagaimana sebuah deretan teks bisa berubah menjadi angka yang bisa dihitung? (Clause 5.1.3).
 
-## Definisi
-Numeric String Grammar adalah aturan khusus yang digunakan oleh fungsi built-in seperti `Number()`, `parseInt()`, atau saat mesin melakukan konversi tipe data otomatis (Type Coercion).
+## Dasar Pemikiran: "Penerjemah Angka" 🔢
+Berbeda dengan Lexical Grammar yang mencari angka di dalam barisan kode, **Numeric String Grammar** digunakan khusus untuk menerjemahkan string menjadi nilai numerik (misalnya saat menggunakan fungsi `Number()` atau Constructor `BigInt`).
 
-Aturan ini mendefinisikan format string yang valid untuk dianggap sebagai angka, termasuk:
-- Angka desimal (`123`)
-- Notasi eksponensial (`1.2e3`)
-- Hexadecimal (`0x1A`)
-- Binary (`0b101`)
+![Mental Model: Numeric Grammar Map](./assets/numeric_grammar_map.svg)
 
 ---
-> [!NOTE]
-> Aturan ini lebih ketat daripada Lexical Grammar untuk angka. Jika sebuah string mengandung karakter yang tidak sesuai dengan grammar ini saat dikonversi menjadi angka, hasilnya adalah **NaN**.
+
+## 1. Aturan Dasar (Productions)
+Grammar ini mendefinisikan beberapa jalur utama untuk angka:
+- **StringNumericLiteral**: Bisa berupa spasi, diikuti oleh `StrNumericLiteral`, diikuti spasi.
+- **HexIntegerLiteral**: String yang diawali `0x` atau `0X`.
+- **DecimalLiteral**: Angka desimal biasa, bisa mengandung titik (`.`) atau eksponen (`e`).
+
+## 2. Kenapa Harus Dibedakan?
+Lexical Grammar harus sangat berhati-hati agar tidak salah mengira angka sebagai variabel. Sedangkan Numeric String Grammar lebih fokus pada validasi input string pengguna yang ingin dikonversi secara eksplisit. Jika input tidak cocok dengan satu pun aturan di sini, JavaScript akan mengembalikan `NaN`.
+
+---
+
+## Arsitek Mindset: Precise Conversion
+Seorang arsitek harus tahu bahwa `Number("0xG")` adalah `NaN` bukan karena "Error", tapi karena string tersebut gagal melewati validasi produksi `HexIntegerLiteral` yang hanya mengizinkan `[0-9a-fA-F]`. Memahami grammar ini menghindarkan Anda dari bug konversi data yang misterius.
+
+[Lihat Validasi Logika Angka](./examples/numeric_parsing_rules.js)
+
+---
+> [!IMPORTANT]
+> Spasi di awal dan akhir string diperbolehkan dalam Numeric String Grammar (diabaikan), namun karakter non-angka di tengah akan langsung menggagalkan seluruh proses parsing.
