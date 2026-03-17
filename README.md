@@ -12,11 +12,33 @@ Untuk membangun kompetensi **Senior Architect**, perpustakaan ini dibagi menjadi
    *Fokus:* Implementasi teknis mendalam dari pilar bahasa (Execution Context, Object Model, Async). Rak ini menggunakan 12 Sub-Rak yang dipetakan secara granular dari spesifikasi ECMA-262.
 2. **Rak `RAK-02-spec/` (Level: Expert/Scholar)**
    *Fokus:* Bedah formal klausa demi klausa dari **ECMA-262 Specification**.
-3. **Rak `RAK-03-engine/` (Level: Scientist/Internalist)**
+3. **Rak `RAK-03-engines/` (Level: Scientist/Internalist)**
    *Fokus:* Mekanisme fisik mesin eksekusi (V8 Engine, JIT, Memory Management).
 
-Setiap materi di dalam rak tersebut tetap mengikuti hierarki 5-level:
+ setiap materi di dalam rak tersebut tetap mengikuti hierarki 5-level:
 **Rak -> Sub-Rak -> Buku -> Bab -> Section.**
+
+```mermaid
+graph TD
+    Root["JavaScript Knowledge Base"]
+    
+    RAK01["RAK-01-core<br/>(Practitioner/Architect)"]
+    RAK02["RAK-02-spec<br/>(Expert/Scholar)"]
+    RAK03["RAK-03-engines<br/>(Scientist/Internalist)"]
+    
+    Root --> RAK01
+    Root --> RAK02
+    Root --> RAK03
+    
+    RAK01 --> SR01["SR-01_NationalConvention"]
+    RAK01 --> SR02["SR-02_DataTypesAndValues"]
+    RAK01 --> SR_ETC["SR-03 to SR-12..."]
+    
+    style Root fill:#f9f,stroke:#333,stroke-width:4px
+    style RAK01 fill:#bbf,stroke:#333
+    style RAK02 fill:#bfb,stroke:#333
+    style RAK03 fill:#fbb,stroke:#333
+```
 
 ---
 
@@ -26,10 +48,11 @@ Setiap materi di dalam rak tersebut tetap mengikuti hierarki 5-level:
 | :--- | :--- | :--- |
 | `RAK-01-core/` | 12 Alur Inti (Notasi s.d Memori) | *In Progress (Structuring)* |
 | `RAK-02-spec/` | Pemetaan Formal ECMA-262 | *Planned* |
-| `RAK-03-engine/` | Bedah V8 & Internals | *Planned* |
+| `RAK-03-engines/` | Bedah V8 & Internals | *Planned* |
 
 *Aturan tata letak lengkap diatur pada folder `docs/`.*
 
 ## Visi & Tujuan
 
-Repository ini bukan sekadar tempat menaruh *snippet* kode, melainkan sebuah laboratorium mental. Tujuannya adalah membangun **Mental Model** JavaScript yang kokoh di pikiran Anda, sehingga Anda bisa menulis kode yang bisa diprediksi, di- *debug*, dan dioptimalkan di tingkat *engine*.
+Repository ini bukan sekadar tempat menaruh *snippet* kode, melainkan sebuah laboratorium mental. ---
+*Dokumentasi Lengkap & Roadmap: [docs/](./docs/)*

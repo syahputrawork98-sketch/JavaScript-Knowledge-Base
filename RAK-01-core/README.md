@@ -1,4 +1,6 @@
-# Rak: Core (The Brain Pillars)
+# Rak: Core
+*Rak Status: [docs/status.md](./docs/status.md)*
+ (The Brain Pillars)
 
 *Level: Practitioner/Architect*
 

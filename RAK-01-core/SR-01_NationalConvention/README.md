@@ -1,4 +1,5 @@
 # SR-01: National Convention (ECMA-262 Basis)
+*Sub-Rak Status: [docs/status.md](./docs/status.md)*
 
 Sub-rak ini adalah pilar pertama dari sistem dokumentasi kita. Di sini, kita tidak hanya belajar JavaScript, tapi kita belajar "Bahasa" yang digunakan oleh para pencipta bahasa JavaScript (TC39) untuk menjelaskan aturan mainnya.
 

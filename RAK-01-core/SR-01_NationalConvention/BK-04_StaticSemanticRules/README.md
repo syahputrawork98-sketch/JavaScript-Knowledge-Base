@@ -27,4 +27,5 @@ Bayangkan sebuah bandara. *Grammar* (Buku 02) memastikan Anda memiliki tiket dan
 16. **[CH-16: Advanced Semantic Puzzles](./CH-16_AdvancedSemanticPuzzles/README.md)**: Tantangan logika validasi spesifikasi.
 
 ---
-*Status: Published (Versi v3.01.01.04)*
+*Status: Published (Versi v3.01.01.04)*  
+*Detail Progres: [docs/status.md](./docs/status.md)*

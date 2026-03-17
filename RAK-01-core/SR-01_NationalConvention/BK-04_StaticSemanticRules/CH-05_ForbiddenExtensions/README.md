@@ -1,35 +1,38 @@
 # CH-05: Forbidden Extensions
 
-Meskipun ECMA-262 memberikan kebebasan bagi *Host* untuk menambah fitur (seperti `console`), spesifikasi juga menetapkan "Garis Merah" yang tidak boleh dilanggar. Inilah **Forbidden Extensions** (Clause 17).
+*Pemetaan ECMA-262: Clause 17 (Forbidden Extensions)*
+
+Meskipun ECMA-262 memberikan kebebasan bagi *Host* untuk menambah fitur (seperti `console`), spesifikasi juga menetapkan "Garis Merah" yang tidak boleh dilanggar. Inilah **Forbidden Extensions**.
 
 ## Mental Model: "Aturan Modifikasi Mobil"
 Bayangkan spesifikasi adalah aturan keamanan jalan raya. Anda boleh memodifikasi mobil (Engine/Host) Anda dengan stiker atau audio yang lebih bagus (*Host-defined features*). Tapi, Anda dilarang keras mengubah fungsi rem atau lampu sein menjadi sesuatu yang membingungkan pengemudi lain.
 
 ---
 
-## 1. Menjaga Integritas Bahasa
-Tujuan dari *Forbidden Extensions* adalah untuk memastikan bahwa kode yang valid menurut spesifikasi standar **tidak akan berperilaku berbeda** atau gagal di mesin yang memiliki ekstensi.
+## 1. Menjaga Kontrak Bahasa (Clause 17)
+Tujuan dari *Forbidden Extensions* adalah untuk memastikan bahwa kode yang valid menurut spesifikasi standar **tidak akan berperilaku berbeda** atau gagal di mesin yang memiliki ekstensi vendor. Ini menjamin portabilitas kode JavaScript di seluruh dunia.
 
-## 2. Apa Saja yang Dilarang?
-Beberapa poin penting dari Clause 17 meliputi:
-- **Jangan Mengubah Syntax Standar:** Engine dilarang menambah keyword baru yang bisa membuat kode standar menjadi tidak valid.
-- **Jangan Mengubah Semantik Objek Standar:** Anda tidak boleh mengubah cara `Array.prototype.push` bekerja.
-- **Batasan pada Global Object:** Host dilarang menambahkan properti ke objek global yang namanya bisa bentrok dengan fitur masa depan spesifikasi, kecuali mengikuti pola tertentu.
+## 2. Larangan Utama
+Berdasarkan Clause 17, Engine JavaScript **DILARANG**:
+- **Ekstensi Sintaksis**: Menambah sintaks baru yang membuat program yang valid secara standar menjadi tidak valid.
+- **Modifikasi Semantik**: Mengubah algoritma internal yang sudah didefinisikan oleh spesifikasi (misal: mengubah cara `Object.defineProperty` bekerja).
+- **Properti Objek Global**: Menambahkan properti ke Objek Global yang namanya bukan merupakan nama unik (untuk menghindari bentrok dengan fitur masa depan).
+- **Strict Mode Bypass**: Menambahkan fitur yang memperbolehkan pelanggaran aturan *Strict Mode*.
 
-## 3. Ekstensi yang Diizinkan (Annex B)
-Beberapa ekstensi "terlarang" sebenarnya diizinkan melalui **Annex B** hanya demi kompatibilitas web lama (*Legacy compatibility*). Contohnya adalah penggunaan `__proto__` atau fungsi-fungsi string HTML seperti `anchor()`.
-
----
-
-## Mengapa Arsitek Harus Tahu Ini?
-Sebagai arsitek, Anda harus skeptis terhadap fitur "Magic" yang hanya ada di satu browser. Jika fitur tersebut melanggar *Forbidden Extensions*, kemungkinan besar fitur itu tidak akan pernah menjadi standar dan akan membuat kode Anda sulit di-maintain di masa depan.
+## 3. Kompromi: Annex B
+Beberapa ekstensi yang secara teknis melanggar aturan di atas tetap diizinkan melalui **Annex B** hanya demi kompatibilitas web lama (*Additional ECMAScript Features for Web Browsers*). Fitur ini bersifat opsional bagi engine non-browser (seperti Node.js) tapi wajib bagi browser.
 
 ---
 
-## Tantangan Kecil
-Jika sebuah engine JavaScript ingin menambah tipe data baru, misalnya `Bignum` (sebelum ada BigInt), apakah mereka boleh melakukannya?
-(Jawabannya: **Sangat Berisiko**. Jika mereka menambah syntax baru untuk itu, mereka mungkin melanggar *Forbidden Extensions* karena bisa merusak parser standar).
+## Arsitek Mindset: Portabilitas & Masa Depan
+Sebagai arsitek, Anda harus waspada terhadap fitur "Non-Standard" yang disediakan oleh runtime tertentu. Jika fitur tersebut berada di area *Forbidden Extensions*, kemungkinan besar fitur tersebut akan menghambat migrasi kode Anda di masa depan atau menyebabkan perilaku *unpredictable* saat spesifikasi standar mengadopsi nama fitur yang serupa.
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Spesifikasi adalah kontrak sosial. *Forbidden Extensions* memastikan kontrak tersebut tidak dilanggar secara sepihak oleh vendor browser.
+
+## Referensi Terkait
+- [ECMA-262 Clause 17 - Forbidden Extensions](https://tc39.es/ecma262/#sec-forbidden-extensions)
+- [ECMA-262 Annex B - Legacy Extensions](https://tc39.es/ecma262/#sec-additional-ecmascript-features-for-web-browsers)
+
+---
+> [!IMPORTANT]  
+> **Key Takeaway:** Spesifikasi adalah kontrak sosial. *Forbidden Extensions* memastikan kontrak tersebut tidak dilanggar secara sepihak oleh vendor engine demi menjaga ekosistem web tetap terbuka.

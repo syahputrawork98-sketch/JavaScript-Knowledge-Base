@@ -6,7 +6,7 @@ Dokumen ini mendefinisikan rute pembelajaran strategis di dalam **JavaScript Kno
 
 1. **`RAK-01-core/` (Pillar)**: Pemahaman mendalam tentang perilaku bahasa (Pragmatis & Konseptual).
 2. **`RAK-02-spec/` (Foundation)**: Bedah formal klausa **ECMA-262** (Legalistik & Definisi).
-3. **`RAK-03-engine/` (Machinery)**: Mekanisme fisik mesin eksekusi (**V8, JIT, GC**).
+3. **`RAK-03-engines/` (Machinery)**: Mekanisme fisik mesin eksekusi (**V8, JIT, GC**).
 
 ---
 
@@ -35,7 +35,7 @@ Rak ini membagi pilar bahasa menjadi **12 Alur Utama (Sub-Rak)** yang memetakan 
 
 ---
 
-## 3. Rak: `RAK-03-engine/` (Advanced Internals)
+## 3. Rak: `RAK-03-engines/` (Advanced Internals)
 
 *Fokus:*
 - Arsitektur **V8** (Ignition & TurboFan).

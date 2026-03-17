@@ -1,5 +1,7 @@
 # CH-03: Early Error Rules
 
+*Pemetaan ECMA-262: Static Semantics: Early Errors*
+
 Mengapa beberapa kesalahan di JavaScript membuat aplikasi tidak jalan sama sekali, bahkan sebelum baris pertama dieksekusi? Inilah yang disebut **Early Error**.
 
 ## Mental Model: "Saringan Keamanan Bandara"
@@ -11,37 +13,34 @@ Bayangkan Anda sedang di bandara. Ada dua jenis pemeriksaan:
 
 ---
 
-## 1. Definisi Formal
-*Early Errors* adalah sekumpulan aturan khusus yang tercantum di hampir setiap bab spesifikasi. Biasanya ditandai dengan sub-judul *"Static Semantics: Early Errors"*. Aturan ini didefinisikan secara deklaratif.
+## 1. Definisi Formal (Fase Parsing)
+*Early Errors* didefinisikan secara khusus dalam spesifikasi di bawah setiap produksi grammar yang relevan. Jika sebuah script atau modul mengandung *Early Error*, maka script tersebut tidak akan pernah masuk ke fase **Execution** (Runtime).
 
-## 2. Pemicu Umum Early Errors
-Apa saja yang bisa memicu "Petugas Keamanan" ini?
-- **Duplikasi Nama:** Seperti menggunakan nama parameter yang sama di satu fungsi (dalam strict mode).
-- **Reserved Words:** Menggunakan keyword spesifikasi (seperti `yield` atau `await`) di tempat yang dilarang.
-- **Strict Mode Violations:** Melakukan sesuatu yang dilarang hanya saat 'use strict' aktif (seperti menghapus variabel dengan `delete`).
-- **Malformed Literals:** Menulis literal yang tidak masuk akal, seperti unicode escape yang salah (`\uXXXX` dengan nilai terlalu besar).
+### Perbedaan Kritis:
+- **Lexical/Grammar Error**: Struktur teks salah (misal: `functon`).
+- **Early Error (Static Semantics)**: Teks benar secara grammar, tapi dilarang secara peraturan statis (misal: `const a;` - konstanta tanpa inisialisasi).
 
-## 3. Early Error vs Syntax Error
-Secara teknis, hampir semua *Early Error* akan dilaporkan sebagai **SyntaxError**. Namun, perbedaannya adalah:
-- **Lexical Syntax Error:** Salah tulis (misal: `functon` alih-alih `function`).
-- **Early Error (Static Semantic):** Tulisannya benar, tapi logikanya dilarang secara statis (misal: `function a(b, b) {}`).
+## 2. Kategori Umum Early Errors
+Apa saja yang dicegat oleh "Saringan" ini?
+- **Binding Errors**: Nama parameter duplikat dalam *Strict Mode* atau fungsi generator.
+- **Reference Errors (Static)**: Menggunakan `super()` di luar constructor kelas.
+- **Scope Errors**: `yield` di luar generator atau `await` di luar fungsi async/top-level module.
+- **Strict Mode Restrictions**: Penggunaan `with` statement atau menghapus variabel yang tidak dapat dihapus (`delete x`).
 
----
-
-## Mengapa Arsitek Harus Tahu Ini?
-Memahami Early Errors membantu Anda membangun *Tooling* yang lebih baik (seperti Linter atau Transpiler). Anda bisa mendeteksi kesalahan di level kode sebelum Anda mengirimkan kode tersebut ke browser user.
+## 3. Implikasi bagi Mesin (Stop the World)
+Satu saja *Early Error* dalam file `.js` akan menggagalkan seluruh file tersebut. Ini berbeda dengan *Runtime Error* di mana script sempat berjalan dan mungkin sudah melakukan mutasi status sebelum akhirnya berhenti.
 
 ---
 
-## Tantangan Kecil
-Coba tulis kode ini di console:
-```javascript
-"use strict";
-var delete = 10;
-```
-Apakah error-nya muncul saat Anda menekan Enter? Mengapa?
-(Jawabannya: **Ya**. Ini adalah Early Error. `delete` adalah *Reserved Word* yang tidak boleh digunakan sebagai nama variabel. Mesin JS mengetahuinya seketika saat parsing).
+## Arsitek Mindset: Catch Early, Run Fast
+Memahami Early Errors memungkinkan Anda untuk tidak hanya mengandalkan Linter, tetapi juga memahami alasan *mengapa* mesin JavaScript menolak struktur tertentu. Ini adalah barisan pertahanan pertama bagi integritas aplikasi Anda.
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Early Errors menjamin bahwa kode yang mulai "Terbang" (*Runtime*) adalah kode yang sudah bersih dari kesalahan struktural dasar.
+
+## Referensi Terkait
+- [ECMA-262: Early Error Definitions](https://tc39.es/ecma262/#sec-early-error-rules)
+- [CH-04: Static Scope Rules](./CH-04_StaticScopeRules/README.md)
+
+---
+> [!IMPORTANT]  
+> **Key Takeaway:** Early Errors menjamin bahwa kode yang mulai dieksekusi adalah kode yang sudah "Lulus Sertifikasi" secara struktural dan semantik statis.

@@ -1,42 +1,42 @@
 # CH-06: Constant Declarations
 
-Keyword `const` sering dianggap hanya sebagai "variabel yang tidak bisa diubah". Namun di mata spesifikasi, ada mekanisme **Static Binding** yang menjaga integritas `const` sejak tahap persiapan.
+*Pemetaan ECMA-262: Clause 14.3.1.1 (Static Semantics: Early Errors)*
 
-## Mental Model: "Segel Permanen"
-Saat Anda mendeklarasikan variabel dengan `var` atau `let`, Anda membuat sebuah laci yang kuncinya bisa diberikan ke siapa saja. Namun, saat Anda menggunakan `const`, spesifikasi memasang **Segel Permanen** pada laci tersebut. 
+Keyword `const` sering dianggap hanya sebagai "variabel yang tidak bisa diubah". Namun di mata spesifikasi, ada mekanisme **Immutable Binding** yang menjaga integritas `const` sejak tahap persiapan.
+
+## Mental Model: "Segel Permanen pada Laci"
+Saat Anda mendeklarasikan variabel dengan `var` atau `let`, Anda membuat sebuah laci yang kuncinya bisa diberikan ke siapa saja (boleh diisi ulang). Namun, saat Anda menggunakan `const`, spesifikasi memasang **Segel Permanen** pada laci tersebut. 
 
 Analisis statis bertugas memastikan:
-1. Segel langsung dipasang saat laci dibuat.
-2. Tidak ada rencana (kode) yang mencoba merusak segel tersebut.
+1. Segel langsung dipasang saat laci dibuat (Wajib Inisialisasi).
+2. Tidak ada rencana (kode) yang mencoba merusak segel tersebut (Re-assignment check).
 
 ---
 
-## 1. Aturan Statis `const`
-Spesifikasi menetapkan beberapa aturan semantik statis untuk `LexicalDeclaration`:
-- **Wajib Inisialisasi:** `const x;` akan memicu **Early Error** (SyntaxError). Anda tidak boleh membuat konstanta "kosong".
-- **Immutable Binding:** Berbeda dengan `let`, identitas binding untuk `const` ditandai sebagai *immutable* di dalam *Environment Record*.
+## 1. Aturan Wajib Inisialisasi (Clause 14.3.1.1)
+Berdasarkan semantik statis *Early Errors*, sebuah `LexicalDeclaration` yang menggunakan `const` harus memiliki `Initializer`. 
+- **Valid**: `const PI = 3.14;`
+- **Invalid**: `const PI;` <--- memicu **SyntaxError** di fase parsing.
 
-## 2. Penegakan di Tahap Parse
-Engine JavaScript melakukan pemeriksaan statis untuk melihat apakah ada operasi penugasan (`AssignmentExpression`) yang menargetkan nama yang dideklarasikan sebagai `const`.
-- Jika Anda menulis `const x = 1; x = 2;`, engine seringkali bisa mendeteksi ini sebagai **Early Error** bahkan sebelum menjalankan baris pertama (tergantung implementasi optimasi parser).
+## 2. Immutable Binding vs Immutable Value
+Ini adalah perbedaan yang krusial bagi seorang arsitek:
+- **Immutable Binding**: Identitas atau "alamat" dari binding tidak dapat diubah. Ini diatur oleh flag `[[Writable]]: false` pada Environment Record ketat setelah inisialisasi.
+- **Immutable Value**: Isi dari nilai itu sendiri. `const` tidak menjamin nilai objek bersifat immutable.
 
-## 3. Const vs Immutability
-Jangan salah paham: **Constant Binding** Ã¢Â  **Immutable Value**.
-- `const obj = {}` bersifat statis (Binding-nya tidak bisa diubah).
-- Tapi isi dari `obj` bisa diubah. 
-Aturan semantik statis hanya menjaga "Alamat" atau "Nama" variabel, bukan isi dari objek yang dirujuknya.
+## 3. Deteksi Penugasan Ulang (Early Error)
+Meskipun penugasan ulang `const` biasanya memicu `TypeError` di runtime, dalam banyak konteks (seperti di dalam modul yang sama), engine JavaScript modern bisa mendeteksi upaya penugasan ulang secara statis dan memberikan peringatan atau error lebih awal.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Penggunaan `const` yang konsisten membantu mesin JS melakukan optimasi "Inlining". Karena mesin tahu secara statis bahwa nilai ini tidak akan pernah merujuk ke lokasi lain, mesin bisa bekerja lebih cepat dan aman dari *runtime side-effects*.
+## Arsitek Mindset: Predictability through Constancy
+Penggunaan `const` yang konsisten membantu mesin JS melakukan optimasi seperti *Constant Folding* dan *Inlining*. Karena mesin tahu secara statis bahwa binding ini tidak akan pernah merujuk ke lokasi lain, mesin bisa mengasumsikan stabilitas referensi tersebut untuk optimasi performa.
 
 ---
 
-## Tantangan Kecil
-Mengapa kita tetap butuh `Object.freeze()` jika sudah ada `const`?
-(Jawabannya: Karena `const` hanya menjaga **Binding** (identitas variabel), sedangkan `Object.freeze()` menjaga **Value** (isi dari objeknya). Keduanya bekerja di level yang berbeda: `const` di level Static Semantics, `freeze` di level Runtime Semantics).
+## Referensi Terkait
+- [ECMA-262 Clause 14.3.1 - Let and Const Declarations](https://tc39.es/ecma262/#sec-let-and-const-declarations)
+- [CH-11: Binding Initialization](../CH-11_BindingInitialization/README.md)
 
 ---
-> [!NOTE]
-> **Key Takeaway:** `const` adalah janji statis bahwa nama ini tidak akan pernah berpindah ke lain hati (nilai lain).
+> [!NOTE]  
+> Kode contoh untuk demonstrasi perbedaan binding `const` dan `let` dapat dilihat di [examples/](./examples/).

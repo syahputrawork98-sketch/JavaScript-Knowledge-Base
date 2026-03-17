@@ -1,6 +1,8 @@
 # CH-02: Grammar Static Semantics
 
-Jika CH-01 membahas tentang "Inspektur", maka CH-02 membahas tentang "Buku Peraturan" yang dibawa inspektur tersebut saat melihat Blueprint Tata Bahasa.
+*Pemetaan ECMA-262: Clause 5.1 (Grammar) & 5.2.4 (Linkage)*
+
+Jika CH-01 membahas tentang "Inspektur", maka CH-02 membahas tentang "Buku Peraturan" yang dibawa inspektur tersebut saat melihat Blueprint Tata Bahasa (AST).
 
 ## Mental Model: "Catatan Kaki pada Blueprint"
 Bayangkan sebuah Blueprint arsitektur. Di dekat gambar tangga, ada catatan kaki kecil: *"Tangga tidak boleh lebih tinggi dari 3 meter jika tanpa pegangan tangan"*.
@@ -9,31 +11,33 @@ Bayangkan sebuah Blueprint arsitektur. Di dekat gambar tangga, ada catatan kaki 
 
 ---
 
-## 1. Menghubungkan Bentuk ke Aturan
-Grammar (Klausa 5.1) sangat ahli dalam mendefinisikan *bagaimana* kode ditulis. Namun, ia kurang ahli dalam mendefinisikan *apa yang dilarang* dalam konteks tertentu. 
+## 1. Menghubungkan Produksi ke Aturan (Clause 5.1)
+Grammar sangat ahli dalam mendefinisikan *bagaimana* kode ditulis (struktur). Namun, ia memerlukan **Static Semantics** untuk mendefinisikan *legitimasi* dalam konteks tertentu. Aturan semantik statis "menempel" langsung pada *Grammar Productions*.
 
-*Static Semantics* "menempel" pada produksi grammar. Contohnya, pada produksi variabel `LexicalBinding`, terdapat aturan statis yang melarang penggunaan nama variabel yang sama dengan keyword cadangan (*Reserved Words*).
+### Contoh: `IdentifierReference`
+Secara grammar, `IdentifierReference` bisa berupa nama apa saja. Namun, semantik statis menambahkan aturan: *"Jika konteksnya adalah Strict Mode, maka 'arguments' atau 'eval' tidak boleh digunakan sebagai IdentifierReference."*
 
-## 2. Aturan Rantai (Recursive Mapping)
-Aturan semantik statis seringkali bersifat rekursif.
-- "Sebuah `Block` memiliki aturan semantik X."
-- Aturan X berkata: "Jalankan aturan Y untuk setiap `Statement` di dalam `Block` ini."
-Inilah cara spesifikasi memastikan seluruh pohon kode Anda (AST) aman dari ujung ke ujung.
+## 2. Parameter Grammar & Semantik Statis
+Salah satu fitur tercanggih dalam spesifikasi ECMA-262 adalah penggunaan **Grammatical Parameters** (seperti `[Yield]`, `[Await]`, `[Return]`).
+- Aturan statis mengecek apakah parameter ini aktif atau tidak.
+- Contoh: Produksi `Expression[Yield, Await]` akan berubah perilakunya secara statis tergantung apakah kita berada di dalam fungsi generator (`Yield`) atau fungsi async (`Await`).
 
-## 3. Peran dalam Optimasi
-Mesin JavaScript modern (V8, Turbofan) sangat bergantung pada hasil analisis grammar statis ini. Jika semantik statis menjamin bahwa sebuah variabel tidak akan pernah berubah (*Constant binding*), mesin bisa melakukan optimasi gila-gilaan tanpa perlu mengeceknya lagi saat runtime.
-
----
-
-## Mengapa Arsitek Harus Tahu Ini?
-Anda akan sering menemui *Early Errors* yang terasa aneh jika hanya melihat teks. Memahami link antara grammar dan semantik membantu Anda melakukan *debugging* pada level bahasa, bukan sekadar level kode.
+## 3. Rantai Delegasi Semantik
+Aturan semantik statis seringkali bersifat delegatif (rekursif).
+- Sebuah `Block` memiliki aturan semantik statis `VarDeclaredNames`.
+- Aturan ini tidak bekerja sendirian; ia memanggil `VarDeclaredNames` pada setiap `StatementList` di dalamnya, yang kemudian memanggil pada setiap `Statement`, dan seterusnya hingga ke level token terkecil.
 
 ---
 
-## Tantangan Kecil
-Mengapa Anda tidak bisa menulis `await` di luar fungsi async (sebelum era Top-level Await)?
-(Jawabannya: Karena tata bahasa `UnaryExpression` memiliki aturan semantik statis yang mengecek flag **[Await]**. Jika flag tersebut tidak aktif di level grammar, semantik statis akan memicu error).
+## Arsitek Mindset: Struktur vs Legitimasi
+Memahami link antara grammar dan semantik membantu Anda melakukan *debugging* pada level bahasa. Anda akan mengerti bahwa `SyntaxError` seringkali bukan karena salah ketik, melainkan karena Anda melanggar aturan semantik yang menempel pada struktur yang sebenarnya "terlihat" benar.
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Grammar mendefinisikan **Struktur**, sedangkan Static Semantics mendefinisikan **Legitimasi** dari struktur tersebut.
+
+## Referensi Terkait
+- [ECMA-262 Clause 5.1 - Syntactic and Lexical Grammars](https://tc39.es/ecma262/#sec-syntactic-and-lexical-grammars)
+- [ECMA-262 Clause 5.2.4 - Static Semantics](https://tc39.es/ecma262/#sec-static-semantics)
+
+---
+> [!IMPORTANT]  
+> **Key Takeaway:** Grammar mendefinisikan **Struktur**, sedangkan Static Semantics mendefinisikan **Legitimasi** dari struktur tersebut melalui parameter dan delegasi rekursif.

@@ -1,37 +1,43 @@
 # CH-01: Algorithm Static Semantics
 
+*Pemetaan ECMA-262: Clause 5.2.4 (Static Semantics)*
+
 Mengapa ada aturan yang tidak bisa dijelaskan hanya dengan "Bentuk" (Sintaks)? Di sinilah **Algorithm Static Semantics** berperan sebagai "Pemeriksa Kelayakan" dalam mesin JavaScript.
 
 ## Mental Model: "Inspektur Kelayakan Bangunan"
-Bayangkan sebuah blueprint bangunan (Sintaks). Blueprint tersebut menunjukkan ada pintu dan jendela. Namun, **Algorithm Static Semantics** adalah inspektur yang memeriksa: "Apakah pintu ini terhubung ke ruangan yang benar? Apakah kabel listriknya aman?" 
+Bayangkan sebuah blueprint bangunan (Sintaks). Blueprint tersebut menunjukkan ada pintu dan jendela (Grammar). Namun, **Algorithm Static Semantics** adalah inspektur yang memeriksa: "Apakah pintu ini terhubung ke ruangan yang benar? Apakah kabel listriknya aman?" 
 
 Inspektur ini bekerja **sebelum** siapapun diizinkan menghuni bangunan tersebut (*Runtime*).
 
 ---
 
-## 1. Definisi Formal
-Dalam spesifikasi ECMA-262, *Static Semantics* adalah algoritma yang terkait dengan produk tata bahasa (Grammar Production), namun tidak menghasilkan nilai eksekusi. Alih-alih, algoritma ini mengembalikan informasi atau memicu kesalahan teknis.
+## 1. Definisi Formal (Clause 5.2.4)
+Dalam spesifikasi ECMA-262, *Static Semantics* didefinisikan sebagai algoritma yang terkait dengan produk tata bahasa (*Grammar Production*). Berbeda dengan *Runtime Semantics*, algoritma ini tidak menghasilkan nilai eksekusi, melainkan memberikan informasi struktural atau memvalidasi aturan yang harus dipenuhi sebelum eksekusi dimulai.
 
-## 2. Bagaimana Algoritma Ini Bekerja?
-Setiap kali mesin JS melakukan *parsing* kode, ia tidak hanya melihat struktur teks. Ia juga menjalankan algoritma statis untuk menjawab pertanyaan seperti:
-- *"Apakah fungsi ini memiliki parameter duplikat?"*
-- *"Apakah label 'break' ini merujuk ke label yang ada?"*
-- *"Apakah variabel ini sudah dideklarasikan di scope ini?"*
+### Mekanisme Syntax-Directed Operations
+Sebagian besar ssemantik statis direpresentasikan sebagai **Syntax-Directed Operations**. Ini adalah fungsi yang "menempel" pada node di AST (Abstract Syntax Tree) dan bekerja secara rekursif ke bawah (top-down).
 
-## 3. Contoh: Aturan `HasDirectEval`
-Salah satu contoh algoritma statis yang populer adalah pengecekan apakah sebuah fungsi mengandung instruksi `eval` langsung. Ini penting karena keberadaan `eval` akan mengubah cara mesin mengalokasikan memori (*Scope*) secara statis.
+## 2. Pengecekan Utama dalam Semantik Statis
+Beberapa pertanyaan yang dijawab oleh algoritma ini selama fase parsing/analisis:
+- **`Contains`**: Apakah node ini mengandung elemen tertentu (misalnya `await` di dalam fungsi non-async)?
+- **`BoundNames`**: Daftar nama variabel apa saja yang dideklarasikan di sini?
+- **`IsConstantDeclaration`**: Apakah deklarasi ini bersifat konstan?
+- **`HasDirectEval`**: Apakah ada penggunaan `eval` langsung yang akan mengacaukan optimasi scope?
+
+## 3. Early Errors (Kaitan dengan Static Semantics)
+Banyak aturan semantik statis yang dirancang khusus untuk meminimalkan bug di runtime dengan cara memicu **Early Errors**. Jika algoritma statis mendeteksi pelanggaran, mesin JS akan melempar `SyntaxError` bahkan sebelum baris pertama kode dijalankan.
+
+---
+
+## Arsitek Mindset: Integritas vs Kecepatan
+*Runtime Semantics* berfokus pada **Kecepatan** eksekusi, sedangkan *Static Semantics* berfokus pada **Integritas** kode. Sebagai arsitek, memahami ini membantu Anda menulis kode yang "berteman" dengan mesin, karena Anda menghindari pola yang memaksa mesin melakukan analisis statis yang berat atau deoptimasi.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Dengan memahami semantik statis, Anda akan tahu bahwa JavaScript sebenarnya adalah bahasa yang melakukan **banyak analisis sebelum koding dijalankan**. Ini membantah mitos bahwa "JS hanya bahasa interpretasi yang tidak melakukan pemeriksaan awal".
+## Referensi Terkait
+- [ECMA-262 Clause 5.2.4 - Static Semantics](https://tc39.es/ecma262/#sec-static-semantics)
+- [PPM Standards: Documentation Hierarchy](../README.md)
 
 ---
-
-## Tantangan Kecil
-Coba pikirkan: Mengapa `export default` hanya boleh ada satu di dalam sebuah modul? Siapa yang melarangnya?
-(Jawabannya: Algoritma **Static Semantics** untuk `ModuleBody` yang memastikan jumlah export default tepat satu. Jika lebih, Anda akan mendapat `SyntaxError` sebelum satu baris kode pun berjalan).
-
----
-> [!TIP]
-> **Architect's View:** *Runtime Semantics* adalah tentang **Kecepatan**, sedangkan *Static Semantics* adalah tentang **Integritas**.
+> [!NOTE]  
+> Kode contoh untuk demonstrasi perilaku "Lari dari pemeriksaan" dapat dilihat di folder [examples/](./examples/).
