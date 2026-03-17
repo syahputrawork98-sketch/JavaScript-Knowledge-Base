@@ -20,5 +20,5 @@
 | CH-15 | Descriptive Phrases | [x] Sync | 0 | 1 | ES2024 | 2026-03-17 |
 
 ---
-> [!NOTE]
-> Semua bab telah ditingkatkan ke "Gold Standard" dengan narasi mendalam, visualisasi mental model (SVG), dan simulasi kode (jika relevan).
+> [!IMPORTANT]
+> Buku ini telah sepenuhnya ditingkatkan ke level **Gold Standard** PPM V4. Seluruh 15 bab memiliki narasi analogi, visualisasi SVG Mental Model, dan simulasi kode yang sinkron dengan ECMA-262 (Clause 5.1).

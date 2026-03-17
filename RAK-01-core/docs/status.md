@@ -3,7 +3,7 @@
 
 | Sub-Rak | Judul | Progress | Status |
 | :--- | :--- | :--- | :--- |
-| SR-01 | National Convention | 63% | [/] In Progress |
+| SR-01 | National Convention | 100% | [x] Gold Standard |
 | SR-02 | DataTypes and Values | 0% | [ ] Planned |
 | SR-03 | Abstract Operations | 0% | [ ] Planned |
 | SR-04 | Executable Code and Contexts | 0% | [ ] Planned |
@@ -17,4 +17,7 @@
 | SR-12 | Memory Management and GC | 0% | [ ] Planned |
 
 ---
+> [!IMPORTANT]
+> **SR-01 National Convention** telah mencapai **Gold Standard** (PPM V4) pada 2026-03-17. Mencakup 4 buku dan 63 bab yang seluruhnya telah disinkronkan dengan ECMA-262 terbaru.
+
 *Detail Sub-Rak: [SR-01/docs/status.md](../SR-01_NationalConvention/docs/status.md)*
