@@ -3,6 +3,18 @@
 Semua perubahan signifikan pada buku ini akan didokumentasikan di file ini.
 Format versi: `v3.01.01.01` (v3.rak.subrak.buku)
 
+## [v3.01.01.05] - 2026-03-17
+### Added
+- Peningkatan status buku menjadi **Gold Standard** (PPM V4).
+- Penambahan 14 SVG Mental Model kustom untuk memvisualisasikan konvensi algoritma di setiap bab.
+- Penambahan 14 simulasi logic JavaScript dalam direktori `examples/` sebagai validasi praktis terhadap algoritma spesifikasi.
+- Penulisan ulang narasi README di seluruh 14 bab dengan analogi dunia nyata (Rantai Eksekusi, Workshop TC39, Alarm Darurat, dll).
+- Restrukturisasi Daftar Isi ke `docs/contents.md` dan transformasi `README.md` utama menjadi Synopsis.
+
+### Changed
+- Refactoring penamaan direktori (CH-05 dan CH-14) untuk sinkronisasi dengan standar penulisan.
+- Pembaruan `docs/status.md` untuk mencerminkan status "Sync" 100% dan penyelesaian audit kualitas.
+
 ## [v3.01.01.04] - 2026-03-17
 ### Added
 - Penyesuaian struktur buku dengan `structure-guide.md`.

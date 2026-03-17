@@ -1,23 +1,27 @@
 # BK-03: Spec Algorithm Conventions (Clause 5.2)
 
-Belajar membaca "Codingan Internal" TC39. Bagaimana nasib sebuah variable ditentukan? Bagaimana error dilempar? Semuanya dijawab di sini melalui konvensi penulisan algoritma resmi.
+> [!IMPORTANT]
+> **Sinopsis:** Menguasai "Bahasa Mesin" yang digunakan TC39. Jika BK-02 adalah tentang membaca blueprint gedung, maka BK-03 adalah tentang memahami bagaimana mesin-mesin di dalam gedung tersebut bekerja, berkomunikasi, dan menangani kegagalan.
 
-## Daftar Isi: Menguasai Bahasa Mesin
-- [CH-01: Evaluation Order](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-01_EvaluationOrder/README.md) (5.2.1)
-- [CH-02: Abstract Operations](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-02_AbstractOperations/README.md) (5.2.2)
-- [CH-03: Syntax-Directed Operations](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-03_SyntaxDirectedOperations/README.md) (5.2.3)
-- [CH-04: Runtime Semantics Overview](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-04_RuntimeSemanticsOverview/README.md) (5.2.4)
-- [CH-05: Completion Records Unveiled](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-05_CompletionRecordsUnveiled/README.md) (5.2.4.1)
-- [CH-06: Throwing Exceptions](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-06_ThrowingExceptions/README.md) (5.2.4.2)
-- [CH-07: Shorthands for Unwrapping](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-07_ShorthandsForUnwrapping/README.md) (5.2.4.3)
-- [CH-08: Implicit Normal Completion](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-08_ImplicitNormalCompletion/README.md) (5.2.4.4)
-- [CH-09: Static Semantics](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-09_StaticSemantics/README.md) (5.2.5)
-- [CH-10: Mathematical Operations](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-10_MathematicalOperations/README.md) (5.2.6)
-- [CH-11: Value Notation](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-11_ValueNotation/README.md) (5.2.7)
-- [CH-12: Identity](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-12_Identity/README.md) (5.2.8)
-- [CH-13: Host-defined Operations](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-13_HostDefinedOperations/README.md) (Supplemental)
-- [CH-14: Algorithm Puzzles & Edge Cases](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/CH-14_AlgorithmPuzzlesAndEdgeCases/README.md) (Synthesis)
+## Mengapa Anda Harus Bisa Membaca Ini?
+Pernahkah Anda bertanya-tanya, bagaimana spesifikasi menjelaskan proses pelemparan error? Atau bagaimana sebetulnya urutan evaluasi sebuah variabel ditentukan di balik layar? 
+
+ECMAScript tidak ditulis dengan pseudo-code biasa. Ia menggunakan sekumpulan konvensi algoritma yang sangat presisi agar semua engine (V8, SpiderMonkey, JavaScriptCore) bekerja dengan hasil yang identik. Tanpa memahami konvensi ini, Anda akan sering salah menafsirkan perilaku bahasa yang sebetulnya sudah tertulis jelas.
 
 ---
-> [!NOTE]
-> Pemetaan ini mencakup penambahan sub-seksi terbaru pada ES2025 (16th edition).
+
+## Intisari Materi:
+1.  **Struktur Laporan (Completion Records)**: Membongkar cara setiap langkah algoritma melaporkan hasilnya—apakah sukses, error, atau instruksi lompatan (*break/return*).
+2.  **Shorthand Syntax (?, !)**: Menguasai "bahasa kode" para engineer spec untuk membuka bungkus data secara instan tanpa harus menulis puluhan langkah redundan.
+3.  **Matematika & Identitas**: Memahami bagaimana spec menangani angka (termasuk BigInt) dan bagaimana ia mendefinisikan "keunikan" sebuah objek di level memori abstrak.
+
+---
+
+## Orientasi Navigasi:
+Konteks teknis dan pemetaan klausul untuk setiap langkah algoritma dapat Anda akses melalui halaman navigasi detail.
+
+### 🧭 [Buka Daftar Isi & Peta Algoritma (TOC)](./docs/contents.md)
+*Gunakan peta ini untuk melacak konvensi spesifik yang ingin Anda bedah.*
+
+---
+*Buku Status: [docs/status.md](./docs/status.md)*  

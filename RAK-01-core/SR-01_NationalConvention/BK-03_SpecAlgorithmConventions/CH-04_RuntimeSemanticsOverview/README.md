@@ -1,17 +1,38 @@
 # CH-04: Runtime Semantics Overview
 
-Saatnya menghidupkan kode! (Clause 5.2.4).
+*Pemetaan ECMA-262: Clause 5.2.4*
 
-## Apa itu Runtime Semantics?
-Berbeda dengan Static Semantics yang memeriksa kode sebelum dijalankan, **Runtime Semantics** menjelaskan apa yang sebenarnya terjadi saat kode sedang dieksekusi. Ini adalah algoritma yang mengubah status internal mesin, memori, dan variabel.
+Setelah grammar dipahami dan notasi dibedah, tiba saatnya kita melihat bagaimana algoritma spesifikasi benar-benar "berlari" saat aplikasi dijalankan.
 
-Semua perilaku yang Anda rasakan saat menjalankan perintah di konsol browser adalah perwujudan dari Runtime Semantics.
+## Mental Model: "Pentas Pertunjukan"
+Bayangkan sebuah **Produksi Teater**. 
+- **Static Semantics** adalah sesi audisi dan gladi resik. Jika kostum salah atau naskah tidak hafal, aktor tidak boleh naik panggung.
+- **Runtime Semantics** adalah **Malam Pertunjukan** yang sesungguhnya. Inilah saat emosi keluar, lampu sorot menyala, dan penonton (User) melihat hasilnya.
 
-## Komponen Utama:
-- **Evaluation:** Proses menghitung nilai dari ekspresi.
-- **Execution:** Proses menjalankan urutan statement.
-- **Completion:** Cara sebuah algoritma melaporkan hasil akhirnya (apakah sukses, error, atau melakukan interupsi seperti `break`/`return`).
+Dalam spesifikasi, **Runtime Semantics** adalah algoritma yang menangani perilaku dinamis kode—seperti menghitung nilai, mengubah memori, atau melempar error saat aplikasi sedang berjalan.
+
+![Mental Model: Performance Stage](./assets/performance_stage.svg)
 
 ---
-> [!IMPORTANT]
-> **Spec Secret:** Runtime Semantics ditulis dalam bahasa Inggris yang sangat formal tapi memiliki silsilah logika yang sangat ketat seperti kode pemrograman.
+
+## 1. Apa itu Runtime Semantics?
+Runtime Semantics adalah aliran algoritma yang menentukan apa yang terjadi setelah tahap parsing selesai:
+- **Side Effects**: Semua perubahan pada *Global Object*, *Execution Context*, dkk terjadi di sini.
+- **Completion**: Hasil akhir dari sebuah blok kode (apakah mengembalikan nilai atau melempar error) didefinisikan secara ketat dalam runtime.
+
+## 2. Hubungan dengan SDO
+Hampir semua Runtime Semantics diimplementasikan sebagai **Syntax-Directed Operations** (seperti yang kita pelajari di Bab sebelumnya). Operasi paling ikonik adalah `Evaluation`, yang merupakan pintu masuk utama bagi runtime untuk menjalankan unit grammar apa pun.
+
+---
+
+## Arsitek Mindset: Pahami Panggung, Kuasai Pertunjukan
+Sebagai seorang arsitek senior, Anda harus tahu kapan sebuah aturan dicek (Static) dan kapan sebuah efek samping terjadi (Runtime). Memahami Clause 5.2.4 akan membantu Anda memprediksi perilaku kode JavaScript Anda tanpa perlu menebak-nebak.
+
+---
+
+## Referensi Terkait
+- [ECMA-262 Clause 5.2.4 - Runtime Semantics](https://tc39.es/ecma262/#sec-runtime-semantics)
+
+---
+> [!TIP]  
+> Bedakan antara validasi statis dan eksekusi dinamis melalui simulasi di [examples/static_vs_runtime_sim.js](./examples/static_vs_runtime_sim.js).
