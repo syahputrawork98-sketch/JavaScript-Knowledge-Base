@@ -1,7 +1,14 @@
-# CHANGELOG - BK-01_SpecAlgorithmConventions
+# CHANGELOG - BK-03_SpecAlgorithmConventions
 
 Semua perubahan signifikan pada buku ini akan didokumentasikan di file ini.
 Format versi: `v3.01.01.01` (v3.rak.subrak.buku)
+
+## [v3.01.01.04] - 2026-03-17
+### Added
+- Penyesuaian struktur buku dengan `structure-guide.md`.
+- Pembaruan penamaan folder chapter menjadi `CH-XX_PascalCase`.
+- Penambahan direktori `assets/` dan `examples/` untuk seluruh 14 bab.
+- Sinkronisasi link di README utama buku.
 
 ## [v3.01.01.03] - 2026-03-16
 ### Added
