@@ -3,9 +3,9 @@
 
 | Buku | Judul | Progress | Status |
 | :--- | :--- | :--- | :--- |
-| BK-01 | Spec Foundations | 100% | [x] Completed |
-| BK-02 | Grammar Notation System | 100% | [x] Completed |
-| BK-03 | Spec Algorithm Conventions | 100% | [x] Completed |
+| BK-01 | Spec Foundations | 100% | [x] Gold Standard |
+| BK-02 | Grammar Notation System | 15% | [/] Narrative Draft |
+| BK-03 | Spec Algorithm Conventions | 14% | [/] Narrative Draft |
 | BK-04 | Static Semantic Rules | 37% | [/] In Progress |
 
 ---
