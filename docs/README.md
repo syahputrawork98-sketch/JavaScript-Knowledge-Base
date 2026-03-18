@@ -16,7 +16,7 @@ Pusat dokumentasi ini menyimpan seluruh cetak biru, standar kualitas, dan pandua
 - **[Repository Plan](./repository-plan/README.md)**: Dekomposisi total dari MDN JavaScript ke dalam struktur 11-Rack.
 
 ### 3. Spesialisasi (Specializations)
-- **[RAK-12: Modern Web Runtimes](../RAK-12-MODERN-WEB-RUNTIMES/README.md)**: Menjelajahi dunia Node.js, Bun, dan Deno.
+- **[RAK-12: Modern Web Runtimes](../RAK-12-MODERN-WEB-RUNTIMES/README.md)**: Menjelajahi dunia Node.js, Bun, dan Deno sebagai pusat transmisi data web modern yang asinkron.
 
 ### 4. Narasi & Esensi
 - **[JavaScript Origins](./javascript-origins.md)**: Kisah legendaris pembuatan bahasa dalam 10 hari oleh Brendan Eich.
