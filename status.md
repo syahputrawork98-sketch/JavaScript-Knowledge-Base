@@ -12,7 +12,7 @@
 | RAK-01 | Get Started | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-02 | JS Guide | 100% | 100/100 | 🟢 Complete |
 | RAK-03 | Standard Built-in Objects | 100% | 100/100 | 🟢 Complete (Gold Standard) |
-| RAK-04 | Expressions & Operators | 0% | 0/100 | ⚪ Planned |
+| RAK-04 | Expressions & Operators | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-05 | Statements & Declarations | 0% | 0/100 | ⚪ Planned |
 | RAK-06 | Functions | 0% | 0/100 | ⚪ Planned |
 | RAK-07 | Classes | 0% | 0/100 | ⚪ Planned |
@@ -25,6 +25,12 @@
 | RAK-14 | JS Engines | 0% | 0/100 | ⚪ Planned |
 
 ## Log Perubahan (Changelog)
+- **2026-03-19**: Pengerjaan RAK-04: Expressions & Operators Mencapai Gold Standard.
+- **2026-03-19**: Penyelesaian SR-03: System Meta (Unary & Relational).
+- **2026-03-19**: Penyelesaian SR-02: Advanced Processing (Bitwise & Selective Routing).
+- **2026-03-19**: Penyelesaian SR-01: Energy Flow (Basic Operators).
+- **2026-03-19**: Penyelesaian BK-01: Flow Control (Arithmetic & Assignment).
+- **2026-03-19**: Inisialisasi Infrastruktur RAK-04: Expressions & Operators.
 - **2026-03-19**: Finalisasi Lab Praktis (`examples/`) untuk Seluruh 16 Chapter RAK-03.
 - **2026-03-19**: Penambahan Lab Implementasi (`examples/`) untuk tiap chapter.
 - **2026-03-19**: RAK-03 Mencapai Status Gold Standard (5 SVGs Terintegrasi).

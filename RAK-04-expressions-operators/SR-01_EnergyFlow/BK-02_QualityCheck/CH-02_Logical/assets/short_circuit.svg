@@ -1,0 +1,99 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0f172a" rx="20"/>
+  
+  <defs>
+    <filter id="glow-red">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-green">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Title Section -->
+  <rect x="0" y="0" width="800" height="70" fill="#1e293b" rx="20" stroke="#334155"/>
+  <text x="400" y="45" fill="#f8fafc" font-family="Arial" font-size="22" text-anchor="middle" font-weight="bold" letter-spacing="1">HUB SIGNAL PROTOCOL: SHORT-CIRCUIT</text>
+
+  <!-- AND CIRCUIT PANEL -->
+  <g transform="translate(40, 90)">
+    <rect width="345" height="480" fill="url(#panelGrad)" rx="15" stroke="#334155" stroke-width="2"/>
+    <text x="172" y="35" fill="#38bdf8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">LOGIC: AND (&amp;&amp;)</text>
+    
+    <!-- Power Line -->
+    <path d="M40 100 L40 420" stroke="#1e293b" stroke-width="8" stroke-linecap="round"/>
+    <path d="M40 100 L40 180" stroke="#22c55e" stroke-width="4" stroke-linecap="round" filter="url(#glow-green)"/>
+    
+    <!-- Input A (FALSY) -->
+    <g transform="translate(40, 180)">
+      <circle r="12" fill="#0f172a" stroke="#ef4444" stroke-width="3"/>
+      <text x="30" y="5" fill="#ef4444" font-family="Arial" font-size="14" font-weight="bold">VAL 1: FALSE (Falsy)</text>
+      <!-- Cut-off switch -->
+      <path d="M-10 -10 L10 10 M-10 10 L10 -10" stroke="#ef4444" stroke-width="3"/>
+    </g>
+
+    <!-- Dead Flow -->
+    <path d="M40 180 L40 320" stroke="#ef4444" stroke-width="4" stroke-dasharray="8,4" opacity="0.4"/>
+    <text x="60" y="250" fill="#ef4444" font-family="Arial" font-size="16" font-weight="bold" opacity="0.8">SYSTEM STOP!</text>
+
+    <!-- Input B (Skipped) -->
+    <g transform="translate(40, 320)">
+      <circle r="12" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+      <text x="30" y="5" fill="#94a3b8" font-family="Arial" font-size="14">VAL 2: (NOT EVALUATED)</text>
+      <text x="-4" y="5" fill="#475569" font-family="Arial" font-size="14" font-weight="bold">?</text>
+    </g>
+
+    <!-- Explanation -->
+    <rect x="25" y="370" width="295" height="85" fill="#0f172a" rx="10" stroke="#334155" opacity="0.6"/>
+    <text x="172" y="395" fill="#94a3b8" font-family="Arial" font-size="13" text-anchor="middle">
+      <tspan x="172" dy="0">Jika operand pertama FALSE,</tspan>
+      <tspan x="172" dy="20">maka hasil pastilah FALSE.</tspan>
+      <tspan x="172" dy="20" fill="#ef4444" font-weight="bold">Operand ke-2 tidak disentuh!</tspan>
+    </text>
+  </g>
+
+  <!-- OR CIRCUIT PANEL -->
+  <g transform="translate(415, 90)">
+    <rect width="345" height="480" fill="url(#panelGrad)" rx="15" stroke="#334155" stroke-width="2"/>
+    <text x="172" y="35" fill="#fbbf24" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">LOGIC: OR (||)</text>
+    
+    <!-- Power Line -->
+    <path d="M40 100 L40 420" stroke="#1e293b" stroke-width="8" stroke-linecap="round"/>
+    <path d="M40 100 L40 420" stroke="#22c55e" stroke-width="4" stroke-linecap="round" filter="url(#glow-green)"/>
+    
+    <!-- Input A (TRUTHY) -->
+    <g transform="translate(40, 180)">
+      <circle r="12" fill="#22c55e" stroke="#22c55e" stroke-width="2" filter="url(#glow-green)"/>
+      <text x="30" y="5" fill="#22c55e" font-family="Arial" font-size="14" font-weight="bold">VAL 1: TRUE (Truthy)</text>
+      <path d="M-6 0 L-2 4 L6 -4" stroke="white" stroke-width="3" fill="none"/>
+    </g>
+
+    <!-- Early Completion / Bypass -->
+    <path d="M40 180 C100 220 100 280 40 320" fill="none" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5,5"/>
+    <text x="110" y="250" fill="#fbbf24" font-family="Arial" font-size="16" font-weight="bold">BYPASS EARLY!</text>
+
+    <!-- Input B (Skipped) -->
+    <g transform="translate(40, 320)">
+      <circle r="12" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+      <text x="30" y="5" fill="#94a3b8" font-family="Arial" font-size="14">VAL 2: (NOT EVALUATED)</text>
+      <text x="-4" y="5" fill="#475569" font-family="Arial" font-size="14" font-weight="bold">?</text>
+    </g>
+
+    <!-- Explanation -->
+    <rect x="25" y="370" width="295" height="85" fill="#0f172a" rx="10" stroke="#334155" opacity="0.6"/>
+    <text x="172" y="395" fill="#94a3b8" font-family="Arial" font-size="13" text-anchor="middle">
+      <tspan x="172" dy="0">Jika operand pertama TRUE,</tspan>
+      <tspan x="172" dy="20">maka hasil pastilah TRUE.</tspan>
+      <tspan x="172" dy="20" fill="#fbbf24" font-weight="bold">Operand ke-2 tidak disentuh!</tspan>
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="400" y="590" fill="#475569" font-family="Arial" font-size="11" text-anchor="middle" font-style="italic">HUB POWER MANAGEMENT v3.14 - SHORT CIRCUIT PROTOCOL ACTIVE</text>
+</svg>
