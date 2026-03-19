@@ -10,7 +10,7 @@
 | Rak ID | Nama Rak | Progress | Score | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | RAK-01 | Get Started | 100% | 100/100 | 🟢 Complete (Gold Standard) |
-| RAK-02 | JS Guide | 0% | 0/100 | ⚪ Planned |
+| RAK-02 | JS Guide | 100% | 100/100 | 🟢 Complete |
 | RAK-03 | Standard Built-in Objects | 0% | 0/100 | ⚪ Planned |
 | RAK-04 | Expressions & Operators | 0% | 0/100 | ⚪ Planned |
 | RAK-05 | Statements & Declarations | 0% | 0/100 | ⚪ Planned |
@@ -25,6 +25,20 @@
 | RAK-14 | JS Engines | 0% | 0/100 | ⚪ Planned |
 
 ## Log Perubahan (Changelog)
+- **2026-03-19**: Penyelesaian RAK-02: JS Guide (10 Chapters).
+- **2026-03-19**: Pengerjaan BK-03: CH-03 Object Property Attributes (Locksmiths).
+- **2026-03-19**: Pengerjaan BK-03: CH-02 Advanced Prototypes (Extensions).
+- **2026-03-19**: Pengerjaan BK-03: CH-01 The this Keyword (Power Source).
+- **2026-03-19**: Penyelesaian BK-02: The Functional Engine (4 Chapters).
+- **2026-03-19**: Pengerjaan BK-02: CH-04 Higher-order Functions (Orchestrators).
+- **2026-03-19**: Pengerjaan BK-02: CH-03 Recursion (The Re-routing Loop).
+- **2026-03-19**: Pengerjaan BK-02: CH-02 Arrow vs Regular Functions.
+- **2026-03-19**: Pengerjaan BK-02: CH-01 First-class Functions (Energy Units).
+- **2026-03-19**: Penyelesaian BK-01: Advanced Flow & Scope (3 Chapters).
+- **2026-03-19**: Pengerjaan BK-01: CH-03 Closures (Persistent Memory).
+- **2026-03-19**: Pengerjaan BK-01: CH-02 Scope Chain & Lexical Environment.
+- **2026-03-19**: Pengerjaan BK-01: CH-01 Hoisting (Lifting the Pins).
+- **2026-03-19**: Inisialisasi RAK-02: JS Guide (SR-01 Core Mechanics).
 - **2026-03-19**: Penyelesaian penuh RAK-01: Get Started (22 Chapters + 8 Custom SVGs - Gold Standard).
 - **2026-03-19**: Pengerjaan BK-04: CH-04 Async/Await (Smooth Flow).
 - **2026-03-19**: Pengerjaan BK-04: CH-02 Callbacks (Reminder Note).
