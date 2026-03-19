@@ -1,0 +1,26 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">PATTERN SCANNER UNIT (IDENTIFICATION)</text>
+
+  <!-- Input String (The Data Stream) -->
+  <rect x="50" y="200" width="700" height="60" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
+  <text x="70" y="238" fill="#94a3b8" font-family="Courier New" font-size="24">U S E R : A D M I N _ 8 8 8</text>
+
+  <!-- The Scanner Device (Gliding over the string) -->
+  <g transform="translate(450, 100)">
+    <rect width="180" height="120" fill="#0f172a" stroke="#38bdf8" stroke-width="4" rx="10"/>
+    <text x="90" y="30" fill="#38bdf8" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">SCANNER UNIT</text>
+    <rect x="20" y="50" width="140" height="40" fill="#1e293b" stroke="#38bdf8" rx="5"/>
+    <text x="90" y="75" fill="#38bdf8" font-family="Courier New" font-size="18" text-anchor="middle">/\d{3}/</text>
+    
+    <!-- Scanning Beam -->
+    <path d="M 40 120 L -20 100" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
+    <path d="M 140 120 L 200 100" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- Found Highlighting -->
+  <rect x="525" y="205" width="125" height="50" fill="#38bdf8" opacity="0.3"/>
+  <text x="587" y="290" fill="#38bdf8" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">MATCH DETECTED!</text>
+</svg>

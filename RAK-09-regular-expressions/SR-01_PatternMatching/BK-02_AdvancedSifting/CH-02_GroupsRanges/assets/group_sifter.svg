@@ -1,0 +1,39 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">GROUP SIFTER (SUB-SIGNATURE SORTING)</text>
+
+  <!-- Input Pattern -->
+  <text x="100" y="120" fill="#a78bfa" font-family="Courier New" font-size="40" font-weight="bold">(\w+):(\d+)</text>
+
+  <!-- Sifting Machine -->
+  <rect x="150" y="160" width="500" height="180" fill="#1e293b" stroke="#a78bfa" stroke-width="4" rx="20"/>
+  
+  <!-- Group 1 Output -->
+  <g transform="translate(200, 200)">
+    <rect width="120" height="80" fill="#0f172a" stroke="#fbbf24" stroke-width="2" rx="5"/>
+    <text x="60" y="30" fill="#fbbf24" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Group 1</text>
+    <text x="60" y="60" fill="#94a3b8" font-family="Courier New" font-size="12" text-anchor="middle">$1 (ALPHA)</text>
+  </g>
+
+  <!-- Group 2 Output -->
+  <g transform="translate(480, 200)">
+    <rect width="120" height="80" fill="#0f172a" stroke="#34d399" stroke-width="2" rx="5"/>
+    <text x="60" y="30" fill="#34d399" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Group 2</text>
+    <text x="60" y="60" fill="#94a3b8" font-family="Courier New" font-size="12" text-anchor="middle">$2 (800)</text>
+  </g>
+
+  <!-- Flow Arrows -->
+  <path d="M 250 120 L 260 200" stroke="#fbbf24" stroke-width="4" marker-end="url(#arrow-g1)"/>
+  <path d="M 330 120 L 540 200" stroke="#34d399" stroke-width="4" marker-end="url(#arrow-g2)"/>
+
+  <defs>
+    <marker id="arrow-g1" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24" />
+    </marker>
+    <marker id="arrow-g2" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399" />
+    </marker>
+  </defs>
+</svg>

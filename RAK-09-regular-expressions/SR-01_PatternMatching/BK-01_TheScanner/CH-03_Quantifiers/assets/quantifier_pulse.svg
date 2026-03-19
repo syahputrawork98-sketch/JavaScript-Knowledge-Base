@@ -1,0 +1,29 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">QUANTIFIER PULSE (FREQUENCY CONTROL)</text>
+
+  <!-- Pattern Base -->
+  <text x="100" y="150" fill="#f43f5e" font-family="Courier New" font-size="60" font-weight="bold">A</text>
+  
+  <!-- The Quantifiers -->
+  <g transform="translate(150, 100)">
+    <rect width="400" height="150" fill="#1e293b" stroke="#64748b" rx="10"/>
+    
+    <text x="50" y="40" fill="#fbbf24" font-family="Courier New" font-size="30" font-weight="bold">+</text>
+    <text x="100" y="40" fill="#94a3b8" font-family="Arial" font-size="12">At least 1 (A, AA, AAA...)</text>
+    
+    <text x="50" y="80" fill="#fbbf24" font-family="Courier New" font-size="30" font-weight="bold">*</text>
+    <text x="100" y="80" fill="#94a3b8" font-family="Arial" font-size="12">0 or more ("", A, AA...)</text>
+    
+    <text x="50" y="120" fill="#fbbf24" font-family="Courier New" font-size="30" font-weight="bold">?</text>
+    <text x="100" y="120" fill="#94a3b8" font-family="Arial" font-size="12">0 or 1 (Optional)</text>
+  </g>
+
+  <!-- Pulse Visualization -->
+  <path d="M 100 250 Q 200 100 300 250 T 500 250 T 700 250" fill="none" stroke="#fbbf24" stroke-width="4" stroke-dasharray="10,5"/>
+  <circle cx="100" cy="250" r="8" fill="#fbbf24"/>
+  <circle cx="300" cy="250" r="8" fill="#fbbf24"/>
+  <circle cx="500" cy="250" r="8" fill="#fbbf24"/>
+</svg>
