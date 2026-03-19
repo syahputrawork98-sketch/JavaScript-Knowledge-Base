@@ -1,41 +1,48 @@
-# CH-05: Number::divide & remainder
+# CH-05: Divide & Remainder (The Energy Splitter)
 
-Pembagian adalah operasi yang paling sering memicu kondisi "tepi" (edge cases) di JavaScript, seperti pembagian dengan nol. Mari kita lihat Clause 6.1.6.1.5 dan 6.1.6.1.6.
+> **"Distribusi energi seringkali memerlukan pembagian beban ke beberapa unit. `divide` (/) dan `remainder` (%) adalah 'Pembagi Energi' (The Energy Splitter) — mesin yang menentukan sisa kapasitas setelah energi dialirkan melalui jalur distribusi."**
 
----
+*Pemetaan ECMA-262: Clause 6.1.6.1.5 & 6.1.6.1.6*
 
-## 1. Number::divide ( n, d )
-Ini adalah operasi `n / d`. Aturan mainnya:
-- **Divide by Zero:** Di banyak bahasa pemrograman, `5 / 0` akan melempar error. Di JavaScript, hasilnya adalah `Infinity`.
-- **0 / 0:** Menghasilkan `NaN`.
-- **Tanda Hasil:** Jika operan memiliki tanda berbeda (misal: `10 / -2`), hasilnya adalah `-5`.
+## 1. Mental Model: "The Energy Splitter"
 
-**Insight Arsitek:** Karena pembagian dengan nol tidak melempar error, aplikasi Anda bisa terus berjalan dengan nilai `Infinity` tanpa Anda sadari. Ini bisa menyebabkan bug "senyap" di mana angka di UI tiba-literally menghilang atau menjadi teks "Infinity".
+- **`divide` (/)**: Membagi aliran energi secara merata. Jika arusnya tidak bisa dibagi bulat, Hub akan memberikan sisa desimal (Floating Point).
+- **`remainder` (%)**: Sering disalahpahami sebagai 'Modulo'. Di Hub, ini adalah sisa bagi yang menjaga tanda angka aslinya (The Dividen).
 
 ---
 
-## 2. Number::remainder ( n, d )
-Ini adalah operasi sisa bagi atau Modulo (`n % d`).
-Aturan uniknya:
-1. Jika `n` adalah `Infinity` atau `d` adalah `0`, hasilnya adalah `NaN`.
-2. Jika `n` adalah angka biasa dan `d` adalah `Infinity`, hasilnya adalah `n`.
-3. Tanda dari hasil `remainder` **selalu sama dengan tanda operan pertama** (`n`).
+## 2. Pembagian dengan Nol (Grid Safety)
 
-**Contoh:**
-- `-5 % 3` adalah `-2`. (Karena operan pertamanya `-5`).
-- `5 % -3` adalah `2`. (Karena operan pertamanya `5`).
+Tidak seperti bahasa pemrograman lama yang meledakkan sistem saat dibagi nol, Hub sangat tenang:
+- `Positive / 0` -> `+Infinity` (Aliran tak terbatas).
+- `Negative / 0` -> `-Infinity`.
+- `0 / 0` -> `NaN`.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Operator `%` sering digunakan untuk logika "Looping" atau "Pagination". Perbedaan perilaku tanda (seperti `-5 % 3`) bisa menyebabkan *Out of Bounds Error* pada array jika Anda tidak hati-hati. Selalu pastikan Anda memahami bahwa JavaScript mengembalikan sisa bagi yang bertanda, bukan nilai absolut sisa bagi.
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+console.log("--- Mengetes Pembagi Energi ---");
+
+// 1. Division
+console.log(`10 / 3 = ${10 / 3}`); // 3.333...
+
+// 2. Remainder (%)
+console.log(`10 % 3  = ${10 % 3}`);  // 1
+console.log(`-10 % 3 = ${-10 % 3}`); // -1 (Tanda tetap negatif!)
+
+// 3. Divide by Zero
+console.log(`5 / 0 = ${5 / 0}`); // Infinity
+```
 
 ---
 
-## Tantangan Kecil
-Berapakah hasil dari `10 % 0`?
-(Jawabannya: **NaN**. Berbeda dengan pembagian (`10 / 0` yang menghasilkan `Infinity`), sisa bagi dengan nol tidak memiliki definisi matematis yang stabil di hardware, sehingga spesifikasi memberikan `NaN`).
+## Arsitek Mindset: Presisi Pembagian
+
+Sebagai arsitek Hub:
+- Hati-hati dengan hasil pembagian desimal yang tidak pernah berakhir (seperti `1/3`). Hub akan membulatkannya di bit terakhir, yang bisa menyebabkan akumulasi kesalahan kecil di masa depan.
+- Gunakan `%` untuk menentukan sisa stok data, tetapi jika Anda butuh perhitungan modulo matematika murni (yang selalu positif), Anda harus menggunakan rumus: `((n % m) + m) % m`.
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Pembagian menghasilkan `Infinity`, sedangkan sisa bagi (mod) dengan nol menghasilkan `NaN`. Waspadai perbedaan kritis ini!
+*Status: [status.md](../../../docs/status.md)*

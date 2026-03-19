@@ -1,50 +1,42 @@
-# Bab 02: Mekanika ToString (Representasi Teks)
+# CH-02: ToString (The Label Conversion)
 
-Sama seperti kebutuhan JavaScript untuk melakukan perhitungan angka, bahasa ini juga perlu mengomunikasikan data mentah (seperti *Object*, *Array*, atau Angka) ke dalam bentuk teks yang bisa dibaca.
+> **"Setiap unit di Grid butuh identitas yang bisa dibaca manusia. `ToString` adalah 'Konversi Label' (The Label Conversion) — proses mencetak representasi tekstual dari sebuah nilai agar bisa dipahami oleh Terminal Hub."**
 
-Di sinilah **Abstract Operation `ToString`** (Clause 7.1.17 pada ECMA-262) mengambil alih. Ia bertugas memaksa (*coerce*) nilai apa pun menjadi serangkaian *Code Units* (String).
+*Pemetaan ECMA-262: Clause 7.1.12 (ToString)*
 
-## Sistem Analogi (Mental Model)
+## 1. Mental Model: "The Label Conversion"
 
-> **Analogi Singkat:**  
-> `ToString` itu seperti **Mesin Label**. Masukkan barang apapun ke dalamnya (sepatu, buku, atau angka 42), ia akan mencetak stiker teks yang mendeskripsikan barang tersebut (menjadi `"Sepatu"`, `"Buku"`, `"42"`).
-
-> **Analogi Panjang (Lem Ambigu "+" pada JavaScript):**  
-> Bayangkan operator `+` sebagai sebuah **Lem Super**. Masalahnya, Lem Super ini memiliki kepribadian ganda.
-> - Jika ia melihat angka `10` dan `5`, ia akan berfungsi sebagai Lem Matematika dan meramunya menjadi `15`.
-> - TAPI... Jika salah satu saja dari angka tersebut dibungkus plastik (berstatus String, seperti `"5"`), Lem Super itu akan langsung panik dan berubah menjadi **Lem Kertas**. Ia tidak akan menghitung, melainkan hanya menempelkan keduanya secara fisik menjadi `"105"`. Sikap panik ini diatur oleh spesifikasi *ECMAScript* yang memprioritaskan `ToString` di atas `ToNumber` saat bereksperimen dengan operator `+`.
+Bayangkan sebuah printer label otomatis yang ditempelkan pada setiap unit energi.
+- **Number**: Mencetak angka tersebut apa adanya. `0.0000001` mungkin dicetak dalam notasi ilmiah `1e-7`.
+- **Undefined**: Dicetak sebagai stiker bertuliskan `"undefined"`.
+- **Boolean**: Dicetak sebagai `"true"` atau `"false"`.
+- **Symbol**: **ERROR!** Hub melarang printer label mencetak Symbol secara otomatis untuk mencegah kebocoran identifier unik secara tidak sengaja.
 
 ---
 
-## Aturan Konversi `ToString`
+## 2. Object ke String
 
-Berikut adalah hasil baku ketika `ToString` dieksekusi oleh *Engine*:
+Sama seperti `ToNumber`, Object harus melewati `ToPrimitive(input, string)` terlebih dahulu. Secara default, kebanyakan Object di Hub akan dicetak sebagai label generik: `"[object Object]"`.
 
-| Tipe Asal (*Input Object*) | Hasil Operasi `ToString` | Keterangan |
-| :--- | :--- | :--- |
-| **Undefined** | `"undefined"` | Teks harfiah. |
-| **Null** | `"null"` | Teks harfiah. |
-| **Boolean** | `"true"` atau `"false"` | |
-| **Number** | `"42"` | Dikonversi sesuai basis desimal normal. |
-| **Array** | `"1,2,3"` | Array `.join(',')` dipanggil secara internal. Array kosong `[]` menjadi `""`. |
-| **Object** | `"[object Object]"`| Hasil dari `Object.prototype.toString`. Jarang berguna untuk UI. |
+---
 
-## Bahaya Operator `+` (Konkatenasi vs Penjumlahan)
-
-Operator tambah (`+`) di JavaScript sangat rawan *bug* karena sifatnya yang *Overloaded* (bisa melayani dua operasi berbeda secara diam-diam).
-
-Jika ada String di salah satu ruas `+`, JavaScript akan **menyerah** melakukan perhitungan matematika, memanggil `ToString()` pada ruas yang lain, dan sekadar menempelkan teksnya.
+## 3. Praktik Lapangan (Lab)
 
 ```javascript
-console.log(10 + 5);      // 15 (Matematika Murni)
-console.log("10" + 5);    // "105" (Konkatenasi Teks)
-console.log("10" - 5);    // 5 (Tunggu, Kenapa?! Karena operator "-" TIDAK overloaded. Ia murni matematika, memanggil ToNumber. 🤯)
+console.log(String(123));        // "123"
+console.log(String(null));       // "null"
+console.log(String({a:1}));      // "[object Object]"
+// console.log(String(Symbol())); // TypeError! (Security Protocol)
 ```
 
-## `.toString()` Method vs Fungsi `String()`
-Jangan bingung antara fungsi *Global* `String(val)` dan panggilan *Method* `val.toString()`.
-- `String(val)`: Aman dipakai pada apa saja. Ini adalah implementasi langsung dari Operasi Abstrak `ToString`.
-- `val.toString()`: **Berbahaya** jika `val` adalah `null` atau `undefined` (akan menyebabkan *Crash/TypeError*). *Method* ini tidak ada di semua Prototipe primitif.
+---
 
-## Contoh Eksekusi
-Lihat pembuktian bahaya operator `+` dan keamanan `String()` pada folder [examples/](./examples/).
+## Arsitek Mindset: Keterbacaan vs Data
+
+Sebagai arsitek Hub:
+- Ingat bahwa `ToString` pada Array akan menggabungkan elemen dengan koma (misal: `[1,2]` jadi `"1,2"`).
+- Jika Anda ingin melabeli Object secara kustom, override metode `toString()` di dalam kelas mesin Anda.
+- Gunakan `JSON.stringify()` jika Anda butuh label yang merinci seluruh isi komponen mesin, bukan sekadar label tipe generik.
+
+---
+*Status: [status.md](../../../docs/status.md)*

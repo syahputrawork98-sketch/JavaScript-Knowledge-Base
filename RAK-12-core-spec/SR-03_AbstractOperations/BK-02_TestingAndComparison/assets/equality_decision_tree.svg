@@ -1,0 +1,44 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">EQUALITY DECISION TREE (THE LOOSE SENSOR - ==)</text>
+
+  <!-- Start -->
+  <rect x="300" y="80" width="200" height="50" fill="#1e293b" stroke="#38bdf8" stroke-width="2" rx="5"/>
+  <text x="400" y="110" fill="#ffffff" font-family="Courier New" font-size="16" text-anchor="middle">x == y</text>
+
+  <!-- Decision 1: Same Type? -->
+  <path d="M 400 130 L 400 180" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-qc)"/>
+  <polygon points="400,180 480,220 400,260 320,220" fill="#1e293b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="400" y="225" fill="#fbbf24" font-family="Arial" font-size="12" text-anchor="middle">SAME TYPE?</text>
+
+  <!-- Yes -> Strict -->
+  <path d="M 480 220 L 600 220" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-qc)"/>
+  <text x="540" y="210" fill="#34d399" font-family="Arial" font-size="12" text-anchor="middle">YES</text>
+  <rect x="600" y="195" width="150" height="50" fill="#065f46" rx="5"/>
+  <text x="675" y="225" fill="#ffffff" font-family="Arial" font-size="12" text-anchor="middle">STRICT EQUAL (===)</text>
+
+  <!-- No -> Null/Undef? -->
+  <path d="M 400 260 L 400 310" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-qc)"/>
+  <text x="410" y="290" fill="#94a3b8" font-family="Arial" font-size="12">NO</text>
+  <polygon points="400,310 480,350 400,390 320,350" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <text x="400" y="355" fill="#38bdf8" font-family="Arial" font-size="12" text-anchor="middle">NULL/UNDEF?</text>
+
+  <!-- Yes -> true -->
+  <path d="M 480 350 L 600 350" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-qc)"/>
+  <rect x="600" y="325" width="150" height="50" fill="#065f46" rx="5"/>
+  <text x="675" y="355" fill="#ffffff" font-family="Arial" font-size="12" text-anchor="middle">RETURN TRUE</text>
+
+  <!-- No -> ToNumber / ToPrimitive -->
+  <path d="M 400 390 L 400 440" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-qc)"/>
+  <rect x="250" y="440" width="300" height="80" fill="#1e293b" stroke="#f43f5e" stroke-dasharray="5,5" rx="10"/>
+  <text x="400" y="475" fill="#f43f5e" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">RECURSIVE TRANSMUTATION</text>
+  <text x="400" y="500" fill="#94a3b8" font-family="Arial" font-size="12" text-anchor="middle">ToNumber / ToPrimitive and try again</text>
+
+  <defs>
+    <marker id="arrow-qc" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+    </marker>
+  </defs>
+</svg>

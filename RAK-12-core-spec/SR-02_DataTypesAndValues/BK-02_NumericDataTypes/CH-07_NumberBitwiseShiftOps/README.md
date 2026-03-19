@@ -1,31 +1,47 @@
-# CH-07: Number Bitwise Shift Operations
+# CH-07: Bitwise Shift (The Bit Shunter)
 
-Shift operations (`<<`, `>>`, `>>>`) adalah cara kita menggeser posisi bit di dalam memori. Mari kita lihat alur teknisnya di Clause 6.1.6.1.9 hingga 6.1.6.1.11.
+> **"Sinyal biner terkadang perlu digeser posisinya untuk mempercepat transmisi atau pembagian data secara cepat. `leftShift`, `signedRightShift`, dan `unsignedRightShift` adalah 'Bit Shunter' (The Bit Shunter) — mesin yang memindahkan bit-bit data ke kiri atau ke kanan di dalam register Hub."**
 
----
+*Pemetaan ECMA-262: Clause 6.1.6.1.9 s/d 6.1.6.1.11*
 
-## 1. Persiapan: Pemotongan 32-bit
-Sama seperti Bitwise NOT, semua operasi shift pada tipe Number akan:
-1. Mengubah angka menjadi integer 32-bit.
-2. Melakukan pergeseran bit.
-3. Mengembalikan hasilnya sebagai Number.
+## 1. Mental Model: "The Bit Shunter"
 
-## 2. Tiga Jenis Pergeseran
-- **Left Shift (`<<`):** Menggeser bit ke kiri dan mengisi kosong di kanan dengan `0`. Efeknya mirip dengan perkalian $2^n$.
-- **Signed Right Shift (`>>`):** Menggeser bit ke kanan tapi **menjaga tanda** (mengisi kiri dengan bit tanda asal). Jika angkanya negatif, ia tetap negatif. Efeknya mirip pembagian $2^n$.
-- **Unsigned Right Shift (`>>>`):** Menggeser bit ke kanan dan **selalu mengisi kiri dengan `0`**. Hasilnya selalu positif, berapapun angka asalnya.
+Bayangkan sederet gerbong kereta (bit):
+- **Left Shift (<<)**: Menggeser gerbong ke kiri dan memasukkan gerbong kosong (0) di belakang. Ini adalah cara tercepat untuk mengalikan tenaga dengan $2^n$.
+- **Signed Right Shift (>>)**: Menggeser ke kanan sambil tetap menjaga warna gerbong pertama (tanda negatif/positif).
+- **Unsigned Right Shift (>>>)**: Menggeser ke kanan dan selalu memasukkan gerbong kosong (0), mengabaikan tanda aslinya.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-`>>> 0` adalah trik arsitektural yang populer untuk memaksa nilai apapun menjadi **Unsigned 32-bit Integer**. Ini sangat berguna saat Anda bekerja dengan WebGL, manipulasi pixel pada Canvas, atau protokol jaringan yang mengharuskan data dikirim dalam format 32-bit tetap.
+## 2. Aturan Jalur 32-Bit
+
+Semua operasi shunting ini memaksa Number masuk ke register **32-bit**.
+- **Left Shift**: `5 << 1` -> `10`.
+- **Unsigned Shift**: Sangat berguna untuk memastikan sebuah sinyal selalu dianggap sebagai angka positif di Hub.
 
 ---
 
-## Tantangan Kecil
-Berapakah hasil dari `-1 >>> 0`?
-(Jawabannya: **4294967295**. Mengapa? Karena `-1` dalam biner 32-bit (Two's Complement) adalah semua bit bernilai `1`. Saat dilakukan Unsigned Right Shift 0 kali, ia dianggap sebagai angka positif terbesar yang bisa ditampung 32-bit).
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+console.log("--- Mengetes Bit Shunter ---");
+
+// 1. Multiply by power of 2
+console.log(`5 << 2 = ${5 << 2}`); // 5 * 2^2 = 20
+
+// 2. Sign Awareness
+console.log(`-128 >> 1 = ${-128 >> 1}`);   // -64
+console.log(`-128 >>> 1 = ${-128 >>> 1}`); // 2147483584 (Huge positive!)
+```
 
 ---
-> [!NOTE]
-> **Key Takeaway:** Gunakan `>>` untuk matematika (pembagian cepat), gunakan `>>>` untuk manipulasi data biner murni (selalu positif).
+
+## Arsitek Mindset: Kecepatan vs Tanda
+
+Sebagai arsitek Hub:
+- Gunakan `>>` jika Anda butuh pembagian cepat dengan angka positif/negatif yang tetap mempertahankan tandanya.
+- Gunakan `>>>` hanya saat Anda berurusan dengan data biner murni (seperti warna pixel atau hash) di mana Anda tidak peduli dengan tanda negatif.
+- Ingat: Shifting lebih dari 31 bit akan menghasilkan perilaku berputar (modulo 32) di Hub.
+
+---
+*Status: [status.md](../../../docs/status.md)*

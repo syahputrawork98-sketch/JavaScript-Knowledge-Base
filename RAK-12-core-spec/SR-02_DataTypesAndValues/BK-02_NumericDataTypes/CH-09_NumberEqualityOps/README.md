@@ -1,45 +1,48 @@
-# CH-09: Number Equality Operations
+# CH-09: Number Equality (The Precise Matching Sensor)
 
-Hampir semua pengembang tahu `==` dan `===`. Namun, arsitek spesifikasi tahu bahwa ada **Tiga Wajah Kesetaraan** untuk angka yang didefinisikan di Clause 6.1.6.1.13 hingga 6.1.6.1.15.
+> **"Di dalam Grid, menentukan apakah dua unit identik memerlukan sensor yang sangat spesifik. `Number::equal` adalah 'Sensor Pencocokan Presisi' (The Precise Matching Sensor) — alat yang membandingkan bit data untuk memastikan keselarasan beban."**
 
----
+*Pemetaan ECMA-262: Clause 6.1.6.1.16 (Number::equal)*
 
-## 1. Number::equal ( x, y )
-Ini adalah algoritma di balik `===` (Strict Equality).
-- **NaN:** `NaN === NaN` adalah **false**.
-- **Zeros:** `+0 === -0` adalah **true**.
+## 1. Mental Model: "The Precise Matching Sensor"
 
-## 2. Number::sameValue ( x, y )
-Digunakan oleh `Object.is(x, y)`. Ini adalah kesetaraan paling jujur.
-- **NaN:** `NaN` dianggap sama dengan `NaN`. (**true**)
-- **Zeros:** `+0` dianggap **BERBEDA** dengan `-0`. (**false**)
-
-## 3. Number::sameValueZero ( x, y )
-Digunakan secara internal oleh koleksi seperti `Map`, `Set`, dan `.includes()`. Ini adalah jalan tengah.
-- **NaN:** `NaN` dianggap sama dengan `NaN`. (**true**)
-- **Zeros:** `+0` dianggap **SAMA** dengan `-0`. (**true**)
+Bayangkan dua steker energi yang ingin Anda hubungkan. Sensor akan memberikan lampu hijau (`true`) hanya jika:
+- Kedua steker memiliki besaran yang sama.
+- **Pengecualian NaN**: Jika salah satu steker rusak (`NaN`), sensor tidak bisa mencocokkan mereka (Hasil: `false`).
+- **Nol Konsistensi**: Sensor menganggap steker `+0` dan `-0` adalah sama karena mereka mengisi tangki yang sama di Hub.
 
 ---
 
-## Ringkasan Perbedaan
+## 2. Aturan Sensor (Spec-Matched)
 
-| Algoritma | `NaN` vs `NaN` | `+0` vs `-0` | Penggunaan Utama |
-| :--- | :--- | :--- | :--- |
-| `equal` (===) | False | True | Operasi Harian |
-| `sameValue` | **True** | **False** | `Object.is` |
-| `sameValueZero` | **True** | True | `Set`, `Map`, `includes` |
-
----
-
-## Mengapa Arsitek Harus Tahu Ini?
-Anda harus tahu mengapa `[NaN].includes(NaN)` menghasilkan `true` padahal `NaN === NaN` adalah `false`. Alasannya karena `.includes()` menggunakan `sameValueZero`. Pengetahuan ini krusial saat Anda mendesain sistem *Caching* atau *State Management* di mana Anda perlu mendeteksi perubahan nilai secara akurat.
+Saat membandingkan `x == y` (di level Number):
+1.  Jika `x` adalah `NaN` -> `false`.
+2.  Jika `y` adalah `NaN` -> `false`.
+3.  Jika `x` sama dengan `y` -> `true`.
+4.  Jika `x` adalah `+0` dan `y` adalah `-0` -> `true`.
+5.  Jika `x` adalah `-0` dan `y` adalah `+0` -> `true`.
+6.  Jika tidak -> `false`.
 
 ---
 
-## Tantangan Kecil
-Jika Anda menggunakan `+0` sebagai key di sebuah `Map`, lalu mencoba mengambilnya menggunakan `-0`, apakah berhasil?
-(Jawabannya: **Ya**. Karena `Map` menggunakan `sameValueZero`, ia menganggap kedua nol tersebut sebagai key yang sama).
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+console.log("--- Mengetes Sensor Pencocokan ---");
+
+console.log(`NaN == NaN : ${NaN == NaN}`); // false
+console.log(`+0 == -0   : ${+0 == -0}`);   // true
+console.log(`5 == 5      : ${5 == 5}`);      // true
+```
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Tidak semua "Sama Dengan" itu diciptakan setara. Pilih algoritma yang tepat untuk kebutuhan deteksi perubahan data Anda.
+
+## Arsitek Mindset: Batas Sensor
+
+Sebagai arsitek Hub:
+- Ingat bahwa `==` di sini adalah operasional internal Number. Di level bahasa, ini bisa dipicu oleh `==` maupun `===` (jika tipenya sama).
+- Jika Anda butuh sensor yang bisa mendeteksi `NaN` sebagai identitas yang sama, gunakan `Object.is` (SameValue).
+- Sensor ini adalah alasan mengapa Anda tidak boleh membandingkan hasil perhitungan desimal secara langsung (`0.1 + 0.2 == 0.3`). Gunakan toleransi `EPSILON`.
+
+---
+*Status: [status.md](../../../docs/status.md)*

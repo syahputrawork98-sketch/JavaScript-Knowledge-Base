@@ -1,33 +1,48 @@
-# CH-10: NumberBitwiseOp
+# CH-10: Bitwise Logic (The Logic Gates)
 
-Setelah kita mempelajari pergeseran bit (shift) di CH-07, sekarang kita akan membedah bagaimana spesifikasi menangani operasi logika bit (AND, OR, XOR) pada tipe Number. Mari kita lihat Clause 6.1.6.1.16.
+> **"Pemrosesan data tingkat rendah di Hub dilakukan melalui gerbang-gerbang elektrik. `bitwiseAND`, `bitwiseXOR`, dan `bitwiseOR` adalah 'Gerbang Logika' (The Logic Gates) yang memanipulasi sinyal bit demi bit untuk enkripsi, masking, dan optimasi performa."**
 
----
+*Pemetaan ECMA-262: Clause 6.1.6.1.13 s/d 6.1.6.1.15*
 
-## 1. Algoritma: NumberBitwiseOp ( op, x, y )
-Meskipun kita menulis `&`, `|`, atau `^`, spesifikasi menggunakan satu algoritma umum untuk ketiganya:
-1. Ubah operan pertama `x` menjadi integer 32-bit (`ToInt32(x)`).
-2. Ubah operan kedua `y` menjadi integer 32-bit (`ToInt32(y)`).
-3. Lakukan operasi biner sesuai operator:
-   - **AND (&):** Hanya menghasilkan 1 jika kedua bit bernilai 1.
-   - **OR (|):** Menghasilkan 1 jika salah satu atau kedua bit bernilai 1.
-   - **XOR (^):** Hanya menghasilkan 1 jika salah satu (tapi tidak keduanya) bit bernilai 1.
-4. Kembalikan hasilnya sebagai nilai 32-bit bertanda (*Signed 32-bit Integer*).
+## 1. Mental Model: "The Logic Gates"
 
-## 2. Kenapa Harus Digabung?
-Spesifikasi menggabungkan ketiganya dalam satu definisi algoritma karena mekanismenya identik: **Paksa ke 32-bit, lalu operasikan bit-per-bit.**
+Bayangkan aliran energi yang melewati persimpangan sensor:
+- **AND (&)**: Sinyal hanya lewat jika kedua input aktif. (Masking data).
+- **OR (|)**: Sinyal lewat jika salah satu atau kedua input aktif. (Merging data).
+- **XOR (^)**: Sinyal lewat hanya jika input berbeda. (Detecting changes).
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Operasi bitwise adalah cara yang sangat efisien untuk menyimpan banyak status (seperti *Permission Flags*: Read, Write, Execute) ke dalam satu angka saja. Namun, arsitek harus ingat bahwa bitwise op hanya bekerja pada jangkauan 32-bit. Jika aplikasi Anda menggunakan flag yang lebih dari 31 buah, Anda mungkin akan mengalami *Integer Overflow* dan data Anda akan rusak.
+## 2. Konversi 32-Bit
+
+Sama seperti Bit Shunter, gerbang ini hanya menerima input **32-bit Integer**.
+- Angka Number akan dipaksa masuk ke register sebelum diproses.
+- `NaN` dan `Infinity` akan menjadi `0` saat masuk ke gerbang logika ini.
 
 ---
 
-## Tantangan Kecil
-Berapakah hasil dari `NaN | 5`?
-(Jawabannya: **5**. Sesuai aturan poin 1, `NaN` saat diubah menjadi integer 32-bit (`ToInt32`) akan menjadi `0`. Maka `0 | 5` adalah `5`).
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+console.log("--- Mengetes Gerbang Logika ---");
+
+// 1. Bitwise AND (Masking)
+console.log(`5 & 1 = ${5 & 1}`); // 0101 & 0001 = 0001 (1)
+
+// 2. Bitwise OR (Merging)
+console.log(`5 | 2 = ${5 | 2}`); // 0101 | 0010 = 0111 (7)
+
+// 3. Bitwise XOR (Flip)
+console.log(`5 ^ 5 = ${5 ^ 5}`); // 0 (Equal values cancel out)
+```
 
 ---
-> [!NOTE]
-> **Key Takeaway:** Bitwise AND, OR, XOR adalah alat kompresi data yang cepat, namun terbatas pada dunia 32-bit.
+
+## Arsitek Mindset: Efisiensi Register
+
+Sebagai arsitek Hub:
+- Gunakan operator bitwise untuk menyimpan banyak status boolean dalam satu variabel Number (Bitfields). Ini adalah teknik "Kompresi Sinyal" yang sangat menghemat memori Grid.
+- Hindari penggunaan bitwise pada BigInt secara berlebihan di jalur kritis karena algoritmanya lebih kompleks (Arbitrary precision) dibandingkan jalur 32-bit Number yang dioptimalkan hardware.
+
+---
+*Status: [status.md](../../../docs/status.md)*

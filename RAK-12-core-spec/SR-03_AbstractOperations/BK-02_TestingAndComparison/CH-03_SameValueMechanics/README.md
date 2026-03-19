@@ -1,46 +1,44 @@
-# Bab 03: Mekanika SameValue & SameValueZero
+# CH-03: SameValue & SameValueZero (The Identity Scanners)
 
-Meskipun `===` sudah sangat ketat, ternyata JavaScript masih memiliki dua algoritma perbandingan lain yang lebih "presisi" untuk kasus-kasus khusus. Algoritma ini adalah **SameValue** (Clause 7.2.10) dan **SameValueZero** (Clause 7.2.11).
+> **"Terkadang sensor presisi standar tidak cukup detail. `SameValue` adalah 'Pemindai Identitas' (The Identity Scanner) — sensor tingkat tinggi yang digunakan secara internal oleh Hub untuk memastikan dua elemen benar-benar tidak bisa dibedakan, bahkan pada level sub-atomik."**
 
-Kedua algoritma ini tidak memiliki operator simbolis (seperti `==` atau `===`), namun digunakan secara internal oleh metode modern seperti `Object.is()`, `Array.prototype.includes()`, serta struktur data `Map` dan `Set`.
+*Pemetaan ECMA-262: Clause 7.2.10 & 7.2.11 (SameValue & SameValueZero)*
 
-## Sistem Analogi (Mental Model)
+## 1. Mental Model: "The Identity Scanner"
 
-> **Analogi Singkat:**  
-> Jika `===` adalah Scanner Sidik Jari, maka **SameValue** adalah **Uji DNA**. Dia jauh lebih dalam dan tidak bisa dikelabui oleh kosmetik apapun. Dia bisa membedakan bahkan antara "Nol Positif" dan "Nol Negatif".
-
-> **Analogi Panjang (Kaca Pembesar Detektif):**  
-> Bayangkan seorang detektif sedang meneliti dua butir debu yang tampak identik.
-> - Menggunakan kacamata biasa (`===`), detektif melihat `NaN` dan `NaN` sebagai dua hal yang berbeda (karena aturan historis JS). Dia juga melihat `+0` dan `-0` sebagai hal yang sama.
-> - Menggunakan **Kaca Pembesar SameValue**, detektif bisa melihat bahwa `NaN` sebenarnya adalah partikel yang identik. Dia juga bisa melihat perbedaan muatan energi antara `+0` dan `-0`, sehingga menganggap keduanya **berbeda**.
-> - **SameValueZero** adalah detektif yang sedikit lebih santai; dia setuju bahwa `NaN` itu sama, tapi dia malas membedakan `+0` dan `-0`.
+- **`SameValue`**: Digunakan oleh `Object.is()`. Sensor ini lebih teliti dari `===`. Ia bisa membedakan `+0` dan `-0`, serta mampu mendeteksi `NaN` secara akurat.
+- **`SameValueZero`**: Versi yang sedikit lebih longgar, digunakan secara internal oleh `Map` dan `Set` untuk menentukan kunci unik. Ia menganggap `+0` dan `-0` adalah sama agar tidak membingungkan sistem penyimpanan Hub.
 
 ---
 
-## Tabel Perbandingan Algoritma
+## 2. Tabel Komparasi Sensor
 
-| Skenario Perbandingan | `==` (Loose) | `===` (Strict) | `SameValue` (`Object.is`) | `SameValueZero` (`includes`) |
-| :--- | :---: | :---: | :---: | :---: |
-| `NaN` vs `NaN` | false | false | **true** | **true** |
-| `+0` vs `-0` | true | true | **false** | **true** |
-| `"42"` vs `42` | true | false | false | false |
+| Case | `==` | `===` | `Object.is` | `Map/Set` (Internal) |
+| :--- | :--- | :--- | :--- | :--- |
+| `0 == "0"` | ✅ true | ❌ false | ❌ false | ❌ false |
+| `NaN, NaN` | ❌ false | ❌ false | ✅ true | ✅ true |
+| `+0, -0` | ✅ true | ✅ true | ❌ false | ✅ true |
 
-## Mengapa Algoritma Ini Ada?
+---
 
-1. **SameValue (`Object.is`)**: Digunakan saat kamu butuh kepastian absolut yang tidak bisa diberikan oleh `===`. Sangat berguna untuk memastikan fungsionalitas matematika atau pengecekan identitas yang murni.
-2. **SameValueZero**: Digunakan secara internal oleh `Set`, `Map`, dan `Array.prototype.includes`. Alasan utamanya adalah: **Kita ingin programmer bisa menemukan `NaN` di dalam sebuah Array atau Set**.
-   - Jika `Set` menggunakan `===`, maka kita bisa memasukkan `NaN` berkali-kali (karena `NaN !== NaN`), dan itu akan merusak logika "unik" pada Set.
+## 3. Kapan Hub Menggunakan SameValueZero?
 
-## Contoh Penggunaan Praktis
+Saat Anda menyimpan data di `Map`:
 ```javascript
-const values = [1, NaN, 3];
+const storage = new Map();
+storage.set(0, "A");
+storage.set(-0, "B"); 
 
-// Masalah dengan indexOf (Menggunakan Strict Equality)
-console.log(values.indexOf(NaN)); // -1 (Gagal ketemu!)
-
-// Solusi dengan includes (Menggunakan SameValueZero)
-console.log(values.includes(NaN)); // true (Berhasil ketemu!)
+console.log(storage.get(0)); // "B" (Karena SameValueZero menganggap -0 dan 0 sama)
 ```
 
-## Contoh Eksekusi
-Lihat pembuktian perbedaan antara `Object.is`, `includes`, dan operator normal pada folder [examples/](./examples/).
+---
+
+## Arsitek Mindset: Memilih Sensor yang Tepat
+
+Sebagai arsitek Hub:
+- Gunakan `Object.is` (SameValue) jika Anda butuh logika perbandingan yang sangat ketat untuk fungsionalitas inti (seperti sistem reaktif yang tidak boleh trigger jika nilai benar-benar identik).
+- Sadarilah bahwa struktur data modern (`Map`, `Set`, `includes`) menggunakan **SameValueZero**, yang berarti mereka "lebih pintar" dalam menangani `NaN` dibandingkan operator `===` tradisional.
+
+---
+*Status: [status.md](../../../docs/status.md)*

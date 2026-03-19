@@ -1,56 +1,47 @@
-# Bab 02: Mekanika IsLooselyEqual (==)
+# CH-01: IsLooselyEqual (The Flexible Sensor)
 
-Berbeda dengan `===` yang sangat kaku, operator **Loose Equality** (`==`) di JavaScript memiliki sifat yang sangat "kompromis". Di balik layar, ia menjalankan algoritma **Abstract Operation `IsLooselyEqual(x, y)`** (Clause 7.2.13 pada ECMA-262).
+> **"Di dalam Grid, terkadang dua unit yang berbeda tipe harus dianggap setara jika mereka membawa potensi daya yang sama. `isLooselyEqual` (`==`) adalah 'Sensor Fleksibel' (The Flexible Sensor) yang secara otomatis melakukan transmutasi tipe sebelum membandingkan nilai."**
 
-Algoritma ini dirancang untuk mencoba menyamakan tipe data kedua ruas sebelum akhirnya membandingkan nilainya.
+*Pemetaan ECMA-262: Clause 7.2.14 (IsLooselyEqual)*
 
-## Sistem Analogi (Mental Model)
+## 1. Mental Model: "The Flexible Sensor"
 
-> **Analogi Singkat:**  
-> `IsLooselyEqual` adalah **Sang Negosiator**. Jika tipe datamu tidak sama, dia tidak langsung mengusirmu. Dia akan mencoba "mendandani" salah satu ruas (melalui *Coercion*) agar memiliki seragam yang sama dengan ruas lainnya supaya bisa dibandingkan.
-
-> **Analogi Panjang (Pasar Penukaran Kurs Mata Uang):**  
-> Bayangkan kamu sedang berada di pasar internasional. Kamu punya Dolar (String) dan penjual mau Rupiah (Number).
-> - Sang Negosiator (`==`) akan melihat kurs tukar (**Aturan Coercion**). Dia akan menukar Dolarmu menjadi Rupiah dulu. Jika setelah ditukar nilainya setara, maka transaksi dianggap **true**.
-> - Masalahnya, terkadang Sang Negosiator ini terlalu kreatif. Dia bisa menganggap "Kertas Kosong" (String `""`) setara dengan "Kantong Kosong" (Angka `0`). Kreativitas inilah yang sering menyebabkan kejutan (*Surprise!*) bagi pengembang yang tidak waspada.
+Bayangkan sebuah gerbang di Hub yang menerima dua pipa. Jika tipe cairannya berbeda (misal: Air vs Uap), gerbang ini tidak langsung menolak. Sebaliknya, ia akan mencoba mengubah uap menjadi air (Transmutasi) baru kemudian membandingkan volumenya.
+- **Fleksibel**: Memungkinkan `0 == false`.
+- **Beresiko**: Bisa menyebabkan hasil yang tidak terduga jika teknisi tidak memahami urutan transmutasinya.
 
 ---
 
-## Logika Algoritma `IsLooselyEqual(x, y)`
+## 2. Algoritma Sensor (Penyederhanaan Spec)
 
-Berikut adalah urutan prioritas negosiasi yang dilakukan oleh *Engine*:
+Saat `x == y` dipanggil:
+1.  Jika tipe sama -> Gunakan **Strict Equality**.
+2.  Jika `null == undefined` -> **true**.
+3.  Jika **Number vs String** -> Ubah String jadi Number, lalu bandingkan.
+4.  Jika **Boolean vs Anything** -> Ubah Boolean jadi Number, lalu bandingkan.
+5.  Jika **Object vs Primitive** -> Lakukan `ToPrimitive(Object)`, lalu bandingkan hasilnya.
 
-1. **Tipe Sama**: Jika tipe `x` dan `y` sama, lakukan `IsStrictlyEqual(x, y)`.
-2. **Null & Undefined**: Jika `x` adalah **null** dan `y` adalah **undefined** (atau sebaliknya), return **true**. (Inilah satu-satunya kegunaan `==` yang direkomendasikan).
-3. **String & Number**: Jika salah satu String, ubah String tersebut menjadi **Number** (`ToNumber`) lalu bandingkan lagi.
-4. **Boolean & Tipe Lain**: Jika salah satu Boolean, ubah Boolean tersebut menjadi **Number** (`1` atau `0`) lalu bandingkan lagi.
-5. **Object & (String/Number/Symbol)**: Jalankan operasi `ToPrimitive` pada Object tersebut agar menjadi nilai primitif, lalu bandingkan lagi.
-6. **Lainnya**: Return **false**.
+---
 
-## Bahaya "Falsy Trap"
+## 3. Decision Tree: Mengapa `[] == ![]` adalah `true`?
 
-Karena banyaknya aturan negosiasi otomatis, banyak nilai yang secara visual berbeda namun dianggap "sama" oleh `==`.
+Sebuah anomali Grid yang terkenal:
+1.  `![]` dievaluasi jadi `false`.
+2.  `[] == false`
+3.  Ubah boolean jadi Number: `[] == 0`.
+4.  Lakukan `ToPrimitive([])` -> `""` (String kosong).
+5.  `"" == 0`
+6.  Ubah string jadi Number: `0 == 0`.
+7.  **Hasil: true!**
 
-```javascript
-console.log(0 == false);   // true (Boolean false jadi Number 0)
-console.log("" == 0);      // true (String kosong jadi Number 0)
-console.log("" == false);  // true (Keduanya jadi Number 0)
-```
+---
 
-## Rekomendasi Senior Architect
+## Arsitek Mindset: Kapan Menggunakan Sensor Fleksibel?
 
-Hanya gunakan `==` untuk satu tujuan spesifik: **Nullish Check**.
-```javascript
-// Cara Efisien:
-if (data == null) { 
-    // Baris ini akan berjalan jika data bernilai null ATAU undefined
-}
+Sebagai arsitek Hub:
+- Gunakan `== null` sebagai cara singkat untuk memeriksa apakah sebuah nilai adalah `null` atau `undefined` sekaligus.
+- Di luar kasus tersebut, **hindari `==`**. Terlalu banyak transmutasi otomatis yang bisa menyembunyikan bug data di dalam Grid.
+- Gunakan `===` sebagai standar default untuk semua perbandingan unit di Hub Anda.
 
-// Daripada menulis:
-if (data === null || data === undefined) { ... }
-```
-
-Selain kasus di atas, **selalu gunakan `===`** untuk menjaga kedisiplinan kode.
-
-## Contoh Eksekusi
-Lihat pembuktian daftar "Negosiasi" unik pada folder [examples/](./examples/).
+---
+*Status: [status.md](../../../docs/status.md)*

@@ -1,39 +1,49 @@
-# CH-01: Numeric Types Overview
+# CH-01: Numeric Types Overview (The Load Distribution)
 
-Mengapa JavaScript membutuhkan **BigInt** jika kita sudah punya **Number**? Mengapa terkadang `0.1 + 0.2` tidak sama dengan `0.3`? Jawaban atas pertanyaan-pertanyaan ini dimulai dari Clause 6.1.6.
+> **"Di dalam Grid, energi diukur dalam dua skala utama. `Number` untuk arus variabel yang cepat, dan `BigInt` untuk beban industri yang sangat berat. Memahami 'Distribusi Beban' (The Load Distribution) ini adalah kunci untuk menjaga stabilitas Hub."**
 
-## Mental Model: "Dua Jenis Kalkulator"
-Bayangkan Anda memiliki dua kalkulator di atas meja:
-1. **Kalkulator Saintifik (Number):** Sangat cepat, bisa menghitung angka yang sangat besar (eksponensial) atau sangat kecil (desimal), tapi terkadang kurang teliti di angka-angka detail.
-2. **Kalkulator Akuntansi (BigInt):** Tidak bisa menghitung desimal (koma), tapi sangat teliti dalam menghitung angka bulat sebesar apapun tanpa pernah salah satu angka pun.
+*Pemetaan ECMA-262: Clause 6.1.6 (Numeric Types Overview)*
 
----
+## 1. Mental Model: "The Load Distribution"
 
-## 1. Pembagian Tipe Numerik
-Menurut Clause 6.1.6, ECMAScript membagi nilai numerik menjadi dua tipe bahasa yang berbeda:
-- **Number:** Berdasarkan standar internasional IEEE 754 (64-bit binary floating point).
-- **BigInt:** Digunakan untuk merepresentasikan angka bulat dengan kedaulatan penuh (tidak ada batas 53-bit).
-
-## 2. Mengapa Dibedakan?
-Alasan utamanya adalah **Presisi vs Performa**:
-- **Number** dirancang agar pas dengan register hardware CPU komputer modern (64-bit). Ini membuatnya sangat cepat untuk komputasi grafis dan sains.
-- **BigInt** dirancang untuk kebutuhan yang membutuhkan ketelitian absolut pada angka bulat besar, seperti ID database yang sangat panjang atau kriptografi.
-
-## 3. Aturan Main: Tidak Boleh Bercampur
-Spesifikasi melarang keras pencampuran operan `Number` dan `BigInt` dalam satu operasi matematika (misal: `10 + 10n` akan melempar `TypeError`).
-> *Alasan Arsitek:* Karena mencampurkan keduanya berarti Anda harus memilih antara mengorbankan presisi (ke Number) atau mematikan kemampuan desimal (ke BigInt). Spesifikasi memaksa Anda untuk sadar dalam memilih "Kalkulator" mana yang Anda gunakan.
+Bayangkan Hub memiliki dua jenis kabel:
+- **Kabel Tembaga (Number)**: Sangat cepat, fleksibel, bisa menangani desimal, tapi akan meleleh (kehilangan presisi) jika beban terlalu berat.
+- **Kabel Baja (BigInt)**: Sangat kuat, tidak pernah meleset satu bit pun, tapi kaku (tidak bisa desimal) dan sedikit lebih lambat dipasang.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Sebagai arsitek, Anda harus menentukan sejak awal tipe numerik mana yang sesuai untuk setiap *field* data. Kesalahan pemilihan antara Number dan BigInt bisa berakibat pada hilangnya data (precision loss) yang sangat fatal pada sistem finansial.
+## 2. Kenapa Ada Dua?
+
+Secara historis, JavaScript hanya memiliki `Number`. Namun seiring berkembangnya Grid menjadi ekosistem raksasa, Hub menghadapi masalah:
+- **Presisi**: Angka di atas $2^{53}-1$ mulai tidak akurat.
+- **Kebutuhan Baru**: ID database 64-bit dan kriptografi membutuhkan angka bulat yang benar-benar tepat.
+
+Oleh karena itu, `BigInt` ditambahkan sebagai jalur "Tugas Berat" yang teruji.
 
 ---
 
-## Tantangan Kecil
-Manakah dari kedua tipe ini yang bisa merepresentasikan nilai `NaN` (Not-a-Number)?
-(Jawabannya: **Hanya Number**. Tipe BigInt selalu merepresentasikan nilai matematika bulat yang nyata. Ia tidak memiliki konsep "Bukan Angka" atau "Tak Hingga/Infinity").
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+// Membandingkan dua skala
+const lightLoad = 42;    // Number
+const heavyLoad = 42n;   // BigInt
+
+console.log(typeof lightLoad); // "number"
+console.log(typeof heavyLoad); // "bigint"
+
+// Peringatan: Jalur tidak boleh dicampur tanpa konversi!
+// console.log(lightLoad + heavyLoad); // TypeError
+```
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Number untuk kecepatan dan desimal. BigInt untuk ketelitian absolut angka bulat.
+
+## Arsitek Mindset: Memilih Jalur
+
+Sebagai arsitek Hub:
+- Gunakan `Number` untuk 99% kasus: koordinat UI, perhitungan harga (jika dibulatkan ke sen), dan logika loop.
+- Gunakan `BigInt` hanya saat Anda menyentuh angka yang berisiko melampaui `16 digit`.
+- Selalu beri label `n` pada BigInt agar teknisi lain tidak bingung dengan tipe data yang masuk ke mesin mereka.
+
+---
+*Status: [status.md](../../../docs/status.md)*

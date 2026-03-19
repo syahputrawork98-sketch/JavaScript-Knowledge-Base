@@ -1,42 +1,47 @@
-# CH-04: Number::exponentiate & multiply
+# CH-04: Exponentiate & Multiply (The Power Multiplier)
 
-Dua operasi ini adalah tulang punggung perhitungan skala. Mari kita bedah bagaimana Clause 6.1.6.1.3 dan 6.1.6.1.4 menangani kompleksitas perkalian floating point.
+> **"Operasi perkalian adalah jantung dari amplifikasi energi. `exponentiate` (**) dan `multiply` (*) adalah 'Pengganda Daya' (The Power Multiplier) — mesin yang menghitung akumulasi beban secara eksponensial maupun linear di dalam Grid."**
 
----
+*Pemetaan ECMA-262: Clause 6.1.6.1.3 & 6.1.6.1.4*
 
-## 1. Number::exponentiate ( base, exponent )
-Operasi ini terjadi saat Anda menulis `base ** exponent` atau `Math.pow()`.
-Spesifikasi memiliki aturan unik:
-1. Jika `exponent` adalah `NaN`, hasilnya `NaN`.
-2. Jika `exponent` adalah `+0` atau `-0`, hasilnya **selalu 1** (bahkan jika base-nya `NaN`). *Ini adalah aturan standar IEEE 754.*
-3. Jika `base` adalah `NaN` dan `exponent` bukan nol, hasilnya `NaN`.
+## 1. Mental Model: "The Power Multiplier"
 
-**Insight Arsitek:** Aturan "Apapun pangkat 0 adalah 1" tetap berlaku di JS meskipun kita berurusan dengan nilai yang bukan angka (`NaN ** 0 === 1`).
+- **`multiply` (*)**: Seperti menghubungkan beberapa mesin secara paralel untuk menggandakan output.
+- **`exponentiate` (**)**: Seperti umpan balik berantai yang menggandakan dirinya sendiri berulang kali. Perkembangan energinya jauh lebih cepat dan berbahaya bagi stabilitas Hub.
 
 ---
 
-## 2. Number::multiply ( x, y )
-Operasi ini terjadi saat Anda menulis `x * y`. Mesin menjalankan algoritma perkalian IEEE 754:
-- **Tanda Hasil:** Jika tanda operan sama, hasil positif. Jika berbeda, hasil negatif.
-- **Infinity Rules:**
-  - `Infinity * 0` menghasilkan `NaN`.
-  - `Infinity * Infinity` menghasilkan `Infinity`.
-- **Zero Rules:**
-  - `0 * 0` mengikuti aturan tanda (bisa menghasilkan `-0` jika salah satu nol-nya negatif).
+## 2. Aturan Penggandaan (Edge Cases)
 
-**Fakta Menarik:** Perkalian floating point bisa menghasilkan *Overflow* (menjadi Infinity) atau *Underflow* (menjadi 0 yang sangat kecil) jika angkanya terlalu ekstrem.
+Hub memiliki aturan ketat untuk perkalian yang melibatkan sinyal khusus:
+- **`Any * NaN`**: Hasilnya pasti `NaN` (Sinyal rusak merambat).
+- **`Infinity * 0`**: Hasilnya adalah `NaN`. (Kehampaan dikali ketidakterhinggaan membuat sensor bingung).
+- **Sign Rules**: Positif * Negatif = Negatif.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Eksponensial bisa tumbuh sangat cepat. Sebagai arsitek, Anda harus memvalidasi input sebelum melakukan operasi `**` untuk mencegah sistem Anda menghasilkan nilai `Infinity` yang bisa merusak perhitungan logika atau penyimpanan database yang tidak mendukung format Infinity.
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+console.log("--- Mengetes Pengganda Daya ---");
+
+// 1. Perkalian Standar
+console.log(`5 * 5 = ${5 * 5}`);
+
+// 2. Eksponensial (ES2016)
+console.log(`2 ** 10 = ${2 ** 10}`); // 1024 (1 KB di memori Hub)
+
+// 3. Sinyal Rusak
+console.log(`Infinity * 0 = ${Infinity * 0}`); // NaN
+```
 
 ---
 
-## Tantangan Kecil
-Berapakah hasil dari `NaN ** 0`?
-(Jawabannya: **1**. Walaupun terlihat aneh, inilah standar IEEE 754 yang diadopsi ECMAScript. Pangkat 0 dianggap lebih "kuat" daripada status "Bukan Angka").
+## Arsitek Mindset: Overflow Eksponensial
+
+Sebagai arsitek Hub:
+- Gunakan `**` untuk perhitungan pertumbuhan data yang cepat, tetapi waspadalah terhadap **Infinity**. Angka di JavaScript mencapai `Infinity` sangat cepat jika dipangkatkan (sekitar $10^{308}$).
+- Perhatikan urutan operasi: `a ** b ** c` dihitung dari kanan ke kiri (`a ** (b ** c)`). Ini adalah satu-satunya operator di Hub yang memiliki assosiativitas kanan-ke-kiri.
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Perkalian dan eksponensial di JS mengikuti aturan ketat IEEE 754 yang terkadang mengabaikan logika matematika biasa demi konsistensi sistem komputer.
+*Status: [status.md](../../../docs/status.md)*

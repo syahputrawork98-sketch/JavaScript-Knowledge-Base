@@ -1,58 +1,58 @@
-# Bab 03: Mekanika ToBoolean (Gerbang Logika)
+# CH-03: ToBoolean Mechanics (The Switch Logic)
 
-Dalam setiap percabangan kode (seperti blok `if`, `while`, atau *Ternary Operator*), JavaScript tidak peduli apakah kamu memberikan angka, teks, atau objek kompleks. *Engine* akan selalu menjalankan **Abstract Operation `ToBoolean`** (Clause 7.1.2 pada ECMA-262).
+> **"Di dalam Grid, logika percabangan dikendalikan oleh sakelar biner. `ToBoolean` adalah 'Logika Sakelar' (The Switch Logic) — protokol internal yang menentukan apakah sebuah nilai membawa daya yang cukup untuk mengaktifkan switch (`true`) atau membiarkannya mati (`false`)."**
 
-Tugas operasi ini adalah mengevaluasi (*coerce*) nilai apapun untuk menentukan nasibnya menjadi satu dari dua kepastian absolut: `true` atau `false`.
+*Pemetaan ECMA-262: Clause 7.1.2 (ToBoolean)*
 
-## Sistem Analogi (Mental Model)
+## 1. Mental Model: "The Switch Logic"
 
-> **Analogi Singkat:**  
-> `ToBoolean` adalah **Penjaga Pintu (Bouncer) Klub Malam Logika**. Saat kamu datang, dia punya daftar "Blacklist" (Nilai-nilai Falsy). Jika namamu ada di daftar itu, pintu ditutup (`false`). Jika tidak ada di daftar, silakan masuk (`true`).
-
-> **Analogi Panjang (Kurir Estafet Pemalas `&&` dan `||`):**  
-> Banyak yang mengira operator logika (`&&` dan `||`) selalu mereturn *Boolean*. KENYATAANNYA TIDAK! Mereka adalah **Kurir Estafet Pemalas**. 
-> - **Kurir OR (`||`)**: Pemalas yang akan mengoper barang SETELAH dia menemukan barang pertama yang bagus (*Truthy*). Jika *"Apel" || "Jeruk"*, dia ambil "Apel" lalu lari pulang tanpa peduli "Jeruk".
-> - **Kurir AND (`&&`)**: Pekerja teliti yang akan terus berjalan selama barangnya bagus (*Truthy*), tapi langsung pulang membawa barang busuk (*Falsy*) pertama yang ia temukan.
-> - Intinya: MEREKA MENGEMBALIKAN BARANG ASLINYA (Operand), BUKAN CAP `TRUE/FALSE`.
+Bayangkan setiap statement `if` atau `while` di Hub adalah sebuah gerbang energi dengan sakelar otomatis.
+- **Truthy (Switch ON 🟢)**: Nilai yang memiliki "massa" atau "keberadaan" di Grid. Secara otomatis menghubungkan sirkuit.
+- **Falsy (Switch OFF 🔴)**: Nilai yang dianggap sebagai "Kekosongan" atau "Kegagalan Sinyal" oleh spesifikasi.
 
 ---
 
-## Aturan Konversi `ToBoolean` (Daftar Blacklist)
+## 2. Daftar Hitam (Falsy List)
 
-Spesifikasi ECMA-262 sangat elegan di sini. Daripada mendata semua nilai yang *Truthy*, mereka hanya mendata 6 nilai fundamental yang **Falsy** (Blacklist Sang Bouncer). **Selain 6 nilai ini, semuanya adalah `true`!**
+Spesifikasi ECMA-262 hanya mendata **6 Sinyal Mati**. Selain ini, sakelar akan selalu menyala:
+1.  **`undefined`** (Pipa mati).
+2.  **`null`** (Soket kosong).
+3.  **`false`** (Instruksi mati).
+4.  **`+0`, `-0`, `0n`** (Nol energi).
+5.  **`NaN`** (Sinyal rusak).
+6.  **`""`** (Pita kosong).
 
-### 6 Nilai Falsy Absolute:
-1. `undefined`
-2. `null`
-3. `false`
-4. `+0`, `-0`, atau `0n` (BigInt Nol)
-5. `NaN` (Not-a-Number)
-6. `""` (String Kosong)
+> **Arsitek Note:** Objek kosong `{}` atau Array kosong `[]` tetap menyalakan sakelar (`true`) karena fisiknya ada di Grid, meskipun isinya kosong.
 
-*Pengecualian Ajaib:* Tahukah kamu bahwa array kosong `[]` dan objek kosong `{}` adalah **Truthy**? Karena mereka tidak ada di daftar 6 Blacklist di atas!
+---
 
-## Explicit Coercion (`Boolean()` & `!!`)
-Untuk menghindari tebak-tebakan implisit, sangat disarankan mengubah data menjadi *Boolean* secara paksa (eksplisit) menggunakan:
-1. Fungsi Global: `Boolean(value)`
-2. Operator Negasi Ganda (*Double Bang*): `!!value`
+## 3. Kurir Estafet: `&&` dan `||`
 
-```javascript
-let isReady = !!1;      // true
-let hasName = !!"";     // false (falsy)
-let hasData = Boolean([1, 2]); // true
-```
+Di Hub, operator logika bukan sekadar sakelar, mereka adalah kurir yang membawa beban asli:
+- **`||` (Fallback Courier)**: Berhenti dan memberikan beban pertama yang **menyala** (Truthy).
+- **`&&` (Validation Courier)**: Terus berjalan selama beban **menyala**, tapi langsung berhenti dan memberikan beban **mati** (Falsy) pertama yang ia temukan.
 
-## Jebakan Batman: `||` vs `??` (Nullish Coalescing)
+---
 
-Karena `||` menolak *semua* nilai Falsy (termasuk `0` dan `""`), penggunaan `||` untuk menetapkan nilai *default* sering menjadi *bug*!
+## 4. Praktik Lapangan (Lab)
 
 ```javascript
-let stock = 0; // Barang habis
-let display1 = stock || 10; // "Karena 0 falsy, beri default 10!" -> BUG! (Tampilan jadi 10)
+const signal = 0;
+const status = signal || "DEFAULT_ACTIVE"; 
+console.log(status); // "DEFAULT_ACTIVE" (Karena 0 mematikan sakelar ||)
 
-// Solusi Modern: Nullish Coalescing
-let display2 = stock ?? 10; // Hanya fallback jika stock undefined/null -> AMAN! (Tampilan jadi 0)
+const safeStatus = signal ?? "DEFAULT_ACTIVE";
+console.log(safeStatus); // 0 (Hanya fallback jika Nullish)
 ```
 
-## Contoh Eksekusi
-Lihat pembuktian daftar *Falsy*, manuver pemalas `&&` dan `||`, serta keandalan `??` pada folder [examples/](./examples/).
+---
+
+## Arsitek Mindset: Keamanan Logika
+
+Sebagai arsitek Hub:
+- Gunakan `!!` untuk melihat status sakelar secara eksplisit.
+- Gunakan **Nullish Coalescing (`??`)** jika Anda ingin sakelar hanya bereaksi pada `null` atau `undefined`, bukan pada angka `0` atau string kosong.
+- Pahami bahwa `ToBoolean` adalah operasi yang sangat murah bagi Hub karena hanya melibatkan pengecekan terhadap daftar statis (Falsy list).
+
+---
+*Status: [status.md](../../../docs/status.md)*

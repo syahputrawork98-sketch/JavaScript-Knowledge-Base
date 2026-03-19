@@ -1,37 +1,45 @@
-# CH-13: BigInt Arithmetic Operations
+# CH-13: BigInt Arithmetic (The Industrial Powerhouse)
 
-Matematika BigInt sangat jujur, namun ada satu aturan "kejutan" saat berurusan dengan pembagian. Mari kita bedah alur aritmatikanya.
+> **"Saat Hub memproses transaksi finansial raksasa atau ID Grid yang masif, `BigInt` arithmetic adalah 'Pusat Tenaga Industri' (The Industrial Powerhouse) — mesin kalkulasi yang memberikan hasil bulat sempurna tanpa pembulatan."**
+
+*Pemetaan ECMA-262: Clause 6.1.6.2.12 s/d 6.1.6.2.20*
+
+## 1. Mental Model: "The Industrial Powerhouse"
+
+- **Penjumlahan/Perkalian**: Tidak ada batas `Infinity`. Angka akan terus tumbuh sampai memori sistem habis.
+- **Pembagian (/)**: Selalu memotong desimal (*Truncation*). Tidak ada angka di belakang koma di Pusat Tenaga ini.
+- **Eksponensial (**)**: Sangat kuat, tapi dilarang menggunakan pangkat negatif (untuk mencegah hasil desimal yang tidak didukung BigInt).
 
 ---
 
-## 1. Penjumlahan, Pengurangan, Perkalian
-Operasi `+`, `-`, dan `*` bekerja persis seperti matematika bilangan bulat yang Anda pelajari di Sekolah Dasar. Tidak ada pembulatan, tidak ada presisi yang hilang. `10n * 10n` pasti `100n`.
+## 2. Protokol Keselamatan (Errors)
 
-## 2. Keunikan Pembagian (`/`)
-Inilah bagian yang paling krusial: **Pembagian BigInt selalu menghasilkan Integer (pembulatan ke arah nol).**
+Hub akan segera menghentikan proses (Panic) jika Anda mencoba:
+- Membagi BigInt dengan `0n`.
+- Melakukan pemangkatan dengan angka negatif.
+- Mencampur operasional dengan tipe `Number` tanpa konversi eksplisit.
+
+---
+
+## 3. Praktik Lapangan (Lab)
+
 ```javascript
-5n / 2n === 2n // TRUE
+console.log("--- Mengetes Pusat Tenaga Industri ---");
+
+const heavy_1 = 100n;
+const heavy_2 = 3n;
+
+console.log(`Bagi Industri (100n / 3n): ${heavy_1 / heavy_2}`); // 33n (TIDAK ADA DESIMAL)
+console.log(`Sisa Industri (100n % 3n): ${heavy_1 % heavy_2}`); // 1n
 ```
-Karena BigInt tidak mengenal desimal, ia akan membuang sisa baginya secara paksa. Jika Anda butuh sisa baginya, Anda harus menggunakan operator `%`.
-
-## 3. Operator Eksponen (`**`)
-Berbeda dengan Number, operator `**` pada BigInt melarang ekponen bernilai negatif.
-```javascript
-2n ** -1n // RangeError!
-```
-Mengapa? Karena $2^{-1}$ adalah $0.5$, sedangkan BigInt dilarang memiliki nilai desimal. Spesifikasi melarangnya sejak dini agar tidak terjadi kebingungan tipe.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Saat mendesain algoritma pembagian di atas BigInt (misal: menghitung persentase dari angka besar), hasil pembagian Anda akan selalu kehilangan akurasi di belakang koma. Strategi arsitekturalnya: lakukan perkalian (misal: kali 100 atau 1000) terlebih dahulu sebelum melakukan pembagian untuk "mengamankan" angka di belakang koma sebagai integer.
+## Arsitek Mindset: Kejernihan ID
+
+Sebagai arsitek Hub:
+- Gunakan BigInt untuk manipulasi ID mentah dari sistem luaran yang menggunakan skema 64-bit ke atas.
+- Jangan gunakan BigInt untuk data yang kemungkinan akan dikonversi kembali ke Number di masa depan, karena risiko kehilangan data saat "Penyempitan" (*narrowing*) sangat tinggi.
 
 ---
-
-## Tantangan Kecil
-Berapakah hasil dari `(-5n) / 2n`?
-(Jawabannya: **-2n**. Spesifikasi menyatakan pembulatan dilakukan ke arah Nol (*Truncation towards zero*), bukan ke arah bawah seperti `Math.floor`).
-
----
-> [!IMPORTANT]
-> **Key Takeaway:** Di dunia BigInt, "Satu dibagi Dua" adalah Nol. Pahami pembulatan ini agar logika keuangan Anda tidak meleset.
+*Status: [status.md](../../../docs/status.md)*
