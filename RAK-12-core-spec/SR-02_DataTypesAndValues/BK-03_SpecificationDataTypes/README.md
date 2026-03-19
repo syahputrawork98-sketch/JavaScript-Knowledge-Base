@@ -2,7 +2,12 @@
 
 *Pemetaan ECMA-262: Clause 6.2 (Specification Types)*
 
-Buku ini membedah "Bahasa Internal" yang digunakan oleh TC39 untuk menulis spesifikasi. Ini adalah tipe data yang tidak bisa Anda akses dari kode, tapi WAJIB dipahami untuk membaca algoritma.
+## Mental Model: "Indikator Internal Hub" (The Internal Gauges)
+Bayangkan Anda membuka panel kontrol rahasia di dalam Hub. Anda melihat berbagai indikator (Gauges), baki penyimpanan internal (Records), dan sensor status (Completion Records) yang tidak pernah dilihat oleh teknisi luar.
+- **Records**: Baki penyimpanan statis untuk mengelompokkan data internal.
+- **Lists**: Saluran aliran data yang berurutan.
+- **Completion Records**: Sensor yang memberitahu mesin apakah sebuah sirkuit baru saja selesai dijalankan, mengalami malfungsi (Throw), atau diputus sengaja (Return).
+Memahami unit-unit internal ini adalah syarat mutlak untuk membaca blueprint (Spesifikasi) resmi dari TC39.
 
 ## Daftar Isi Bab (Spec-Mapped)
 
@@ -25,4 +30,4 @@ Buku ini membedah "Bahasa Internal" yang digunakan oleh TC39 untuk menulis spesi
 17. **[CH-17_ClassStaticBlockDefinition](./CH-17_ClassStaticBlockDefinition/)**: Blok statis pada kelas.
 
 ---
-*Status: In-Progress (Mapped to ES2025)*
+*Status: Gold Standard 💎*

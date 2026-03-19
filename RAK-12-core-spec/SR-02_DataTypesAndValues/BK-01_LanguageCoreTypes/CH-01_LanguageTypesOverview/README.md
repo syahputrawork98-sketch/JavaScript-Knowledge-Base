@@ -2,11 +2,11 @@
 
 Sebelum kita menyelam ke masing-masing tipe data, kita harus memahami apa yang dimaksud dengan **ECMAScript Language Types** dan mengapa spesifikasi membaginya seperti itu.
 
-## Mental Model: "Set Bahan Baku Bangunan"
-Bayangkan Anda adalah seorang arsitek yang sedang membangun sebuah gedung pencakar langit. Untuk membangun gedung tersebut, Anda hanya diizinkan menggunakan 8 jenis bahan baku dasar yang disediakan oleh supplier (Spesifikasi).
-- Beberapa bahan sangat ringan (Primitif).
-- Satu bahan sangat fleksibel tapi berat (Object).
-Hanya dengan kombinasi 8 bahan inilah seluruh struktur program JavaScript Anda tercipta.
+## Mental Model: "Tipe Unit Energi" (Energy Unit Types)
+Bayangkan Anda adalah pengelola Grid di Web Energy Hub. Untuk menjalankan seluruh sistem, Anda hanya diizinkan menggunakan 8 jenis "Unit Energi" dasar yang disediakan oleh spesifikasi.
+- Beberapa unit sangat ringan dan stabil (Primitif).
+- Satu unit sangat kompleks dan bisa menampung unit lain (Object).
+Hanya dengan kombinasi 8 tipe unit dasar inilah seluruh aliran energi di Hub Anda tercipta.
 
 ---
 

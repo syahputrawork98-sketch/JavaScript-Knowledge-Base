@@ -21,4 +21,4 @@ Buku ini membedah tipe data inti yang dapat dimanipulasi langsung oleh pengemban
 13. **[CH-13_WellKnownIntrinsics](./CH-13_WellKnownIntrinsics/)**: Objek bawaan yang dikunci oleh spesifikasi.
 
 ---
-*Status: In-Progress (Mapped to ES2025)*
+*Status: Gold Standard 💎*

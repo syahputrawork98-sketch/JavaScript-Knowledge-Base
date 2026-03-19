@@ -22,4 +22,4 @@ Buku ini membedah dunia angka di JavaScript secara absolut, mulai dari presisi I
 14. **[CH-14_MathematicalValues](./CH-14_MathematicalValues/)**: Perbedaan antara nilai komputer dan nilai matematika abstrak.
 
 ---
-*Status: In-Progress (Mapped to ES2025)*
+*Status: Gold Standard 💎*

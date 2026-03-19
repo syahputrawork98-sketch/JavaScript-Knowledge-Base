@@ -10,7 +10,13 @@
 4.  **[BK-04_ASISafetySwitch](./BK-04_ASISafetySwitch/)**: Mekanisme keselamatan otomatis untuk memasang pemisah sinyal (Line Terminators).
 
 ## 📊 Visualisasi Arsitektur
-- [Token Stream Filtration](./assets/lexic_stream_filtration.svg)
+- [Token Stream Filtration](./assets/lexic_stream_filtration.svg) - Alur penyaringan dari teks mentah ke token.
+- [Numeric Literal Schematic](./BK-03_LiteralPowerCells/CH-01_NumericLiterals/assets/numeric_literal_schematic.svg) - Skema beban daya numerik.
+- [ASI Safety Mechanism](./BK-04_ASISafetySwitch/CH-01_ASIRules/assets/asi_safety_mechanism.svg) - Robot penyelamat ASI.
+
+## 🧪 Laboratorium
+- [Hub Intake Lab](./examples/hub_intake_lab.js) - Eksperimen Literals & Tokens.
+- [ASI & Regex Lab](./examples/asi_and_regex_lab.js) - Eksperimen Keselamatan Leksikal.
 
 ---
-*Status: Progressing 🔵*
+*Status: Gold Standard 💎*
