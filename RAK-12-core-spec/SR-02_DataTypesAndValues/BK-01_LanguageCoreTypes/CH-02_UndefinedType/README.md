@@ -1,40 +1,44 @@
-# CH-02: Undefined Type
+# CH-02: The Undefined Type (The Dead Line)
 
-Dalam percakapan sehari-hari, kita sering menggunakan kata "Undefined" untuk sesuatu yang tidak jelas. Namun dalam spesifikasi, **Undefined** adalah sebuah kepastian: sebuah tipe data resmi dengan tepat satu nilai.
+> **"Di dalam Grid, `undefined` adalah 'Kabel Mati' (The Dead Line). Ini adalah sinyal yang menunjukkan bahwa sebuah jalur distribusi telah dialokasikan, namun belum ada daya yang mengalir di dalamnya."**
 
-## Mental Model: "Ruangan yang Belum Diperuntukkan"
-Bayangkan sebuah hotel. **Undefined** adalah kamar yang sudah dibangun, sudah punya nomor kamar (Variable Name), tapi belum ada tamu atau perabotan di dalamnya. Kamar itu ada, tapi isinya adalah "Ketiadaan yang Belum Ditetapkan".
+*Pemetaan ECMA-262: Clause 6.1.1 (The Undefined Type)*
 
----
+## 1. Mental Model: "The Dead Line"
 
-## 1. Definisi Formal: Undefined
-Menurut Clause 6.1.1: *"The Undefined type has exactly one value, called **undefined**. Any variable that has not been assigned a value has the value **undefined**."*
-
-Poin penting:
-- **Tipe:** Undefined (Huruf besar, konsep abstrak).
-- **Nilai:** `undefined` (Huruf kecil, nilai konkret).
-
-## 2. Di Mana Kita Menemukan `undefined`?
-Spesifikasi menetapkan nilai `undefined` muncul pada:
-1. Variabel yang baru dideklarasikan tanpa nilai (`let x;`).
-2. Fungsi yang tidak melakukan `return` secara eksplisit.
-3. Properti objek yang tidak ada saat diakses.
-4. Parameter fungsi yang tidak diisi oleh pemanggil.
-
-## 3. Undefined as a Value, not a Keyword
-Meskipun `undefined` bertindak seperti keyword, secara teknis di JavaScript lama dia adalah properti global yang bisa diubah (sekarang sudah dikunci/read-only). Inilah alasan mengapa para arsitek lebih menyarankan pengecekan menggunakan `typeof x === "undefined"`.
+Bayangkan Anda baru saja memasang kabel baru ke sebuah gedung di Hub. Kabel itu ada, terdaftar di denah (memori), tapi saat Anda tes dengan voltmeter, jarumnya tidak bergerak. Itulah `undefined`.
+- **Bukan** berarti kabelnya hilang (itu adalah `ReferenceError`).
+- **Berarti** kabelnya terpasang tapi *voltasenya nol* karena belum diisi daya.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Jangan mencampuradukkan `undefined` dengan "Error". `undefined` adalah status legal sebuah data. Mengetahui kapan spesifikasi memberikan `undefined` membantu Anda merancang *Default State* aplikasi yang lebih tangguh.
+## 2. Karakteristik Spec
+
+- Hanya memiliki satu nilai: `undefined`.
+- Digunakan sebagai nilai default untuk variabel yang di-`declare` tanpa `initialization`.
+- Digunakan sebagai nilai kembalian default dari fungsi yang tidak memiliki statement `return`.
 
 ---
 
-## Tantangan Kecil
-Apa perbedaan antara variabel yang `undefined` dan variabel yang *not defined*?
-(Jawabannya: Variabel **undefined** sudah dideklarasikan tapi belum diisi nilainya. Variabel **not defined** (ReferenceError) adalah variabel yang bahkan belum didaftarkan di dalam *Environment Record*).
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+let powerLine; // Dideklarasikan tapi tidak diisi
+console.log(powerLine); // undefined (The Dead Line)
+
+function checkGrid() {
+  // Tidak ada return
+}
+console.log(checkGrid()); // undefined
+```
 
 ---
-> [!TIP]
-> **Pro-Tip:** Gunakan `undefined` untuk menandakan sistem yang belum siap, bukan untuk menghapus data. Untuk "Penghapusan Sengaja", gunakan `null`.
+
+## Arsitek Mindset: Mendeteksi Inisialisasi
+
+Sebagai arsitek Hub:
+- Gunakan pemeriksaan `=== undefined` jika Anda ingin tahu apakah sebuah parameter dikirim atau tidak saat memanggil fungsi.
+- Hindari memberikan nilai `undefined` secara manual kepada variabel (`power = undefined`); ini akan membingungkan teknisi lain. Jika Anda ingin mengosongkan daya secara sengaja, gunakan `null`.
+
+---
+*Status: [status.md](../../../docs/status.md)*

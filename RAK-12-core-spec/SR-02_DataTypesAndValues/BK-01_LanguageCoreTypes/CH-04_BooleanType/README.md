@@ -1,38 +1,45 @@
-# CH-04: Boolean Type
+# CH-04: The Boolean Type (The Power Switch)
 
-Dalam dunia komputer yang serba biner, **Boolean** adalah fondasi dari semua pengambilan keputusan. Meskipun terlihat sangat sederhana, spesifikasi memiliki aturan ketat tentang bagaimana nilai ini dikelola.
+> **"Dunia Grid dibangun di atas binari. `Boolean` adalah 'Sakelar Daya' (The Power Switch) yang menentukan apakah energi mengalir (`true`) atau terhenti (`false`). Tanpa sakelar ini, tidak ada logika pencabangan di Hub."**
 
-## Mental Model: "Saklar Lampu"
-Tipe Boolean adalah sebuah saklar yang hanya punya dua posisi absolut:
-- **ON (true):** Menandakan sebuah pernyataan atau kondisi itu benar.
-- **OFF (false):** Menandakan sebuah pernyataan atau kondisi itu salah.
-Tidak ada posisi "Remang-remang" di antara keduanya.
+*Pemetaan ECMA-262: Clause 6.1.3 (The Boolean Type)*
 
----
+## 1. Mental Model: "The Power Switch"
 
-## 1. Definisi Formal: Boolean
-Menurut Clause 6.1.3: *"The Boolean type represents a logical entity having two values, called **true** and **false**."*
-
-## 2. Boolean vs Truthy/Falsy
-Inilah perbedaan besar antara **Tipe Boolean** dan **Evaluasi Logika**:
-- **Tipe Boolean:** Hanya ada dua anggota yaitu `true` dan `false`.
-- **Truthy/Falsy:** Adalah mekanisme di mana JavaScript mencoba "memaksa" (*coerce*) tipe data lain (seperti string kosong atau angka 0) untuk berakting seperti Boolean.
-> *Catatan Arsitek:* Bedakan antara "Nilainya adalah Boolean" dan "Nilainya berperilaku seperti Boolean".
-
-## 3. Operasi pada Boolean
-Di dalam spesifikasi, Boolean sering digunakan dalam algoritma percabangan (*If...Else*). Operasi seperti `Logical NOT (!)` atau `Logical AND (&&)` sebenarnya bekerja dengan mengambil nilai Boolean mentah dan mengembalikan hasil sesuai tabel kebenaran (*Truth Table*).
+Logika Hub hanya mengenal dua posisi:
+- **`true`**: Kontak terhubung, lampu indikator menyala, data mengalir melalui gerbang logika.
+- **`false`**: Kontak terputus, lampu indikator mati, aliran data dialihkan ke jalur alternatif (*else*).
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Mendesain sistem dengan *State* Boolean murni jauh lebih aman dan mudah diuji daripada mengandalkan nilai *Truthy/Falsy*. Sebagai arsitek, usahakan agar variabel status Anda selalu berisi `true` atau `false` secara eksplisit.
+## 2. ToBoolean (Kebenaran Tersembunyi)
+
+Banyak data lain (String, Number, dll) bisa diubah menjadi sinyal sakelar melalui operasi internal `ToBoolean`.
+- **Falsy (Sakelar Mati)**: `undefined`, `null`, `false`, `+0`, `-0`, `NaN`, `""` (String kosong).
+- **Truthy (Sakelar Nyala)**: Segala sesuatu yang lain, termasuk `{}` dan `[]`.
 
 ---
 
-## Tantangan Kecil
-Apakah `Boolean(new Boolean(false))` menghasilkan `true` atau `false`?
-(Jawabannya: **true**. Mengapa? Karena `new Boolean(false)` menciptakan sebuah **Object**. Dan di JavaScript, semua **Object** dianggap *Truthy*, terlepas dari isi di dalamnya).
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+const gridIsActive = true;
+
+if (gridIsActive) {
+  console.log("Distribusi Energi Berjalan.");
+} else {
+  console.log("Hub Shutdown.");
+}
+```
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Boolean adalah tipe data paling jujur. Jangan pernah mencampuradukkan kejujurannya dengan nilai "mirip-benar" (Truthy).
+
+## Arsitek Mindset: Logika yang Bersih
+
+Sebagai arsitek Hub:
+- Hindari membandingkan boolean secara eksplisit (`if (x === true)`). Cukup gunakan `if (x)`.
+- Gunakan operator `!!` (double negasi) untuk memaksa nilai apapun menjadi sinyal sakelar murni (`true` atau `false`).
+- Berhati-hatilah dengan `0` dan `""`; meskipun ada isinya secara fisik, di mata sakelar Boolean, keduanya dianggap sebagai "Sinyal Mati".
+
+---
+*Status: [status.md](../../../docs/status.md)*

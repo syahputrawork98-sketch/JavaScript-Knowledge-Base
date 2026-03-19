@@ -1,0 +1,30 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">IEEE 754 DOUBLE PRECISION (64-BIT NUMBER)</text>
+
+  <!-- 64-Bit Bar -->
+  <rect x="50" y="120" width="700" height="80" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+  
+  <!-- Sign Bit -->
+  <rect x="50" y="120" width="40" height="80" fill="#f43f5e" opacity="0.8"/>
+  <text x="70" y="165" fill="#ffffff" font-family="Arial" font-size="12" text-anchor="middle">SIGN</text>
+  <text x="70" y="230" fill="#f43f5e" font-family="Arial" font-size="12" text-anchor="middle">1-Bit</text>
+
+  <!-- Exponent -->
+  <rect x="90" y="120" width="160" height="80" fill="#38bdf8" opacity="0.8"/>
+  <text x="170" y="165" fill="#ffffff" font-family="Arial" font-size="12" text-anchor="middle">EXPONENT</text>
+  <text x="170" y="230" fill="#38bdf8" font-family="Arial" font-size="12" text-anchor="middle">11-Bits</text>
+
+  <!-- Mantissa -->
+  <rect x="250" y="120" width="500" height="80" fill="#fbbf24" opacity="0.8"/>
+  <text x="500" y="165" fill="#ffffff" font-family="Arial" font-size="12" text-anchor="middle">FRACTION / MANTISSA (PRECISION)</text>
+  <text x="500" y="230" fill="#fbbf24" font-family="Arial" font-size="12" text-anchor="middle">52-Bits</text>
+
+  <!-- Formula -->
+  <text x="400" y="320" fill="#94a3b8" font-family="Courier New" font-size="18" text-anchor="middle" font-weight="bold">Value = (-1)^S * (1 + Fraction) * 2^(Exp - Bias)</text>
+  
+  <text x="400" y="360" fill="#64748b" font-family="Arial" font-size="14" text-anchor="middle">"The Finite Representation of Infinite Mathematics"</text>
+
+</svg>

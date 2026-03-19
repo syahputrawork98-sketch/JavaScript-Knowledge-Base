@@ -1,0 +1,46 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">PRIMITIVE VS OBJECT MEMORY (STACK VS HEAP)</text>
+
+  <!-- Primitive (Stack) -->
+  <g transform="translate(100, 100)">
+    <rect width="250" height="250" fill="#1e293b" stroke="#f43f5e" stroke-width="2" rx="10"/>
+    <text x="125" y="-10" fill="#f43f5e" font-family="Arial" font-size="14" text-anchor="middle">STACK (PRIMITIVE)</text>
+    
+    <rect x="25" y="30" width="200" height="40" fill="#1e293b" stroke="#94a3b8"/>
+    <text x="125" y="55" fill="#ffffff" font-family="Courier New" font-size="14" text-anchor="middle">a = 42</text>
+
+    <rect x="25" y="80" width="200" height="40" fill="#1e293b" stroke="#94a3b8"/>
+    <text x="125" y="105" fill="#ffffff" font-family="Courier New" font-size="14" text-anchor="middle">b = "Pulse"</text>
+
+    <text x="125" y="200" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">"Fixed Size, Direct Access"</text>
+  </g>
+
+  <!-- Object (Heap) -->
+  <g transform="translate(450, 100)">
+    <rect width="250" height="250" fill="#1e293b" stroke="#34d399" stroke-width="2" rx="10"/>
+    <text x="125" y="-10" fill="#34d399" font-family="Arial" font-size="14" text-anchor="middle">HEAP (OBJECT)</text>
+    
+    <!-- Reference on Stack -->
+    <rect x="-300" y="130" width="200" height="40" fill="#1e293b" stroke="#fbbf24"/>
+    <text x="-200" y="155" fill="#fbbf24" font-family="Courier New" font-size="14" text-anchor="middle">obj -> #Ref72</text>
+    
+    <!-- Actual Object on Heap -->
+    <circle cx="125" cy="125" r="60" fill="none" stroke="#34d399" stroke-width="3"/>
+    <path d="M 125 65 L 125 185 M 65 125 L 185 125" stroke="#34d399" stroke-width="1"/>
+    <text x="125" y="125" fill="#34d399" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">MACHINE</text>
+
+    <!-- Pointer -->
+    <path d="M -100 150 L 50 150" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrow-ref)"/>
+
+    <text x="125" y="220" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">"Flexible Size, Indirect Ref"</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-ref" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24" />
+    </marker>
+  </defs>
+</svg>

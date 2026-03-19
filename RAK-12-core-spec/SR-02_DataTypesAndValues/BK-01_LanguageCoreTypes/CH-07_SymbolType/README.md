@@ -1,43 +1,45 @@
-# CH-07: Symbol Type
+# CH-07: The Symbol Type (The Exclusive Tag)
 
-Jika String adalah manik-manik yang bisa dibaca semua orang, maka **Symbol** adalah sebuah tanda tangan rahasia yang tidak dapat dipalsukan.
+> **"Di dalam Grid yang padat, tabrakan data (*collision*) adalah ancaman nyata. `Symbol` adalah 'Tag Eksklusif' (The Exclusive Tag) — pengenal unik yang dijamin tidak akan pernah tertukar dengan pengenal lain, bahkan jika namanya terdengar sama."**
 
-## Mental Model: "Kunci Sidik Jari"
-Bayangkan sebuah pintu (Objek).
-- **String Key:** Seperti kunci fisik biasa. Siapapun yang punya duplikatnya bisa membuka pintu.
-- **Symbol Key:** Seperti pemindai sidik jari. Tidak ada dua sidik jari yang sama di dunia, dan Anda tidak bisa membuat sidik jari palsu hanya dengan melihatnya.
+*Pemetaan ECMA-262: Clause 6.1.5 (The Symbol Type)*
+
+## 1. Mental Model: "The Exclusive Tag"
+
+Bayangkan setiap unit di Hub diberikan stempel laser unik saat diproduksi.
+- Meskipun ada dua unit bernama "BATERAI_1", stempel lasernya berbeda secara fisik di level molekuler.
+- Di Hub, `Symbol()` menciptakan identifier yang **benar-benar unik**. Tidak ada dua Symbol yang sama, kecuali jika Anda menggunakan Global Registry.
 
 ---
 
-## 1. Definisi Formal: Symbol
-Menurut Clause 6.1.5: *"The Symbol type is the set of all non-String values that may be used as the key of an Object property."*
+## 2. Kegunaan di Grid: Hidden Keys
 
-Karakteristik Utama:
-- **Uniqueness:** Setiap kali Anda memanggil `Symbol()`, spesifikasi menjamin nilai yang dihasilkan unik secara global di dalam memori.
-- **Privacy (By Default):** Properti yang menggunakan Symbol sebagai key tidak akan muncul dalam iterasi biasa (seperti `for...in` atau `Object.keys()`).
-- **Immutable:** Symbol tidak bisa diubah setelah diciptakan.
+Symbol sering digunakan untuk menambahkan properti ke sebuah Object tanpa takut properti tersebut ditimpa oleh skrip lain yang menggunakan nama string yang sama.
 
-## 2. Deskripsi Symbol
-`Symbol("desc")` menerima sebuah deskripsi. Namun perhatikan: Deskripsi ini **hanya untuk debugging**.
 ```javascript
-Symbol("A") === Symbol("A") // FALSE
+const PRIVATE_KEY = Symbol("access_code");
+const hub = {
+  [PRIVATE_KEY]: "0x55AA"
+};
+
+console.log(hub[PRIVATE_KEY]); // "0x55AA"
+// Teknisi luar tidak bisa menebak key ini hanya dengan loop string biasa.
 ```
-Spesifikasi membandingkan Symbol berdasarkan identitas internalnya, bukan berdasarkan teks deskripsinya.
-
-## 3. Global Symbol Registry
-Spesifikasi menyediakan mekanisme untuk berbagi Symbol antar-modul atau bahkan antar-iframe melalui `Symbol.for(key)`. Ini adalah satu-satunya cara untuk mendapatkan "Sidik Jari" yang sama di tempat yang berbeda.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Symbol adalah alat terbaik untuk membuat **Private Members** (sebelum ada fitur `#private` di Class) atau untuk menambahkan "Metadata" pada objek tanpa takut mengganggu atau bentrok dengan properti yang sudah ada.
+## 3. Well-known Symbols (Protokol Standar)
+
+Sistem Hub memiliki set "Tag Standar" yang sudah dikenal secara universal, seperti `Symbol.iterator`. Jika sebuah unit memiliki tag ini, unit tersebut secara otomatis bisa dipindahkan melalui sistem `for...of` (Iterasi).
 
 ---
 
-## Tantangan Kecil
-Dapatkah kita mengubah Symbol menjadi String menggunakan `+ ""`?
-(Jawabannya: **Tidak**. Spesifikasi melarang konversi implisit Symbol ke String (akan melempar `TypeError`). Anda harus menggunakan `.toString()` atau `String(sym)` secara eksplisit. Ini adalah fitur keamanan agar Symbol tidak "bocor" secara tidak sengaja).
+## Arsitek Mindset: Keamanan Properti
+
+Sebagai arsitek Hub:
+- Gunakan Symbol jika Anda sedang membangun library atau modul inti Hub yang akan digunakan oleh banyak teknisi lain, untuk mencegah mereka secara tidak sengaja menimpa variabel internal Anda.
+- Ingat: Symbol bukan untuk keamanan kriptografi, tapi untuk **menghindari tabrakan nama** (*name collision*).
+- Jangan gunakan `new Symbol()`; ini adalah Primitif, panggil langsung sebagai fungsi `Symbol()`.
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Symbol bukan string. Symbol adalah identitas unik yang digunakan untuk keamanan dan struktur objek tingkat lanjut.
+*Status: [status.md](../../../docs/status.md)*

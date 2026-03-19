@@ -1,42 +1,41 @@
-# CH-09: Object Type Overview
+# CH-09: The Object Type Overview (The Processed Machine)
 
-Setelah membedah 7 tipe primitif, kita sampai pada raja dari segala tipe data di JavaScript: **Object**. Di Clause 6.1.7, spesifikasi mendefinisikan objek bukan hanya sebagai "wadah", tapi sebagai sebuah entitas semantik yang kompleks.
+> **"Primitif adalah bahan baku mentah, tapi `Object` adalah 'Mesin Pengolah' (The Processed Machine). Ini adalah struktur kompleks yang memiliki identitas, perilaku, dan kemampuan untuk menyimpan serta memanipulasi energi di dalam Hub."**
 
-## Mental Model: "Entitas dengan Kekuatan Super"
-Berbeda dengan Primitif yang seperti batu bata mati, **Object** adalah makhluk hidup di dalam memori.
-- Dia punya **Identitas** (Siapa saya?).
-- Dia punya **State** (Apa yang saya bawa?/Properti).
-- Dia punya **Behavior** (Apa yang bisa saya lakukan?/Internal Methods).
+*Pemetaan ECMA-262: Clause 6.1.7 (The Object Type)*
 
----
+## 1. Mental Model: "The Processed Machine"
 
-## 1. Definisi Formal: Object
-Menurut Clause 6.1.7: *"An Object is a member of the type Object. It is a collection of properties."*
-
-Namun, spesifikasi melangkah lebih jauh. Sebuah objek didefinisikan oleh **Internal Methods** yang dimilikinya. Jika sebuah entitas memiliki metode internal standar (seperti `[[Get]]`, `[[Set]]`), maka dia sah dianggap sebagai Object.
-
-## 2. Struktur Properti
-Properti dalam objek bukan sekadar nilai. Setiap properti memiliki "Descriptor" yang terdiri dari:
-- **Key:** Bisa berupa String atau Symbol.
-- **Attributes:** Aturan main properti tersebut (seperti yang kita pelajari di SR-01).
-
-## 3. Komponen Internal Objek
-Setiap objek membawa "Bagasi Tersembunyi" (Internal Slots):
-- **[[Prototype]]:** Link ke objek induk.
-- **[[Extensible]]:** Apakah objek ini boleh ditambah properti baru?
-- **[[PrivateData]]:** Data khusus yang hanya bisa diakses oleh mesin.
+Jika String adalah pita pesan, maka Object adalah **Unit Komputasi** yang memiliki:
+- **Properti (Kabel/Pipa)**: Tempat menyimpan data atau referensi ke unit lain.
+- **Metode (Tombol Operasi)**: Fungsi yang menentukan apa yang bisa dilakukan mesin tersebut.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Hampir seluruh arsitektur sistem JavaScript yang kompleks dibangun di atas objek. Memahami bahwa objek adalah "Koleksi Properti dengan Perilaku Internal" memungkinkan Anda memprediksi bagaimana objek akan berinteraksi dengan algoritma lain dalam spesifikasi (seperti algoritma pencarian properti).
+## 2. Identitas vs Nilai
+
+Tidak seperti Primitif, dua Object tidak pernah dianggap sama meskipun isinya identik.
+```javascript
+const unitA = { id: 1 };
+const unitB = { id: 1 };
+
+console.log(unitA === unitB); // false
+// Karena identitas fisik (referensi memori) mereka berbeda di Grid.
+```
 
 ---
 
-## Tantangan Kecil
-Apakah `null` adalah objek? Di sub-rak sebelumnya (SR-01) kita tahu `typeof` bilang iya, tapi bagaimana dengan Clause 6.1.7?
-(Jawabannya: **TIDAK**. Clause 6.1.1 s/d 6.1.6 mendefinisikan Primitif. Clause 6.1.7 secara eksklusif mendefinisikan Object. Mereka adalah dua dunia yang berbeda secara formal).
+## 3. Struktur Internal: Slots & Methods
+
+Di level spesifikasi, setiap Object memiliki "Slot Internal" (`[[InternalSlot]]`) yang tidak bisa diakses langsung oleh kode JavaScript Anda, tapi menentukan bagaimana mesin tersebut bekerja (misalnya `[[Prototype]]`).
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Object adalah satu-satunya tipe data yang memiliki **Internal Methods**. Inilah yang membuatnya menjadi tipe data "Aktif".
+
+## Arsitek Mindset: Manajemen Referensi
+
+Sebagai arsitek Hub:
+- Sadarilah bahwa saat Anda memindahkan Object antar unit, Anda hanya memindahkan "Alamat" (*Reference*) mesin tersebut, bukan mesin fisiknya. Mengubah mesin di satu tempat akan mengubahnya bagi semua orang yang memegang alamat tersebut.
+- Gunakan Object untuk mengelompokkan data yang saling berhubungan (State) agar Hub Anda tetap terorganisir.
+
+---
+*Status: [status.md](../../../docs/status.md)*

@@ -1,0 +1,31 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">COMPLETION RECORD FLOW (SUCCESS VS ABRUPT)</text>
+
+  <!-- Execution Block -->
+  <rect x="50" y="150" width="200" height="100" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="10"/>
+  <text x="150" y="205" fill="#ffffff" font-family="Arial" font-size="16" text-anchor="middle">JS STATEMENT</text>
+
+  <!-- Normal Flow -->
+  <path d="M 250 180 L 450 120" stroke="#34d399" stroke-width="4" marker-end="url(#arrow-normal)"/>
+  <text x="350" y="110" fill="#34d399" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">[[Type]]: normal</text>
+  <rect x="450" y="80" width="250" height="80" fill="#065f46" rx="5"/>
+  <text x="575" y="125" fill="#ffffff" font-family="Arial" font-size="14" text-anchor="middle">CONTINUE TO NEXT LINE</text>
+
+  <!-- Abrupt Flow -->
+  <path d="M 250 220 L 450 280" stroke="#f43f5e" stroke-width="4" marker-end="url(#arrow-abrupt)"/>
+  <text x="350" y="310" fill="#f43f5e" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">[[Type]]: throw / return</text>
+  <rect x="450" y="240" width="250" height="80" fill="#991b1b" rx="5"/>
+  <text x="575" y="285" fill="#ffffff" font-family="Arial" font-size="14" text-anchor="middle">JUMP TO CATCH / CALLER</text>
+
+  <defs>
+    <marker id="arrow-normal" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399" />
+    </marker>
+    <marker id="arrow-abrupt" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f43f5e" />
+    </marker>
+  </defs>
+</svg>

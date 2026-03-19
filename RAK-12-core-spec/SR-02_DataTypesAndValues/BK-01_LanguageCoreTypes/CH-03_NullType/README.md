@@ -1,41 +1,42 @@
-# CH-03: Null Type
+# CH-03: The Null Type (The Empty Socket)
 
-Jika *Undefined* adalah ketidaksengajaan atau status "Belum Siap", maka **Null** adalah pernyataan niat yang eksplisit.
+> **"Jika `undefined` adalah kabel mati, maka `null` adalah 'Soket Kosong' (The Empty Socket). Ini adalah tindakan sengaja untuk mencabut steker daya dari sistem, menandakan bahwa soket tersebut fungsional tapi saat ini kosong oleh desain."**
 
-## Mental Model: "Kotak Kosong yang Disengaja"
-Bayangkan sebuah kotak hadiah.
-- **Undefined:** Anda bahkan tidak tahu apakah ada kotak atau tidak.
-- **Null:** Anda melihat ada kotak, Anda membukanya, dan isinya kosong karena memang dikosongkan secara sengaja oleh si pemberi.
+*Pemetaan ECMA-262: Clause 6.1.2 (The Null Type)*
 
----
+## 1. Mental Model: "The Empty Socket"
 
-## 1. Definisi Formal: Null
-Menurut Clause 6.1.2: *"The Null type has exactly one value, called **null**. The Null type represents the intentional absence of any object value."*
-
-Kata kuncinya adalah **Intentional Absence**. Anda menggunakan `null` untuk memberi tahu program: *"Saya tahu ada tempat untuk data di sini, tapi saat ini saya sengaja mengosongkannya."*
-
-## 2. Null vs Object (The Legacy Bug)
-Inilah sumber kebingungan ribuan pengembang: `typeof null` menghasilkan `"object"`.
-- **Fakta Spec:** `null` bukan Object. Dia adalah primitif.
-- **Sejarah:** Ini adalah bug pada implementasi awal JavaScript tahun 1995 dan tidak diperbaiki hingga sekarang demi menjaga kompatibilitas aplikasi lama.
-
-## 3. Penggunaan Terbaik
-Arsitek menggunakan `null` biasanya untuk:
-1. Me-reset nilai variabel yang tadinya berisi Object.
-2. Inisialisasi awal variabel yang *akan* berisi Object nanti.
-3. Sebagai penanda akhir dari sebuah *link* (misal: akhir dari *Prototype Chain* adalah `null`).
+Bayangkan sebuah rak di Hub yang memiliki soket untuk baterai cadangan.
+- **`null`**: Raknya ada, soketnya bersih, tapi baterainya secara sengaja diambil oleh teknisi untuk pemeliharaan. Anda mengosongkannya secara eksplisit.
+- **`undefined`**: Anda lupa memasang raknya ke sistem monitoring, sehingga sistem tidak tahu apa isinya.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Memahami perbedaan filosofis antara `null` dan `undefined` akan membuat API Anda lebih ekspresif. Pengguna API Anda akan tahu apakah sebuah data "Hilang karena error/lupa" (`undefined`) atau "Memang tidak ada/dikosongkan" (`null`).
+## 2. Keanehan Sejarah: `typeof null`
+
+Jika Anda mengetes `typeof null` di Hub, sensor akan melaporkan `"object"`.
+> **Arsitek Note:** Ini adalah bug desain dari hari pertama JavaScript dibuat (karena representasi bit untuk null dan object tumpang tindih). Spesifikasi tidak memperbaikinya untuk menjaga kompatibilitas grid lama. Jangan tertipu! `null` adalah **Primitif**, bukan object.
 
 ---
 
-## Tantangan Kecil
-Jika `Object.getPrototypeOf(Object.prototype)` dipanggil, apa hasilnya?
-(Jawabannya: **null**. Mengapa? Karena `Object.prototype` adalah puncak dari rantai warisan. Di atasnya sudah tidak ada siapa-siapa lagi, maka spesifikasi menggunakan `null` sebagai penanda akhir).
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+let backupBattery = { capacity: 100 };
+backupBattery = null; // Mencabut baterai secara sengaja
+
+if (backupBattery === null) {
+  console.log("Soket kosong. Harap pasang baterai baru.");
+}
+```
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** `undefined` = "Saya tidak tahu". `null` = "Saya tahu, dan isinya kosong".
+
+## Arsitek Mindset: Komunikasi Niat
+
+Sebagai arsitek Hub:
+- Gunakan `null` untuk merepresentasikan *"Nilai yang belum ada saat ini"* atau *"Hasil pencarian yang tidak ditemukan"*.
+- Biasakan menggunakan `null` alih-alih `undefined` saat mengembalikan nilai dari API atau fungsi pencarian data di Grid untuk menunjukkan bahwa operasi telah dilakukan tapi tidak ada hasil.
+
+---
+*Status: [status.md](../../../docs/status.md)*

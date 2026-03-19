@@ -1,45 +1,44 @@
-# CH-02: Number Type
+# CH-02: The Number Type (The Variable Load)
 
-Inilah tipe data yang paling sering kita gunakan, namun paling sering disalahpahami. **Number** di JavaScript bukanlah sekadar "Angka", tapi sebuah implementasi dari standar **IEEE 754**.
+> **"Sebagian besar energi di Hub diukur dalam format `Number`. Ini adalah 'Beban Variabel' (The Variable Load) — sistem pengukuran fluida yang sangat cepat namun memiliki batas presisi saat menangani angka-angka yang sangat besar atau sangat kecil secara bersamaan."**
 
-## Mental Model: "Timbangan Digital yang Terbatas"
-Bayangkan sebuah timbangan digital yang hanya bisa menampilkan 16 digit angka.
-- Jika Anda menimbang benda yang sangat ringan, ia akurat.
-- Jika Anda menimbang benda yang sangat berat, ia mulai membulatkan angka-angka di belakang koma karena layar timbangannya sudah penuh.
-Itulah cara kerja `Number` (Double Precision 64-bit).
+*Pemetaan ECMA-262: Clause 6.1.6.1 (The Number Type)*
 
----
+## 1. Mental Model: "The Variable Load"
 
-## 1. Struktur 64-bit (Double Precision)
-Menurut Clause 6.1.6.1, tipe Number mewakili nilai biner 64-bit yang terbagi menjadi:
-- **1 Bit:** Tanda (Positif/Negatif).
-- **11 Bit:** Eksponen (Menentukan seberapa besar/kecil angka tersebut).
-- **52 Bit:** Fraksi/Mantissa (Menentukan angka signifikannya).
-
-## 2. Nilai-Nilai Spesial
-Karena menggunakan format floating point, Number memiliki nilai unik yang tidak ada di tipe lain:
-- **NaN:** Not-a-Number (Hasil dari operasi ilegal seperti `0 / 0`).
-- **+Infinity & -Infinity:** Mewakili nilai di luar batas 64-bit.
-- **+0 & -0:** Ya, spesifikasi memiliki dua jenis nol, yang berperilaku hampir sama tapi berbeda di beberapa algoritma pembagian.
-
-## 3. Batas Aman: `MAX_SAFE_INTEGER`
-Karena hanya memiliki 52 bit untuk fraksi (ditambah 1 bit implisit), angka bulat yang bisa diwakili secara akurat (tanpa pembulatan) hanya sampai $2^{53} - 1$ ($9,007,199,254,740,991$). 
-Di atas angka ini, Anda akan mulai melihat keanehan seperti:
-```javascript
-9007199254740992 + 1 === 9007199254740992 // TRUE!
-```
+Bayangkan sebuah gelas ukur digital di Hub.
+- Gelas ini sangat canggih dan bisa mengukur tetesan air kecil hingga volume galon.
+- Namun, gelas ini punya keterbatasan fisik: total hanya ada **64 bit** informasi.
+- Jika Anda memasukkan terlalu banyak detail di satu sisi (angka desimal yang panjang), gelas ini akan kehilangan detail di sisi lain (angka bulat besar).
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Memahami limitasi IEEE 754 membantu Anda menjelaskan mengapa `0.1 + 0.2 === 0.30000000000000004`. Itu bukan bug JavaScript, itu adalah keterbatasan representasi biner terhadap angka desimal manusia. Arsitek yang cerdas akan menyarankan penggunaan *Integer Cents* (mengali 100) untuk perhitungan uang agar terhindar dari floating point error.
+## 2. Struktur Spec: IEEE 754 Double Precision
+
+Spesifikasi ECMA-262 menggunakan format *64-bit binary floating point*.
+- **1 bit**: Sign (Positif/Negatif).
+- **11 bit**: Exponent (Skala/Besar angka).
+- **52 bit**: Fraction/Mantissa (Detail angka).
+
+![IEEE 754](./assets/ieee754_floating_point.svg)
 
 ---
 
-## Tantangan Kecil
-Apakah `NaN === NaN`?
-(Jawabannya: **FALSE**. Berdasarkan spesifikasi IEEE 754 dan Clause 6.1.6.1.13, `NaN` adalah satu-satunya nilai di JavaScript yang tidak sama dengan dirinya sendiri. Ini dirancang agar pengembang sadar bahwa ada sesuatu yang "rusak" dalam perhitungan mereka).
+## 3. Nilai Spesial (The Edge Cases)
+
+Hub memiliki 3 sinyal angka khusus yang harus dipahami setiap teknisi:
+- **`NaN` (Not-a-Number)**: Sinyal "Error Komputasi" (misal: membagi teks dengan angka).
+- **`+Infinity` & `-Infinity`**: Beban yang melampaui kapasitas ukur Hub (Overflow).
+- **`-0`**: Sinyal nol yang datang dari arah negatif (Sangat teknis, tapi ada di spec!).
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Number adalah kompromi antara presisi luar biasa dan performa hardware. Kenali batasannya, maka Anda menguasai bahasanya.
+
+## Arsitek Mindset: Batas Presisi
+
+Sebagai arsitek Hub:
+- Ingat "The 0.1 + 0.2 Challenge". Di dalam Grid, `0.1 + 0.2` tidak tepat `0.3` karena keterbatasan representasi biner.
+- Gunakan `Number.EPSILON` untuk membandingkan angka desimal yang sangat kecil.
+- Untuk transaksi keuangan Hub yang butuh presisi mutlak tanpa kompromi desimal, gunakan **Integer** (simpan dalam Sen bukan Rupiah) atau gunakan **BigInt**.
+
+---
+*Status: [status.md](../../../docs/status.md)*

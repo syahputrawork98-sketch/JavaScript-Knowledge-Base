@@ -20,11 +20,12 @@
 | RAK-09 | Regular Expressions | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-10 | Advanced Features | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-11 | What's New & Evolution | 100% | 100/100 | 🟢 Complete (Gold Standard) |
-| RAK-12 | Core Specification | 80% | 80/100 | 🔵 In Progress |
+| RAK-12 | Core Specification | 85% | 85/100 | 🔵 In Progress |
 | RAK-13 | Modern Web Runtimes | 20% | 20/100 | 🔵 In Progress |
 | RAK-14 | JS Engines | 0% | 0/100 | ⚪ Planned |
 
 ## Log Perubahan (Changelog)
+- **2026-03-19**: RAK-12: SR-02 Data Types Mencapai Gold Standard (4 SVGs + 4 Lab Examples).
 - **2026-03-19**: RAK-11: Evolution & What's New Mencapai Gold Standard (5 SVGs + 10 Lab Examples).
 - **2026-03-19**: RAK-10: Advanced Features Mencapai Gold Standard (5 SVGs + 8 Lab Examples).
 - **2026-03-19**: RAK-09: Regular Expressions Mencapai Gold Standard (5 SVGs + 8 Lab Examples).

@@ -1,35 +1,43 @@
-# CH-11: BigInt Type
+# CH-11: The BigInt Type (The Heavy Industrial Load)
 
-Selamat datang di dunia angka tanpa batas. Jika `Number` adalah tipe data yang bergantung pada hardware, maka **BigInt** adalah tipe data yang bergantung pada logika matematika murni. Mari kita bedah Clause 6.1.6.2.
+> **"Saat Hub harus menangani beban energi raksasa yang melampaui batas aman Number, kita membutuhkan `BigInt`. Ini adalah 'Beban Industri Berat' (The Heavy Industrial Load) — raksasa yang mampu menampung angka bulat berapapun besarnya tanpa pernah kehilangan satu bit pun presisi."**
 
----
+*Pemetaan ECMA-262: Clause 6.1.6.2 (The BigInt Type)*
 
-## 1. Definisi Formal: BigInt
-Menurut Clause 6.1.6.2: *"The BigInt type represents an integer value without a specified fixed bit width."*
+## 1. Mental Model: "The Heavy Industrial Load"
 
-Artinya, BigInt bisa menyimpan angka bulat sebesar apapun (selama memori komputer Anda masih cukup). Tidak ada lagi masalah $2^{53} - 1$.
-
-## 2. Notasi dan Identitas
-- **Literal:** Ditandai dengan akhiran `n` (misal: `100n`).
-- **Bukan Object:** Sama seperti Number, BigInt adalah tipe primitif.
-- **Tanpa Desimal:** BigInt secara harfiah berarti "Integer Besar". Ia tidak bisa menyimpan `10.5n`.
-
-## 3. Limitasi yang Disengaja
-Meskipun "tanpa batas", BigInt memiliki batasan untuk menjaga keamanan sistem:
-- **No Floating Point:** Tidak ada `NaN` atau `Infinity` di dunia BigInt.
-- **No Mixing:** Anda tidak bisa melakukan `5n + 10`. Spesifikasi melarang pencampuran tipe untuk menghindari kehilangan presisi yang tidak disengaja.
+Jika `Number` adalah gelas ukur standar, maka `BigInt` adalah **Tangki Raksasa** yang bisa diperluas secara dinamis.
+- Tidak ada batasan 64-bit yang kaku untuk bagian integer.
+- Selama memori Hub tersedia, `BigInt` bisa menampung angka triliunan milaran tanpa pembulatan.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Gunakan BigInt sebagai standar untuk semua ID numerik yang berasal dari sistem eksternal (Database, API), terutama jika sistem tersebut menggunakan 64-bit ID. Memaksakan 64-bit ID ke dalam tipe `Number` akan menyebabkan ID tersebut "berubah" di tengah jalan karena pembulatan IEEE 754.
+## 2. Aturan Operasional Hub
+
+- **Suffix `n`**: Ditandai dengan karakter `n` di akhir angka (misal: `100n`).
+- **No Floating Point**: `BigInt` hanya untuk angka bulat (*Integer*). Tidak ada `1.5n`.
+- **Isolasi Jalur**: Anda tidak bisa mencampur `Number` dan `BigInt` dalam satu perhitungan operasi matematika secara langsung (`5 + 10n` akan menyebabkan `TypeError`). Anda harus mengonversi salah satunya secara eksplisit.
 
 ---
 
-## Tantangan Kecil
-Apa hasil dari `typeof 10n`?
-(Jawabannya: **"bigint"**. Ini adalah bukti bahwa BigInt adalah tipe data bahasa yang mandiri, bukan sekadar variasi dari Number).
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+const maxSafe = Number.MAX_SAFE_INTEGER; // 9007199254740991
+console.log(maxSafe + 1 === maxSafe + 2); // true (KAPASITAS NUMBER JEBOL!)
+
+const bigLoad = 9007199254740991n;
+console.log(bigLoad + 1n === bigLoad + 2n); // false (BIGINT TETAP AKURAT)
+```
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** BigInt adalah solusi absolut untuk keluhan "JavaScript tidak bisa menghitung dengan benar". Gunakan ia untuk integritas data yang tiada duanya.
+
+## Arsitek Mindset: Kapan Menggunakan BigInt
+
+Sebagai arsitek Hub:
+- Gunakan `BigInt` untuk ID database yang sangat besar, timestamp presisi nanodetik, atau perhitungan kriptografi Hub.
+- Hindari `BigInt` untuk perhitungan grafik atau fisika yang butuh desimal (gunakan `Number`).
+- Sadarilah bahwa `BigInt` lebih lambat diproses oleh Hub dibandingkan `Number` karena ukurannya yang dinamis.
+
+---
+*Status: [status.md](../../../docs/status.md)*
