@@ -8,7 +8,9 @@ Dalam sebuah Hub Energi, tidak semua kabel terhubung ke semua perangkat. Ada ene
 
 - **Global Scope**: Ibarat Pembangkit Listrik Pusat. Semua gedung dan rumah bisa menarik energi dari sini.
 - **Function/Local Scope**: Ibarat Genset di dalam ruangan. Lampu di luar ruangan tidak bisa menyala menggunakan energi dari genset di dalam ruangan tertutup.
-- **Block Scope**: Ibarat baterai kecil di dalam laci. Hanya alat yang ada di dalam laci tersebut yang bisa menggunakannya.
+- **Shadowing**: Saat variabel di dalam GRID lokal memiliki nama yang sama dengan variabel di GRID global, variabel lokal akan "membayangi" atau menutupi variabel luar.
+
+![The Energy Grids (Scope)](./assets/scope_grid.svg)
 
 ---
 

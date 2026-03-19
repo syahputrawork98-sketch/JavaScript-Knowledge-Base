@@ -10,11 +10,7 @@ Bayangkan Anda memiliki gudang berisi baterai. Tanpa label, Anda tidak tahu bate
 - **Label (Nama Variabel)**: Nama yang Anda berikan (misal: `energyLevel`).
 - **Daya (Nilai Variabel)**: Data yang disimpan di dalamnya (misal: `100`).
 
-```mermaid
-graph TD
-    Data["100 (Value)"] --> Box["[ energyLevel ] (Label/Variable)"]
-    style Box fill:#f7df1e,stroke:#333,stroke-width:2px
-```
+![Labelled Batteries (Variables)](./assets/labelled_battery.svg)
 
 ---
 

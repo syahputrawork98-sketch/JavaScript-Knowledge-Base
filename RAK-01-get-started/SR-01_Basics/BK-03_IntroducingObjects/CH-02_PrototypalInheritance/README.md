@@ -10,6 +10,8 @@ Bayangkan sebuah Hub dengan ribuan perangkat:
 - **Instance Properties**: Data unik milik perangkat tersebut (seperti Serial Number atau Sisa Daya). Ditaruh di dalam konstruktor (`this.id`).
 - **Prototype (Shared Instructions)**: Manual pusat yang berisi cara kerja perangkat (seperti cara aktivasi atau cara lapor status). Ditaruh di `Constructor.prototype`.
 
+![The Master Blueprint Chain (Prototype Chain)](./assets/prototype_chain.svg)
+
 ## 2. Menggunakan `.prototype`
 
 Alih-alih menaruh metode di dalam konstruktor, kita menaruhnya di properti `prototype` dari fungsi konstruktor tersebut.

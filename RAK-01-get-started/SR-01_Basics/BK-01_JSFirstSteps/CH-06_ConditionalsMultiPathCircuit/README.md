@@ -10,6 +10,8 @@ Bayangkan aliran energi kita seperti kereta api:
 - **`if...else`**: Ibarat saklar di rel kereta yang mengalihkan jalur. Jika jalur A (kondisi) terblokir, kereta beralih ke jalur B.
 - **`switch`**: Ibarat stasiun pusat dengan banyak peron (jalur). Kereta akan masuk ke peron yang nomornya tepat sesuai tiket (nilai).
 
+![The Railroad Switch (Conditionals)](./assets/railroad_switch.svg)
+
 ---
 
 ## 2. Percabangan Utama: `if`, `else if`, `else`

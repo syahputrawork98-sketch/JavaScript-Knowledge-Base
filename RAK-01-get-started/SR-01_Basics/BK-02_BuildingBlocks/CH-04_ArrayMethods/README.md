@@ -13,6 +13,8 @@ Bayangkan Anda memiliki robot pengelola rak:
 - **`shift()`**: Robot mengambil baterai dari **depan** rak.
 - **`splice()`**: Robot melakukan operasi bedah — mengambil atau menaruh baterai di **tengah** rak.
 
+![Automated Rack Manager (Array Methods)](./assets/array_methods.svg)
+
 ---
 
 ## 2. Operasi Ujung Rak (Push & Pop)

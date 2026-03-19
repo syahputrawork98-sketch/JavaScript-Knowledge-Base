@@ -10,6 +10,8 @@ Bayangkan Hub Anda dilengkapi dengan sensor pintar:
 - **Comparison Sensors (===, !==)**: Memeriksa apakah voltase tepat sesuai standar.
 - **Logic Gates (&&, ||)**: Menentukan keputusan kompleks (misal: "JALANKAN generator JIKA baterai rendah DAN panel surya mati").
 
+![Power Switches (Logical Gates)](./assets/logical_gates.svg)
+
 ---
 
 ## 2. Sensor Presisi: Comparison Operators

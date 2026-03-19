@@ -2,14 +2,14 @@
 
 ## Global Progress
 - **Total RAK**: 14
-- **RAK Completed**: 0
-- **Overall Completion**: 55%
+- **RAK Completed**: 1
+- **Overall Completion**: 65%
 
 ## Status per RAK
 
 | Rak ID | Nama Rak | Progress | Score | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| RAK-01 | Get Started | 90% | 90/100 | 🔵 In Progress |
+| RAK-01 | Get Started | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-02 | JS Guide | 0% | 0/100 | ⚪ Planned |
 | RAK-03 | Standard Built-in Objects | 0% | 0/100 | ⚪ Planned |
 | RAK-04 | Expressions & Operators | 0% | 0/100 | ⚪ Planned |
@@ -25,6 +25,10 @@
 | RAK-14 | JS Engines | 0% | 0/100 | ⚪ Planned |
 
 ## Log Perubahan (Changelog)
+- **2026-03-19**: Penyelesaian penuh RAK-01: Get Started (22 Chapters + 8 Custom SVGs - Gold Standard).
+- **2026-03-19**: Pengerjaan BK-04: CH-04 Async/Await (Smooth Flow).
+- **2026-03-19**: Pengerjaan BK-04: CH-02 Callbacks (Reminder Note).
+- **2026-03-19**: Memulai BK-04 Asynchronous JavaScript (CH-01: Intro to Async).
 - **2026-03-19**: Penyelesaian BK-03: Introducing Objects (4 Chapters).
 - **2026-03-19**: Pengerjaan BK-03: CH-03 Classes in JS (Modern Design Suite).
 - **2026-03-19**: Pengerjaan BK-03: CH-02 Prototypal Inheritance (Master Blueprint).

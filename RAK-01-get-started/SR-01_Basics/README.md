@@ -6,4 +6,8 @@ Sub-rak ini mencakup konsep-konsep paling dasar yang membentuk fondasi bahasa Ja
 
 1. **[BK-01: JS First Steps](./BK-01_JSFirstSteps/)**: Fondasi energi dasar JavaScript (10 Chapters).
 2. **[BK-02: Building Blocks](./BK-02_BuildingBlocks/)**: Logika mendalam untuk arsitektur Hub (4 Chapters).
-3. **[BK-03: Introducing Objects](./BK-03_IntroducingObjects/)**: Konsep Pemrograman Berorientasi Objek (OOP) di JS (In Progress).
+3. **[BK-03: Introducing Objects](./BK-03_IntroducingObjects/)**: Konsep Pemrograman Berorientasi Objek (OOP) di JS (4 Chapters).
+4. **[BK-04: Asynchronous JavaScript](./BK-04_AsynchronousJS/)**: Menangani proses yang memakan waktu (4 Chapters).
+
+---
+*Status: 🟢 Sub-Rak Basics Complete (4 Books, 22 Chapters)*
