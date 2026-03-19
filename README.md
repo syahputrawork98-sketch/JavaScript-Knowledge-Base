@@ -5,7 +5,7 @@
 ## Latar Belakang & Visi
 JavaScript adalah fondasi dari web modern. Repositori ini bertujuan untuk membedah kompleksitas JavaScript (ESM, Closures, Prototypes, Meta-programming) menggunakan standar **MDN Web Docs** sebagai sumber kebenaran tunggal.
 
-## Struktur Perpustakaan (11-Rack Architecture)
+## Struktur Perpustakaan (14-Rack Architecture: 11 Core + 3 Spec)
 
 ```mermaid
 graph TD
@@ -21,9 +21,11 @@ graph TD
     RAK08["RAK-08-iterations<br/>(The Cycle)"]
     RAK09["RAK-09-regex<br/>(The Pattern)"]
     RAK10["RAK-10-advanced<br/>(The Meta)"]
-    RAK11["RAK-11-evolution<br/>(The Pulse)"]
+    RAK12["RAK-12-core-spec<br/>(The Internal)"]
+    RAK13["RAK-13-runtimes<br/>(The Runtime)"]
+    RAK14["RAK-14-engines<br/>(The Mechanic)"]
     
-    Root --> RAK01 & RAK02 & RAK03 & RAK04 & RAK05 & RAK06 & RAK07 & RAK08 & RAK09 & RAK10 & RAK11
+    Root --> RAK01 & RAK02 & RAK03 & RAK04 & RAK05 & RAK06 & RAK07 & RAK08 & RAK09 & RAK10 & RAK11 & RAK12 & RAK13 & RAK14
     
     style Root fill:#f7df1e,stroke:#333,stroke-width:4px,color:#000
     style RAK01 fill:#fff,stroke:#333
@@ -46,6 +48,9 @@ graph TD
 | `RAK-09-regex/` | Regular Expression Patterns | *Planned* |
 | `RAK-10-advanced/` | Meta-programming & Memory | *Planned* |
 | `RAK-11-evolution/` | ES6 to ESNext & TC39 | *Planned* |
+| `RAK-12-core-spec/` | ECMA-262 Deep Internals | *In Progress* |
+| `RAK-13-runtimes/` | Node.js, Bun, & Deno | *In Progress* |
+| `RAK-14-engines/` | V8, JIT, & Memory | *Planned* |
 
 ---
 *Dokumentasi Lengkap: [docs/README.md](./docs/README.md)*
