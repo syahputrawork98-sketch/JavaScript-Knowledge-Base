@@ -1,0 +1,36 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">PROXY INTERCEPTOR (THE WATCHMAN)</text>
+
+  <!-- The Real Object (Target) -->
+  <g transform="translate(500, 150)">
+    <rect width="200" height="120" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="10"/>
+    <text x="100" y="30" fill="#94a3b8" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">REAL OBJECT</text>
+    <text x="100" y="75" fill="#94a3b8" font-family="Courier New" font-size="18" text-anchor="middle">{ data: 100 }</text>
+  </g>
+
+  <!-- The Proxy (The Wall) -->
+  <g transform="translate(250, 100)">
+    <rect width="80" height="220" fill="#38bdf8" opacity="0.3" rx="5"/>
+    <rect x="0" y="0" width="80" height="220" fill="none" stroke="#38bdf8" stroke-width="4" rx="5"/>
+    <text x="40" y="110" fill="#38bdf8" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold" transform="rotate(-90 40 110)">PROXY INTERCEPTOR</text>
+  </g>
+
+  <!-- Interaction Flow -->
+  <path d="M 50 210 L 240 210" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrow-head)"/>
+  <text x="100" y="190" fill="#38bdf8" font-family="Arial" font-size="14" text-anchor="middle">USER REQUEST</text>
+
+  <path d="M 340 210 L 490 210" stroke="#34d399" stroke-width="4" marker-end="url(#arrow-head-ok)"/>
+  <text x="415" y="190" fill="#34d399" font-family="Arial" font-size="14" text-anchor="middle">VALIDATED</text>
+
+  <defs>
+    <marker id="arrow-head" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#38bdf8" />
+    </marker>
+    <marker id="arrow-head-ok" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399" />
+    </marker>
+  </defs>
+</svg>

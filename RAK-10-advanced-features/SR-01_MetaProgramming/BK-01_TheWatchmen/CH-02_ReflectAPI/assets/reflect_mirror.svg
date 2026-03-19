@@ -1,0 +1,33 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">REFLECT MIRROR (THE STANDARD PROTOCOL)</text>
+
+  <!-- The User/Proxy -->
+  <rect x="50" y="150" width="150" height="100" fill="#1e293b" stroke="#38bdf8" rx="10"/>
+  <text x="125" y="205" fill="#38bdf8" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">WATCHMAN</text>
+
+  <!-- The Mirror (Reflect) -->
+  <g transform="translate(350, 100)">
+    <rect width="100" height="200" fill="#94a3b8" opacity="0.2" rx="5"/>
+    <path d="M 0 0 L 100 0 L 100 200 L 0 200 Z" fill="none" stroke="#94a3b8" stroke-width="4"/>
+    <text x="50" y="110" fill="#94a3b8" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold" transform="rotate(-90 50 110)">REFLECT MIRROR</text>
+  </g>
+
+  <!-- The Original Grid (Target) -->
+  <g transform="translate(600, 150)">
+    <rect width="150" height="100" fill="#1e293b" stroke="#64748b" rx="10"/>
+    <text x="675" y="205" fill="#94a3b8" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">ORIGINAL GRID</text>
+  </g>
+
+  <!-- Reflection Lines -->
+  <path d="M 200 200 L 350 200" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5,5"/>
+  <path d="M 450 200 L 600 200" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrow-reflect)"/>
+
+  <defs>
+    <marker id="arrow-reflect" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#38bdf8" />
+    </marker>
+  </defs>
+</svg>

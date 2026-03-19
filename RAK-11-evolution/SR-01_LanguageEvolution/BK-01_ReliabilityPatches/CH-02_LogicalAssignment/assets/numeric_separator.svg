@@ -1,0 +1,29 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">NUMERIC SEPARATORS (READABLE LOADS)</text>
+
+  <!-- Hard to Read -->
+  <g transform="translate(100, 150)">
+    <rect width="250" height="100" fill="#1e293b" stroke="#f43f5e" rx="10"/>
+    <text x="125" y="40" fill="#f43f5e" font-family="Arial" font-size="14" text-anchor="middle">OLD UNREADABLE LOAD</text>
+    <text x="125" y="70" fill="#ffffff" font-family="Courier New" font-size="24" text-anchor="middle">1000000000</text>
+  </g>
+
+  <!-- Readable Evolution -->
+  <g transform="translate(450, 150)">
+    <rect width="250" height="100" fill="#1e293b" stroke="#34d399" rx="10"/>
+    <text x="125" y="40" fill="#34d399" font-family="Arial" font-size="14" text-anchor="middle">NEW EVOLVED READABLE</text>
+    <text x="125" y="70" fill="#ffffff" font-family="Courier New" font-size="24" text-anchor="middle">1_000_000_000</text>
+  </g>
+
+  <!-- Evolution Arrow -->
+  <path d="M 350 200 L 440 200" stroke="#34d399" stroke-width="4" marker-end="url(#arrow-evolve)"/>
+
+  <defs>
+    <marker id="arrow-evolve" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399" />
+    </marker>
+  </defs>
+</svg>
