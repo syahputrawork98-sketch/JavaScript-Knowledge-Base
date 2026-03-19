@@ -62,7 +62,7 @@ Gunakan **Block Scope** (`let` dan `const`) sebanyak mungkin. Ini seperti menemp
 ---
 
 ## Hands-on: Penjelajahan Lab Berlapis
-Lihat file `examples/scope_chain_test.js` untuk melihat bagaimana fungsi bersarang (nested functions) berburu variabel di sepanjang Scope Chain.
+Lihat file `examples/scope_lab.js` untuk melihat bagaimana fungsi bersarang (nested functions) berburu variabel di sepanjang Scope Chain.
 
 ---
 *Status: [status.md](../../../status.md)*

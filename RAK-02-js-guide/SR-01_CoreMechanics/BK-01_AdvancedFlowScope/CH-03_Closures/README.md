@@ -53,7 +53,7 @@ Closure adalah alat yang sangat kuat, tapi waspadalah terhadap **Memory Leaks**.
 ---
 
 ## Hands-on: Brankas Energi Terkunci
-Buka file `examples/closure_vault.js` untuk melihat bagaimana kita membuat sistem ID unik yang tidak bisa dimanipulasi dari luar menggunakan kekuatan Closure.
+Buka file `examples/closure_lab.js` untuk melihat bagaimana kita membuat sistem ID unik yang tidak bisa dimanipulasi dari luar menggunakan kekuatan Closure.
 
 ---
 *Status: [status.md](../../../status.md)*

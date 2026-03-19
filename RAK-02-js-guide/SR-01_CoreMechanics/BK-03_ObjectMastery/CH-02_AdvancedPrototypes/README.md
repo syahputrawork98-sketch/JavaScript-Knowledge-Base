@@ -8,6 +8,8 @@ Kita sudah melihat dasar-dasar prototipe di RAK-01. Sekarang, kita akan melihat 
 
 Bayangkan Hub Energi memiliki model generator dasar (**Base Generator**). Anda ingin membangun **Solar Generator**. Daripada mendesain Solar Generator dari nol, Anda mengambil cetak biru Base Generator dan menambahkan panel surya di atasnya. Jika Solar Generator ditanya tentang "mesin", ia akan merujuk ke cetak biru Base Generator.
 
+![Prototypal Extension](./assets/prototype_extension.svg)
+
 ---
 
 ## 2. Membuat Objek dengan Prototipe Spesifik
@@ -54,7 +56,7 @@ Gunakan prototipe untuk menyimpan metode yang dibagikan oleh banyak objek. Jika 
 ---
 
 ## Hands-on: Lab Rantai Prototipe
-Buka file `examples/prototype_extension.js` untuk mencoba membangun hierarki perangkat energi yang kompleks hanya dengan menggunakan `Object.create()`.
+Buka file `examples/proto_lab.js` untuk mencoba membangun hierarki perangkat energi yang kompleks hanya dengan menggunakan `Object.create()`.
 
 ---
 *Status: [status.md](../../../status.md)*

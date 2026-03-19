@@ -8,6 +8,8 @@ Di JavaScript, sebuah properti bukan sekadar pasangan kunci-nilai. Setiap proper
 
 Bayangkan Anda adalah ahli kunci di Hub Energi. Beberapa saklar boleh diubah siapa saja (**Writable**), beberapa saklar hanya untuk dilihat (**Read-only**), dan beberapa sirkuit sangat rahasia sehingga tidak boleh dihapus atau dipindahkan (**Configurable**).
 
+![Property Locksmith](./assets/property_locksmith.svg)
+
 ---
 
 ## 2. Mengenal Property Descriptors
@@ -47,7 +49,7 @@ Sebagai arsitek, gunakan `Object.freeze()` untuk objek konfigurasi global atau d
 ---
 
 ## Hands-on: Lab Penguncian Properti
-Buka file `examples/property_locks.js` untuk melihat apa yang terjadi saat kita mencoba merusak objek yang sudah dikunci oleh "Energy Locksmith".
+Buka file `examples/props_lab.js` untuk melihat apa yang terjadi saat kita mencoba merusak objek yang sudah dikunci oleh "Energy Locksmith".
 
 ---
 *Status: [status.md](../../../status.md)*

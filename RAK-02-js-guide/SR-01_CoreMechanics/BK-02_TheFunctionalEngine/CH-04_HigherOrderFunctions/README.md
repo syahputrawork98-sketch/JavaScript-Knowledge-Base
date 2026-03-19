@@ -12,6 +12,8 @@ Sebuah fungsi disebut Higher-order jika ia melakukan salah satu atau kedua hal i
 1.  **Menerima fungsi lain sebagai argumen.**
 2.  **Mengembalikan fungsi sebagai hasilnya.**
 
+![Higher-order Orchestrator](./assets/higher_order_orchestrator.svg)
+
 ---
 
 ## 2. Abstraksi Pengulangan
@@ -61,7 +63,7 @@ Sebagai arsitek, HOF adalah senjata rahasia Anda untuk membuat kode yang ringkas
 ---
 
 ## Hands-on: Orkestrasi Grid Otomatis
-Buka file `examples/hof_orchestrator.js` untuk melihat bagaimana kita membangun sistem penyaringan dan transformasi energi massal menggunakan pola Higher-order Functions.
+Buka file `examples/hof_lab.js` untuk melihat bagaimana kita membangun sistem penyaringan dan transformasi energi massal menggunakan pola Higher-order Functions.
 
 ---
 *Status: [status.md](../../../status.md)*

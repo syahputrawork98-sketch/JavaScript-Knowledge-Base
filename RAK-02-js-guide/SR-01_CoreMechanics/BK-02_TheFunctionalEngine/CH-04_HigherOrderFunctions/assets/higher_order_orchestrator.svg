@@ -1,0 +1,33 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">HIGHER-ORDER ORCHESTRATOR</text>
+
+  <!-- HOF Master Unit -->
+  <g transform="translate(400, 200)">
+    <rect x="-100" y="-80" width="200" height="160" fill="#1e293b" stroke="#a78bfa" stroke-width="4" rx="10"/>
+    <text x="0" y="-50" fill="#a78bfa" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">HOF UNIT</text>
+    <text x="0" y="-30" fill="#94a3b8" font-family="Arial" font-size="12" text-anchor="middle">(The Orchestrator)</text>
+
+    <!-- Receive Function -->
+    <path d="M-250 0 L-100 0" stroke="#f472b6" stroke-width="3" marker-end="url(#pinkarrow)"/>
+    <text x="-200" y="-15" fill="#f472b6" font-family="Arial" font-size="12" text-anchor="middle">Receives Action</text>
+
+    <!-- Emit Function -->
+    <path d="M100 0 L250 0" stroke="#22c55e" stroke-width="3" marker-end="url(#greenarrow)"/>
+    <text x="200" y="-15" fill="#22c55e" font-family="Arial" font-size="12" text-anchor="middle">Emits New Unit</text>
+    
+    <circle r="30" fill="#a78bfa" fill-opacity="0.2" stroke="#a78bfa" stroke-width="2"/>
+    <text x="0" y="10" fill="#f8fafc" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">⚙️</text>
+  </g>
+
+  <defs>
+    <marker id="pinkarrow" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f472b6" />
+    </marker>
+    <marker id="greenarrow" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22c55e" />
+    </marker>
+  </defs>
+</svg>

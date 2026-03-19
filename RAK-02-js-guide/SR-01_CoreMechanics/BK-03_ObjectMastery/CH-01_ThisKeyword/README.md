@@ -63,7 +63,7 @@ Sebagai arsitek, kesalahan dalam memahami `this` sering menyebabkan bug "undefin
 ---
 
 ## Hands-on: Pelacakan Sumber Daya
-Buka file `examples/this_context_tracker.js` untuk melihat bagaimana `this` berpindah-pindah sumber daya tergantung pada cara pemanggilannya.
+Buka file `examples/this_lab.js` untuk melihat bagaimana `this` berpindah-pindah sumber daya tergantung pada cara pemanggilannya.
 
 ---
 *Status: [status.md](../../../status.md)*

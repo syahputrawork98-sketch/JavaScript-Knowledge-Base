@@ -10,7 +10,7 @@
 | Rak ID | Nama Rak | Progress | Score | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | RAK-01 | Get Started | 100% | 100/100 | 🟢 Complete (Gold Standard) |
-| RAK-02 | JS Guide | 100% | 100/100 | 🟢 Complete |
+| RAK-02 | JS Guide | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-03 | Standard Built-in Objects | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-04 | Expressions & Operators | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-05 | Statements & Declarations | 0% | 0/100 | ⚪ Planned |
@@ -25,6 +25,7 @@
 | RAK-14 | JS Engines | 0% | 0/100 | ⚪ Planned |
 
 ## Log Perubahan (Changelog)
+- **2026-03-19**: RAK-02: JS Guide Mencapai Gold Standard (6 SVGs + 10 Lab Examples Terintegrasi).
 - **2026-03-19**: Pengerjaan RAK-04: Expressions & Operators Mencapai Gold Standard.
 - **2026-03-19**: Penyelesaian SR-03: System Meta (Unary & Relational).
 - **2026-03-19**: Penyelesaian SR-02: Advanced Processing (Bitwise & Selective Routing).

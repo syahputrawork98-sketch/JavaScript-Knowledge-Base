@@ -12,6 +12,8 @@ Rekursi terdiri dari dua komponen vital:
 1.  **Base Case (Titik Henti)**: Kondisi di mana sirkuit berhenti berputar (mencegah *Infinite Loop*).
 2.  **Recursive Case (Langkah Berulang)**: Bagian di mana fungsi memanggil dirinya sendiri dengan input yang lebih kecil atau berbeda.
 
+![Recursion Loop](./assets/recursion_loop.svg)
+
 ---
 
 ## 2. Struktur Dasar Rekursi
@@ -49,7 +51,7 @@ Sebagai arsitek, jangan gunakan rekursi hanya karena terlihat keren. Loop biasa 
 ---
 
 ## Hands-on: Penelusuran Grid Kompleks
-Buka file `examples/recursion_scan.js` untuk melihat bagaimana kita menggunakan rekursi untuk memindai seluruh sub-grid energi yang memiliki kedalaman tidak menentu.
+Buka file `examples/recursion_lab.js` untuk melihat bagaimana kita menggunakan rekursi untuk memindai seluruh sub-grid energi yang memiliki kedalaman tidak menentu.
 
 ---
 *Status: [status.md](../../../status.md)*

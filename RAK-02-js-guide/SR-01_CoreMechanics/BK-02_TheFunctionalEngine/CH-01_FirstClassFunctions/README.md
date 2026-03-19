@@ -13,6 +13,8 @@ Tiga pilar "First-class Citizens":
 2.  **Dapat Dikirim**: Bisa menjadi input untuk fungsi lain.
 3.  **Dapat Dikembalikan**: Bisa menjadi output dari fungsi lain.
 
+![First-class Function Units](./assets/first_class_units.svg)
+
 ---
 
 ## 2. Fungsi sebagai Data (Function Expressions)
@@ -70,7 +72,7 @@ Dengan memperlakukan fungsi sebagai "Unit Energi", Anda bisa membangun sistem ya
 ---
 
 ## Hands-on: Pabrik Transformator
-Buka file `examples/function_units.js` untuk melihat bagaimana kita membangun sistem pengolah data yang modular menggunakan fungsi sebagai unit utama.
+Buka file `examples/functions_lab.js` untuk melihat bagaimana kita membangun sistem pengolah data yang modular menggunakan fungsi sebagai unit utama.
 
 ---
 *Status: [status.md](../../../status.md)*

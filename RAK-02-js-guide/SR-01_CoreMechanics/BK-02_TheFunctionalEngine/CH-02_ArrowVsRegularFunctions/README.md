@@ -10,6 +10,8 @@ Bayangkan dua jenis saklar di Hub Energi kita:
 1.  **Regular Switch (Regular Function)**: Memiliki detektor energi sendiri. Ia akan menyesuaikan diri dengan "siapa pun yang menekan saklar tersebut" pada saat itu.
 2.  **Arrow Switch (Arrow Function)**: Tidak punya detektor sendiri. Ia selalu menggunakan pengaturan energi dari ruangan tempat ia dipasang (Lexical Scope).
 
+![Arrow vs Regular Functions](./assets/arrow_vs_regular.svg)
+
 ---
 
 ## 2. Perbedaan Utama: Sumber Daya (`this`)
@@ -58,7 +60,7 @@ Sebagai arsitek sirkuit:
 ---
 
 ## Hands-on: Lab Perbandingan Saklar
-Buka file `examples/arrow_vs_regular.js` untuk melihat eksperimen langsung bagaimana `this` berperilaku berbeda saat kita menggunakan kedua jenis fungsi ini dalam konteks yang sama.
+Buka file `examples/arrow_lab.js` untuk melihat eksperimen langsung bagaimana `this` berperilaku berbeda saat kita menggunakan kedua jenis fungsi ini dalam konteks yang sama.
 
 ---
 *Status: [status.md](../../../status.md)*
