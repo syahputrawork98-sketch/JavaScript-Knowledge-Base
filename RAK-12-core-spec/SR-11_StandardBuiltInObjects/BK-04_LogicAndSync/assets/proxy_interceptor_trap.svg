@@ -1,0 +1,51 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0f172a" rx="15"/>
+  
+  <text x="400" y="40" fill="#f8fafc" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">PROXY INTERCEPTION TRAPS</text>
+
+  <!-- External Actor -->
+  <g transform="translate(50, 150)">
+    <rect width="180" height="150" fill="#1e293b" stroke="#94a3b8" rx="10"/>
+    <text x="90" y="30" fill="#94a3b8" font-family="Arial" font-size="14" text-anchor="middle">ACTOR (USER)</text>
+    <path d="M 40 70 L 140 70" stroke="#ffffff" stroke-width="2" marker-end="url(#arrow-act)"/>
+    <text x="90" y="100" fill="#ffffff" font-family="Courier New" font-size="12">hub.power = 200</text>
+  </g>
+
+  <!-- Proxy Shield -->
+  <rect x="300" y="80" width="200" height="300" fill="#0f172a" stroke="#a855f7" stroke-width="3" rx="15" stroke-dasharray="8,4"/>
+  <text x="400" y="110" fill="#a855f7" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">PROXY SHIELD</text>
+
+  <!-- Traps -->
+  <g transform="translate(310, 150)">
+    <rect width="180" height="50" fill="#3b0764" stroke="#d8b4fe" rx="5"/>
+    <text x="90" y="30" fill="#d8b4fe" font-family="Courier New" font-size="14" text-anchor="middle" font-weight="bold">set() trap</text>
+    <text x="90" y="65" fill="#d8b4fe" font-family="Arial" font-size="9" text-anchor="middle">Validate &amp; Filter Signal</text>
+  </g>
+
+  <g transform="translate(310, 250)">
+    <rect width="180" height="50" fill="#3b0764" stroke="#d8b4fe" rx="5"/>
+    <text x="90" y="30" fill="#d8b4fe" font-family="Courier New" font-size="14" text-anchor="middle" font-weight="bold">get() trap</text>
+    <text x="90" y="65" fill="#d8b4fe" font-family="Arial" font-size="9" text-anchor="middle">Access Logging</text>
+  </g>
+
+  <!-- Real Object Target -->
+  <g transform="translate(570, 150)">
+    <rect width="180" height="150" fill="#1e293b" stroke="#34d399" stroke-width="2" rx="10"/>
+    <text x="90" y="30" fill="#34d399" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">TARGET CORE</text>
+    <circle cx="90" cy="90" r="30" fill="#064e3b" stroke="#34d399"/>
+    <text x="90" y="95" fill="#ffffff" font-family="Courier New" font-size="12" text-anchor="middle">{ data }</text>
+  </g>
+
+  <!-- Signal Arrows -->
+  <path d="M 230 225 L 310 225" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-act)"/>
+  <path d="M 490 225 L 570 225" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-act)"/>
+
+  <defs>
+    <marker id="arrow-act" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <text x="400" y="430" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">"The Proxy shield intercepts incoming energy pulses before they hit the target core"</text>
+</svg>

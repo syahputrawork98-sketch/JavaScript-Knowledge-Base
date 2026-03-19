@@ -1,14 +1,49 @@
-# Buku 01: Keyed Collections
+# CH-02: Keyed Storage (Map, Set, WeakMap, WeakSet)
 
-Buku ini membedah koleksi data yang berbasis kunci (*key-based*). Kita akan mempelajari bagaimana `Map` dan `Set` memberikan alternatif yang lebih kuat daripada Objek dan Array biasa, serta bagaimana `WeakMap` dan `WeakSet` membantu kita mengelola memori secara otomatis (Clause 24 pada ECMA-262).
+> **"Beberapa sinyal energi lebih mudah dicari menggunakan label unik daripada urutan angka. `Keyed Storage` adalah 'Unit Penyimpanan Berbasis Kunci'—sistem pencarian data yang sangat cepat dan teroptimasi untuk hubungan kunci-nilai."**
 
-## Mengapa Mempelajari Ini?
-Seorang Senior Architect tahu bahwa Objek literal bukanlah alat yang tepat untuk menyimpan data yang kuncinya dinamis atau bertipe kompleks. Dengan memahami *Keyed Collections*, Anda belajar bagaimana membangun struktur data yang efisien, mencegah kebocoran memori (*Memory Leaks*), dan memanfaatkan fitur unik seperti urutan penyisipan yang terjamin.
+*Pemetaan ECMA-262: Clause 24*
 
-## Daftar Bab
+## 1. Mental Model: "The Labeling Vault"
 
-1. **[Bab 01: Maps & Sets (Loker Cerdas)](./CH-01_MapsAndSets/)**
-2. **[Bab 02: Weak Collections & GC (Loker Berhantu)](./CH-02_WeakCollectionsAndGc/)**
+- **`Map`**: Kamus energi. Berbeda dengan objek biasa, kunci dalam `Map` bisa berupa apa saja (objek, fungsi, angka). Ia menjaga urutan penyisipan data.
+- **`Set`**: Koleksi nilai unik. Berguna untuk memastikan tidak ada duplikasi sinyal dalam satu sirkuit.
+- **`Weak` Variants**: Versi "Ramah Memori". `WeakMap` dan `WeakSet` tidak menghalangi sistem Garbage Collection untuk membersihkan objek yang menjadi kunci jika tidak digunakan lagi di tempat lain.
 
-## Prasyarat Pembaca
-- **[RAK-01-core / SR-05_OrdinaryAndExoticObjects / Buku 01: Object Internal Mechanics](../../SR-05_OrdinaryAndExoticObjects/BK-01_ObjectInternalMechanics/)**: Memahami bagaimana properti objek bekerja membantu Anda mengerti kenapa `Map` berbeda.
+---
+
+## 2. Kenapa Tidak Menggunakan Objek Biasa?
+
+Meskipun Objek (`{}`) bisa menyimpan kunci-nilai, `Map` memiliki keunggulan transmisi:
+1.  **Iterasi Mudah**: `Map` memiliki properti `size` dan bisa langsung di-loop.
+2.  **Performa Konstan**: Untuk penambahan dan penghapusan data masif, `Map` jauh lebih cepat daripada Objek.
+3.  **Kunci Non-String**: Anda bisa memetakan objek langsung sebagai kunci (misal: memetakan metadata ke sebuah unit generator).
+
+---
+
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+// 1. Map untuk Metadata Generator
+const registry = new Map();
+const generatorA = { id: "GEN_01" };
+
+registry.set(generatorA, { status: "ACTIVE", lastTest: Date.now() });
+console.log("Generator Status:", registry.get(generatorA));
+
+// 2. Set untuk Data Unik
+const signals = new Set(["ALPHA", "BETA", "ALPHA"]);
+console.log("Unique Signals Count:", signals.size); // 2
+```
+
+---
+
+## Arsitek Mindset: Keamanan Memori
+
+Sebagai arsitek Hub:
+- Gunakan **`Map`** untuk kamus data yang membutuhkan frekuensi akses tinggi atau kunci non-string.
+- Gunakan **`WeakMap`** jika Anda ingin mengaitkan metadata privat ke sebuah objek tanpa risiko kebocoran memori (Memory Leaks).
+- Manfaatkan fitur baru **ES2025 Set Methods** (`union`, `intersection`, `difference`) untuk melakukan operasi logika himpunan pada stream energi Anda dengan sintaks yang elegan.
+
+---
+*Status: [status.md](../../../docs/status.md)*

@@ -13,6 +13,10 @@
 
 ## 📊 Visualisasi Arsitektur
 - [Built-in Objects Hierarchy](./assets/builtin_objects_hierarchy.svg) - Peta kedaulatan mesin inti di dalam Hub.
+- [Keyed Collection Mechanics](./BK-02_StructuralUnits/assets/keyed_collection_mechanics.svg) - Perbedaan operasional antara Map dan Set.
+- [Text Processing Engine](./BK-03_TextAndChronology/assets/text_processing_engine.svg) - Sistem transmisi teks dan sinkronisasi waktu.
+- [Promise Lifecycle States](./BK-04_LogicAndSync/assets/promise_lifecycle_states.svg) - Visualisasi transisi sirkuit asinkron.
+- [Proxy Interceptor Trap](./BK-04_LogicAndSync/assets/proxy_interceptor_trap.svg) - Mekanisme interupsi sistem asinkron/metaprogramming.
 
 ---
-*Status: Progressing 🔵*
+*Status: Gold Standard 💎*

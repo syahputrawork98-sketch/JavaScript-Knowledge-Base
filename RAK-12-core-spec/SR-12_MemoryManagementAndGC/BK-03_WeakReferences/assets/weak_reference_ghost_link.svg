@@ -1,0 +1,51 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0f172a" rx="15"/>
+  
+  <text x="400" y="40" fill="#f8fafc" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">WEAK REFERENCES (GHOST LINK MECHANICS)</text>
+
+  <!-- Hub Object (Target) -->
+  <g transform="translate(300, 150)">
+    <rect width="200" height="150" fill="#1e293b" stroke="#34d399" stroke-width="2" rx="10"/>
+    <text x="100" y="30" fill="#34d399" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">TARGET OBJECT</text>
+    <circle cx="100" cy="90" r="30" fill="#064e3b" stroke="#34d399"/>
+    <text x="100" y="95" fill="#ffffff" font-family="Arial" font-size="12" text-anchor="middle">Data</text>
+  </g>
+
+  <!-- Strong Reference (Variable) -->
+  <g transform="translate(50, 100)">
+    <rect width="180" height="80" fill="#0c4a6e" stroke="#0ea5e9" rx="10"/>
+    <text x="90" y="30" fill="#0ea5e9" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">STRONG REFERENCE</text>
+    <text x="90" y="60" fill="#ffffff" font-family="Courier New" font-size="10" text-anchor="middle">let core = { ... }</text>
+    <!-- Solid Connection -->
+    <path d="M 230 140 L 300 180" stroke="#0ea5e9" stroke-width="3" marker-end="url(#arrow-strong)"/>
+  </g>
+
+  <!-- Weak Reference (Ghost) -->
+  <g transform="translate(50, 270)">
+    <rect width="180" height="80" fill="#1e293b" stroke="#a855f7" rx="10" stroke-dasharray="4,2"/>
+    <text x="90" y="30" fill="#a855f7" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">WEAK REFERENCE</text>
+    <text x="90" y="60" fill="#ffffff" font-family="Courier New" font-size="10" text-anchor="middle">new WeakRef(obj)</text>
+    <!-- Dotted Connection -->
+    <path d="M 230 310 L 300 270" stroke="#a855f7" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-weak)"/>
+  </g>
+
+  <!-- GC Observer -->
+  <g transform="translate(550, 200)">
+    <rect width="200" height="100" fill="#0f172a" stroke="#f43f5e" stroke-width="2" rx="10" stroke-dasharray="2,2"/>
+    <text x="100" y="30" fill="#f43f5e" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">GARBAGE COLLECTOR</text>
+    <text x="20" y="60" fill="#94a3b8" font-family="Arial" font-size="9">"I can cut the ghost link</text>
+    <text x="20" y="75" fill="#94a3b8" font-family="Arial" font-size="9">if no strong cable exists"</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-strong" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0ea5e9" />
+    </marker>
+    <marker id="arrow-weak" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a855f7" />
+    </marker>
+  </defs>
+
+  <text x="400" y="420" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">"Strong cables force the Hub to keep energy, while Ghost links allow for autonomous recycling"</text>
+</svg>

@@ -1,14 +1,48 @@
-# Buku 02: Control Abstraction
+# CH-01: Future Promises (Asynchronous States)
 
-Buku ini membedah mekanisme "Abstraksi Kontrol" di JavaScript. Kita akan mempelajari bagaimana `Promise` mengelola asinkronitas tingkat lanjut dan bagaimana `Proxy` serta `Reflect` membuka gerbang menuju *Metaprogramming* (Clause 26 - 27 pada ECMA-262).
+> **"Beberapa operasi di Hub membutuhkan waktu untuk menghasilkan energi. `Future Promises` adalah 'Janji Energi' (Asynchronous States)—objek yang bertindak sebagai tempat penyimpanan sementara bagi hasil eksekusi yang belum selesai."**
 
-## Mengapa Mempelajari Ini?
-JavaScript modern sangat bergantung pada asinkronitas. Memahami `Promise` di tingkat internal (State dan Jobs) membantu Anda mendesain aplikasi yang responsif. Selain itu, `Proxy` memberikan kekuatan untuk merubah perilaku dasar bahasa, memungkinkan pembuatan *framework*, *binding* data otomatis, dan sistem validasi yang sangat kuat.
+*Pemetaan ECMA-262: Clause 27.2*
 
-## Daftar Bab
+## 1. Mental Model: "The Energy Pager"
 
-1. **[Bab 01: Mekanika Promise (Logika Asinkron)](./CH-01_PromiseMechanics/)**
-2. **[Bab 02: Proxy & Reflect (Pintu Penjaga)](./CH-02_ProxyAndReflect/)**
+Bayangkan Anda memesan energi dari server jauh. Hub memberikan sebuah "Pager" (Promise).
+- **`pending`**: Pager sedang menunggu sinyal. Energi belum siap.
+- **`fulfilled`**: Pager berbunyi! Energi telah diterima dengan sukses (`value`).
+- **`rejected`**: Pager berkedip merah! Terjadi malfungsi pada pengiriman (`reason`).
 
-## Prasyarat Pembaca
-- **[RAK-01-core / SR-09_FunctionsAndClasses / Buku 01: Function Mechanics](../../SR-09_FunctionsAndClasses/BK-01_FunctionMechanics/)**: Memahami fungsi dan callback sangat krusial sebelum membedah Promise.
+Sekali Pager berubah status ke *fulfilled* atau *rejected*, ia akan terkunci selamanya (Settled). Anda tidak bisa mengubah hasilnya lagi.
+
+---
+
+## 2. The Microtask Queue
+
+Secara internal, saat sebuah Promise selesai, ia tidak langsung menginterupsi sirkuit utama. Ia meletakkan "Kotak Hasil" di **Microtask Queue**—jalur prioritas tinggi yang akan diproses segera setelah sirkuit saat ini selesai, sebelum Hub menangani event luar (seperti klik mouse).
+
+---
+
+## 3. Praktik Lapangan (Lab)
+
+```javascript
+const energyRequest = new Promise((resolve, reject) => {
+    const success = true;
+    if (success) resolve("100kW_READY");
+    else reject("TRANSMISSION_ERROR");
+});
+
+energyRequest
+    .then(energy => console.log("Received:", energy))
+    .catch(err => console.log("Alarm:", err));
+```
+
+---
+
+## Arsitek Mindset: Aliran Linier
+
+Sebagai arsitek Hub:
+- Selalu gunakan `async/await` (Buku 10) untuk mengonsumsi Promise agar blueprint kode Anda tetap terbaca secara linier dan mudah diaudit.
+- Jangan biarkan ada "Uncaught Rejection". Setiap Promise yang memiliki risiko gagal harus memiliki penanganan `.catch()` atau dibungkus dalam `try-catch` agar tidak menyebabkan "Silent Failure" di dalam Hub.
+- Gunakan `Promise.all()` untuk meminta banyak energi secara paralel guna mempercepat waktu pemuatan Hub secara keseluruhan.
+
+---
+*Status: [status.md](../../../docs/status.md)*

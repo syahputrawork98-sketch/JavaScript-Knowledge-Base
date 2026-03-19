@@ -1,0 +1,65 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0f172a" rx="15"/>
+  
+  <text x="400" y="40" fill="#f8fafc" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">REACHABILITY REFERENCE GRAPH (GC ATLAS)</text>
+
+  <!-- Global Roots -->
+  <g transform="translate(300, 80)">
+    <rect width="200" height="60" fill="#1e293b" stroke="#34d399" stroke-width="2" rx="10"/>
+    <text x="100" y="35" fill="#34d399" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">ROOTS (global/stack)</text>
+  </g>
+
+  <!-- Connectors from Roots -->
+  <path d="M 330 140 L 200 200" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-reach)"/>
+  <path d="M 470 140 L 600 200" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-reach)"/>
+
+  <!-- Reachable Cloud -->
+  <g transform="translate(100, 200)">
+    <circle cx="50" cy="50" r="40" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+    <text x="50" y="55" fill="#ffffff" font-family="Arial" font-size="10" text-anchor="middle">Object A</text>
+    
+    <path d="M 90 50 L 150 50" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-reach)"/>
+    
+    <circle cx="200" cy="50" r="35" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+    <text x="200" y="55" fill="#ffffff" font-family="Arial" font-size="10" text-anchor="middle">Object B</text>
+  </g>
+
+  <!-- The "Island of Isolation" -->
+  <g transform="translate(500, 250)">
+    <rect width="220" height="150" fill="#451a03" stroke="#f97316" rx="10" stroke-dasharray="5,5"/>
+    <text x="110" y="25" fill="#f97316" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">ISOLATED ISLAND</text>
+    
+    <circle cx="60" cy="80" r="30" fill="#7c2d12" stroke="#f43f5e" stroke-width="2"/>
+    <text x="60" y="85" fill="#ffffff" font-family="Arial" font-size="9" text-anchor="middle">Obj X</text>
+
+    <path d="M 90 80 L 130 80" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow-die)"/>
+    
+    <circle cx="160" cy="80" r="30" fill="#7c2d12" stroke="#f43f5e" stroke-width="2"/>
+    <text x="160" y="85" fill="#ffffff" font-family="Arial" font-size="9" text-anchor="middle">Obj Y</text>
+    
+    <!-- Circular back -->
+    <path d="M 130 110 Q 110 130 90 110" fill="none" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow-die)"/>
+    
+    <text x="110" y="140" fill="#f43f5e" font-family="Arial" font-size="10" text-anchor="middle" font-weight="bold">TARGETED FOR GC</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-reach" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399" />
+    </marker>
+    <marker id="arrow-die" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f43f5e" />
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <g transform="translate(50, 420)">
+    <rect width="15" height="15" fill="#064e3b" stroke="#34d399"/>
+    <text x="25" y="13" fill="#94a3b8" font-family="Arial" font-size="10">REACHABLE (Alive)</text>
+    <rect x="150" y="0" width="15" height="15" fill="#7c2d12" stroke="#f43f5e"/>
+    <text x="175" y="13" fill="#94a3b8" font-family="Arial" font-size="10">UNREACHABLE (Dead)</text>
+  </g>
+
+  <text x="400" y="475" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">"The Hub only recycles objects that have no path back to the Roots center"</text>
+</svg>

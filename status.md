@@ -37,6 +37,8 @@
 - **2026-03-19**: RAK-08: Iterators & Generators Mencapai Gold Standard (5 SVGs + 8 Lab Examples).
 - **2026-03-19**: RAK-07: Classes Mencapai Gold Standard (5 SVGs + 9 Lab Examples).
 - **2026-03-19**: RAK-06: Functions Mencapai Gold Standard (5 SVGs + 9 Lab Examples).
+- **[2026-03-19]**: MENYELESAIKAN SELURUH RAK-12: Core Specification (SR-01 s/d SR-12) - Gold Standard 👑.
+- **[2026-03-19]**: Menyelesaikan RAK-12/SR-11 (Standard Built-in Objects) - Gold Standard.
 - **[2026-03-19]**: Menyelesaikan RAK-12/SR-10 (Scripts & Modules) - Gold Standard.
 - **[2026-03-19]**: Menyelesaikan RAK-12/SR-09 (Functions & Methods) - Gold Standard.
 - **[2026-03-19]**: Menyelesaikan RAK-12/SR-08 (Statements & Declarations) - Gold Standard.

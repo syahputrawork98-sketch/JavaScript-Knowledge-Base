@@ -1,8 +1,8 @@
 # Status: RAK-01-core (Practitioner/Architect)
 **Total Sub-Raks: 12**
 
-**Total Progress: 100% (SR-01 to SR-10 Foundational Complete)**
-**Current Milestone: RAK-12 Core Expansion**
+**Total Progress: 100% (SR-01 to SR-12 FULLY COMPLETED) 💎**
+**Project Milestone Achieved: RAK-12 Core Spec Complete**
 
 | Sub-Rak | Judul | Progress | Status |
 | :--- | :--- | :--- | :--- |
@@ -16,8 +16,8 @@
 | SR-08 | Statements and Declarations     | Gold Standard 💎 | 4 Books, 4 SVGs, 1 Lab |
 | SR-09 | Functions and Methods           | Gold Standard 💎 | 4 Books, 4 SVGs, 1 Lab |
 | SR-10 | Scripts and Modules             | Gold Standard 💎 | 4 Books, 4 SVGs, 1 Lab |
-| SR-11 | Standard Built-in Objects | 0% | [ ] Planned |
-| SR-12 | Memory Management and GC | 0% | [ ] Planned |
+| SR-11 | Standard Built-in Objects       | Gold Standard 💎 | 4 Books, 5 SVGs, 1 Lab |
+| SR-12 | Memory Management and GC       | Gold Standard 💎 | 4 Books, 3 SVGs, 1 Lab |
 
 ---
 > [!IMPORTANT]
