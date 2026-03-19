@@ -1,10 +1,18 @@
-# Sub-Rak: 11 Standard Built-in Objects
+# SR-11: Standard Built-in Objects (The Core Machinery)
+
+> **"Setiap Hub membutuhkan perkakas standar yang tangguh untuk memproses data. SR-11 membedah 'Mesin Inti' (The Core Machinery)—objek-objek bawaan dari spesifikasi yang menyediakan struktur data, algoritma matematika, dan kontrol asinkron."**
 
 *Pemetaan ECMA-262: Clause 18-28*
 
-Fase ini membedah "Perkakas Standar" yang disediakan oleh spesifikasi ECMAScript. Kita akan melihat melampaui objek literal biasa, menuju koleksi data tingkat lanjut, abstraksi kontrol asinkron, dan teknik metaprogramming.
+## 📚 Daftar Buku
 
-## Buku
-- **[BK-01_KeyedCollections](./BK-01_KeyedCollections/)**: Membedah Map, Set, WeakMap, dan WeakSet.
-- **[BK-02_ControlAbstraction](./BK-02_ControlAbstraction/)**: Membedah Promise, Proxy, dan Reflect.
- (Asinkronitas & Metaprogramming).
+1.  **[BK-01_ProcessingUnits](./BK-01_ProcessingUnits/)**: Kalkulator inti dan utilitas global Hub (`Math`, `Number`, `BigInt`).
+2.  **[BK-02_StructuralUnits](./BK-02_StructuralUnits/)**: Unit kontainer data (`Array`, `Map`, `Set`, `TypedArrays`).
+3.  **[BK-03_TextAndChronology](./BK-03_TextAndChronology/)**: Mesin pengolah teks (`String`, `RegExp`) dan waktu (`Date`).
+4.  **[BK-04_LogicAndSync](./BK-04_LogicAndSync/)**: Unit kontrol asinkron (`Promise`) dan metaprogramming (`Proxy`, `Reflect`).
+
+## 📊 Visualisasi Arsitektur
+- [Built-in Objects Hierarchy](./assets/builtin_objects_hierarchy.svg) - Peta kedaulatan mesin inti di dalam Hub.
+
+---
+*Status: Progressing 🔵*

@@ -1,0 +1,46 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#f8fafc" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">CYCLIC DEPENDENCY GRAPH (THE LOOP TRAP)</text>
+
+  <!-- Module A -->
+  <g transform="translate(150, 150)">
+    <rect width="200" height="150" fill="#1e293b" stroke="#f472b6" stroke-width="2" rx="10"/>
+    <text x="100" y="30" fill="#f472b6" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">MODULE A</text>
+    <text x="20" y="70" fill="#94a3b8" font-family="Courier New" font-size="10">import { b } from "./B"</text>
+    <text x="20" y="110" fill="#ffffff" font-family="Courier New" font-size="10">export const a = 1</text>
+  </g>
+
+  <!-- Module B -->
+  <g transform="translate(450, 150)">
+    <rect width="200" height="150" fill="#1e293b" stroke="#38bdf8" stroke-width="2" rx="10"/>
+    <text x="100" y="30" fill="#38bdf8" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">MODULE B</text>
+    <text x="20" y="70" fill="#94a3b8" font-family="Courier New" font-size="10">import { a } from "./A"</text>
+    <text x="20" y="110" fill="#ffffff" font-family="Courier New" font-size="10">export const b = 2</text>
+  </g>
+
+  <!-- Cyclic Arrows -->
+  <!-- A to B -->
+  <path d="M 350 180 Q 400 150 450 180" fill="none" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow-cyclic)"/>
+  
+  <!-- B to A -->
+  <path d="M 450 250 Q 400 280 350 250" fill="none" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow-cyclic)"/>
+
+  <!-- The Resolution Box -->
+  <g transform="translate(200, 350)">
+    <rect width="400" height="100" fill="#312e81" stroke="#6366f1" rx="5"/>
+    <text x="200" y="30" fill="#ffffff" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">HUB RESOLUTION PROTOCOL</text>
+    <text x="40" y="60" fill="#a5b4fc" font-family="Arial" font-size="10">1. Parse A &amp; B -> Detect Loop</text>
+    <text x="40" y="80" fill="#a5b4fc" font-family="Arial" font-size="10">2. Link Live Bindings (References created, no values yet)</text>
+    <text x="40" y="100" fill="#f43f5e" font-family="Arial" font-size="10" font-weight="bold">CAUTION: ReferenceError if accessed before evaluation!</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-cyclic" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6366f1" />
+    </marker>
+  </defs>
+
+  <text x="400" y="480" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">"Managing mutual dependencies via life-binding placeholders to prevent grid lockup"</text>
+</svg>

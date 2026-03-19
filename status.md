@@ -37,6 +37,9 @@
 - **2026-03-19**: RAK-08: Iterators & Generators Mencapai Gold Standard (5 SVGs + 8 Lab Examples).
 - **2026-03-19**: RAK-07: Classes Mencapai Gold Standard (5 SVGs + 9 Lab Examples).
 - **2026-03-19**: RAK-06: Functions Mencapai Gold Standard (5 SVGs + 9 Lab Examples).
+- **[2026-03-19]**: Menyelesaikan RAK-12/SR-10 (Scripts & Modules) - Gold Standard.
+- **[2026-03-19]**: Menyelesaikan RAK-12/SR-09 (Functions & Methods) - Gold Standard.
+- **[2026-03-19]**: Menyelesaikan RAK-12/SR-08 (Statements & Declarations) - Gold Standard.
 - **2026-03-19**: RAK-05: Statements & Declarations Mencapai Gold Standard (5 SVGs + 8 Lab Examples).
 - **2026-03-19**: RAK-02: JS Guide Mencapai Gold Standard (6 SVGs + 10 Lab Examples Terintegrasi).
 - **2026-03-19**: Pengerjaan RAK-04: Expressions & Operators Mencapai Gold Standard.

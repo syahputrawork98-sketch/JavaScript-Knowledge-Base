@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-yield" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d8b4fe" />
+    </marker>
+    <marker id="arrow-next" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">GENERATOR PULSAR CYCLE (PAUSE &amp; RESUME)</text>
+
+  <!-- Generator Unit -->
+  <rect x="50" y="80" width="300" height="300" fill="#1e293b" stroke="#a855f7" stroke-width="3" rx="10"/>
+  <text x="200" y="110" fill="#a855f7" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">GENERATOR* UNIT</text>
+
+  <!-- Internal Code Flow -->
+  <g transform="translate(80, 140)">
+    <rect width="240" height="30" fill="#334155" rx="3"/>
+    <text x="10" y="20" fill="#ffffff" font-family="Courier New" font-size="12">line 1: step_init()</text>
+
+    <!-- Yield Point 1 -->
+    <rect y="40" width="240" height="40" fill="#4c1d95" stroke="#d8b4fe" rx="3"/>
+    <text x="120" y="65" fill="#f5f3ff" font-family="Courier New" font-size="14" text-anchor="middle" font-weight="bold">yield &quot;P1&quot;</text>
+    <path d="M 240 60 L 400 60" stroke="#d8b4fe" stroke-width="2" marker-end="url(#arrow-yield)"/>
+
+    <rect y="90" width="240" height="30" fill="#334155" rx="3"/>
+    <text x="110" y="110" fill="#ffffff" font-family="Courier New" font-size="12">line 2: internal_calc()</text>
+
+    <!-- Yield Point 2 -->
+    <rect y="130" width="240" height="40" fill="#4c1d95" stroke="#d8b4fe" rx="3"/>
+    <text x="120" y="155" fill="#f5f3ff" font-family="Courier New" font-size="14" text-anchor="middle" font-weight="bold">yield &quot;P2&quot;</text>
+    <path d="M 240 150 L 400 150" stroke="#d8b4fe" stroke-width="2" marker-end="url(#arrow-yield)"/>
+
+    <text x="120" y="190" fill="#64748b" font-family="Arial" font-size="10" text-anchor="middle">SUSPENDED STATE</text>
+  </g>
+
+  <!-- Technician Control -->
+  <g transform="translate(450, 100)">
+    <rect width="250" height="260" fill="#1e293b" stroke="#94a3b8" rx="10"/>
+    <text x="125" y="30" fill="#94a3b8" font-family="Arial" font-size="14" text-anchor="middle">TECHNICIAN (ITERATOR)</text>
+    
+    <!-- Next calls -->
+    <rect x="25" y="60" width="200" height="40" fill="#1e40af" rx="5"/>
+    <text x="125" y="85" fill="#ffffff" font-family="Courier New" font-size="14" text-anchor="middle">.next() -&gt; {P1}</text>
+    
+    <rect x="25" y="150" width="200" height="40" fill="#1e40af" rx="5"/>
+    <text x="125" y="175" fill="#ffffff" font-family="Courier New" font-size="14" text-anchor="middle">.next() -&gt; {P2}</text>
+    
+    <path d="M 25 80 L -50 80" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrow-next)"/>
+    <path d="M 25 170 L -50 170" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrow-next)"/>
+  </g>
+
+  <text x="400" y="420" fill="#64748b" font-family="Arial" font-size="14" text-anchor="middle">&quot;The iterator controls the pulse, waking up the generator to continue its production&quot;</text>
+</svg>
