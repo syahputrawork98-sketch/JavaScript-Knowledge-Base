@@ -11,7 +11,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | RAK-01 | Get Started | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-02 | JS Guide | 100% | 100/100 | 🟢 Complete |
-| RAK-03 | Standard Built-in Objects | 0% | 0/100 | ⚪ Planned |
+| RAK-03 | Standard Built-in Objects | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-04 | Expressions & Operators | 0% | 0/100 | ⚪ Planned |
 | RAK-05 | Statements & Declarations | 0% | 0/100 | ⚪ Planned |
 | RAK-06 | Functions | 0% | 0/100 | ⚪ Planned |
@@ -25,6 +25,28 @@
 | RAK-14 | JS Engines | 0% | 0/100 | ⚪ Planned |
 
 ## Log Perubahan (Changelog)
+- **2026-03-19**: Finalisasi Lab Praktis (`examples/`) untuk Seluruh 16 Chapter RAK-03.
+- **2026-03-19**: Penambahan Lab Implementasi (`examples/`) untuk tiap chapter.
+- **2026-03-19**: RAK-03 Mencapai Status Gold Standard (5 SVGs Terintegrasi).
+- **2026-03-19**: Penyelesaian Seluruh Konten RAK-03 (16 Chapters).
+- **2026-03-19**: Pengerjaan BK-07: CH-02 Shared Memory & Atomics.
+- **2026-03-19**: Pengerjaan BK-07: CH-01 ArrayBuffer & DataView (Memory Access).
+- **2026-03-19**: Penyelesaian SR-03: Signal & Flow (5 Chapters).
+- **2026-03-19**: Pengerjaan BK-06: CH-02 Intl (The Translator).
+- **2026-03-19**: Pengerjaan BK-06: CH-01 Date (The Master Clock).
+- **2026-03-19**: Pengerjaan BK-05: CH-03 JSON (Universal Exchange).
+- **2026-03-19**: Pengerjaan BK-05: CH-02 RegExp (Signal Patterns).
+- **2026-03-19**: Penyelesaian SR-02: Data Management (4 Chapters).
+- **2026-03-19**: Pengerjaan BK-04: CH-02 Set & WeakSet (Uniqueness Filter).
+- **2026-03-19**: Pengerjaan BK-04: CH-01 Map & WeakMap (Advanced Labels).
+- **2026-03-19**: Pengerjaan BK-03: CH-02 TypedArrays (High-Speed Belts).
+- **2026-03-19**: Pengerjaan BK-03: CH-01 Array (Standard Conveyor).
+- **2026-03-19**: Penyelesaian SR-01: Core Entities (5 Chapters).
+- **2026-03-19**: Pengerjaan BK-02: CH-02 Math (The Calculation Module).
+- **2026-03-19**: Pengerjaan BK-02: CH-01 Number & BigInt (Measuring Energy).
+- **2026-03-19**: Pengerjaan BK-01: CH-03 Boolean & Symbol (Switches & IDs).
+- **2026-03-19**: Pengerjaan BK-01: CH-02 Function (The Engine Unit).
+- **2026-03-19**: Inisialisasi RAK-03: Standard Built-in Objects (Inventory Lab).
 - **2026-03-19**: Penyelesaian RAK-02: JS Guide (10 Chapters).
 - **2026-03-19**: Pengerjaan BK-03: CH-03 Object Property Attributes (Locksmiths).
 - **2026-03-19**: Pengerjaan BK-03: CH-02 Advanced Prototypes (Extensions).
