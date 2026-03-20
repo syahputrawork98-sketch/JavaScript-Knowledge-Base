@@ -1,10 +1,16 @@
-# SR-01: V8 Architecture (The Google Engine)
+# SR-01: V8 Architecture (The Execution Pipeline)
 
-Sub-Rak ini membedah arsitektur internal V8, mesin JavaScript performa tinggi open-source dari Google yang digunakan di Chrome dan Node.js.
+Sub-rak ini membedah jalur pipa (pipeline) yang dilalui kode JavaScript di dalam V8 Engine.
 
-## Daftar Buku (Books)
+## 🏗️ The Internal Pipeline
+Setiap baris kode Anda akan melewati tahapan berikut sebelum dieksekusi oleh processor:
 
-- **[BK-01: The Pipeline](./BK-01_ThePipeline/README.md)**: Perjalanan dari kode sumber ke eksekusi mesin.
+1. **Scanner & Parser**: Mengubah teks mentah menjadi AST.
+2. **Ignition**: Mengubah AST menjadi Bytecode yang efisien.
+3. **TurboFan**: Mengoptimasi bytecode menjadi Machine Code tingkat tinggi.
+
+## 📖 Buku
+- **[BK-01: The Pipeline](./BK-01_ThePipeline/README.md)**: Panduan langkah demi langkah proses internal V8.
 
 ---
-*Kembali ke [Rak 14](../README.md)*
+*Status: 🟢 **Gold Standard***

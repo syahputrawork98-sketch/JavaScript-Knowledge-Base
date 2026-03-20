@@ -2,16 +2,17 @@
 
 *Level: Scientist/Internalist*
 
-Rak ini membedah "mesin fisik" yang menjalankan kode JavaScript. Di sini kita tidak bicara soal spesifikasi bahasa, melainkan soal implementasi piranti lunak (seperti V8 Engine dari Google, SpiderMonkey dari Mozilla, atau JavaScriptCore dari Apple).
+Rak ini membedah "mesin fisik" yang menjalankan kode JavaScript. Di sini kita tidak bicara soal spesifikasi bahasa, melainkan soal implementasi piranti lunak tingkat tinggi seperti **V8 Engine**.
 
-## Tujuan Rak Ini
-- Memahami bagaimana kode JS dikonversi menjadi Machine Code (JIT Compilation).
+## 🎯 Tujuan Rak Ini
+- Memahami alur kerja eksekusi dari teks mentah ke Machine Code (Pipeline).
 - Mempelajari teknik optimasi performa di tingkat Engine (Hidden Classes, Inline Caches).
-- Memahami manajemen memori fisik dan mekanisme Garbage Collection.
+- Memahami manajemen memori fisik dan mekanisme Garbage Collection (Orinoco).
 
-## Katalog Sub-Rak
-*(Akan dikembangkan seiring waktu)*
-- `01_v8_arch/` (Arsitektur V8 Engine)
-- `02_jit_compilation/` (Ignition, TurboFan, & Optimization)
-- `03_memory_management/` (Heap, Stack, & GC Algorithms)
-- `04_webassembly_runtime/` (Eksekusi WASM di Engine JS)
+## 📚 Katalog Sub-Rak
+- **[SR-01: V8 Architecture](./SR-01_V8Architecture/README.md)**: Scanner, Parser, Ignition, dan TurboFan.
+- **[SR-02: JIT Optimization](./SR-02_JITOptimization/README.md)**: Hidden Classes, ICs, dan Deoptimization.
+- **[SR-03: Memory Management](./SR-03_MemoryManagement/README.md)**: Memory Layout, Generational GC, dan Alat Diagnosa.
+
+---
+*Status: 🟢 **Gold Standard (Verified 2026-03-20)***

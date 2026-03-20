@@ -1,10 +1,14 @@
-# SR-02: JIT Optimization (Under the Hood)
+# SR-02: JIT Optimization (Engine Efficiency)
 
-Sub-Rak ini membedah teknik optimasi performa paling krusial yang digunakan oleh mesin JavaScript modern untuk membuat kode dinamis berjalan mendekati kecepatan kode statis.
+Sub-rak ini membahas bagaimana V8 mengakali sifat dinamis JavaScript untuk memberikan performa kelas dunia.
 
-## Daftar Buku (Books)
+## ⚡ Core Optimizations
+- **Hidden Classes (Shapes)**: Memberikan struktur tetap pada objek dinamis.
+- **Inline Caches (ICs)**: Mempercepat akses properti melalui memori lookup.
+- **Deoptimization**: Mekanisme aman saat spekulasi engine meleset.
 
-- **[BK-01: Core Optimizations](./BK-01_CoreOptimizations/README.md)**: Memahami Hidden Classes, Inline Caches, dan Deoptimization.
+## 📖 Buku
+- **[BK-01: Core Optimizations](./BK-01_CoreOptimizations/README.md)**: Bedah mendalam pilar optimasi JIT.
 
 ---
-*Kembali ke [Rak 14](../README.md)*
+*Status: 🟢 **Gold Standard***
