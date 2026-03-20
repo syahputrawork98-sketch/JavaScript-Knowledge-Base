@@ -1,30 +1,27 @@
 # Panduan Terminologi (JS Edition)
 
-Menangkap dinamisme dan fleksibilitas web melalui bahasa yang tepat.
+Menangkap dinamisme dan fleksibilitas web melalui bahasa yang tepat sesuai dengan **Unified Gold Standard**.
 
 ## 1. Aturan Penulisan Istilah
-- **Kinetic Focus**: Gunakan kata kerja yang aktif untuk menjelaskan proses asinkron.
-- **Ecma-Sync**: Selalu rujuk ke standar ECMAScript terbaru (ESNext).
+- **Kinetic Focus**: Gunakan kata kerja aktif (e.g., *Invoked*, *Dispatched*, *Transmuted*).
+- **Ecma-Sync**: Seluruh istilah teknis merujuk pada standar ESNext.
 
 ## 2. Senior vs Basic Terms
+Gunakan terminologi profesional untuk akurasi teknis:
+- **Closures** (bukan sekadar "fungsi dalam fungsi").
+- **Non-blocking I/O** (bukan sekadar "tunggu data").
+- **Prototypal Inheritance** (bukan "warisan biasa").
 
-| Basic Term | Senior Terminology | Konteks |
-| :--- | :--- | :--- |
-| Tunggu data | **Non-blocking I/O** | Mekanisme pembacaan file/network. |
-| Fungsi dalam fungsi | **Closures** | Lingkup variabel leksikal. |
-| Warisan | **Prototypal Inheritance** | Mekanisme rantai prototype. |
-| Antrean | **Task Queue / Microtasks** | Urutan eksekusi Event Loop. |
+## 3. Hierarchical Terminology (6-Level Standard)
 
-## 3. Hierarchical Terminology (Universe Standard)
+| Term | Level | Analogi | Deskripsi |
+| :--- | :--- | :--- | :--- |
+| **Root** | 1 | Hub | Pusat navigasi utama repositori. |
+| **RAK (Rack)**| 2 | Domain | Pengelompokan besar area ilmu (e.g., JavaScript). |
+| **SR (Sub-Rack)**| 3 | Track | Jalur spesifik di dalam domain (e.g., Get Started). |
+| **BK (Book)** | 4 | Koleksi | Kumpulan bab yang membentuk satu modul utuh. |
+| **CH (Chapter)**| 5 | Materi | Unit pengerjaan materi inti (Stage 1-4 PPM). |
+| **SEC (Section)**| 6 | Detil | Granulitas terdalam untuk membedah sub-materi. |
 
-| Term | Analogi | Definisi |
-| :--- | :--- | :--- |
-| **RAK (Rack)** | Domain | Pengelompokan besar area ilmu (e.g., Core Spec, Engines). |
-| **SR (Sub-Rack)** | Track | Jalur spesifik di dalam domain (e.g., Functions, V8 Architecture). |
-| **BK (Book)** | Koleksi | Kumpulan bab yang membentuk satu modul pengetahuan utuh. |
-| **CH (Chapter)** | Materi | Unit dokumentasi yang berisi teori, visual, dan lab. |
-| **SEC (Section)** | Halaman | Granulitas terdalam untuk dekonstruksi materi kompleks. |
-
-## 4. Metode Analogi
-- **Event Loop as a Restaurant**: Pesanan (Task) masuk ke dapur, pelayan (Main Thread) tetap melayani pelanggan lain sambil menunggu masakan matang.
-- **The Kinetic Hub**: Bayangkan JS sebagai pusat transmisi data yang tidak pernah berhenti berputar.
+---
+*Referensi: [Unified Gold Standard](../../../brain/931398eb-3011-4b69-bb8c-e94cd60f9e78/unified_gold_standard_v1.md)*

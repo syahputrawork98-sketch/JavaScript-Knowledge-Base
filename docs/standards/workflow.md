@@ -28,5 +28,11 @@ Setiap pengerjaan unit materi (CH/SEC) wajib mengikuti 4 Tahapan berikut secara 
 - **Proses**: Baca kembali narasi, lalu visualisasikan alur eksekusi, Call Stack, atau Task Queue ke dalam folder `assets/`.
 - **Estetika**: Fokus pada kebersihan visual dan gunakan emoji yang tepat untuk estetika dan intuisi.
 
+### 5. Fleksibilitas "Nil Content" (Narrative Exception)
+Untuk unit yang bersifat naratif murni (seperti di **RAK-02 Evolution/History**), folder `examples/` atau `assets/` mungkin tidak diperlukan.
+- **Aturan**: Jika kontributor memutuskan tidak ada kode/visual, maka di dalam `README.md` bagian terkait harus ditulis eksplisit: 
+    - *"Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif."*
+- **Tujuan**: Agar pembaca (dan sistem audit) tahu bahwa ketiadaan folder tersebut adalah disengaja, bukan karena materi belum lengkap.
+
 ---
 *Target Akhir: Mencapai [Gold Standard](./architecture.md#kriteria-gold-standard-100-complete).*

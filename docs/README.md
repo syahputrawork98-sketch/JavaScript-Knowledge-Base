@@ -6,7 +6,6 @@ Pusat dokumentasi ini menyimpan seluruh cetak biru, standar kualitas, dan pandua
 
 ### 1. Standar & Protokol
 - **[Architecture Standards](./standards/architecture.md)**: Hierarki RAK > SR > BK > CH.
-- **[Advanced-Rack Standard](./standards/advanced-rack-standard.md)**: 7 Poin Checklist untuk Rak 02-05.
 - **[Naming Conventions](./standards/conventions.md)**: Aturan penamaan folder dan file.
 - **[PPM Workflow](./standards/workflow.md)**: 4 Tahapan Penulisan Materi (PPM) V4.
 - **[Status Protocol](./standards/status-protocol.md)**: Standar pelaporan Gold Standard.

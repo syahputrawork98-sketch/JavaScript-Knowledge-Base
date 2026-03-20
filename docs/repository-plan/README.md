@@ -1,49 +1,43 @@
-# JavaScript Knowledge Base: 6-Rack Universal Plan
+# JavaScript Knowledge Base: Universal Deconstruction Plan
 
-> **Status**: Universal Standard (6-Rack Architecture)
+> **Status**: Gold Standard (6-Level Hierarchy)
 > **Last Updated**: 2026-03-21
-> **Blueprint Mirror**: [ECMA-262](https://tc39.es/ecma262/) & [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-Rencana ini menggunakan **6-Rack Universal Architecture** dengan prinsip **Digital Mirroring** untuk mentransformasi dokumentasi teknis menjadi unit pelajaran yang presisi.
-
----
-
-## 🏗 Struktur 6-Rack Universal
-
-### 1. RAK-01-foundation (Entry Point)
-Seluruh taksonomi dasar MDN dikonsolidasikan di sini.
-- **Goal**: Membangun fondasi kuat bagi praktisi.
-
-### 2. RAK-02-evolution (History & Future)
-Mendokumentasikan evolusi bahasa, proposal TC39, dan fitur ESNext.
-- **Goal**: Memahami arah perkembangan bahasa.
-
-### 3. RAK-03-core-spec (The Internal Logic)
-Dekonstruksi total terhadap **ECMA-262**. Fokus pada algoritma Abstract Operations.
-- **Goal**: Kedalaman teknis tingkat tinggi (**Spec-Rigor**).
-
-### 4. RAK-04-tooling (The Workshop)
-Eksplorasi ekosistem alat bantu: npm, ESLint, Prettier, Bundlers.
-- **Goal**: Penguasaan alur kerja profesional.
-
-### 5. RAK-05-ecosystem (The Environments)
-Eksplorasi lingkungan eksekusi: **Node.js**, **Bun**, **Deno**, dan Web APIs.
-- **Goal**: Implementasi di berbagai runtime.
-
-### 6. RAK-06-specialization (The Machine Room)
-Deep dive ke dalam **V8 Engine** dan mekanika unik JS lainnya.
-- **Goal**: Optimasi dan pemahaman tingkat mesin.
+Rencana ini menggunakan **Unified Gold Standard** untuk mentransformasi dokumen teknis menjadi unit pelajaran yang presisi melalui hirarki **6-Level Depth**.
 
 ---
 
-## 📜 Hierarki Kedalaman (The 6-Level Depth)
+## 1. Arsitektur 5-Rak (The Universe Blueprint)
 
-Untuk memastikan konsistensi di seluruh Knowledge Universe, setiap Rak mengikuti hierarki **Digital Mirroring**:
-1. **RAK** (Domain)
-2. **SR** (Track) - *Spec-Synced*
-3. **BK** (Book)
-4. **CH** (Chapter)
-5. **SEC** (Section) - *Optional Granularity*
+Pemisahan antara "Fondasi Penggunaan" dengan "Dekonstruksi Arsitektur":
+
+### I. RAK-01-javascript (The Foundation)
+Mirroring terhadap taksonomi MDN Web Docs. Menjamin kepiawaian praktisi.
+- **SR-01 s/d SR-10**: Dari pemula hingga fitur lanjut.
+
+### II. RAK-02-evolution (History & Future)
+Mendokumentasikan evolusi, TC39, dan ESNext.
+
+### III. RAK-03-core-spec (The Internal Logic)
+Dekonstruksi ECMA-262 (Spec-Rigor). Fokus pada Abstract Operations.
+
+### IV. RAK-04-runtimes (The Environments)
+Eksplorasi runtime: **Node.js**, **Bun**, dan **Deno**.
+
+### V. RAK-05-engines (The Machine Room)
+Deep dive ke dalam **V8 Engine** (JIT, GC, Memory Management).
 
 ---
-*Log Perubahan: Normalisasi Standar 6-Rack & Digital Mirroring pada 2026-03-21.*
+
+## 2. Hirarki Kedalaman (Digital Mirroring)
+
+Setiap materi didekonstruksi hingga 6 level kedalaman jika diperlukan:
+1. **Root** (Pusat Hub)
+2. **RAK** (Domain)
+3. **SR** (Track)
+4. **BK** (Book)
+5. **CH** (Chapter)
+6. **SEC** (Section)
+
+---
+*Referensi Utama: [Unified Gold Standard](../../../brain/931398eb-3011-4b69-bb8c-e94cd60f9e78/unified_gold_standard_v1.md)*
