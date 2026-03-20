@@ -18,10 +18,12 @@ JavaScript diciptakan untuk menyelesaikan kesenjangan antara desainer web (yang 
 Bayangkan sebuah rumah yang semua furniturnya dipaku ke lantai (Web Statis). Jika Anda ingin menggeser kursi, Anda harus meruntuhkan rumah itu dan membangunnya kembali dari awal. JavaScript adalah roda yang dipasang pada furnitur tersebut, memungkinkan Anda menggesernya secara dinamis tanpa merusak fondasi rumah.
 
 ## 3. Implementasi Utama (The Lab)
-Materi ini bersifat sejarah arsitektural. Contoh implementasi modern yang mencerminkan "perekat" ini dapat dilihat di [examples/](./examples/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ## 4. Model Mental Visual (The Assets)
-Diagram aliran transisi dari Statis ke Dinamis tersedia di [assets/](./assets/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ---
 *Back to [The Ten Day Legend](../README.md)*

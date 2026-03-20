@@ -18,10 +18,12 @@ Standarisasi diperlukan agar kode bisa berjalan di mana saja. Masalahnya, vendor
 Bayangkan setiap pompa bensin memiliki mulut pipa yang berbeda. Anda butuh banyak adaptor agar bisa mengisi bahan bakar ke mobil Anda di mana pun. Periode ini adalah periode di mana setiap pengembang harus membawa sekantong "adaptor" (polyfills) agar websitenya tidak rusak di browser yang berbeda.
 
 ## 3. Implementasi Utama (The Lab)
-Lihat contoh inkompatibilitas historis di [examples/](./examples/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ## 4. Model Mental Visual (The Assets)
-Diagram fragmentasi browser tersedia di [assets/](./assets/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ---
 *Back to [Evolutionary Timeline](../README.md)*

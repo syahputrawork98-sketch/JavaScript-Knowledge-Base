@@ -18,10 +18,12 @@ JavaScript tidak memiliki proses kompilasi yang kaku, mudah dipelajari, dan memi
 Bayangkan JavaScript adalah **Lakban Ajaib (Duct Tape)**. Mungkin ia tidak sekuat baja atau semen murni, tapi karena sifatnya yang bisa menempel di permukaan apa pun dan sangat mudah dipasang, orang-orang mulai menggunakan lakban itu untuk membangun jembatan, gedung, hingga roket. "Jika bisa diperbaiki dengan lakban, pada akhirnya akan diperbaiki dengan lakban."
 
 ## 3. Implementasi Utama (The Lab)
-Lihat contoh aplikasi lintas platform sederhana di [examples/](./examples/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ## 4. Model Mental Visual (The Assets)
-Visi dominasi ekosistem JS tersedia di [assets/](./assets/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ---
 *Back to [The Core Mindset](../README.md)*

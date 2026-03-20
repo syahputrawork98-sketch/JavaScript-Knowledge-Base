@@ -18,10 +18,12 @@ Web bersifat interaktif; pengguna bisa mengklik apa saja kapan saja. Bahasa yang
 Bayangkan sebuah **Restoran yang Sangat Sibuk**. Pelayan (Main Thread) tidak bertugas memasak. Setelah menerima pesanan (Event), pelayan memberikan catatan ke dapur (Background) dan segera kembali melayani pelanggan lain. Pelayan tidak berdiri diam di dapur menunggu masakan matang; ia terus bergerak (Kinetik) sampai masakan siap diantarkan.
 
 ## 3. Implementasi Utama (The Lab)
-Lihat pembuktian efisiensi Non-blocking di [examples/](./examples/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ## 4. Model Mental Visual (The Assets)
-Visualisasi "The Culinary Flow of JS" tersedia di [assets/](./assets/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ---
 *Back to [The Core Mindset](../README.md)*

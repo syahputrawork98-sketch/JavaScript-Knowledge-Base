@@ -18,10 +18,12 @@ Bahasa yang tidak berkembang akan mati. Model tahunan memungkinkan adopsi fitur 
 Bayangkan sebuah bandara raksasa yang tidak pernah tutup. Anda tidak bisa merenovasinya secara total sekaligus. Jadi, Anda merenovasi satu terminal setiap tahun. Bandara tetap beroperasi (kode lama jalan), tapi penumpangnya terus mendapatkan kenyamanan baru dari terminal yang telah diupdate.
 
 ## 3. Implementasi Utama (The Lab)
-Lihat perbandingan antara fitur ES5 dan ESNext di [examples/](./examples/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ## 4. Model Mental Visual (The Assets)
-Timeline perkembangan fitur tahunan tersedia di [assets/](./assets/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ---
 *Back to [Evolutionary Timeline](../README.md)*

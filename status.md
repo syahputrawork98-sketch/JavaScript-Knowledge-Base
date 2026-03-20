@@ -23,7 +23,7 @@
 - **Architecture**: Restorasi penuh ke **5-Rack Universal Standard**.
 - **Digital Mirroring**: Seluruh unit kini diwajibkan mengikuti granulitas sumber primer (ECMA/MDN) 1:1.
 - **Link Repair**: Perbaikan seluruh navigasi di Root dan Docs Hub.
-- **Standards**: Normalisasi `advanced-rack-standard.md` ke model RAK 02-05.
+- **Standards**: Normalisasi seluruh dokumen standar ke model Unified 5-Rack.
 
 ---
 

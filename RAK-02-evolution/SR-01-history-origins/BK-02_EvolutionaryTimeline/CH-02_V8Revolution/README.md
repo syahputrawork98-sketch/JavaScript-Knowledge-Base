@@ -18,10 +18,12 @@ Dunia butuh web yang lebih cepat dan responsif. V8 mengubah segalanya dengan tek
 Dulu, JavaScript adalah sepeda yang hanya bisa digunakan untuk berkeliling taman (browser). V8 menggantinya menjadi mesin Formula 1. Node.js kemudian membawa mesin itu ke jalan raya utama (server), membuktikan bahwa mesin ini sanggup menarik beban ribuan kontainer data secara bersamaan.
 
 ## 3. Implementasi Utama (The Lab)
-Lihat pembuktian performa mentah di [examples/](./examples/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ## 4. Model Mental Visual (The Assets)
-Visualisasi alur V8 tersedia di [assets/](./assets/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ---
 *Back to [Evolutionary Timeline](../README.md)*

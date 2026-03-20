@@ -18,10 +18,12 @@ Eich memilih untuk menggabungkan skema fungsi dari *Scheme*, objek berbasis prot
 Bayangkan membangun sebuah mobil dalam 10 hari. Anda tidak punya waktu untuk membuat cetakan baja yang presisi. Jadi, Anda menggunakan bahan yang fleksibel dan bisa dibentuk ulang (prototipe). Mungkin mobil itu punya banyak lekukan aneh, tapi justru karena fleksibilitasnya, ia bisa diubah menjadi truk, pesawat, atau kapal selam di kemudian hari.
 
 ## 3. Implementasi Utama (The Lab)
-Lihat contoh fleksibilitas objek prototipe di [examples/](./examples/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ## 4. Model Mental Visual (The Assets)
-Visualisasi "The 10-Day Sprint" tersedia di [assets/](./assets/).
+> [!NOTE]
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
 
 ---
 *Back to [The Ten Day Legend](../README.md)*
