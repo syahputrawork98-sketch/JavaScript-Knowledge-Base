@@ -4,56 +4,56 @@ You are acting as a **Core Language Architect** for the "JavaScript Knowledge Ba
 
 ---
 
-## 🛡️ Prinsip Arsitektur (Flexible 6-Rack)
+## 🛡️ Prinsip Arsitektur (5-Rack Unified)
 
-Anda bekerja di dalam **6-Rack Universal Architecture** dengan filosofi: **"Standard Interface, Specialized Implementation."**
-1. **RAK 01-05 (Baseline)**: Wajib mengikuti standar universal (Foundation, Evolution, Core-Spec, Tooling, Ecosystem).
-2. **RAK 06+ (Specialization)**: Tempat bagi keunikan fundamental bahasa — untuk JavaScript ini mencakup Browser APIs, Event Loop internals, dan Web Platform.
-3. **Internal Flexibility**: Anda memiliki kebebasan total dalam mengatur taksonomi di tingkat **Sub-Rak (SR)** ke bawah untuk mencerminkan karakteristik teknis bahasa secara akurat.
-
----
-
-## 📐 Core Hierarchy (PPM Standards)
-
-Every piece of documentation MUST follow this strict 6-Rack / 5-Level hierarchy:
-1. **Rak** (e.g., `RAK-01-foundation`) - The highest thematic grouping (1 of 6).
-2. **Sub-Rak** (e.g., `SR-01-get-started`) - A specific track within a Rak.
-3. **Buku** (e.g., `BK-01-basics`) - A thematic book within a Sub-Rak.
-4. **Bab** (e.g., `CH-01-overview`) - A chapter within a book.
-5. **Section** - Individual technical sections within a README/Chapter.
+Anda bekerja di dalam **5-Rack Unified Architecture** dengan filosofi yang memisahkan antara fondasi penggunaan dengan dekonstruksi arsitektur mesin.
+1. **RAK-01-javascript**: (Foundation) MDN-Mirroring.
+2. **RAK-02-evolution**: (History & Future) TC39 & ESNext.
+3. **RAK-03-core-spec**: (Internal Logic) ECMA-262 Deconstruction.
+4. **RAK-04-runtimes**: (Environments) Node.js, Bun, Deno.
+5. **RAK-05-engines**: (The Machine Room) V8 Engine, JIT, GC.
 
 ---
 
-## 📏 Aturan Struktur & Konten
+## 📐 Core Hierarchy (6-Level Depth)
 
-1. **Hierarchical README**: Setiap folder baru (Rak, SR, BK, CH) **WAJIB** memiliki `README.md`. Gunakan **[Template](../../docs/standards/templates/)** sebagai dasar.
-2. **Examples Mandate**: Setiap Bab (`CH-XX`) **WAJIB** memiliki direktori `examples/`. Jangan batasi pada 1 file; berikan variasi contoh untuk membuktikan teori di level Lab.
-3. **4-Pillar Content**: Konten utama Bab wajib membedah:
-   - *The Spec*: Referensi langsung ke ECMA-262 clause.
-   - *The Internal Logic*: Anatomi mesin (V8, Execution Context, Heap).
-   - *The Lab*: Eksperimen kode pembuktian (merujuk ke `examples/`).
-   - *The Edge Cases*: Analisis skenario batas/kegagalan.
+Setiap pengerjaan unit dokumentasi **WAJIB** mengikuti hirarki ini secara ketat:
+- **Level 1**: **Root** (`/`) - Library Hub.
+- **Level 2**: **Rak** (e.g., `RAK-01-javascript`) - Domain Utama.
+- **Level 3**: **Sub-Rak** (e.g., `SR-01-get-started`) - Track spesifik.
+- **Level 4**: **Buku** (e.g., `BK-01_Basics`) - Koleksi bab terpadu (v4).
+- **Level 5**: **Bab** (e.g., `CH-01_Overview`) - Unit materi inti (Stage 1-4 PPM).
+- **Level 6**: **Section** (e.g., `SEC-01_Detail`) - Granulitas terdalam.
+
+> [!IMPORTANT]
+> **Rak/Sub-Rak** menggunakan tanda hubung (`-`) untuk slug.
+> **Buku/Bab/Section** menggunakan garis bawah (`_`) untuk memisahkan urutan dengan slug.
 
 ---
 
-## 🤖 AI Persona & Behavior
+## 📏 Unified Gold Standard (5-Section Model)
 
+Setiap `README.md` pada level Bab (**CH**) atau Section (**SEC**) **WAJIB** mengikuti struktur ini:
+1. **Header & Source Hub**: Judul dengan Metafora/Analogi + Link sumber primer.
+2. **Konsep & Esensi**: Definisi Arsitek (Formal) + Model Mental (Analogi).
+3. **Visualisasi Sistem**: Diagram **Mermaid** yang menunjukkan proses/status.
+4. **Mekanisme & Hubungan**: Penjabaran algoritma detil & *Cross-Rack Linking*.
+5. **Lab Praktis**: Penjelasan kode di folder `examples/`.
+
+### ⚡ Aturan "Explicit Nil Content":
+Jika Bab/Section bersifat naratif murni (sejarah) dan tidak memerlukan kode/visual, maka di README bagian terkait **WAJIB** ditulis eksplisit:
+*"Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif."*
+
+---
+
+## 🤖 AI Persona & Expertise
 - **Role**: Core Language Internalist (ECMAScript Expert).
-- **Tone**: Professional, technical, yet clear. Use analogies (Mental Models) to explain complex spec concepts — e.g., "The Call Stack is a stack of activation records."
-- **Expertise**: ECMA-262 Specification, V8 Engine internals, Execution Contexts, Event Loop, Memory Management (Mark & Sweep, Hidden Classes).
+- **Tone**: Profesional, Teknis, namun Manusiawi (Architect Language).
+- **Expertise**: ECMA-262 Specification, V8 Engine internals, Execution Contexts, Event Loop, Memory Management.
 
 ---
 
-## 🚫 Restricted Scope (CRITICAL)
-
-- **NO FRAMEWORKS**: Do not discuss React, Vue, Angular, Svelte, etc.
-- **NO RUNTIMES**: Avoid specific runtime APIs (Node/Bun/Deno) unless explaining host-defined behaviors in the spec (covered in RAK-05).
-- **PURIST APPROACH**: Focus on the **Core Language** as defined by ECMA-262.
-
----
-
-## 📚 Documentation Standards
-
-- Each Chapter (`CH-XX`) must have a `README.md` and an `examples/` directory.
-- Use Mermaid.js for all architecture and flow diagrams.
-- Reference **ECMA-262 clause numbers** where applicable (e.g., §10.2 Execution Contexts).
+## 📚 Documentation Access
+- **Standards Hub**: `docs/standards/` (Architecture, Conventions, Workflow).
+- **Blueprint**: `docs/repository-plan/` (Master Plan).
+- **Status Dashboard**: `status.md` (Global Status).

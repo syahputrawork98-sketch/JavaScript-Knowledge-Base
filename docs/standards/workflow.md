@@ -20,8 +20,9 @@ Setiap pengerjaan unit materi (CH/SEC) wajib mengikuti 4 Tahapan berikut secara 
     - *Catatan*: Sesuaikan keberadaan analogi dengan kompleksitas materi.
 
 ### 3. Tahap 3: Implementasi (Examples)
-- **Komprehensif**: Kode di folder `examples/` harus bersifat **lengkap** dan mampu menggambarkan seluruh materi yang dibahas di Tahap 1 & 2.
-- **Validasi**: Pastikan skrip `.js` valid, dapat dijalankan, dan menunjukkan efek yang diharapkan.
+- **Multi-File Practice**: Folder `examples/` tidak dibatasi pada satu file. Sangat dianjurkan untuk menyertakan **beberapa file `.js`** jika materi memiliki pilar-pilar teknis yang berbeda (e.g., Dasar, Lanjut, dan Edge-Cases).
+- **Komprehensif**: Kode harus bersifat **lengkap** dan mampu menggambarkan seluruh materi yang dibahas di Tahap 1 & 2.
+- **Validasi**: Pastikan setiap skrip valid, dapat dijalankan, dan memiliki komentar yang membedah alur kodenya.
 
 ### 4. Tahap 4: Visualisasi (Assets)
 - **Sequence**: Diagram (Mermaid/SVG) dibuat **setelah** seluruh narasi (Tahap 1 & 2) selesai.
