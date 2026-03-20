@@ -1,50 +1,38 @@
 # CH-01: Language Types Overview
 
-Sebelum kita menyelam ke masing-masing tipe data, kita harus memahami apa yang dimaksud dengan **ECMAScript Language Types** dan mengapa spesifikasi membaginya seperti itu.
+*Pemetaan ECMA-262: Clause 6.1*
 
-## Mental Model: "Tipe Unit Energi" (Energy Unit Types)
-Bayangkan Anda adalah pengelola Grid di Web Energy Hub. Untuk menjalankan seluruh sistem, Anda hanya diizinkan menggunakan 8 jenis "Unit Energi" dasar yang disediakan oleh spesifikasi.
-- Beberapa unit sangat ringan dan stabil (Primitif).
-- Satu unit sangat kompleks dan bisa menampung unit lain (Object).
-Hanya dengan kombinasi 8 tipe unit dasar inilah seluruh aliran energi di Hub Anda tercipta.
+Spesifikasi membagi "Language Types" menjadi dua kategori besar: **Primitives** dan **Objects**. Ini adalah nilai-nilai yang dapat dimanipulasi secara langsung oleh programmer JavaScript.
 
----
+## 🏗️ The Type Hierarchy
 
-## 1. Definisi Formal: Language Types
-Menurut Clause 6.1, **Language Types** adalah *"Types that correspond to values that are directly manipulated by an ECMAScript programmer."*
+```mermaid
+graph TD
+    LT["Language Types (Clause 6.1)"] --> P["Primitives (Immutable)"]
+    LT --> O["Object (Mutable)"]
+    
+    P --> P1["Undefined"]
+    P --> P2["Null"]
+    P --> P3["Boolean"]
+    P --> P4["String"]
+    P --> P5["Symbol"]
+    P --> P6["Number"]
+    P --> P7["BigInt"]
+    
+    O --> O1["Set of Properties"]
+    O --> O2["Internal Method Slots"]
+    
+    style P fill:#3498db,stroke:#333
+    style O fill:#f1c40f,stroke:#333
+```
 
-Artinya, semua yang Anda sentuh di Terminal atau Editor (seperti `42`, `"hello"`, atau `{}`) adalah anggota dari salah satu Language Types ini.
+## 🔍 Karakteristik Utama
+- **Primitives**: Nilai yang tidak memiliki properti dan bersifat *immutable* (tidak bisa diubah).
+- **Objects**: Kumpulan properti yang dinamis. Objek adalah entitas yang memiliki identitas unik di memori.
 
-## 2. 8 Pilar Language Types
-Inilah 8 tipe data resmi dalam spesifikasi ECMA-262:
-
-| Tipe | Kategori | Ringkasan Definisi |
-| :--- | :--- | :--- |
-| **Undefined** | Primitif | Digunakan untuk nilai yang belum ditetapkan. |
-| **Null** | Primitif | Menunjukkan ketiadaan nilai secara eksplisit. |
-| **Boolean** | Primitif | Nilai logika (`true` atau `false`). |
-| **String** | Primitif | Kumpulan kode Unicode 16-bit. |
-| **Symbol** | Primitif | Nilai unik yang tidak dapat berubah. |
-| **Number** | Numeric | Nilai binary floating point (IEEE 754). |
-| **BigInt** | Numeric | Nilai integer dengan presisi arbitrer. |
-| **Object** | Complex | Koleksi properti dengan internal methods/slots. |
-
-## 3. Primitif vs Object
-Dalam spesifikasi, perbedaan fundamentalnya adalah:
-- **Primitif:** Nilai yang bersifat atomik, tidak dapat diubah (*immutable*), dan tidak memiliki properti.
-- **Object:** Struktur data yang memiliki identitas unik dan dapat dikonfigurasi melalui properti.
-
----
-
-## Mengapa Arsitek Harus Tahu Ini?
-Banyak bug muncul karena kita berasumsi sebuah nilai adalah apa yang kita pikirkan, bukan apa yang spesifikasi definisikan. Memahami 8 tipe dasar ini adalah langkah awal untuk melakukan *Debug* logis yang akurat.
-
----
-
-## Tantangan Kecil
-Berapa banyak tipe data di atas yang bersifat *Immutable*?
-(Jawabannya: **7 tipe** (semua kecuali Object). Sekali Anda membuat string `"abc"`, string tersebut tidak akan pernah bisa diubah isinya di memori; Anda hanya bisa membuat string baru).
-
----
 > [!IMPORTANT]
-> **Key Takeaway:** Setiap nilai di JavaScript punya "Rumah" (Type) di Clause 6.1. Jika Anda tahu rumahnya, Anda tahu aturannya.
+> **Identity vs Value**: Dua string `"abc"` dan `"abc"` dianggap sama karena nilainya sama. Dua object `{}` dan `{}` dianggap berbeda karena mereka memiliki identitas internal yang berbeda di memori engine.
+
+---
+*Lihat Lab: [Identifikasi Tipe](./examples/type_id.js)*  
+*Kembali ke [BK-01](../README.md)*

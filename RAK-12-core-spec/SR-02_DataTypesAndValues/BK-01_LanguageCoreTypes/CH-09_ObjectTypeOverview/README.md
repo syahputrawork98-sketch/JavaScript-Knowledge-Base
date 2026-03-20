@@ -1,41 +1,28 @@
-# CH-09: The Object Type Overview (The Processed Machine)
+# CH-09: Object Type Overview
 
-> **"Primitif adalah bahan baku mentah, tapi `Object` adalah 'Mesin Pengolah' (The Processed Machine). Ini adalah struktur kompleks yang memiliki identitas, perilaku, dan kemampuan untuk menyimpan serta memanipulasi energi di dalam Hub."**
+*Pemetaan ECMA-262: Clause 6.1.7*
 
-*Pemetaan ECMA-262: Clause 6.1.7 (The Object Type)*
+Tipe **Object** adalah kumpulan properti yang dinamis. Properti adalah pemetaan dari sebuah Key (String atau Symbol) ke sebuah Property Descriptor.
 
-## 1. Mental Model: "The Processed Machine"
+## 🏗️ Object Composition
 
-Jika String adalah pita pesan, maka Object adalah **Unit Komputasi** yang memiliki:
-- **Properti (Kabel/Pipa)**: Tempat menyimpan data atau referensi ke unit lain.
-- **Metode (Tombol Operasi)**: Fungsi yang menentukan apa yang bisa dilakukan mesin tersebut.
-
----
-
-## 2. Identitas vs Nilai
-
-Tidak seperti Primitif, dua Object tidak pernah dianggap sama meskipun isinya identik.
-```javascript
-const unitA = { id: 1 };
-const unitB = { id: 1 };
-
-console.log(unitA === unitB); // false
-// Karena identitas fisik (referensi memori) mereka berbeda di Grid.
+```mermaid
+graph TD
+    Obj[Object Instance] --> P[Properties: Key -> Descriptor]
+    Obj --> S[Internal Slots: [[SlotName]]]
+    Obj --> M[Internal Methods: [[MethodName]]]
+    
+    subgraph "Example Internal"
+        S --> S1["[[Prototype]]"]
+        S --> S2["[[Extensible]]"]
+    end
 ```
 
----
-
-## 3. Struktur Internal: Slots & Methods
-
-Di level spesifikasi, setiap Object memiliki "Slot Internal" (`[[InternalSlot]]`) yang tidak bisa diakses langsung oleh kode JavaScript Anda, tapi menentukan bagaimana mesin tersebut bekerja (misalnya `[[Prototype]]`).
-
----
-
-## Arsitek Mindset: Manajemen Referensi
-
-Sebagai arsitek Hub:
-- Sadarilah bahwa saat Anda memindahkan Object antar unit, Anda hanya memindahkan "Alamat" (*Reference*) mesin tersebut, bukan mesin fisiknya. Mengubah mesin di satu tempat akan mengubahnya bagi semua orang yang memegang alamat tersebut.
-- Gunakan Object untuk mengelompokkan data yang saling berhubungan (State) agar Hub Anda tetap terorganisir.
+## 🔍 Karakteristik Objektif
+1. **Identity**: Setiap objek baru yang dibuat (`{}`) memiliki identitas unik di memori, meskipun isinya sama.
+2. **Mutable**: Anda bisa menambah, mengubah, atau menghapus properti kapan saja (kecuali jika dibekukan).
+3. **Internal Methods**: Setiap objek memiliki serangkaian "instruksi rahasia" (seperti `[[Get]]`, `[[Set]]`, `[[Delete]]`) yang menentukan bagaimana ia bereaksi terhadap operasi JS.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+*Lihat Lab: [Eksperimen Identitas Objek](./examples/object_identity.js)*  
+*Kembali ke [BK-01](../README.md)*

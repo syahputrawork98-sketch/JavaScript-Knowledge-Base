@@ -1,40 +1,26 @@
-# CH-10: Environment Records
+# CH-10: Environment Records (The Variable Ledger)
 
-Di mana sebenarnya JavaScript menyimpan variabel Anda? Jawabannya bukan di "Awan", tapi di dalam **Environment Record** (Clause 6.2.7).
+*Pemetaan ECMA-262: Clause 9.1*
 
-## Mental Model: "Lemari Kabinet Variabel"
-Bayangkan setiap kali Anda masuk ke sebuah fungsi atau blok kode, mesin JS menyediakan sebuah "Lemari Kabinet" baru.
-- Setiap laci di lemari tersebut diberi label nama variabel Anda.
-- Isinya adalah nilai atau referensi variabel tersebut.
-- Lemari ini juga bisa punya "Kabel" yang terhubung ke lemari di luarnya (Parent Scope).
+**Environment Record** adalah tipe data spesifikasi (abstraksi) yang digunakan untuk mendefinisikan asosiasi dari *Identifier* ke variabel dan fungsi berdasarkan struktur leksikal kode.
 
----
+## 🏗️ Scope Ledger Hierarchy
 
-## 1. Peran Environment Record
-Environment Record adalah mekanisme spesifikasi untuk melakukan **Binding** (mengikat nama variabel ke nilainya). Ini adalah fondasi dari sistem **Scope** di JavaScript.
+```mermaid
+graph TD
+    Global[Global Env Record] --> Outer[Outer Env Record]
+    Outer --> Local[Local/Function Env Record]
+    
+    Local -- "Search for 'x'" --> Local
+    Local -- "Not found" --> Outer
+    Outer -- "Not found" --> Global
+```
 
-## 2. Jenis-Jenis Environment Record
-Ternyata tidak semua "Lemari" itu sama:
-- **Declarative Environment Record:** Digunakan untuk fungsi, blok `{...}`, dan `catch`. Menyimpan `let, const, class`.
-- **Object Environment Record:** Digunakan untuk Global Scope (yang terikat ke `window` atau `globalThis`) dan pernyataan `with`.
-- **Function Environment Record:** Variasi khusus untuk fungsi yang menangani `this`, `super`, dan `new.target`.
-- **Global Environment Record:** Gabungan antara objek global dan deklarasi tingkat atas.
-
-## 3. Komponen Penting
-- **[[OuterEnv]]**: Referensi ke environment di luarnya (Inilah yang menciptakan *Scope Chain*).
-- **Immutable Bindings**: Digunakan untuk `const` (Laci yang dikunci setelah diisi).
+## 🔍 Komponen Utama
+- **Declarative Environment Record**: Menyimpan binding variabel (`let`, `const`, `function`).
+- **Object Environment Record**: Digunakan untuk binding global (mentransfer properti `window` atau `global` menjadi variabel).
+- **Function Environment Record**: Khusus untuk fungsi, menangani `this` dan `super`.
 
 ---
-
-## Mengapa Arsitek Harus Tahu Ini?
-Memahami Environment Record menghapus keajaiban di balik **Closure**. Closure hanyalah sebuah fungsi yang membawa "Kabel" (`[[OuterEnv]]`) ke lemari variabel tempat ia diciptakan, sehingga ia tetap bisa membuka laci-laci di lemari tersebut meskipun fungsi luarnya sudah selesai dijalankan.
-
----
-
-## Tantangan Kecil
-Kapan sebuah Environment Record dihancurkan?
-(Jawabannya: Secara teoretis saat tidak ada lagi yang membutuhkannya. Jika ada fungsi (Closure) yang masih memegang referensi ke environment tersebut, maka *Garbage Collector* tidak akan menghancurkannya).
-
----
-> [!IMPORTANT]
-> **Key Takeaway:** Variabel Anda tidak melayang bebas. Mereka dipenjara dengan rapi di dalam Environment Record yang terstruktur dan hierarkis.
+*Lihat Lab: [Buku Log Scope](./examples/scope_log.js)*  
+*Kembali ke [BK-03](../README.md)*

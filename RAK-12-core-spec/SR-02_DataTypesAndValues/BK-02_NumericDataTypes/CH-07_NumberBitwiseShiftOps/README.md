@@ -1,47 +1,26 @@
-# CH-07: Bitwise Shift (The Bit Shunter)
+# CH-07: Number Bitwise Shift Operators
 
-> **"Sinyal biner terkadang perlu digeser posisinya untuk mempercepat transmisi atau pembagian data secara cepat. `leftShift`, `signedRightShift`, dan `unsignedRightShift` adalah 'Bit Shunter' (The Bit Shunter) — mesin yang memindahkan bit-bit data ke kiri atau ke kanan di dalam register Hub."**
+*Pemetaan ECMA-262: Clause 6.1.6.1.10 - 6.1.6.1.12*
 
-*Pemetaan ECMA-262: Clause 6.1.6.1.9 s/d 6.1.6.1.11*
+Meskipun Number adalah 64-bit float, semua operasi bitwise di JavaScript memperlakukan operand-nya sebagai integer 32-bit bertanda (signed) atau tidak bertanda (unsigned).
 
-## 1. Mental Model: "The Bit Shunter"
+## 🏗️ 32-bit Internal Conversion
 
-Bayangkan sederet gerbong kereta (bit):
-- **Left Shift (<<)**: Menggeser gerbong ke kiri dan memasukkan gerbong kosong (0) di belakang. Ini adalah cara tercepat untuk mengalikan tenaga dengan $2^n$.
-- **Signed Right Shift (>>)**: Menggeser ke kanan sambil tetap menjaga warna gerbong pertama (tanda negatif/positif).
-- **Unsigned Right Shift (>>>)**: Menggeser ke kanan dan selalu memasukkan gerbong kosong (0), mengabaikan tanda aslinya.
-
----
-
-## 2. Aturan Jalur 32-Bit
-
-Semua operasi shunting ini memaksa Number masuk ke register **32-bit**.
-- **Left Shift**: `5 << 1` -> `10`.
-- **Unsigned Shift**: Sangat berguna untuk memastikan sebuah sinyal selalu dianggap sebagai angka positif di Hub.
-
----
-
-## 3. Praktik Lapangan (Lab)
-
-```javascript
-console.log("--- Mengetes Bit Shunter ---");
-
-// 1. Multiply by power of 2
-console.log(`5 << 2 = ${5 << 2}`); // 5 * 2^2 = 20
-
-// 2. Sign Awareness
-console.log(`-128 >> 1 = ${-128 >> 1}`);   // -64
-console.log(`-128 >>> 1 = ${-128 >>> 1}`); // 2147483584 (Huge positive!)
+```mermaid
+graph LR
+    N[Number 64-bit] -->|ToInt32| I[Integer 32-bit]
+    I -->|Shift| R[Result 32-bit]
+    R -->|Back to| RN[Number 64-bit]
 ```
 
+## 🔍 Jenis Pergeseran
+1. **Left Shift (`<<`)**: Menggeser bit ke kiri dan mengisi kanan dengan `0`.
+2. **Right Shift (`>>`)**: Menggeser ke kanan dan mempertahankan bit tanda (sign-bit).
+3. **Unsigned Right Shift (`>>>`)**: Menggeser ke kanan dan mengisi kiri dengan `0` (Hasil selalu positif).
+
+> [!WARNING]
+> **Infinity & NaN**: Operasi bitwise pada `Infinity` atau `NaN` akan selalu menganggap nilai tersebut sebagai `0` setelah konversi `ToInt32`.
+
 ---
-
-## Arsitek Mindset: Kecepatan vs Tanda
-
-Sebagai arsitek Hub:
-- Gunakan `>>` jika Anda butuh pembagian cepat dengan angka positif/negatif yang tetap mempertahankan tandanya.
-- Gunakan `>>>` hanya saat Anda berurusan dengan data biner murni (seperti warna pixel atau hash) di mana Anda tidak peduli dengan tanda negatif.
-- Ingat: Shifting lebih dari 31 bit akan menghasilkan perilaku berputar (modulo 32) di Hub.
-
----
-*Status: [status.md](../../../docs/status.md)*
+*Lihat Lab: [Mekanika Shifting](./examples/shift_mechanics.js)*  
+*Kembali ke [BK-02](../README.md)*

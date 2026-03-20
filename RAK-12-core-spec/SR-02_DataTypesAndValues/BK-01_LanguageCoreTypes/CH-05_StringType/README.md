@@ -1,44 +1,32 @@
-# CH-05: The String Type (The Pulse Sequence)
+# CH-05: The String Type
 
-> **"Informasi di Grid tidak hanya berupa angka mentah, tapi juga instruksi tekstual. `String` adalah 'Urutan Pulsa' (The Pulse Sequence) — serangkaian kode biner 16-bit yang membentuk pesan komunikasi antar unit Hub."**
+*Pemetaan ECMA-262: Clause 6.1.4*
 
-*Pemetaan ECMA-262: Clause 6.1.4 (The String Type)*
+Tipe **String** adalah urutan elemen integer 16-bit tanpa tanda (unsigned) yang mewakili unit kode UTF-16.
 
-## 1. Mental Model: "The Pulse Sequence"
+## 🏗️ UTF-16 Memory Mapping
 
-Bayangkan sebuah pita printer yang mengeluarkan urutan karakter satu demi satu.
-- Setiap karakter diwakili oleh nilai 16-bit tak bertanda (*Unsigned 16-bit Integer*).
-- **Immutability (Prasasti Baja)**: Sekali pesan dicetak di pita, pesannya tidak bisa diubah sebagian. Jika Anda ingin mengubah satu huruf, Anda harus mencetak pita baru dari awal.
-
----
-
-## 2. Struktur Spec: UTF-16 Code Units
-
-JavaScript menggunakan encoding UTF-16.
-- Karakter standar (seperti 'A') menggunakan **1 Code Unit**.
-- Karakter kompleks (seperti Emoji 🚀) menggunakan **2 Code Units** (Surrogate Pairs).
-- Ini menjelaskan mengapa ` "🚀".length ` memberikan hasil **2**, meskipun hanya satu gambar yang terlihat.
-
----
-
-## 3. Praktik Lapangan (Lab)
-
-```javascript
-const logMsg = "SECTOR_ALPHA_ACTIVE";
-console.log(logMsg[0]); // "S" (Membaca pulsa pertama)
-
-// Percobaan Mutasi (Gagal)
-logMsg[0] = "B"; 
-console.log(logMsg); // Tetap "SECTOR_...", karena String adalah Primitif Immutable.
+```mermaid
+graph LR
+    subgraph "BMP (Common)"
+        C1["'A' (0x0041)"]
+    end
+    subgraph "Supplementary (Surrogates)"
+        C2["High (0xD83D)"] --> C3["Low (0xDE80)"]
+    end
+    
+    style C2 fill:#e67e22,stroke:#333
+    style C3 fill:#e67e22,stroke:#333
 ```
 
+## 🔍 Karakteristik Unit Kode
+- **Length**: Properti `.length` menghitung jumlah unit 16-bit, bukan jumlah karakter visual.
+- **Empty String**: String dengan panjang 0.
+- **Immutability**: Sekali dibuat, isi string tidak bisa diubah. Operasi seperti `.toUpperCase()` menghasilkan string baru di memori.
+
+> [!IMPORTANT]
+> **Surrogate Pairs**: Untuk karakter di atas `0xFFFF` (seperti kebanyakan emoji), ECMAScript menggunakan dua unit kode. Inilah alasan mengapa `"🚀".length` adalah `2`. Untuk menghitung karakter visual secara akurat, gunakan iterator: `[..."🚀"].length`.
+
 ---
-
-## Arsitek Mindset: Efisiensi Pesan
-
-Sebagai arsitek Hub:
-- Gunakan **Template Literals** (backticks) untuk menggabungkan banyak sinyal teks agar kode lebih mudah diaudit oleh teknisi lain.
-- Waspadalah saat melakukan manipulasi string di dalam loop besar; karena string bersifat *immutable*, Hub akan terus-menerus membuat objek memori baru yang bisa memperlambat performa sistem.
-
----
-*Status: [status.md](../../../docs/status.md)*
+*Lihat Lab: [Eksperimen Encoding](./examples/string_encoding.js)*  
+*Kembali ke [BK-01](../README.md)*

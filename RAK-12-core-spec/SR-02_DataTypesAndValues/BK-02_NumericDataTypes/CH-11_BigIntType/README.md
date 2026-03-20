@@ -1,43 +1,32 @@
-# CH-11: The BigInt Type (The Heavy Industrial Load)
+# CH-11: The BigInt Type
 
-> **"Saat Hub harus menangani beban energi raksasa yang melampaui batas aman Number, kita membutuhkan `BigInt`. Ini adalah 'Beban Industri Berat' (The Heavy Industrial Load) — raksasa yang mampu menampung angka bulat berapapun besarnya tanpa pernah kehilangan satu bit pun presisi."**
+*Pemetaan ECMA-262: Clause 6.1.6.2*
 
-*Pemetaan ECMA-262: Clause 6.1.6.2 (The BigInt Type)*
+Tipe **BigInt** adalah bilangan bulat dengan presisi arbitrer. Tidak seperti Number, BigInt dapat menyimpan angka bulat sebesar apa pun selama memori sistem mencukupi.
 
-## 1. Mental Model: "The Heavy Industrial Load"
+## 🏗️ Arbitrary Precision Storage
 
-Jika `Number` adalah gelas ukur standar, maka `BigInt` adalah **Tangki Raksasa** yang bisa diperluas secara dinamis.
-- Tidak ada batasan 64-bit yang kaku untuk bagian integer.
-- Selama memori Hub tersedia, `BigInt` bisa menampung angka triliunan milaran tanpa pembulatan.
-
----
-
-## 2. Aturan Operasional Hub
-
-- **Suffix `n`**: Ditandai dengan karakter `n` di akhir angka (misal: `100n`).
-- **No Floating Point**: `BigInt` hanya untuk angka bulat (*Integer*). Tidak ada `1.5n`.
-- **Isolasi Jalur**: Anda tidak bisa mencampur `Number` dan `BigInt` dalam satu perhitungan operasi matematika secara langsung (`5 + 10n` akan menyebabkan `TypeError`). Anda harus mengonversi salah satunya secara eksplisit.
-
----
-
-## 3. Praktik Lapangan (Lab)
-
-```javascript
-const maxSafe = Number.MAX_SAFE_INTEGER; // 9007199254740991
-console.log(maxSafe + 1 === maxSafe + 2); // true (KAPASITAS NUMBER JEBOL!)
-
-const bigLoad = 9007199254740991n;
-console.log(bigLoad + 1n === bigLoad + 2n); // false (BIGINT TETAP AKURAT)
+```mermaid
+graph TD
+    N[Number: Fixed 64-bit]
+    B[BigInt: Dynamic Slots]
+    
+    B --> S1[Slot 1: 32-bit]
+    B --> S2[Slot 2: 32-bit]
+    B --> S3[...]
+    
+    style N fill:#e74c3c,color:#fff
+    style B fill:#2ecc71,color:#fff
 ```
 
+## 🔍 Perbedaan Kritis dengan Number
+- **Tidak ada Desimal**: BigInt hanya untuk angka bulat. `5n / 2n` akan menghasilkan `2n` (pembulatan ke nol).
+- **Tidak ada NaN/Infinity**: Operasi yang ilegal (seperti pembagian dengan nol) akan melempar `RangeError`, bukan menghasilkan `Infinity`.
+- **Identity**: BigInt bukan objek, ia adalah tipe primitif.
+
+> [!IMPORTANT]
+> **Performance**: BigInt jauh lebih lambat daripada Number karena engine harus melakukan simulasi aritmatika secara software, bukan langsung lewat hardware (FPU/ALU). Gunakan hanya saat presisi mutlak diperlukan.
+
 ---
-
-## Arsitek Mindset: Kapan Menggunakan BigInt
-
-Sebagai arsitek Hub:
-- Gunakan `BigInt` untuk ID database yang sangat besar, timestamp presisi nanodetik, atau perhitungan kriptografi Hub.
-- Hindari `BigInt` untuk perhitungan grafik atau fisika yang butuh desimal (gunakan `Number`).
-- Sadarilah bahwa `BigInt` lebih lambat diproses oleh Hub dibandingkan `Number` karena ukurannya yang dinamis.
-
----
-*Status: [status.md](../../../docs/status.md)*
+*Lihat Lab: [Kekuatan BigInt](./examples/bigint_power.js)*  
+*Kembali ke [BK-02](../README.md)*

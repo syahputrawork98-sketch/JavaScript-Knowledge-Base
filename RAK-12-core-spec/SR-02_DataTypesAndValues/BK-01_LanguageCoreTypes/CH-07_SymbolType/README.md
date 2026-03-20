@@ -1,45 +1,31 @@
-# CH-07: The Symbol Type (The Exclusive Tag)
+# CH-07: The Symbol Type
 
-> **"Di dalam Grid yang padat, tabrakan data (*collision*) adalah ancaman nyata. `Symbol` adalah 'Tag Eksklusif' (The Exclusive Tag) — pengenal unik yang dijamin tidak akan pernah tertukar dengan pengenal lain, bahkan jika namanya terdengar sama."**
+*Pemetaan ECMA-262: Clause 6.1.5*
 
-*Pemetaan ECMA-262: Clause 6.1.5 (The Symbol Type)*
+Tipe **Symbol** adalah tipe data primitif yang nilainya bersifat unik dan tidak dapat diubah (immutable). Simbol sering digunakan sebagai kunci properti objek yang tidak akan bertabrakan dengan kunci string lainnya.
 
-## 1. Mental Model: "The Exclusive Tag"
+## 🏗️ Unique Atoms
 
-Bayangkan setiap unit di Hub diberikan stempel laser unik saat diproduksi.
-- Meskipun ada dua unit bernama "BATERAI_1", stempel lasernya berbeda secara fisik di level molekuler.
-- Di Hub, `Symbol()` menciptakan identifier yang **benar-benar unik**. Tidak ada dua Symbol yang sama, kecuali jika Anda menggunakan Global Registry.
-
----
-
-## 2. Kegunaan di Grid: Hidden Keys
-
-Symbol sering digunakan untuk menambahkan properti ke sebuah Object tanpa takut properti tersebut ditimpa oleh skrip lain yang menggunakan nama string yang sama.
-
-```javascript
-const PRIVATE_KEY = Symbol("access_code");
-const hub = {
-  [PRIVATE_KEY]: "0x55AA"
-};
-
-console.log(hub[PRIVATE_KEY]); // "0x55AA"
-// Teknisi luar tidak bisa menebak key ini hanya dengan loop string biasa.
+```mermaid
+graph TD
+    S1[Symbol 'A']
+    S2[Symbol 'A']
+    S3[Symbol 'B']
+    
+    S1 ---X|Not Equal| S2
+    S2 ---X|Not Equal| S3
+    
+    style S1 fill:#9b59b6,stroke:#333,color:#fff
+    style S2 fill:#9b59b6,stroke:#333,color:#fff
 ```
 
----
+## 🔍 Mengapa Symbol?
+1. **Uniqueness**: Menjamin tidak ada tabrakan nama properti jika Anda menggabungkan dua library yang berbeda.
+2. **Privacy (Subtle)**: Properti bersimbol tidak muncul dalam pengulangan `for...in` atau `Object.keys()`, memberikan tingkat "kerahasiaan" tertentu.
 
-## 3. Well-known Symbols (Protokol Standar)
-
-Sistem Hub memiliki set "Tag Standar" yang sudah dikenal secara universal, seperti `Symbol.iterator`. Jika sebuah unit memiliki tag ini, unit tersebut secara otomatis bisa dipindahkan melalui sistem `for...of` (Iterasi).
-
----
-
-## Arsitek Mindset: Keamanan Properti
-
-Sebagai arsitek Hub:
-- Gunakan Symbol jika Anda sedang membangun library atau modul inti Hub yang akan digunakan oleh banyak teknisi lain, untuk mencegah mereka secara tidak sengaja menimpa variabel internal Anda.
-- Ingat: Symbol bukan untuk keamanan kriptografi, tapi untuk **menghindari tabrakan nama** (*name collision*).
-- Jangan gunakan `new Symbol()`; ini adalah Primitif, panggil langsung sebagai fungsi `Symbol()`.
+> [!NOTE]
+> **Internalist Insight**: Dalam spesifikasi, Symbol didefinisikan sebagai "Unique identifier". Mereka tidak memiliki representasi literal (tidak bisa ditulis langsung seperti `"string"`). Anda harus selalu memanggil fungsi `Symbol()`.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+*Lihat Lab: [Eksperimen Uniqueness](./examples/symbol_uniqueness.js)*  
+*Kembali ke [BK-01](../README.md)*

@@ -1,49 +1,30 @@
-# CH-01: Numeric Types Overview (The Load Distribution)
+# CH-01: Numeric Types Overview
 
-> **"Di dalam Grid, energi diukur dalam dua skala utama. `Number` untuk arus variabel yang cepat, dan `BigInt` untuk beban industri yang sangat berat. Memahami 'Distribusi Beban' (The Load Distribution) ini adalah kunci untuk menjaga stabilitas Hub."**
+*Pemetaan ECMA-262: Clause 6.1.6*
 
-*Pemetaan ECMA-262: Clause 6.1.6 (Numeric Types Overview)*
+ECMAScript menyediakan dua tipe data numerik yang berbeda secara fundamental untuk menangani kebutuhan komputasi: **Number** dan **BigInt**.
 
-## 1. Mental Model: "The Load Distribution"
+## 🏗️ Numeric Duality
 
-Bayangkan Hub memiliki dua jenis kabel:
-- **Kabel Tembaga (Number)**: Sangat cepat, fleksibel, bisa menangani desimal, tapi akan meleleh (kehilangan presisi) jika beban terlalu berat.
-- **Kabel Baja (BigInt)**: Sangat kuat, tidak pernah meleset satu bit pun, tapi kaku (tidak bisa desimal) dan sedikit lebih lambat dipasang.
-
----
-
-## 2. Kenapa Ada Dua?
-
-Secara historis, JavaScript hanya memiliki `Number`. Namun seiring berkembangnya Grid menjadi ekosistem raksasa, Hub menghadapi masalah:
-- **Presisi**: Angka di atas $2^{53}-1$ mulai tidak akurat.
-- **Kebutuhan Baru**: ID database 64-bit dan kriptografi membutuhkan angka bulat yang benar-benar tepat.
-
-Oleh karena itu, `BigInt` ditambahkan sebagai jalur "Tugas Berat" yang teruji.
-
----
-
-## 3. Praktik Lapangan (Lab)
-
-```javascript
-// Membandingkan dua skala
-const lightLoad = 42;    // Number
-const heavyLoad = 42n;   // BigInt
-
-console.log(typeof lightLoad); // "number"
-console.log(typeof heavyLoad); // "bigint"
-
-// Peringatan: Jalur tidak boleh dicampur tanpa konversi!
-// console.log(lightLoad + heavyLoad); // TypeError
+```mermaid
+graph LR
+    Numeric[Numeric Values] --> N[Number Type]
+    Numeric --> B[BigInt Type]
+    
+    N --> N1["64-bit IEEE 754 (Float)"]
+    N --> N2["Includes NaN, Infinity"]
+    
+    B --> B1["Arbitrary-precision Integer"]
+    B --> B2["No NaN / Infinity"]
 ```
 
----
+## 🔍 Karakteristik Utama
+- **Number**: Digunakan untuk hampir semua perhitungan matematika standar. Memiliki presisi sekitar 15-17 angka desimal.
+- **BigInt**: Digunakan saat Anda butuh presisi mutlak pada angka bulat yang sangat besar (di atas `2^53 - 1`).
 
-## Arsitek Mindset: Memilih Jalur
-
-Sebagai arsitek Hub:
-- Gunakan `Number` untuk 99% kasus: koordinat UI, perhitungan harga (jika dibulatkan ke sen), dan logika loop.
-- Gunakan `BigInt` hanya saat Anda menyentuh angka yang berisiko melampaui `16 digit`.
-- Selalu beri label `n` pada BigInt agar teknisi lain tidak bingung dengan tipe data yang masuk ke mesin mereka.
+> [!CAUTION]
+> **Interoperability**: Anda tidak bisa mencampur `Number` dan `BigInt` dalam satu operasi matematika secara langsung (`1 + 1n` akan melempar `TypeError`). Anda harus melakukan konversi eksplisit.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+*Lihat Lab: [Showdown Numerik](./examples/numeric_showdown.js)*  
+*Kembali ke [BK-02](../README.md)*

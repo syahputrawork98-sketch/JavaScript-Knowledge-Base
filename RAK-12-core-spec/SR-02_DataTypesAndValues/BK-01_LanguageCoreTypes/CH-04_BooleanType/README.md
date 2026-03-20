@@ -1,45 +1,35 @@
-# CH-04: The Boolean Type (The Power Switch)
+# CH-04: The Boolean Type
 
-> **"Dunia Grid dibangun di atas binari. `Boolean` adalah 'Sakelar Daya' (The Power Switch) yang menentukan apakah energi mengalir (`true`) atau terhenti (`false`). Tanpa sakelar ini, tidak ada logika pencabangan di Hub."**
+*Pemetaan ECMA-262: Clause 6.1.3*
 
-*Pemetaan ECMA-262: Clause 6.1.3 (The Boolean Type)*
+Tipe **Boolean** mewakili entitas logika yang memiliki dua nilai: `true` dan `false`. Ini adalah pondasi dari semua kontrol alur (percabangan) dalam pemrograman.
 
-## 1. Mental Model: "The Power Switch"
+## 🏗️ Binary Toggle
 
-Logika Hub hanya mengenal dua posisi:
-- **`true`**: Kontak terhubung, lampu indikator menyala, data mengalir melalui gerbang logika.
-- **`false`**: Kontak terputus, lampu indikator mati, aliran data dialihkan ke jalur alternatif (*else*).
-
----
-
-## 2. ToBoolean (Kebenaran Tersembunyi)
-
-Banyak data lain (String, Number, dll) bisa diubah menjadi sinyal sakelar melalui operasi internal `ToBoolean`.
-- **Falsy (Sakelar Mati)**: `undefined`, `null`, `false`, `+0`, `-0`, `NaN`, `""` (String kosong).
-- **Truthy (Sakelar Nyala)**: Segala sesuatu yang lain, termasuk `{}` dan `[]`.
-
----
-
-## 3. Praktik Lapangan (Lab)
-
-```javascript
-const gridIsActive = true;
-
-if (gridIsActive) {
-  console.log("Distribusi Energi Berjalan.");
-} else {
-  console.log("Hub Shutdown.");
-}
+```mermaid
+graph LR
+    Bool[Boolean Value] --> T[true]
+    Bool --> F[false]
+    
+    style T fill:#2ecc71,stroke:#333
+    style F fill:#e74c3c,stroke:#333
 ```
 
+## 🔍 Logic & Control
+Dalam spesifikasi, nilai Boolean digunakan dalam operasi seperti `ToBoolean()` yang mengonversi tipe lain menjadi logika benar/salah.
+
+### Falsy Values (The "Off" States):
+Dalam JavaScript, nilai-nilai berikut dianggap **false** saat dikonversi:
+- `false`
+- `undefined`
+- `null`
+- `0`, `-0`, `NaN` (Numbers)
+- `0n` (BigInt)
+- `""` (Empty String)
+
+> [!IMPORTANT]
+> **Wrapper Alert**: Jangan gunakan `new Boolean(false)`. Hasilnya adalah sebuah **Object**, yang dalam JavaScript selalu dianggap *truthy*, bahkan jika nilai internalnya adalah false!
+
 ---
-
-## Arsitek Mindset: Logika yang Bersih
-
-Sebagai arsitek Hub:
-- Hindari membandingkan boolean secara eksplisit (`if (x === true)`). Cukup gunakan `if (x)`.
-- Gunakan operator `!!` (double negasi) untuk memaksa nilai apapun menjadi sinyal sakelar murni (`true` atau `false`).
-- Berhati-hatilah dengan `0` dan `""`; meskipun ada isinya secara fisik, di mata sakelar Boolean, keduanya dianggap sebagai "Sinyal Mati".
-
----
-*Status: [status.md](../../../docs/status.md)*
+*Lihat Lab: [Eksperimen Boolean](./examples/binary_logic.js)*  
+*Kembali ke [BK-01](../README.md)*

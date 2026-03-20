@@ -1,39 +1,25 @@
-# CH-14: Mathematical Values (The Abstract Blueprints)
+# CH-14: Mathematical Values (The Abstraction)
 
-> **"Di dalam spesifikasi, ada perbedaan antara angka yang dijalankan mesin dan angka yang ada di pikiran Arsitek. `Mathematical Values` adalah 'Cetak Biru Abstrak' (The Abstract Blueprints) — nilai matematika murni yang tak terbatas sebelum dipaksa masuk ke dalam keterbatasan fisik memori komputer."**
+*Pemetaan ECMA-262: Clause 6.1.6.3*
 
-*Pemetaan ECMA-262: Clause 6.1.6 (Mathematical Values)*
+Dalam spesifikasi, **Mathematical Values (MV)** adalah nilai-nilai matematika ideal yang digunakan untuk mendefinisikan perilaku operasi tanpa terikat pada limitasi hardware.
 
-## 1. Mental Model: "The Abstract Blueprints"
+## 🏗️ The Ideal vs The Real
 
-Bayangkan Anda sedang merancang sebuah mesin Hub di atas kertas. Anda bisa menulis angka $\pi$ atau fraction $1/3$ dengan presisi tak terhingga. Itu adalah **Mathematical Value (MV)**.
-Namun, saat Anda mulai membangun mesin fisiknya, Anda harus membulatkan angka tersebut agar muat di dalam display digital. Itu adalah **Number** atau **BigInt**.
+```mermaid
+graph TD
+    MV[Mathematical Value: ∞ Precision] -->|IEEE 754 Rounding| N[Number Type]
+    MV -->|Truncation| B[BigInt Type]
+    
+    style MV fill:#ecf0f1,stroke-dasharray: 5 5
+```
 
----
+## 🔍 Mengapa kita butuh MV?
+Spesifikasi butuh cara untuk menjelaskan langkah-langkah perhitungan secara logis sebelum angka tersebut "dipaksa" masuk ke dalam format 64-bit yang terbatas. MV memungkinkan definisi operasi yang konsisten di seluruh mesin berbeda.
 
-## 2. Peran MV dalam Spesifikasi
-
-Spesifikasi ECMA-262 menggunakan MV untuk menjelaskan **algoritma** secara presisi sebelum dikonversi menjadi tipe data JavaScript.
-- Saat spec menyebut *"The result is the sum of x and y"*, itu seringkali merujuk pada penjumlahan matematika murni (MV).
-- Setelah itu, baru spec akan mengatakan *"Return the Number value for the MV result"*, yang berarti melakukan pembulatan sesuai aturan IEEE 754.
-
----
-
-## 3. Contoh: Pergeseran Bit
-
-Dalam operasi bitwise, spesifikasi akan:
-1.  Mengonversi `Number` ke **Mathematical Value**.
-2.  Melakukan operasi matematika (seperti modulo $2^{32}$).
-3.  Mengonversi kembali hasilnya ke `Number` (32-bit Integer).
+> [!NOTE]
+> **Internalist Hint**: Saat Anda membaca spek dan melihat kalimat *"The mathematical value of..."*, itu berarti spek sedang berbicara tentang angka murni secara teori, bukan tentang bit yang ada di memori.
 
 ---
-
-## Arsitek Mindset: Memahami Ketepatan
-
-Sebagai arsitek Hub:
-- Memahami konsep MV membantu Anda membaca spesifikasi dengan lebih jernih.
-- Sadarilah bahwa setiap kali Hub melakukan perhitungan, ada proses "Penyempitan" dari dunia matematika abstrak (MV) ke dunia fisik komputer (Types).
-- Kehilangan data (*Data Loss*) selalu terjadi saat konversi dari MV ke `Number` jika nilainya terlalu kompleks.
-
----
-*Status: [status.md](../../../docs/status.md)*
+*Lihat Lab: [Ideal vs Realitas](./examples/ideal_vs_real.js)*  
+*Kembali ke [BK-02](../README.md)*

@@ -17,10 +17,10 @@ Tujuan utama sub-rak ini adalah membekali Anda dengan kemampuan membaca dokument
 ## Koleksi Buku:
 | Kode | Judul Buku | Sumber Spec | Kapasitas |
 | :--- | :--- | :--- | :--- |
-| **BK-01** | [Spec Foundations](./BK-01_SpecAlgorithmConventions/README.md) | Clause 4.4 | 16 Bab |
+| **BK-01** | [Spec Foundations](./BK-01_SpecFoundations/README.md) | Clause 4.4 | 16 Bab |
 | **BK-02** | [Grammar Notation System](./BK-02_GrammarNotationSystem/README.md) | Clause 5.1 | 15 Bab |
-| **BK-03** | [Spec Algorithm Conventions](./BK-01_SpecAlgorithmConventions/README.md) | Clause 5.2 | 14 Bab |
-| **BK-04** | [Static Semantic Rules](./BK-01_StaticSemanticRules/README.md) | Global ES | 12 Bab |
+| **BK-03** | [Spec Algorithm Conventions](./BK-03_SpecAlgorithmConventions/README.md) | Clause 5.2 | 14 Bab |
+| **BK-04** | [Static Semantic Rules](./BK-04_StaticSemanticRules/README.md) | Global ES | 12 Bab |
 
 ---
 > [!IMPORTANT]
