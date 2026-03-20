@@ -1,5 +1,15 @@
 # CH-02: HasProperty (The Component Scanner)
 
+```mermaid
+graph TD
+    Input[HasProperty O, P] --> Check{Type Check}
+    Check -->|Not Object| Error[Assertion Fail]
+    Check -->|Object| Prot[Call O.[[HasProperty]](P)]
+    Prot --> Result[Return Result]
+```
+
+## 🔍 Mekanisme Operasional
+
 > **"Sebelum memasukkan daya ke sebuah pipa, teknisi harus memastikan pipa tersebut memang terpasang. `HasProperty` adalah 'Pemindai Komponen' (The Component Scanner) yang mendeteksi keberadaan slot properti, baik di permukaan mesin maupun di dalam desain prototipenya."**
 
 *Pemetaan ECMA-262: Clause 7.3.11 (HasProperty)*

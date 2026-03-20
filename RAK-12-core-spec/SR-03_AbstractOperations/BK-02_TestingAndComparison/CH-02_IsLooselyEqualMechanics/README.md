@@ -12,24 +12,26 @@ Bayangkan sebuah gerbang di Hub yang menerima dua pipa. Jika tipe cairannya berb
 
 ---
 
-## 2. Algoritma Sensor (Penyederhanaan Spec)
+## 🏗️ The Loose Decision Tree
+
+```mermaid
+graph TD
+    Input[Compare x and y] --> Type{Same Type?}
+    Type -->|Yes| Strict[Perform Strict Equality]
+    Type -->|No| NullCheck{Null or Undefined?}
+    NullCheck -->|Yes| True[Return true]
+    NullCheck -->|No| NumericComp{Number vs String?}
+    NumericComp -->|Yes| ToNum[Convert to Number and Retry]
+    NumericComp -->|No| ObjComp{Object vs Primitive?}
+    ObjComp -->|Yes| ToPrim[ToPrimitive and Retry]
+    ObjComp -->|No| False[Return false]
+```
+
+## 🔍 Mekanisme Operasional
 
 Saat `x == y` dipanggil:
 1.  Jika tipe sama -> Gunakan **Strict Equality**.
 2.  Jika `null == undefined` -> **true**.
-3.  Jika **Number vs String** -> Ubah String jadi Number, lalu bandingkan.
-4.  Jika **Boolean vs Anything** -> Ubah Boolean jadi Number, lalu bandingkan.
-5.  Jika **Object vs Primitive** -> Lakukan `ToPrimitive(Object)`, lalu bandingkan hasilnya.
-
----
-
-## 3. Decision Tree: Mengapa `[] == ![]` adalah `true`?
-
-Sebuah anomali Grid yang terkenal:
-1.  `![]` dievaluasi jadi `false`.
-2.  `[] == false`
-3.  Ubah boolean jadi Number: `[] == 0`.
-4.  Lakukan `ToPrimitive([])` -> `""` (String kosong).
 5.  `"" == 0`
 6.  Ubah string jadi Number: `0 == 0`.
 7.  **Hasil: true!**

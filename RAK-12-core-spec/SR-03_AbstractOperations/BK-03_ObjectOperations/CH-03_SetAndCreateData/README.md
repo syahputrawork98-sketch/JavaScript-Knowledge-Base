@@ -4,6 +4,14 @@
 
 *Pemetaan ECMA-262: Clause 7.3.4 & 7.3.5 (Set & CreateDataProperty)*
 
+## 🏗️ The Property Assignment Logic
+
+```mermaid
+graph TD
+    Input[Set O, P, V, Receiver] --> Internal[Call O.[[Set]](P, V, Receiver)]
+    Internal --> Success[Return Result]
+```
+
 ## 1. Mental Model: "The Flow Regulators"
 
 - **`Set(O, P, V)`**: Seperti mencoba menuangkan air ke pipa `P`. Jika pipa `P` di mesin `O` ternyata tersambung ke tangki cadangan di mesin Induk (`Prototype`), maka `Set` akan mencari tangki tersebut dan mengisinya (atau menciptakan tangki baru di `O` sendiri jika aturan `Shadowing` berlaku).

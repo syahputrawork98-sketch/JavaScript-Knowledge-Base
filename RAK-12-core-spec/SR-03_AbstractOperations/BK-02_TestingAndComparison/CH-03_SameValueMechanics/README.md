@@ -4,7 +4,22 @@
 
 *Pemetaan ECMA-262: Clause 7.2.10 & 7.2.11 (SameValue & SameValueZero)*
 
-## 1. Mental Model: "The Identity Scanner"
+## 🏗️ The SameValue Logic
+
+```mermaid
+graph TD
+    Input[Compare x and y] --> Type{Same Type?}
+    Type -->|No| False[Return false]
+    Type -->|Yes| NaNCheck{Both NaN?}
+    NaNCheck -->|Yes| True[Return true]
+    NaNCheck -->|No| ZeroCheck{Zero Comparison?}
+    ZeroCheck -->|Yes| SignCheck{Same Sign? +0 != -0}
+    ZeroCheck -->|No| Value[Strict Equality Result]
+    SignCheck -->|Yes| True
+    SignCheck -->|No| False
+```
+
+## 🔍 Mekanisme Operasional
 
 - **`SameValue`**: Digunakan oleh `Object.is()`. Sensor ini lebih teliti dari `===`. Ia bisa membedakan `+0` dan `-0`, serta mampu mendeteksi `NaN` secara akurat.
 - **`SameValueZero`**: Versi yang sedikit lebih longgar, digunakan secara internal oleh `Map` dan `Set` untuk menentukan kunci unik. Ia menganggap `+0` dan `-0` adalah sama agar tidak membingungkan sistem penyimpanan Hub.
