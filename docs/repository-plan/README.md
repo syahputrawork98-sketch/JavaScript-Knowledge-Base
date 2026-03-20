@@ -1,55 +1,49 @@
-# JavaScript Knowledge Base: 5-Rack Deconstruction Plan
+# JavaScript Knowledge Base: 6-Rack Universal Plan
 
-> **Status**: Universal Standard (5-Rack Architecture)
+> **Status**: Universal Standard (6-Rack Architecture)
 > **Last Updated**: 2026-03-20
 > **Blueprint Mirror**: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) & [ECMA-262](https://tc39.es/ecma262/)
 
-Rencana ini mendokumentasikan bagaimana **Knowledge Universe** didekonstruksi ke dalam 5 unit besar yang memisahkan antara penggunaan aplikasi (Application) dengan pemahaman internal (Architectural).
+Rencana ini menggunakan **6-Rack Universal Architecture** untuk mentransformasi dokumentasi teknis menjadi unit pelajaran yang manusiawi.
 
 ---
 
-## 🏗 Prinsip Mirroring & Spesialisasi
+## 🏗 Struktur 6-Rack Universal
 
-### 1. RAK-01-javascript (The Foundation / MDN Mirror)
-Seluruh taksonomi MDN dikonsolidasikan ke dalam satu Rak utama sebagai titik masuk (Entry Point) bagi praktisi.
+### 1. RAK-01-foundation (Entry Point)
+Seluruh taksonomi dasar MDN dikonsolidasikan di sini.
+- **Goal**: Membangun fondasi kuat bagi praktisi.
 
-| Sub-Rak (SR) | Sumber MDN (Mirror) | Deskripsi |
-| :--- | :--- | :--- |
-| **SR-01-get-started** | JS First Steps / Basics | Pengenalan dan instalasi. |
-| **SR-02-js-guide** | JavaScript Guide | Panduan naratif dari Pemula ke Mahir. |
-| **SR-03-built-ins** | Standard Built-in Objects | Referensi lengkap API (Array, Object, dll). |
-| **SR-04-expressions-operators** | Expressions & Operators | Logika evaluasi dan operator. |
-| **SR-05-statements-declarations** | Statements & Declarations | Control flow dan deklarasi variabel. |
-| **SR-06-functions** | Functions | Mekanika fungsi dan scope. |
-| **SR-07-classes** | Classes | Paradigma OOP dan Inheritance. |
-| **SR-08-iterators-generators** | Iterators & Generators | Protokol iterasi asinkron. |
-| **SR-09-regular-expressions** | Regular Expressions | Parsing teks dan pencarian pola. |
-| **SR-10-advanced** | Advanced Features | Metaprogramming (Proxy, Reflect). |
+### 2. RAK-02-evolution (History & Future)
+Mendokumentasikan evolusi bahasa, proposal TC39, dan fitur ESNext.
+- **Goal**: Memahami arah perkembangan bahasa.
 
----
+### 3. RAK-03-core-spec (The Internal Logic)
+Dekonstruksi total terhadap **ECMA-262**. Fokus pada algoritma Abstract Operations.
+- **Goal**: Kedalaman teknis tingkat tinggi (Spec-Rigor).
 
-### 2. RAK-02-evolution (The History & Future)
-Mendokumentasikan evolusi bahasa, proposal TC39, dan fitur ESNext yang akan datang.
+### 4. RAK-04-tooling (The Workshop)
+Eksplorasi ekosistem alat bantu: npm, ESLint, Prettier, Bundlers.
+- **Goal**: Penguasaan alur kerja profesional.
 
-### 3. RAK-03-core-spec (The Internal Logic / Spec-Rigor)
-Dekonstruksi total terhadap **ECMA-262**. Fokus pada algoritma Abstract Operations dan Internal Slots.
-- **Standards**: Wajib mengikuti 7-Point Advanced-Rack Standard.
+### 5. RAK-05-ecosystem (The Environments)
+Eksplorasi lingkungan eksekusi: **Node.js**, **Bun**, **Deno**, dan Web APIs.
+- **Goal**: Implementasi di berbagai runtime.
 
-### 4. RAK-04-runtimes (The Environments)
-Eksplorasi lingkungan eksekusi: **Node.js**, **Bun**, dan **Deno**. Fokus pada Web APIs dan Event Loop spesifik runtime.
-
-### 5. RAK-05-engines (The Machine Room)
-Deep dive ke dalam **V8 Engine** dan mesin JS lainnya. Fokus pada JIT Compilation, Memory Management, dan Optimization.
+### 6. RAK-06-specialization (The Machine Room)
+Deep dive ke dalam **V8 Engine** dan mekanika unik JS lainnya.
+- **Goal**: Optimasi dan pemahaman tingkat mesin.
 
 ---
 
-## 📜 Hierarki Kedalaman (The 4-Level Depth)
+## 📜 Hierarki Kedalaman (The 5-Level Depth)
 
-Untuk memastikan konsistensi di 5 bahasa (JS, TS, PY, RU, GO), setiap Rak mengikuti hierarki:
+Untuk memastikan konsistensi di seluruh Knowledge Universe, setiap Rak mengikuti hierarki:
 1. **RAK** (Domain)
 2. **SR** (Track)
 3. **BK** (Book)
 4. **CH** (Chapter)
+5. **Section** (README/Content)
 
 ---
-*Log Perubahan: Seluruh 14-Rak (lama) telah dikonsolidasikan ke dalam struktur ini pada 2026-03-20.*
+*Log Perubahan: Migrasi dari 5-Rack ke 6-Rack Universal pada 2026-03-20.*
