@@ -3,6 +3,10 @@
 **"Misi Perekat Web Statis"**
 *Target: Memahami konteks lahirnya JavaScript dalam waktu < 2 menit.*
 
+## 🔗 Source Hub
+- **Primary Source**: [MDN Web Docs - JavaScript History](https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript)
+- **Archive**: [Netscape Press Release (1995)](https://web.archive.org/web/20141026071413/http://wp.netscape.com/newsref/pr/newsrelease67.html)
+
 ## 1. Definisi & Konsep (The Logic)
 Pada era awal web (awal 1990-an), halaman web bersifat sepenuhnya statis. Setiap interaksi kecil mengharuskan pemuatan ulang halaman dari server. Netscape Communications menyadari perlunya sebuah "bahasa perekat" (glue language) untuk memberikan interaktivitas langsung di sisi klien.
 

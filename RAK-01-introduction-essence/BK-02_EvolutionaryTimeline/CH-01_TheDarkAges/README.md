@@ -3,6 +3,10 @@
 **"Era Perang Browser & Fragmentasi"**
 *Target: Memahami periode standarisasi dan fragmentasi awal JS dalam waktu < 2 menit.*
 
+## 🔗 Source Hub
+- **Standard Reference**: [ECMA-262 1st Edition (1997)](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)
+- **Historical Analysis**: [The First Browser War (Wikipedia)](https://en.wikipedia.org/wiki/Browser_wars#First_Browser_War)
+
 ## 1. Definisi & Konsep (The Logic)
 Tahun 1996 menandai lahirnya ECMAScript sebagai standar resmi. Namun, Microsoft merilis JScript (versi tiruan) untuk Internet Explorer, memicu "Perang Browser". JavaScript sering dianggap sebagai bahasa "mainan" karena performanya yang lambat dan keterbatasannya.
 

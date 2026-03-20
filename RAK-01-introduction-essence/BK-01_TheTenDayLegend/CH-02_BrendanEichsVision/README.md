@@ -3,6 +3,10 @@
 **"Sang Arsitek di Bawah Tekanan Ekstrem"**
 *Target: Memahami filosofi desain awal Brendan Eich dalam waktu < 2 menit.*
 
+## 🔗 Source Hub
+- **Primary Source**: [Brendan Eich's Blog - JavaScript at Ten](https://brendaneich.com/2005/05/javascript-at-ten/)
+- **Technical Reference**: [History of JavaScript (Wikipedia)](https://en.wikipedia.org/wiki/JavaScript#History)
+
 ## 1. Definisi & Konsep (The Logic)
 Brendan Eich direkrut oleh Netscape dengan misi mustahil: menciptakan bahasa baru dalam waktu 10 hari. Hasilnya adalah sebuah bahasa yang sangat fleksibel, multi-paradigma, dan asinkron secara fundamental.
 

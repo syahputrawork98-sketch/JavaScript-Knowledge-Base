@@ -3,6 +3,10 @@
 **"Zaman Keemasan Fitur & Konsistensi"**
 *Target: Memahami rilis tahunan ECMAScript (ESNext) dalam waktu < 2 menit.*
 
+## 🔗 Source Hub
+- **Committee**: [TC39 - Ecma Technical Committee 39](https://tc39.es/)
+- **Proposal Tracking**: [TC39 Proposals (GitHub)](https://github.com/tc39/proposals)
+
 ## 1. Definisi & Konsep (The Logic)
 Rilis **ES6 (ECMAScript 2015)** membawa revisi terbesar dalam sejarah bahasa ini. Sejak itu, TC39 (komite pengawas) mengadopsi model rilis tahunan untuk memastikan JavaScript terus mendapatkan fitur-fitur baru secara konsisten tanpa merusak ekosistem yang ada.
 

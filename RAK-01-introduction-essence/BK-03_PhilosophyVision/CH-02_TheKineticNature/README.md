@@ -3,6 +3,10 @@
 **"Filosofi Enerjik Sang Detak Jantung Web"**
 *Target: Memahami sifat asinkron dan kinetik JS dalam waktu < 2 menit.*
 
+## 🔗 Source Hub
+- **Core Concept**: [Node.js Design Patterns - Reactor Pattern](https://www.nodejsdesignpatterns.com/)
+- **Visualization**: [What the heck is the event loop anyway? (Philip Roberts)](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+
 ## 1. Definisi & Konsep (The Logic)
 JavaScript dirancang untuk terus bergerak. Alih-alih berhenti saat menunggu data (Blocking), ia menyerahkan tugas tersebut ke "latar belakang" dan terus melayani instruksi lain. Inilah yang kita sebut sebagai sifat **Kinetik**.
 

@@ -20,8 +20,9 @@ Anda bekerja di dalam **6-Rack Universal Architecture** dengan filosofi yang mem
 
 Setiap pengerjaan unit dokumentasi **WAJIB** mengikuti hirarki ini secara ketat:
 - **Level 1**: **Root** (`/`) - Library Hub.
-- **Level 2**: **Rak** (e.g., `RAK-01-javascript`) - Domain Utama.
+- **Level 2**: **Rak** (e.g., `RAK-01-introduction-essence`) - Domain Utama.
 - **Level 3**: **Sub-Rak** (e.g., `SR-01-get-started`) - Track spesifik.
+  - *Catatan: RAK-01 melompati level ini (Flat Structure).*
 - **Level 4**: **Buku** (e.g., `BK-01_Basics`) - Koleksi bab terpadu (v4).
 - **Level 5**: **Bab** (e.g., `CH-01_Overview`) - Unit materi inti (Stage 1-4 PPM).
 - **Level 6**: **Section** (e.g., `SEC-01_Detail`) - Granulitas terdalam.

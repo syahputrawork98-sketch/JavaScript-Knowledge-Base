@@ -13,4 +13,4 @@ Buku ini menelusuri perjalanan panjang JavaScript dari era fragmentasi browser h
 | CH-03 | [ECMAScript Era](./CH-03_ECMAScriptEra/) | Sync | ✅ | ✅ | TC39 |
 
 ---
-*Back to [SR-01-history-origins](../README.md)*
+*Back to [RAK-01-introduction-essence](../README.md)*

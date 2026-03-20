@@ -12,4 +12,4 @@ Buku ini membelah 10 hari pertama dalam sejarah JavaScript—sebuah misi yang mu
 | CH-02 | [Brendan Eich's Vision](./CH-02_BrendanEichsVision/) | Sync | ✅ | ✅ | Historical |
 
 ---
-*Back to [SR-01-history-origins](../README.md)*
+*Back to [RAK-01-introduction-essence](../README.md)*

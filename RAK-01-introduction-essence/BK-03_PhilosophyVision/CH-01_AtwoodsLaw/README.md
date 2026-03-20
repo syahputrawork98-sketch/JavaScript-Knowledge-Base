@@ -3,6 +3,10 @@
 **"Prinsip Universitalitas JavaScript"**
 *Target: Memahami hukum utama yang mendorong ekspansi ekosistem JS dalam waktu < 2 menit.*
 
+## 🔗 Source Hub
+- **Origin**: [Atwood's Law (Coding Horror)](https://blog.codinghorror.com/the-principle-of-least-power/)
+- **Context**: [Is there anything that can't be written in JavaScript? (StackOverflow)](https://stackoverflow.com/questions/2070327/is-there-anything-that-cant-be-written-in-javascript)
+
 ## 1. Definisi & Konsep (The Logic)
 Jeff Atwood (Co-founder StackOverflow) pada 2007 menyatakan: *"Any application that can be written in JavaScript, will eventually be written in JavaScript."* Ini bukan sekadar candaan, melainkan refleksi dari fleksibilitas mentah bahasa ini.
 

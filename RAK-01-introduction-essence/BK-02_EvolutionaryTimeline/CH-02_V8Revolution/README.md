@@ -3,6 +3,10 @@
 **"Kelahiran Kecepatan Tingkat Mesin"**
 *Target: Memahami transformasi JS dari bahasa skrip lambat ke performa tinggi dalam waktu < 2 menit.*
 
+## 🔗 Source Hub
+- **V8 Engine**: [V8 Project - Introduction](https://v8.dev/)
+- **Node.js**: [Node.js - About](https://nodejs.org/en/about/)
+
 ## 1. Definisi & Konsep (The Logic)
 Tahun 2008, Google merilis V8 Engine yang mengompilasi JavaScript langsung ke kode mesin (Native Machine Code). Tahun 2009, Ryan Dahl merilis Node.js, memungkinkan eksekusi JavaScript di sisi server—keluar dari batasan browser.
 

@@ -12,4 +12,4 @@ Buku ini mendefinisikan filosofi inti yang membuat JavaScript tetap unggul dan r
 | CH-02 | [The Kinetic Nature](./CH-02_TheKineticNature/) | Sync | ✅ | ✅ | Architecture |
 
 ---
-*Back to [SR-02-philosophy-essence](../README.md)*
+*Back to [RAK-01-introduction-essence](../README.md)*
