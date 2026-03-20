@@ -1,20 +1,20 @@
-# Advanced-Rack Standard (RAK 11-14)
+# Advanced-Rack Standard (RAK 02-05)
 
 > **"The Heart of the Knowledge Universe: Professional-Grade Deconstruction."**
 
-Dokumen ini mendefinisikan standar "True Gold Standard" untuk Rak-Rak Lanjut (**RAK 11: Evolution**, **RAK 12: Core Spec**, **RAK 13: Runtimes**, dan **RAK 14: Engines**). Rak-rak ini bukan sekadar panduan pengguna, melainkan dekonstruksi arsitektur mesin JavaScript.
+Dokumen ini mendefinisikan standar "True Gold Standard" untuk Rak-Rak Lanjut (**RAK-02: Evolution**, **RAK-03: Core Spec**, **RAK-04: Runtimes**, dan **RAK-05: Engines**). Rak-rak ini bukan sekadar panduan pengguna, melainkan dekonstruksi arsitektur mesin JavaScript.
 
 ---
 
 ## 📐 Mandatory Checklist (7 Poin Wajib)
 
-Setiap bab dalam RAK 11-14 **WAJIB** mengikuti struktur berikut agar lulus audit Sentinel:
+Setiap bab dalam RAK 02-05 **WAJIB** mengikuti struktur berikut agar lulus audit Sentinel:
 
 ### 1. Source-Anchor (Jangkar Sumber)
 Wajib mencantumkan link aktif ke sumber primer yang menjadi dasar materi.
-- **Rak 11-12**: [tc39.es/ecma262](https://tc39.es/ecma262/) (Clause specific).
-- **Rak 13**: [nodejs.org/api](https://nodejs.org/api/) atau dokumentasi resmi Bun/Deno.
-- **Rak 14**: V8 Project Design Docs atau Paper teknis terkait.
+- **Rak 02-03**: [tc39.es/ecma262](https://tc39.es/ecma262/) (Clause specific).
+- **Rak 04**: [nodejs.org/api](https://nodejs.org/api/) atau dokumentasi resmi Bun/Deno.
+- **Rak 05**: V8 Project Design Docs atau Paper teknis terkait.
 
 ### 2. Dual Definition (Definisi Ganda)
 Setiap konsep harus memiliki dua perspektif:
@@ -40,7 +40,7 @@ Minimal satu diagram Mermaid yang menunjukkan pergerakan atau perubahan status (
 Folder `examples/` wajib berisi file `.js` yang bisa dijalankan untuk membuktikan teori di README. Kasus-kasus unik (*Edge Cases*) sangat dianjurkan.
 
 ### 7. Cross-Rack Linking
-Wajib menyertakan minimal satu referensi ke Rak lain yang menunjukkan keterkaitan sistem (misal: RAK-12 ke RAK-14).
+Wajib menyertakan minimal satu referensi ke Rak lain yang menunjukkan keterkaitan sistem (misal: RAK-03 ke RAK-05).
 
 ---
 
@@ -76,4 +76,4 @@ Ini mendasari bagaimana [Konsep X] di [Rak Y] bekerja.
 ---
 
 ## 🤖 AI & Contributor Rule
-Jangan pernah mengurangi presisi demi kesederhanaan di Rak 11-14. Jika materi terasa terlalu rumit, tambahkan lebih banyak diagram atau perjelas analogi, tetapi **jangan hapus langkah algoritma spesifikasinya.**
+Jangan pernah mengurangi presisi demi kesederhanaan di Rak 02-05. Jika materi terasa terlalu rumit, tambahkan lebih banyak diagram atau perjelas analogi, tetapi **jangan hapus langkah algoritma spesifikasinya.**
