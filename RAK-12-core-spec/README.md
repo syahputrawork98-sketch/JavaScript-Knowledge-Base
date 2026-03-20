@@ -8,7 +8,7 @@ Rak ini merupakan jantung dari perpustakaan `JavaScript-Knowledge-Base`. Di sini
 
 ## Daftar Sub-Rak (12 Tracks)
 
-1. **[SR-01_NationalConvention](./SR-01_NationalConvention/)** (Clause 5)
+1. **[SR-01_SpecAlgorithmConventions](./SR-01_SpecAlgorithmConventions/)** (Clause 5)
 2. **[SR-02_DataTypesAndValues](./SR-02_DataTypesAndValues/)** (Clause 6)
 3. **[SR-03_AbstractOperations](./SR-03_AbstractOperations/)** (Clause 7)
 4. **[SR-04_ExecutableCodeAndContexts](./SR-04_ExecutableCodeAndContexts/)** (Clause 9)

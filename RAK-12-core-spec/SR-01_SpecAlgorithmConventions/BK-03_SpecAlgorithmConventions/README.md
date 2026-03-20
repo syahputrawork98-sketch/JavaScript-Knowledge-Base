@@ -3,7 +3,19 @@
 > [!IMPORTANT]
 > **Sinopsis:** Menguasai "Bahasa Mesin" yang digunakan TC39. Jika BK-02 adalah tentang membaca blueprint gedung, maka BK-03 adalah tentang memahami bagaimana mesin-mesin di dalam gedung tersebut bekerja, berkomunikasi, dan menangani kegagalan.
 
-## Mengapa Anda Harus Bisa Membaca Ini?
+## 🏗️ Completion Record Anatomy
+
+```mermaid
+graph TD
+    Op["Algorithm Step"] --> Rec{Completion Record}
+    Rec --> Type["[[Type]]: normal | abrupt"]
+    Rec --> Val["[[Value]]: actual data | empty"]
+    Rec --> Target["[[Target]]: label | empty"]
+    
+    Type -->|abrupt| Error["Throw / Return / Break"]
+```
+
+## 1. Mengapa Anda Harus Bisa Membaca Ini?
 Pernahkah Anda bertanya-tanya, bagaimana spesifikasi menjelaskan proses pelemparan error? Atau bagaimana sebetulnya urutan evaluasi sebuah variabel ditentukan di balik layar? 
 
 ECMAScript tidak ditulis dengan pseudo-code biasa. Ia menggunakan sekumpulan konvensi algoritma yang sangat presisi agar semua engine (V8, SpiderMonkey, JavaScriptCore) bekerja dengan hasil yang identik. Tanpa memahami konvensi ini, Anda akan sering salah menafsirkan perilaku bahasa yang sebetulnya sudah tertulis jelas.

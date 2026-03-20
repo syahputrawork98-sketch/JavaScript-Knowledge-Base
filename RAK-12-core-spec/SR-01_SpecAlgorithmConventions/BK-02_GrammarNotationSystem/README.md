@@ -3,7 +3,16 @@
 > [!IMPORTANT]
 > **Sinopsis:** Mempelajari "Blueprint" yang merancang bahasa JavaScript. Tanpa memahami sistem notasi ini, spesifikasi ECMA-262 akan terlihat seperti kumpulan kode acak yang tidak masuk akal. 
 
-## Mengapa Buku Ini Penting?
+## 🏗️ Grammar Input/Output Pipeline
+
+```mermaid
+graph LR
+    Source["Source Code (Text)"] --> Lex["Lexical Grammar (Tokens)"]
+    Lex --> Syn["Syntactic Grammar (AST)"]
+    Syn --> Eval["Execution Engine"]
+```
+
+## 1. Mengapa Buku Ini Penting?
 Coba bayangkan Anda ingin membangun gedung pencakar langit tanpa tahu cara membaca denah arsiteknya. Mustahil, bukan? 
 
 Spesifikasi ECMAScript menggunakan sekumpulan simbol dan aturan khusus (tata bahasa) untuk mendefinisikan apa yang valid dan apa yang tidak dalam JavaScript. Buku ini akan mengajarkan Anda cara membedah blueprint tersebut—mulai dari simbol mentah (*Terminal*) hingga mekanisme radar canggih (*Lookahead*).
