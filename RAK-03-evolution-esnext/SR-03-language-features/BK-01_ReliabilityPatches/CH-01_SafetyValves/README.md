@@ -2,56 +2,65 @@
 
 > **"Di dalam Grid yang luas, data seringkali hilang atau tidak lengkap. Optional Chaining dan Nullish Coalescing adalah 'Katup Pengaman' (Safety Valves) yang mencegah sistem Hub mengalami crash saat mencoba mengakses energi dari pipa yang kosong."**
 
-ES2020 memperkenalkan dua operator krusial untuk menangani nilai `null` atau `undefined` dengan lebih elegan.
-
-## 1. Mental Model: "Safety Valves"
-
-- **Optional Chaining (`?.`)**: Seperti memeriksa apakah sebuah pipa terhubung sebelum mencoba membukanya. Jika pipa tidak ada, aliran berhenti dengan aman (mengembalikan `undefined`) alih-alih meledakkan sistem.
-- **Nullish Coalescing (`??`)**: Seperti katup cadangan yang hanya terbuka jika sumber utama benar-benar kosong (`null` atau `undefined`), bukan sekadar bertekanan rendah (seperti angka `0` atau string kosong `""`).
-
-![Safety Valves](./assets/safety_valves.svg)
+**Source Hub**: 
+- [MDN: Optional Chaining (?.)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [MDN: Nullish Coalescing (??)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [ECMA-262: Optional Chain](https://tc39.es/ecma262/#sec-optional-chains)
 
 ---
 
-## 2. Praktik di Lapangan
+## 1. Konsep & Esensi
+
+**Definisi Arsitek**:
+ES2020 memperkenalkan dua operator krusial untuk menangani nilai `null` atau `undefined` secara deklaratif. **Optional Chaining** memungkinkan akses properti tanpa risiko `TypeError`, sementara **Nullish Coalescing** menyediakan nilai fallback yang presisi hanya untuk tipe data *nullish*.
+
+**Model Mental**:
+- **Optional Chaining (`?.`)**: Seperti memeriksa apakah sebuah pipa terhubung sebelum mencoba membukanya. Jika pipa tidak ada, aliran berhenti dengan aman (mengembalikan `undefined`) alih-alih meledakkan sistem.
+- **Nullish Coalescing (`??`)**: Seperti katup cadangan yang hanya terbuka jika sumber utama benar-benar kosong (`null` atau `undefined`), bukan sekadar bertekanan rendah (seperti angka `0` atau string kosong `""`).
+
+---
+
+## 2. Visualisasi Sistem: Alur Katup Pengaman
+
+```mermaid
+graph TD
+    Data[Akses Data: obj?.prop] --> Conn{Pipa Terhubung?}
+    Conn -->|No: null/undef| Stop[Berhenti & Return Undefined]
+    Conn -->|Yes| Val[Return Value]
+
+    Fallback[Akses Fallback: a ?? b] --> IsNullish{Apakah 'a' Nullish?}
+    IsNullish -->|Yes: null/undef| B[Return 'b']
+    IsNullish -->|No: exist or 0/""| A[Return 'a']
+
+    style Stop fill:#f99,stroke:#333
+    style B fill:#9f9,stroke:#333
+```
+
+---
+
+## 3. Mekanisme & Hubungan
 
 ### Akses Data Mendalam (Optional Chaining)
+Mencegah error "Cannot read property of undefined" pada objek bersarang.
 ```javascript
-// Dulu
-const temp = unit && unit.sensors && unit.sensors.temperature;
-
-// Sekarang
 const temp = unit?.sensors?.temperature;
 ```
 
 ### Nilai Default yang Cerdas (Nullish Coalescing)
+Berbeda dengan operator OR (`||`), `??` tidak menganggap `0`, `false`, atau `""` sebagai nilai yang harus diganti.
 ```javascript
 const load = signal.load ?? 100; 
 // Jika signal.load = 0, load tetap 0 (bukan 100).
 ```
 
----
-
-## 3. Kombinasi Maut
-
-Kedua "katup" ini sering digunakan bersama untuk akses data yang sangat aman:
-```javascript
-const humidity = grid?.sector?.humidity ?? "DATA_NOT_AVAILABLE";
-```
+### Arsitek Mindset: Ketahanan Aliran Data
+- Gunakan `?.` pada titik-titik integrasi API yang skemanya mungkin berubah atau tidak konsisten.
+- Gunakan `??` untuk konfigurasi di mana angka `0` adalah nilai input yang valid.
 
 ---
 
-## Arsitek Mindset: Ketahanan Aliran Data
-
-Sebagai arsitek Hub:
-- Gunakan `?.` saat berurusan dengan API eksternal atau konfigurasi yang mungkin tidak lengkap untuk menghindari error `Cannot read property of undefined`.
-- Gunakan `??` alih-alih `||` jika angka `0` atau string kosher `""` adalah nilai valid yang tidak boleh digantikan oleh default.
-- Hindari penggunaan `?.` secara berlebihan pada setiap variabel; gunakan hanya pada titik-titik yang memang berpotensi kosong di dalam skema data Grid Anda.
+## 4. Lab Praktis
+Buka file `examples/safety_valves_lab.js` untuk menguji ketahanan sistem saat mengakses sensor-sensor Grid yang tidak stabil dalam simulasi asinkron.
 
 ---
-
-## Hands-on: Lab Katup Pengaman
-Buka file `examples/safety_valves_lab.js` untuk menguji ketahanan sistem saat mengakses sensor-sensor Grid yang tidak stabil.
-
----
-*Status: [status.md](../../../status.md)*
+*Status: [status.md](../../../../../status.md)*
