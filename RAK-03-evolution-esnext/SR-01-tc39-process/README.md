@@ -1,26 +1,26 @@
-# SR-01: TC39 Process
+# SR-01: TC39 Process (The Legislative Engine)
 
-> **"The Legislative Engine of JavaScript"**
+> **"Mekanisme Legislatif di Balik Evolusi JavaScript. SR-01 membedah 'Proses TC39'—bagaimana sebuah ide berkembang dari diskusi santai menjadi standar global."**
 
-Sub-Rak ini membedah bagaimana sebuah ide bertransformasi menjadi fitur standar di dalam spesifikasi ECMAScript melalui mekanisme komite TC39.
-
----
-
-## 🏛️ Struktur Buku (Books)
-
-- **[BK-01_TheCommittee](./BK-01_TheCommittee/)**
-  - Mengenal TC39: Anggota, delegasi, dan frekuensi pertemuan.
-- **[BK-02_TheFiveStages](./BK-02_TheFiveStages/)**
-  - Dekonstruksi Stage 0 hingga Stage 4 dari sebuah proposal.
-- **[BK-03_DecisionMaking](./BK-03_DecisionMaking/)**
-  - Konsensus, penolakan, dan kriteria rilis tahunan.
+**Source Hub**: 
+- [TC39 Process Document](https://tc39.es/process-document/)
+- [ECMA-262: Intro](https://tc39.es/ecma262/#sec-intro)
 
 ---
 
-## 🎯 Fokus Pembelajaran
-1. Memahami siapa yang bertanggung jawab atas masa depan JavaScript.
-2. Menguasai alur hidup fitur baru (The Proposal Lifecycle).
-3. Mengetahui cara berkontribusi atau sekadar memantau perkembangan bahasa.
+## 🏗️ The 2 Pillars of Legislative Architecture
+
+```mermaid
+graph TD
+    P1["BK-01: The Committee and Governance"] --> Core["Legislasi"]
+    P2["BK-02: The Proposal Lifecycle (Stages)"] --> Core
+```
+
+---
+
+## Koleksi Buku:
+1.  **[BK-01: The Committee and Governance](./BK-01_Committee/)**: Mengenal anggota TC39, sistem konsensus, dan ritme pertemuan.
+2.  **[BK-02: The Proposal Lifecycle](./BK-02_FiveStages/)**: Dekonstruksi Stage 0 hingga Stage 4 dari sebuah proposal fitur.
 
 ---
 *Status: [status.md](../../status.md) | Back to [RAK-03](../README.md)*
