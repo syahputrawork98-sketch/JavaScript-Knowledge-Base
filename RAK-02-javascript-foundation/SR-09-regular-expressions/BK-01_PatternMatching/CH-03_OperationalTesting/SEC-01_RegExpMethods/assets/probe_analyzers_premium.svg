@@ -1,0 +1,46 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="probeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f472b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#db2777;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- Probe A: .test() (Quick Check) -->
+  <g transform="translate(60, 60)">
+    <rect x="0" y="0" width="130" height="180" rx="10" fill="#1e293b" stroke="#f472b6" stroke-width="2" />
+    <text x="65" y="30" font-family="Courier, monospace" font-size="14" fill="#f472b6" text-anchor="middle" font-weight="bold">.test()</text>
+    
+    <!-- Status Light -->
+    <circle cx="65" cy="80" r="20" fill="#10b981" filter="url(#glow)" />
+    <text x="65" y="115" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">TRUE / FALSE</text>
+    <text x="65" y="145" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">"Quick Presence Check"</text>
+  </g>
+
+  <!-- Probe B: .exec() (Biopsy) -->
+  <g transform="translate(210, 60)">
+    <rect x="0" y="0" width="130" height="180" rx="10" fill="#1e293b" stroke="#f472b6" stroke-width="2" />
+    <text x="65" y="30" font-family="Courier, monospace" font-size="14" fill="#f472b6" text-anchor="middle" font-weight="bold">.exec()</text>
+    
+    <!-- Extraction Drawer -->
+    <rect x="25" y="60" width="80" height="40" rx="5" fill="url(#probeGrad)" filter="url(#glow)" />
+    <text x="65" y="85" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">[ RESULTS ]</text>
+    
+    <text x="65" y="125" font-family="Arial, sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">Groups, Index, Input</text>
+    <text x="65" y="145" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">"Deep Data Extraction"</text>
+  </g>
+
+  <text x="200" y="30" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">THE PROBE ANALYZERS</text>
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">"Choosing between light presence checking and heavy data extraction"</text>
+
+</svg>

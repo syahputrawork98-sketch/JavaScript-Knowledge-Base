@@ -1,56 +1,56 @@
-# CH-02: The Iterator Protocol (The Moving Unit)
+# SEC-02: The Iterator Protocol (The Sequential Puller)
 
-> **"Jika Iterable adalah jalurnya, maka Iterator adalah 'Unit Penggerak' (The Moving Unit) itu sendiri. Ia tahu posisi data saat ini dan tahu bagaimana cara melompat ke posisi berikutnya sampai seluruh energi tersalurkan."**
+> **"Jika Iterable adalah jalurnya, maka Iterator adalah 'Unit Penarik' (The Sequential Puller) itu sendiri. Ia tahu posisi data saat ini dan tahu bagaimana cara menarik data berikutnya sampai seluruh aliran energi selesai."**
 
-Iterator protocol mendefinisikan cara standar untuk menghasilkan urutan nilai.
-
-## 1. Mental Model: "The Moving Unit"
-
-Bayangkan sebuah robot di atas ban berjalan.
-1. Robot ini memiliki satu tombol utama: `next()`.
-2. Setiap kali tombol ditekan, robot akan memberikan satu kotak paket data.
-3. Paket tersebut berisi dua informasi:
-   - `value`: Isi energinya.
-   - `done`: Laporan apakah ini kotak terakhir (`true`) atau masih ada lagi (`false`).
-
-![Iterator Conveyor](./assets/iterator_conveyor.svg)
+**Iterator Protocol** menentukan cara standar sebuah objek menghasilkan urutan nilai (baik terbatas maupun tidak terbatas). Sebuah objek adalah iterator jika ia memiliki metode `next()` yang mengembalikan objek hasil iterasi.
 
 ---
 
-## 2. Struktur Objek Iterator
+## 1. Mental Model: "The Sequential Puller"
 
-Sebuah objek dianggap sebagai iterator jika ia mengimplementasikan metode `next()` dengan aturan berikut:
+Bayangkan sebuah robot penarik di ujung ban berjalan (conveyor). 
+1. Robot ini memiliki satu tombol kendali utama: **`next()`**.
+2. Setiap kali tombol ditekan, robot akan menarik satu "Data Packet" dari jalur.
+3. Setiap paket berisi laporan status dua bagian:
+   - **`value`**: Muatan data yang ditarik.
+   - **`done`**: Indikator status. Apakah ini data terakhir (`true`) atau masih ada data lain di belakangnya (`false`)?
+
+![Iterator Puller Premium](./assets/iterator_puller_premium.svg)
+
+---
+
+## 2. Struktur Objek Hasil (`IteratorResult`)
+
+Setiap pemanggilan `next()` harus mengembalikan objek dengan struktur sebagai berikut:
 
 ```javascript
-const myIterator = {
-    next: function() {
-        return {
-            value: "Energy Data",
-            done: false
-        };
-    }
-};
+{
+  value: any,   // Nilai data saat ini (bisa undefined jika done: true)
+  done: boolean // false jika masih ada data, true jika aliran selesai
+}
 ```
+
+Setelah iterator mengembalikan `done: true`, ia dianggap telah **Habis** (*Exhausted*). Pemanggilan `next()` selanjutnya biasanya akan terus mengembalikan `done: true`.
 
 ---
 
-## 3. Statefulness (Penyimpanan Kondisi)
+## 3. Sifat Statefulness (Mengingat Jejak)
 
-Iterator bersifat *stateful*. Ia mengingat di mana ia berhenti. Begitu `done: true` tercapai, iterator tersebut biasanya sudah "habis" (exhausted) dan tidak bisa digunakan lagi kecuali Anda membuat unit penggerak yang baru.
+Iterator bersifat *stateful*, artinya ia menyimpan kondisi/posisi internalnya. Ini memungkinkan kita untuk menghentikan proses penarikan data kapan saja, melakukan tugas lain, lalu kembali lagi untuk menarik data selanjutnya tepat dari posisi terakhir.
 
 ---
 
 ## Arsitek Mindset: Kendali Langkah demi Langkah
 
 Sebagai arsitek Hub:
-- Gunakan iterator manual jika Anda butuh kontrol yang sangat presisi atas kapan nilai berikutnya diambil (misal: memproses data besar secara perlahan agar tidak menghanguskan memori).
-- Ingat bahwa setiap pemanggilan `next()` adalah operasi sinkron.
-- Pahami bahwa iterator adalah fondasi dari fitur yang lebih canggih seperti **Generators**.
+- **Precision Control**: Gunakan iterator jika Anda butuh kontrol manual kapan data harus diproses (misal: memuat file besar baris demi baris).
+- **Infinite Streams**: Iterator memungkinkan Anda membuat aliran data yang tidak terbatas (misal: ID generator yang terus bertambah) tanpa memenuhi memori Hub.
+- **Foundation of Generators**: Pahami protokol ini dengan baik, karena ini adalah mekanisme dasar yang menggerakkan fitur canggih seperti **Generators** dan **Async Iteration**.
 
 ---
 
-## Hands-on: Lab Unit Penggerak
-Buka file `examples/manual_iterator_lab.js` untuk melihat bagaimana kita menggerakkan aliran data secara manual menggunakan metode `next()`.
+## Hands-on: Lab Unit Penarik
+Eksperimen dengan penarikan data manual dan pembuatan unit penarik kustom di `examples/manual_iterator_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

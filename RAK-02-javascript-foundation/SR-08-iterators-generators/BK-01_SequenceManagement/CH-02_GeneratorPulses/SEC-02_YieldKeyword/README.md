@@ -1,55 +1,61 @@
-# CH-02: The yield Keyword (Yield Gate)
+# SEC-02: The yield Keyword (The Flow Regulator)
 
-> **"Generator hanyalah sebuah mesin statis tanpa adanya 'Gerbang Kontrol' (Yield Gate). Kata kunci `yield` adalah gerbang yang tidak hanya mengeluarkan energi, tapi juga bisa menerima masukan kembali dari luar untuk menyesuaikan ritme kerja unit."**
+> **"Generator hanyalah sebuah mesin statis tanpa adanya 'Regulator Arus' (Flow Regulator). Kata kunci `yield` adalah gerbang dua arah yang tidak hanya mengeluarkan energi, tapi juga bisa menerima masukan kembali dari luar untuk menyesuaikan ritme kerja unit secara dinamis."**
 
-`yield` adalah jeda dua arah yang sangat kuat dalam fungsi generator.
-
-## 1. Mental Model: "The Yield Gate"
-
-Bayangkan sebuah gerbang di bendungan.
-1. Saat gerbang dibuka (`yield energy`), aliran air keluar menuju konsumen.
-2. Gerbang kemudian menutup dan menunggu instruksi berikutnya.
-3. Yang menarik, operator Hub bisa melemparkan pesan ke dalam gerbang tersebut saat dibuka kembali (`let feedback = yield energy`). Pesan ini bisa digunakan oleh mesin internal untuk mengubah tekanan air.
-
-![Yield Gate](./assets/yield_gate.svg)
+`yield` adalah instrumen paling krusial dalam fungsi generator. Ia bukan sekadar perintah `return` yang berhenti di tengah jalan, melainkan sebuah titik pertukaran data dua arah.
 
 ---
 
-## 2. Pengiriman & Penerimaan Data
+## 1. Mental Model: "The Flow Regulator"
 
-`yield` berfungsi ganda:
-- **Output**: Mengirimkan nilai ke pemanggil `next()`.
-- **Input**: Menangkap nilai yang dikirimkan balik melalui `next(value)`.
+Bayangkan sebuah gerbang regulator di bendungan energi Hub. 
+1. **Output (Push)**: Saat gerbang dibuka (`yield data`), energi dikirimkan keluar menuju konsumen (penerima `next()`).
+2. **Suspension**: Setelah pengiriman, gerbang tetap terbuka sebagian, membekukan seluruh kondisi mesin internal generator.
+3. **Input (Pull)**: Operator Hub bisa melemparkan paket instruksi balik ke dalam gerbang tersebut saat memberikan perintah lanjut (`next(feedback)`). Instruksi ini akan ditangkap oleh variabel internal di sisi kiri `yield`.
+
+![Yield Regulator Premium](./assets/yield_regulator_premium.svg)
+
+---
+
+## 2. Komunikasi Dua Arah (Ping-Pong)
+
+Cara kerja pertukaran ini sangat unik:
+- **Langkah 1**: Panggil `next()` pertama kali untuk menyalakan mesin. (Input apa pun di sini diabaikan karena belum ada `yield` yang menunggu).
+- **Langkah 2**: Mesin berjalan sampai `yield X`, lalu mengirimkan `X` keluar.
+- **Langkah 3**: Panggil `next(Y)`. Nilai `Y` akan menggantikan ekspresi `yield` di dalam fungsi dan disimpan ke variabel.
 
 ```javascript
-function* interactiveUnit() {
-    const input = yield "Checking current status...";
-    console.log(`Menerima feedback dari Hub: ${input}`);
+function* powerProcessor() {
+    const feedback = yield "Requesting System Check..."; // Push out data
+    console.log(`System Status Received: ${feedback}`); // Pull in data
 }
 
-const unit = interactiveUnit();
-console.log(unit.next().value); // "Checking current status..."
-unit.next("SYSTEM-OK"); // Menyuntikkan data balik
+const proc = powerProcessor();
+proc.next(); // Start & Push
+proc.next("ALL-SYSTEMS-GREEN"); // Pull & Continue
 ```
 
 ---
 
-## 3. Titik Penahanan (Suspension Points)
+## 3. Kendali Darurat: `.throw()` & `.return()`
 
-Setiap kata kunci `yield` menciptakan titik penahanan di mana fungsi tersebut "dibekukan" tanpa memakan sumber daya CPU secara aktif. Ini memungkinkan Hub menjalankan jutaan generator yang sedang menunggu tanpa membebani sistem secara keseluruhan.
+Selain `next()`, operator Hub memiliki dua tombol darurat:
+- **`.throw(error)`**: Menyuntikkan kegagalan langsung ke titik `yield` terakhir. Ini memungkinkan generator menangani error secara internal menggunakan `try...catch`.
+- **`.return(value)`**: Menghentikan generator secara paksa dan menetapkan status `done: true`.
 
 ---
 
-## Arsitek Mindset: Komunikasi Dua Arah
+## Arsitek Mindset: Dinamika Arus
 
 Sebagai arsitek Hub:
-- Gunakan `yield` untuk alur kerja yang bersifat interaktif (user input, middleware).
-- Pastikan Anda memanggil `next()` pertama kali tanpa argumen, karena argumen pertama pada `next()` setelah inisialisasi akan diabaikan oleh generator (karena tidak ada `yield` yang menunggu).
+- **Interactive Workflows**: Gunakan `yield` untuk membangun alur kerja yang membutuhkan konfirmasi dari sistem lain atau pengguna di tiap fasenya.
+- **Middleware Logic**: Generator sangat kuat untuk membangun rantai logika yang bisa di-intercept atau dimodifikasi di tengah jalan.
+- **Error Resiliency**: Selalu lengkapi generator interaktif Anda dengan blok `try...catch` di sekitar `yield` untuk menangani sinyal `.throw()` dari sistem pusat.
 
 ---
 
 ## Hands-on: Lab Gerbang Kontrol
-Buka file `examples/yield_flow_lab.js` untuk mencoba berkomunikasi dua arah dengan mesin generator melalui gerbang `yield`.
+Eksperimen dengan percakapan dua arah antara Anda dan mesin generator di `examples/yield_flow_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

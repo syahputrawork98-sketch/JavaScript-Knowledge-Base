@@ -1,41 +1,62 @@
 /**
- * LAB: Reflect API (The Mirror Protocol)
- * Mental Model: "The Mirror Protocol"
+ * LAB: Reflect API (The Official Record)
+ * Level: Gold Standard Implementation
  */
 
-const coreConfig = {
-    version: "2.5.0",
-    maxLoad: 1000
-};
+// 1. Dasar: Reflect vs Operators (Functional Style)
+console.log("--- FUNCTIONAL REFLECTION ---");
+const sensor = { id: 101, type: "Thermal" };
 
-// Membekukan config untuk simulasi proteksi hardware
-Object.seal(coreConfig);
+// Mengecek keberadaan (in operator vs Reflect.has)
+console.log("Has type?", Reflect.has(sensor, "type"));
 
-console.log("--- Mengetes Operasi Objek Standar ---");
+// Menghapus properti (delete operator vs Reflect)
+const success = Reflect.deleteProperty(sensor, "id");
+console.log(`Deletion Status: ${success}, Remaining:`, sensor);
 
-// 1. Reflect vs Operator Biasa (Detection)
-const hasVersion = Reflect.has(coreConfig, "version"); // Sama dengan 'version' in coreConfig
-console.log(`Properti 'version' tersedia? ${hasVersion}`);
+console.log("---");
 
+// 2. Lanjutan: Safe Property Definition
+console.log("--- SAFE DEFINITION ---");
+const vault = { code: 123 };
+Object.freeze(vault); // Mengunci brankas
 
-// 2. Reflect untuk Penulisan yang Aman
-// Jika kita menggunakan coreConfig.maxLoad = 5000, program mungkin tidak sadar kalau gagal
-const isUpdateSuccess = Reflect.set(coreConfig, "maxLoad", 5000);
-console.log(`Update 'maxLoad' sukses? ${isUpdateSuccess}`); // True
+// Object.defineProperty akan melempar error pada objek beku
+try {
+    Object.defineProperty(vault, "newKey", { value: 456 });
+} catch (e) {
+    console.warn("[Object] Gagal mendefinisikan properti pada objek beku.");
+}
 
+// Reflect.defineProperty hanya mengembalikan false (lebih bersih)
+const defStatus = Reflect.defineProperty(vault, "newKey", { value: 456 });
+console.log(`[Reflect] Definition Status (on frozen object): ${defStatus}`);
 
-// 3. Reflect untuk Operasi Ilegal (Sealed Object)
-const isDeleteSuccess = Reflect.deleteProperty(coreConfig, "version");
-console.log(`Hapus 'version' sukses? ${isDeleteSuccess}`); // False (Karena sealed)
+console.log("---");
 
+// 3. Arsitektur: Dynamic Function Apply
+console.log("--- DYNAMIC APPLY ---");
+function calculateEnergy(base, multiplier) {
+    return (base * multiplier) + (this.bonus || 0);
+}
 
-// 4. Sinergi dengan Proxy
-const loggerProxy = new Proxy(coreConfig, {
-    get(target, prop, receiver) {
-        console.log(`[MIRROR-LOG] Membaca ${prop}`);
-        // Gunakan Reflect untuk memastikan context 'receiver' benar
-        return Reflect.get(target, prop, receiver);
+const context = { bonus: 50 };
+const args = [100, 2];
+
+// Menggunakan Reflect.apply(targetFunction, thisArg, argumentsList)
+const total = Reflect.apply(calculateEnergy, context, args);
+console.log(`Total Energy: ${total}`); // (100 * 2) + 50 = 250
+
+console.log("---");
+
+// 4. Architect Drill: Constructing with Reflect
+class Drone {
+    constructor(name) {
+        this.name = name;
+        console.log(`Drone ${this.name} initialized.`);
     }
-});
+}
 
-console.log(`Value from Proxy: ${loggerProxy.version}`);
+// Reflect.construct(constructor, args)
+const myDrone = Reflect.construct(Drone, ["Scout-01"]);
+console.log("Created Drone:", myDrone instanceof Drone);

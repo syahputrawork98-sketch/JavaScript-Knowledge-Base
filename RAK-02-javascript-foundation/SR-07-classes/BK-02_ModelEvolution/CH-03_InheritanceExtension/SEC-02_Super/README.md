@@ -1,61 +1,62 @@
-# CH-02: Super (Parent Link)
+# SEC-02: Super (The Uplift Link)
 
-> **"Saat Anda meng-upgrade model unit, terkadang Anda masih butuh bantuan dari sirkuit model lama. Kata kunci `super` adalah 'Kabel Induk' (Parent Link) yang menghubungkan unit baru Anda ke blueprint asalnya untuk sinkronisasi data dan kemampuan."**
+> **"Saat Anda meng-upgrade model unit, terkadang Anda masih butuh bantuan dari sirkuit model lama. Kata kunci `super` adalah 'Kabel Induk' (Uplift Link) yang menghubungkan unit baru Anda ke blueprint asalnya untuk sinkronisasi data dan kemampuan dasar."**
 
-Kata kunci `super` digunakan untuk memanggil fungsi-fungsi pada objek induk dari sebuah class.
-
-## 1. Mental Model: "The Parent Link"
-
-Bayangkan Anda membangun `TurboUnit` dari blueprint `BaseUnit`.
-- Saat perakitan (`constructor`), Anda memanggil `super()`: "Tolong rakit unit ini menggunakan prosedur dasar `BaseUnit` dulu sebelum saya tambahkan komponen Turbo saya."
-- Saat menjalankan metode, Anda menggunakan `super.method()`: "Jalankan protokol pengamanan dasar dari pusat, baru jalankan protokol keamanan tambahan saya."
+Kata kunci `super` adalah jembatan komunikasi antara class anak (*subclass*) dan class induk (*superclass*). Tanpa jembatan ini, unit anak tidak akan memiliki akses ke fondasi yang dibangun oleh induknya.
 
 ---
 
-## 2. Dua Penggunaan Utama
+## 1. Mental Model: "The Uplift Link"
 
-### A. Dalam Constructor
-Wajib dipanggil di baris pertama jika anak memiliki constructor sendiri.
+Bayangkan Anda sedang merakit `UpgradeUnit`. Sebelum Anda memasang komponen-komponen baru yang canggih, Anda harus memastikan sirkuit dasar dari `BaseUnit` sudah terpasang. 
+- **super()**: Adalah perintah untuk memanggil prosedur perakitan (constructor) dari blueprint induk.
+- **super.method()**: Adalah perintah untuk memanggil protokol operasional spesifik yang dimiliki oleh pusat (induk).
 
-```javascript
-class Child extends Parent {
-    constructor(id, special) {
-        super(id); // Memanggil constructor Parent
-        this.special = special;
-    }
-}
-```
+![Class Super Premium](./assets/class_super_premium.svg)
 
-### B. Dalam Method (Method Overriding)
-Menggunakan kemampuan induk sambil menambahkannya.
+---
+
+## 2. Penggunaan di Lini Perakitan (Constructor)
+
+Jika sebuah class anak memiliki constructor sendiri, ia **wajib** memanggil `super()` sebelum menyentuh kata kunci `this`. Ini karena objek `this` sebenarnya diciptakan oleh class induk terlebih dahulu.
 
 ```javascript
-class Child extends Parent {
-    operate() {
-        super.operate(); // Jalankan dasar
-        console.log("Operasi tambahan aktif.");
+class IndustrialDrill extends BasicModule {
+    constructor(id, drillType) {
+        super(id); // Wajib! Memanggil constructor BasicModule
+        this.drillType = drillType; // Baru boleh setelah super()
     }
 }
 ```
 
 ---
 
-## 3. Aturan `this`
+## 3. Method Overriding (Upgrade Protokol)
 
-Anda **tidak boleh** menyentuh kata kunci `this` sebelum memanggil `super()` di dalam constructor anak. Ini memastikan sirkuit dasar sudah terpasang stabil sebelum Anda memodifikasinya.
+Terkadang Anda ingin menjalankan protokol induk, tapi dengan tambahan langkah-langkah baru. Anda bisa memanggil metode induk menggunakan `super.methodName()`.
+
+```javascript
+class SmartScanner extends BasicModule {
+    turnOn() {
+        super.turnOn(); // Jalankan sistem dasar (listrik, pendingin)
+        console.log("Initializing optical sensors..."); // Tambahan fitur anak
+    }
+}
+```
 
 ---
 
 ## Arsitek Mindset: Sinkronisasi Blueprint
 
 Sebagai arsitek Hub:
-- Gunakan `super` untuk menjaga agar unit anak tetap patuh pada standar dasar unit induk.
-- `super` memungkinkan Anda memperluas fungsionalitas tanpa harus menyalin ulang seluruh logika unit induk (reusability).
+- **Consistency**: Gunakan `super` untuk memastikan unit anak tetap patuh pada standar dasar unit induk. Ini mencegah "Hukum Rimba" di mana setiap unit anak memiliki cara yang berbeda-beda untuk menyalakan sistem dasarnya.
+- **Initialization Order**: Selalu ingat urutan perakitan: Induk dulu (`super`), baru Anak (`this`). Melanggar urutan ini akan menyebabkan kegagalan sistem (*ReferenceError*).
+- **Maintenance**: Dengan memanggil `super.method()`, jika suatu saat protokol dasar di unit induk diperbarui, unit anak Anda akan otomatis mendapatkan pembaruan tersebut.
 
 ---
 
 ## Hands-on: Lab Kabel Induk
-Buka file `examples/parent_link_lab.js` untuk melihat bagaimana koordinasi terjadi antara unit prototipe dan unit upgrade melalui kabel `super`.
+Eksperimen dengan koordinasi perakitan dan operasional antar hierarki melalui kabel `super` di `examples/parent_link_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

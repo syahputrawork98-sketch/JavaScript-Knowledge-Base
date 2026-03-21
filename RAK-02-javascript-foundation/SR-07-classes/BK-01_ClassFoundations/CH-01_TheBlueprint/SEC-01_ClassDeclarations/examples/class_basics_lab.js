@@ -1,23 +1,47 @@
 /**
  * LAB: Class Declarations (The Master Blueprint)
- * Mental Model: "The Master Blueprint"
+ * Level: Gold Standard Implementation
  */
 
-// 1. Mendefinisikan Blueprint
-class PowerModule {
-    // Properti dan metode akan ditambahkan di sini
+// 1. Dasar: Mendefinisikan Cetak Biru (Blueprint)
+class SolarGenerator {
+    // Saat ini kosong (Unit Default)
 }
 
-console.log("--- Menyiapkan Lini Produksi ---");
+// 2. Instansiasi: Merakit Unit dari Blueprint
+const gen1 = new SolarGenerator();
+const gen2 = new SolarGenerator();
 
-// 2. Produksi Unit (Instantiation)
-const unitA = new PowerModule();
-const unitB = new PowerModule();
+console.log("Is gen1 a SolarGenerator?", gen1 instanceof SolarGenerator);
+console.log("Are gen1 and gen2 identical copies?", gen1 !== gen2); // Benar, mereka unit fisik yang berbeda
 
-console.log(`Unit A dibuat kustom: ${unitA instanceof PowerModule}`);
-console.log(`Unit B dibuat kustom: ${unitB instanceof PowerModule}`);
+console.log("---");
 
-// 3. Verifikasi Identitas Blueprint
-console.log(`Apakah unitA dan unitB menggunakan blueprint yang sama? ${unitA.__proto__ === unitB.__proto__}`);
+// 3. Arsitektur: Class Expression (Blueprint Portabel)
+// Sama seperti fungsi, class juga bisa disimpan dalam variabel.
+const MobileUnit = class {
+    getType() {
+        return "Portable Battery Pack";
+    }
+};
 
-console.log("\nStatus: Lini produksi siap untuk spesifikasi lebih lanjut.");
+const mobile1 = new MobileUnit();
+console.log("Unit Type:", mobile1.getType());
+
+console.log("---");
+
+// 4. Architect Warning: No Hoisting
+try {
+    const reactor = new ThermalReactor(); // Akan ERROR
+} catch (e) {
+    console.log("Architect Warning: You cannot build a Reactor before its Blueprint (Class) is defined!");
+}
+
+class ThermalReactor {
+    constructor() {
+        this.status = "OFFLINE";
+    }
+}
+
+const secureReactor = new ThermalReactor();
+console.log("Secure Reactor Status:", secureReactor.status);

@@ -1,59 +1,60 @@
-# CH-02: Closures Ref (The Currying Station)
+# SEC-02: Closures (The Persistent Battery)
 
-> **"Closures adalah 'Baterai Memori' yang memungkinkan fungsi membawa data dari masa lalu ke masa depan. Di level ahli, kita menggunakan ini di 'Stasiun Currying' untuk membangun fungsi yang sangat spesifik dari templat yang umum."**
+> **"Closures adalah 'Baterai Memori' yang memungkinkan fungsi membawa data dari masa lalu ke masa depan. Meskipun ruangan (scope) asalnya sudah ditutup, fungsi ini tetap membawa 'Kabel Energi' ke tangki data yang ia tangkap."**
 
-Kita sudah membahas dasar-dasar Closures di SR-01-get-started-javascript/CH-02-js-guide. Sekarang kita akan fokus pada aplikasi lanjutannya: **Function Currying**.
-
-## 1. Mental Model: "The Currying Station"
-
-Bayangkan Anda memiliki mesin pengolah energi yang membutuhkan 3 slot parameter: `(Lokasi, Tipe, Voltase)`.
-Alih-alih mengisi ketiganya sekaligus, Anda bisa:
-1.  Mengisi `Lokasi` saja -> Menghasilkan mesin baru yang sudah tahu lokasinya.
-2.  Mengisi `Tipe` pada mesin baru tersebut -> Menghasilkan mesin sirkuit yang lebih spesifik.
-3.  Akhirnya hanya mengisi `Voltase` saat dibutuhkan.
+**Closure** adalah kombinasi dari sebuah fungsi yang dibundel bersama dengan referensi ke lingkungan sekitarnya (lingkup leksikal). Secara sederhana, closure memberi fungsi akses ke lingkup luar bahkan setelah fungsi luar tersebut selesai dieksekusi.
 
 ---
 
-## 2. Apa itu Currying?
+## 1. Mental Model: "The Persistent Battery"
 
-Currying adalah teknik mentransformasi fungsi yang menerima banyak argumen menjadi serangkaian fungsi yang masing-masing menerima satu argumen saja.
+Bayangkan sebuah fungsi luar sebagai "Ruangan" yang memiliki "Baterai" (Variabel). Saat fungsi luar selesai bekerja, ruangannya "dihancurkan" dari memori utama. Namun, fungsi dalam (*inner function*) tetap memegang "Kabel" ke baterai tersebut. Ke mana pun fungsi dalam pergi, ia tetap bisa menarik energi dari baterai yang ia bawa.
+
+![Closure Persistent Battery](./assets/closure_battery_premium.svg)
+
+---
+
+## 2. Kegunaan Utama: Privatisasi Data
+
+Closures paling sering digunakan untuk mensimulasikan **Private Variables**. Karena variabel di dalam closure tidak bisa diakses langsung dari luar, ia menjadi "brankas" data yang aman.
 
 ```javascript
-// Fungsi Normal
-function multiplier(a, b) { return a * b; }
-
-// Versi Curried
-function curriedMultiplier(a) {
-    return function(b) {
-        return a * b;
+function createVault() {
+    let secret = "12345"; // Tidak bisa diakses dari luar
+    return {
+        getSecret: () => secret,
+        setSecret: (val) => { secret = val; }
     };
 }
-
-const double = curriedMultiplier(2);
-console.log(double(10)); // 20
 ```
 
 ---
 
-## 3. Keuntungan Arsitektural
+## 3. Aplikasi Lanjutan: Function Currying
 
-- **Reusability**: Menciptakan fungsi spesifik dari fungsi umum.
-- **Lazy Evaluation**: Menunda eksekusi sampai semua data terkumpul.
-- **Konfigurasi Awal**: Menetapkan pengaturan dasar Hub sekali, lalu menggunakannya berkali-kali.
+**Currying** adalah teknik mentransformasi fungsi dengan banyak argumen menjadi serangkaian fungsi yang masing-masing menerima satu argumen. Ini dimungkinkan berkat closure yang "mengingat" argumen sebelumnya.
+
+```javascript
+const multiply = (a) => (b) => a * b;
+const double = multiply(2); // '2' disimpan dalam closure
+console.log(double(5)); // 10
+```
 
 ---
 
-## Arsitek Mindset: Membangun Pabrik Fungsi
+## Arsitek Mindset: Memori & Ketahanan
 
 Sebagai arsitek Hub:
-- Gunakan Closures untuk enkapsulasi (menyembunyikan privasi data).
-- Gunakan Currying untuk menyederhanakan pemanggilan fungsi yang sering menggunakan argumen yang sama di awal.
-- Pastikan memori tidak terbebani secara berlebihan jika Anda membuat terlalu banyak Closures tanpa melepaskannya (memory management).
+- **Enkapsulasi**: Gunakan closure untuk melindungi status internal modul Anda dari manipulasi global.
+- **Waspada Memori**: Setiap closure akan menahan referensi ke lingkup induknya, yang berarti memori tidak akan dilepaskan (GC) selama fungsi closure masih hidup. Jangan membuat closure berlebihan jika tidak perlu.
+- **Factory Pattern**: Gunakan closure untuk memproduksi fungsi-fungsi khusus dari satu templat umum (seperti membuat berbagai jenis Logger).
 
 ---
 
-## Hands-on: Lab Stasiun Currying
-Buka file `examples/currying_lab.js` untuk melihat bagaimana kita membangun sistem penghitung biaya energi yang fleksibel menggunakan teknik Currying.
+## Hands-on: Lab Baterai Memori
+Pelajari teknik enkapsulasi dan currying pada sirkuit fungsional di:
+- `examples/currying_lab.js`
+- `examples/closure_battery_lab.js`
 
 ---
 *Status: [status.md](../../../status.md)*

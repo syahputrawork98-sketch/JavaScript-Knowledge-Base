@@ -1,0 +1,48 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="relayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fb923c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- Main Generator (The Dispatcher) -->
+  <g transform="translate(40, 60)">
+    <rect x="0" y="0" width="120" height="60" rx="10" fill="#1e293b" stroke="#fb923c" stroke-width="2" />
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">MAIN GEN</text>
+    <text x="60" y="45" font-family="Courier, monospace" font-size="10" fill="#fb923c" text-anchor="middle">yield*</text>
+  </g>
+
+  <!-- The Relay (Connection) -->
+  <path d="M 160 90 L 240 90" stroke="#fb923c" stroke-width="3" stroke-dasharray="6,3" filter="url(#glow)" />
+
+  <!-- Sub-Generator (The Worker) -->
+  <g transform="translate(240, 60)">
+    <rect x="0" y="0" width="120" height="180" rx="10" fill="#1e293b" stroke="#fb923c" stroke-width="2" opacity="0.6" stroke-dasharray="4,2" />
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">SUB-GEN / ITERABLE</text>
+    
+    <!-- Flattened Output -->
+    <rect x="20" y="50" width="80" height="20" rx="5" fill="#fb923c" opacity="0.8" />
+    <text x="60" y="64" font-family="Arial, sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">Step A</text>
+    
+    <rect x="20" y="80" width="80" height="20" rx="5" fill="#fb923c" opacity="0.6" />
+    <text x="60" y="94" font-family="Arial, sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">Step B</text>
+    
+    <rect x="20" y="110" width="80" height="20" rx="5" fill="#fb923c" opacity="0.4" />
+    <text x="60" y="124" font-family="Arial, sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">Step C</text>
+  </g>
+
+  <text x="200" y="30" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">THE SUB-GRID RELAY</text>
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">"Forwarding all pulses from a sub-module directly to the main output"</text>
+
+</svg>

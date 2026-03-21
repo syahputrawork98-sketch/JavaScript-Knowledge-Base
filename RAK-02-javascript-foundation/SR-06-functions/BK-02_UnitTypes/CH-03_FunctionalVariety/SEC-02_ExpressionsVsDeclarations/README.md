@@ -1,48 +1,61 @@
-# CH-02: Expressions vs Declarations (Stationary vs Mobile Stations)
+# SEC-02: Expressions vs Declarations (Stationary vs Portable)
 
 > **"Di dalam Hub, ada unit yang dibangun permanen sebagai bagian dari struktur dasar (Declarations) dan ada unit yang bisa dipindah-pindahkan atau disimpan dalam kontainer (Expressions). Mengetahui kapan menggunakan masing-masing adalah kunci fleksibilitas Hub."**
 
-JavaScript memungkinkan kita mendefinisikan fungsi melalui pernyataan (Declaration) atau ekspresi (Expression).
-
-## 1. Mental Model: "Stationary vs Mobile Stations"
-
-- **Function Declaration (Stationary)**: Seperti menara pemancar permanen. Karena mekanisme **Hoisting**, tower ini sudah bisa digunakan di seluruh Hub bahkan sebelum blueprint-nya dibaca lengkap dari atas ke bawah.
-- **Function Expression (Mobile)**: Seperti generator portabel yang disimpan di dalam kontainer (variabel). Anda tidak bisa menggunakannya sebelum mesin itu benar-benar diletakkan dan diinisialisasi di baris tersebut.
+JavaScript memungkinkan kita mendefinisikan fungsi melalui pernyataan (Declaration) atau ekspresi (Expression). Perbedaan utamanya terletak pada **kapan** fungsi tersebut tersedia untuk digunakan.
 
 ---
 
-## 2. Perbedaan Krusial (Hoisting)
+## 1. Mental Model: "Stationary vs Portable Units"
+
+- **Function Declaration (Stationary)**: Seperti menara pemancar permanen yang dibangun paling awal. Karena mekanisme **Hoisting**, menara ini sudah terdaftar dan siap digunakan di seluruh Hub bahkan sebelum blueprint-nya dibaca lengkap dari atas ke bawah.
+- **Function Expression (Portable)**: Seperti generator portabel yang disimpan di dalam kontainer (variabel). Anda tidak bisa menyalakannya sebelum variabel tersebut benar-benar diinisialisasi pada baris kodenya.
+
+![Stationary vs Portable Units](./assets/stationary_vs_portable.svg)
+
+---
+
+## 2. Hoisting: "The Uplift Mechanism"
+
+Deklarasi fungsi diangkat (*hoisted*) ke bagian atas lingkupnya oleh mesin JavaScript sebelum eksekusi dimulai. Ekspresi fungsi, di sisi lain, tidak diangkat (hanya deklarasi variabelnya yang diangkat jika menggunakan `var`, tapi isinya tetap `undefined`).
 
 ```javascript
-/* STATIONARY: Bisa dipanggil di atas */
-broadcast("Hello Grid!"); 
+/* STATIONARY: Aman dipanggil di mana saja */
+towerStatus(); 
 
-function broadcast(msg) { console.log(msg); }
+function towerStatus() { console.log("Tower is ONLINE"); }
 
-/* MOBILE: Tidak bisa dipanggil di atas */
-// mobileStation(); // ERROR!
+/* PORTABLE: Harus diinisialisasi dulu */
+// generatorRun(); // ERROR!
 
-const mobileStation = function() { console.log("Broadcasting..."); };
+const generatorRun = function() { console.log("Generator is RUNNING"); };
 ```
 
 ---
 
-## 3. Anonymous vs Named Expressions
+## 3. Named vs Anonymous Expressions
 
-Fungsi di dalam ekspresi seringkali tidak bernama (anonymous), tapi memberi nama pada ekspresi mempermudah pelacakan saat melakukan prosedur perbaikan (debugging) di dalam log sistem Hub.
+Ekspresi fungsi seringkali tidak bernama (anonymous). Namun, memberikan nama internal pada ekspresi dapat sangat membantu saat prosedur perbaikan (*debugging*), karena nama tersebut akan muncul di dalam *Stack Trace* sistem.
+
+```javascript
+const compute = function calculatePower(v, i) {
+    return v * i;
+};
+```
 
 ---
 
 ## Arsitek Mindset: Ketertiban Blueprint
 
 Sebagai arsitek Hub:
-- Gunakan **Declarations** untuk fungsi-fungsi utama yang menjadi infrastruktur dasar aplikasi agar mudah diakses.
-- Gunakan **Expressions** untuk fungsi yang hanya dibutuhkan secara situasional, dikirim sebagai argumen ke sirkuit lain, atau untuk menjaga agar logaritma tetap tertutup/lokal (encapsulated).
+- **Declarations**: Gunakan untuk fungsi-fungsi API utama yang merupakan infrastruktur dasar aplikasi Anda (Global Utils).
+- **Expressions**: Gunakan untuk fungsi yang dikirim sebagai argumen (*callbacks*), fungsi yang bersifat lokal/sementara, atau saat Anda ingin memastikan fungsi tidak bisa dipanggil sebelum didefinisikan secara eksplisit.
+- **Consitency**: Meskipun Hoisting memungkinkan pemanggilan sebelum definisi, tetaplah definisikan fungsi Anda sebelum digunakan untuk menjaga keterbacaan "Blueprint" kode Anda.
 
 ---
 
 ## Hands-on: Lab Stasiun Kerja
-Buka file `examples/fn_compare_lab.js` untuk melihat eksperimen bagaimana "Menara Permanen" sudah menyala sejak awal sementara "Generator Portabel" butuh persiapan sebelum digunakan.
+Buka file `examples/fn_compare_lab.js` untuk melihat eksperimen perbandingan antara menara permanen dan generator portabel.
 
 ---
 *Status: [status.md](../../../status.md)*

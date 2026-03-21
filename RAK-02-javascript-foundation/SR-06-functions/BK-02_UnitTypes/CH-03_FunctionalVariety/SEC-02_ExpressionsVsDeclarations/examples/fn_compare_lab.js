@@ -1,41 +1,63 @@
 /**
- * LAB: Expressions vs Declarations (Stationary vs Mobile Stations)
- * Mental Model: "Stationary vs Mobile"
+ * LAB: Expressions vs Declarations (Stationary vs Portable)
+ * Level: Gold Standard Implementation
  */
 
-// 1. Testing Stationary Hoisting (Declaration)
-console.log("--- Menara Permanen Test ---");
+// 1. Dasar: Hoisting Experiment
+console.log("--- HOISTING TEST ---");
+
+// Declaration: Tower is built before code runs
+console.log("Calling tower(A) before definition:", towerA()); 
+
+function towerA() {
+    return "Stationary Tower A: ACTIVE";
+}
+
+// Expression: Generator exists but isn't fueled yet
 try {
-    activateTower(); // Berhasil dipanggil meski didefinisikan di bawah
+    console.log("Calling generator(B) before definition:", generatorB());
 } catch (e) {
-    console.log("Error: Menara tidak ditemukan.");
+    console.log("Architect Warning: generatorB is not initialized yet!");
 }
 
-function activateTower() {
-    console.log("Status: Menara Permanen AKTIF (Hoisted).");
-}
-
-
-// 2. Testing Mobile Activation (Expression)
-console.log("\n--- Generator Portabel Test ---");
-try {
-    startGenerator(); // AKAN ERROR karena belum diinisialisasi
-} catch (e) {
-    console.log("[!] System Error: Generator portabel belum diletakkan di slotnya.");
-}
-
-const startGenerator = function() {
-    console.log("Status: Generator Portabel MULAI BERPUTAR.");
+const generatorB = function() {
+    return "Portable Generator B: ACTIVE";
 };
 
-// Setelah diletakkan baru bisa dipanggil
-startGenerator();
+console.log("Calling generator(B) after definition:", generatorB());
+console.log("---");
 
-
-// 3. Named Expressions (Debugging help)
-const complexAlgorithm = function calculateSafetyFactor(load) {
-    // Memberi nama 'calculateSafetyFactor' membantu di Stack Trace
-    return load * 0.85;
+// 2. Lanjutan: Named Function Expression (Self-Reference)
+// Memberi nama pada ekspresi berguna untuk rekursi internal dan debugging.
+const factorial = function computeFactorial(n) {
+    if (n <= 1) return 1;
+    // 'computeFactorial' hanya dikenali di dalam fungsi ini
+    return n * computeFactorial(n - 1);
 };
 
-console.log("\nSafety Factor Calculation:", complexAlgorithm(1000));
+console.log("Factorial(5) via Named Expression:", factorial(5));
+
+console.log("---");
+
+// 3. Arsitektur: Dynamic Assignment
+// Ekspresi memungkinkan kita mengganti fungsi secara dinamis.
+let activeChannel;
+
+const heavyLoad = () => "Processing Heavy Data...";
+const lightLoad = () => "Processing Light Data...";
+
+const systemLoad = 90; // Simulate high load
+activeChannel = (systemLoad > 80) ? heavyLoad : lightLoad;
+
+console.log("Current Channel Logic:", activeChannel());
+
+// 4. Callback Pattern (The Portable Power)
+function executeWork(taskName, taskLogic) {
+    console.log(`Starting Task: [${taskName}]`);
+    console.log(`Result: ${taskLogic()}`);
+}
+
+// Mengirimkan ekspresi anonim (Portable Unit) langsung sebagai argumen
+executeWork("RECON", function() {
+    return "Scanning sectors 1-5...";
+});

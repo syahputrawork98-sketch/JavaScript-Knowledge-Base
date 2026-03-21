@@ -1,30 +1,49 @@
 /**
- * LAB: Quantifiers (Pulse Frequency)
- * Mental Model: "Pulse Frequency"
+ * LAB: Quantifiers (The Pulse Counters)
+ * Level: Gold Standard Implementation
  */
 
-const sensorData = "ID123, ID9999, ID2, SERIAL007-X, ENERGY: 500MW";
+const sensorStream = "UNIT-1, UNIT-25, UNIT-999, HUB-EXT";
 
-console.log("--- Mengetes Frekuensi Scanner ---");
+// 1. Dasar: Menghitung Digit (UNIT-###)
+console.log("--- IDENTIFYING UNITS ---");
+// Mencari UNIT- diikuti oleh 1 atau lebih angka
+const anyUnits = sensorStream.match(/UNIT-\d+/g);
+console.log("Found Units (1 or more digits):", anyUnits);
 
-// 1. Mencari ID dengan 3 Digit (Tepat)
-const exactID = sensorData.match(/ID\d{3}/g);
-console.log("ID 3-Digit (Fixed):", exactID); // ["ID123"]
+// Mencari UNIT- yang hanya memiliki tepat 2 angka
+const midUnits = sensorStream.match(/UNIT-\d{2}/g);
+console.log("Mid-range Units (exactly 2 digits):", midUnits);
 
-// 2. Mencari ID dengan Digit yang bervariasi (1 atau lebih)
-const genericID = sensorData.match(/ID\d+/g);
-console.log("Semua ID (Generic):", genericID); // ["ID123", "ID9999", "ID2"]
+console.log("---");
 
-// 3. Opsional: Mencari SERIAL yang mungkin memiliki suffix -X
-const serialScanner = /SERIAL\d{3}(-X)?/g;
-console.log("Serial Trace:", sensorData.match(serialScanner));
+// 2. Lanjutan: Greedy vs Lazy Challenge
+const logEntry = "Data: [500] [1200] [99]";
 
+console.log("--- GREEDY VS LAZY ---");
+// Greedy: Mengambil dari '[' pertama sampai ']' TERAKHIR
+console.log("Greedy Match:", logEntry.match(/\[.+\]/g));
 
-// 4. Greedy vs Lazy (Kasus: ENERGY Data)
-const text = "DATA: [100MW] --- [200MW]";
+// Lazy: Mengambil setiap blok '[' sampai ']' TERDEKAT
+console.log("Lazy Match:", logEntry.match(/\[.+?\]/g));
 
-// Greedy: Mengambil dari '[' pertama ke ']' terakhir
-console.log("\nGreedy Find:", text.match(/\[.*\]/g)); // ["[100MW] --- [200MW]"]
+console.log("---");
 
-// Lazy: Berhenti di ']' terdekat
-console.log("Lazy Find:", text.match(/\[.*?\]/g));  // ["[100MW]", "[200MW]"]
+// 3. Arsitektur: Optional Protocol (HTTP vs HTTPS)
+const sites = "http://hub.local, https://secure.grid";
+const protocolScanner = /https?:\/\/\w+/g;
+
+console.log("Detected Protocols:", sites.match(protocolScanner));
+
+console.log("---");
+
+// 4. Architect Drill: Boundary Control
+// Mencari ID yang memiliki panjang tepat 3 - 5 digit
+const deviceIDs = "ID-12, ID-123, ID-12345, ID-1234567";
+const validIDs = deviceIDs.match(/ID-\d{3,5}/g);
+console.log("Valid Device IDs (3-5 digits):", validIDs);
+
+// Verifikasi dengan Anchor untuk memastikan seluruh string valid
+const checkID = (id) => /^ID-\d{3,5}$/.test(id);
+console.log("Check ID-123:", checkID("ID-123")); // true
+console.log("Check ID-123456:", checkID("ID-123456")); // false

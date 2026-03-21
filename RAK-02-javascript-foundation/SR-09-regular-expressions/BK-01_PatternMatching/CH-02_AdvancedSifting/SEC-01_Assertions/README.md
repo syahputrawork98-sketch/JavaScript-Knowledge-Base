@@ -1,50 +1,58 @@
-# CH-01: Assertions (Grid Boundaries)
+# SEC-01: Assertions (The Boundary Perimeter)
 
-> **"Pemindaian data yang akurat tidak hanya tentang 'apa' karakternya, tapi juga 'di mana' lokasinya. Assertions adalah 'Penjaga Batas' (Grid Boundaries) yang memastikan scanner hanya bekerja di awal, akhir, atau di sekitar pola tertentu tanpa benar-benar memakan data di batas tersebut."**
+> **"Pemindaian data yang akurat tidak hanya tentang 'apa' karakternya, tapi juga 'di mana' lokasinya. Assertions adalah 'Perimeter Batas' (Boundary Perimeter) yang memastikan scanner hanya bekerja di awal, akhir, atau di sekitar pola tertentu tanpa benar-benar memakan data di batas tersebut."**
 
-Assertions mencakup batas kata (`\b`), awal/akhir baris (`^`, `$`), serta pencarian di muka (*lookahead*) dan di belakang (*lookbehind*).
-
-## 1. Mental Model: "Grid Boundaries"
-
-Bayangkan grid data sebagai peta wilayah Hub.
-- `^`: Scanner hanya diijinkan mencari di pintu masuk wilayah (Awal Baris).
-- `$`: Scanner hanya diijinkan mencari di pintu keluar wilayah (Akhir Baris).
-- `\b`: Scanner memastikan ia berada di celah antar blok data (Batas Kata).
-- **Lookahead (?=...)**: "Pastikan ada koin di depan, tapi jangan ambil koinnya, cukup tahu kalau dia ada di sana."
-
-![Boundary Assertion](./assets/boundary_assertion.svg)
+**Assertions** adalah instruksi khusus yang tidak mencocokkan karakter, melainkan mencocokkan **posisi**. Mereka sering disebut sebagai *Zero-width Assertions* karena mereka melakukan pengecekan kondisi tanpa menggerakkan kursor pemindaian melintasi karakter.
 
 ---
 
-## 2. Jenis Penjaga Batas
+## 1. Mental Model: "The Boundary Perimeter"
 
-| Simbol | Deskripsi |
-| :--- | :--- |
-| `^` | **Start**: Awal dari input string atau baris. |
-| `$` | **End**: Akhir dari input string atau baris. |
-| `\b` | **Word Boundary**: Posisi antara kata dan spasi/simbol. |
-| `(?=...)` | **Positive Lookahead**: Mencocokkan sesuatu hanya jika diikuti oleh pola tertentu. |
-| `(?!...)` | **Negative Lookahead**: Mencocokkan sesuatu hanya jika **TIDAK** diikuti oleh pola tertentu. |
+Bayangkan grid data Hub sebagai wilayah yang dilindungi:
+- **`^` (Start Perimeter)**: Scanner hanya diijinkan mulai dari pintu masuk wilayah (Awal String).
+- **`$` (End Perimeter)**: Scanner hanya diizinkan berhenti tepat di pintu keluar wilayah (Akhir String).
+- **`\b` (Word Boundary)**: Scanner memastikan ia berada di celah antara blok kata dan karakter non-kata (seperti spasi atau tanda baca).
+- **Lookarounds**: Scanner seperti memiliki "Mata Laser" yang bisa mengintip ke depan atau ke belakang untuk memastikan ada pola tertentu sebelum ia memutuskan untuk mencocokkan data saat ini.
 
----
-
-## 3. Kekuatan Lookarounds
-
-Lookarounds sangat berguna untuk validasi yang kompleks tanpa menggerakkan "kursor" scanner. Misal: memastikan password mengandung angka sebelum memproses karakter berikutnya.
+![Boundary Assertions Premium](./assets/boundary_assertions_premium.svg)
 
 ---
 
-## Arsitek Mindset: Validasi Tanpa Jejak
+## 2. Jenis Penjaga Perimeter
+
+### A. Anchors (Jangkar)
+| Simbol | Deskripsi | Kegunaan Utama |
+| :--- | :--- | :--- |
+| `^` | Awal Baris / String | Validasi input yang harus dimulai dengan pola tertentu. |
+| `$` | Akhir Baris / String | Validasi input yang harus berakhir dengan pola tertentu. |
+| `\b` | Batas Kata | Menghindari pencarian parsial (misal: cari `cat` tapi tidak kena `category`). |
+
+### B. Lookarounds (Intipan)
+| Simbol | Nama | Logika |
+| :--- | :--- | :--- |
+| `(?=...)` | Positive Lookahead | "Cocokkan jika DI DEPANNYA ada..." |
+| `(?!...)` | Negative Lookahead | "Cocokkan jika DI DEPANNYA **TIDAK** ada..." |
+| `(?<=...)`| Positive Lookbehind | "Cocokkan jika DI BELAKANGNYA ada..." |
+| `(?<!...)`| Negative Lookbehind | "Cocokkan jika DI BELAKANGNYA **TIDAK** ada..." |
+
+---
+
+## 3. Kekuatan Lookaround: Validasi Tanpa Konsumsi
+Lookaround sangat berguna untuk memvalidasi syarat tanpa "memakan" teks tersebut. Contoh klasik: Memastikan password memiliki minimal satu angka sebelum memproses karakter lainnya.
+
+---
+
+## Arsitek Mindset: Presisi Tanpa Jejak
 
 Sebagai arsitek Hub:
-- Gunakan `^` dan `$` saat memvalidasi input formulir (seperti email atau nomor telepon) untuk memastikan tidak ada data tambahan ilegal di awal atau akhir.
-- Gunakan `\b` untuk mencari kata spesifik agar tidak terjebak dalam kata lain (misal: cari `the` tapi tidak menemukan `there`).
-- Gunakan Lookarounds untuk logika "Must Contain" (Harus Mengandung) yang efisien.
+- **Strict Validation**: Selalu gunakan `^` dan `$` saat memvalidasi format data krusial (seperti email atau token) agar tidak ada data sampah di sekitar nilai yang benar.
+- **Accurate Search**: Gunakan `\b` jika Anda ingin melakukan fitur pencarian "Whole Word Only".
+- **Conditional Sifting**: Gunakan Lookarounds untuk logika yang bergantung pada konteks sekitar tanpa merusak posisi kursor scanner Anda.
 
 ---
 
 ## Hands-on: Lab Penjaga Batas
-Buka file `examples/grid_boundaries_lab.js` untuk berlatih membatasi pergerakan scanner di titik-titik krusial Grid data.
+Berlatih membatasi pergerakan scanner di titik-titik krusial Grid data di `examples/grid_boundaries_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

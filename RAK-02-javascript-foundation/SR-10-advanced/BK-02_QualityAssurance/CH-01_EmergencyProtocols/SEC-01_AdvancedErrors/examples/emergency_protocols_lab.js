@@ -1,49 +1,80 @@
 /**
- * LAB: Advanced Errors (Emergency Protocols)
- * Mental Model: "The Containment Box"
+ * LAB: Advanced Errors (The Nested Fuses)
+ * Level: Gold Standard Implementation
  */
 
-// 1. Definisi Alert Kustom (Custom Error)
-class GridFailureError extends Error {
-    constructor(sector, message) {
-        super(`[${sector}] ${message}`);
-        this.name = "GridFailureError";
-        this.sector = sector;
+// 1. Dasar: Custom Error Hierarchy
+class HubError extends Error {
+    constructor(message, options) {
+        super(message, options);
+        this.name = this.constructor.name;
         this.timestamp = new Date();
     }
 }
 
-// 2. Simulasi Operasi Berisiko
-function processEnergyFlow(amount) {
-    if (typeof amount !== 'number') {
-        throw new TypeError("Payload energi harus berupa numeric!");
+class NetworkTimeoutError extends HubError {}
+class DatabaseCorruptionError extends HubError {}
+
+// 2. Lanjutan: Error Chaining (ES2022 cause)
+async function fetchFromSubGrid() {
+    try {
+        // Simulasi kegagalan tingkat rendah
+        throw new TypeError("Gagal membaca aliran bit mentah.");
+    } catch (lowLevelErr) {
+        // Bungkus dengan context tingkat tinggi
+        throw new NetworkTimeoutError("Sub-Grid tidak merespon tepat waktu.", { 
+            cause: lowLevelErr 
+        });
     }
-    if (amount > 1000) {
-        throw new GridFailureError("SECTOR-7", "Overload terdeteksi saat transmisi.");
-    }
-    return `Aliran ${amount}MW stabil.`;
 }
 
-// 3. Eksekusi dalam Kotak Kontaminasi
-console.log("--- Menjalankan Protokol Keamanan ---");
+// 3. Arsitektur: Main Emergency Protocol
+async function runEmergencyProtocol() {
+    console.log("--- STARTING MISSION-CRITICAL OPERATION ---");
+    let resourceInUse = true;
 
-function runGridTest(amount) {
     try {
-        console.log(`[START] Memproses ${amount}MW...`);
-        const result = processEnergyFlow(amount);
-        console.log(`[SUCCESS] ${result}`);
-    } catch (error) {
+        await fetchFromSubGrid();
+    } catch (err) {
+        console.error(`[ALERT] Terjadi kesalahan: ${err.message}`);
+        
+        // Memeriksa akar masalah (The Cause)
+        if (err.cause) {
+            console.warn(`[DIAGNOSTIC] Akar masalah: ${err.cause.name} - ${err.cause.message}`);
+        }
+
         // Penanganan spesifik berdasarkan tipe
-        if (error instanceof GridFailureError) {
-            console.error(`[CRITICAL ALERT] Sektor ${error.sector} Bermasalah! Detail: ${error.message}`);
-        } else {
-            console.error(`[SYSTEM ERROR] Kesalahan tidak terduga: ${error.name} - ${error.message}`);
+        if (err instanceof NetworkTimeoutError) {
+            console.log("[RECOVERY] Mencoba menghubungkan kembali ke jalur cadangan...");
         }
     } finally {
-        console.log("[FINALLY] Mematikan sensor sementara untuk pendinginan.\n");
+        // Tim pembersih selalu datang
+        resourceInUse = false;
+        console.log("[CLEANUP] Melepaskan beban energi. Status resource in use:", resourceInUse);
+        console.log("--- OPERATION TERMINATED ---");
     }
 }
 
-runGridTest(500);   // Sukses
-runGridTest(1500);  // GridFailureError
-runGridTest("MAX"); // TypeError
+runEmergencyProtocol();
+
+console.log("---");
+
+// 4. Architect Drill: Nested Try-Catch For Partial Failure
+function complexTask() {
+    try {
+        console.log("Proses Utama Dimulai...");
+        
+        try {
+            console.log("Sub-tugas: Membersihkan Cache...");
+            throw new Error("Disk Penuh!");
+        } catch (subErr) {
+            console.warn("Sub-tugas gagal, tapi proses utama bisa lanjut:", subErr.message);
+        }
+
+        console.log("Melanjutkan operasi utama...");
+    } catch (mainErr) {
+        console.error("Proses Utama Gagal Total!", mainErr.message);
+    }
+}
+
+complexTask();

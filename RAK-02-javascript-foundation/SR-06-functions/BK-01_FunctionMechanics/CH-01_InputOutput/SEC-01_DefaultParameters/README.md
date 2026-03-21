@@ -1,43 +1,51 @@
-# CH-01: Default Parameters (Backup Fuel)
+# SEC-01: Default Parameters (Backup Fuel)
 
 > **"Sebuah Transformer membutuhkan bahan bakar untuk bekerja. Namun, jika operator lupa mengirimkan bahan bakar, Default Parameters adalah 'Cadangan Bahan Bakar' (Backup Fuel) otomatis yang memastikan mesin tidak berhenti bekerja secara mendadak."**
 
 Default parameters memungkinkan kita menginisialisasi parameter formal dengan nilai default jika tidak ada nilai atau `undefined` yang dikirimkan ke fungsi.
 
+---
+
 ## 1. Mental Model: "The Backup Fuel"
 
 Bayangkan sebuah mesin generator. Pengguna seharusnya memasukkan jenis bahan bakar (misal: "Bensin"). Namun, jika pengguna mengosongkan tangki input, mesin memiliki cadangan internal berlabel "Listrik" yang akan digunakan sebagai cadangan agar sistem tetap menyala.
 
-![Function Transformer](./assets/function_transformer.svg)
+![Default Parameters Fuel](./assets/default_params_fuel.svg)
 
 ---
 
-## 2. Sintaksis Dasar
+## 2. Mekanisme Evaluasi (Call-time Evaluation)
 
-Sebelum ES6, kita harus melakukan pengecekan manual di dalam fungsi. Sekarang, kita bisa langsung menetapkannya di baris definisi.
+Berbeda dengan beberapa bahasa lain, nilai default pada JavaScript dievaluasi **setiap kali** fungsi dipanggil (call-time), bukan saat definisi. Ini berarti jika nilai default adalah hasil dari pemanggilan fungsi, fungsi tersebut akan dipanggil ulang setiap kali argumennya absen.
 
 ```javascript
-// Standar ES6+
-function aktifkanTurbo(level = 10) {
-    console.log(`Turbo diaktifkan pada level: ${level}`);
+let counter = 0;
+function getInitialValue() {
+    return ++counter;
 }
 
-aktifkanTurbo(50); // Output: 50
-aktifkanTurbo();   // Output: 10 (Menggunakan cadangan)
+function processData(val = getInitialValue()) {
+    console.log(val);
+}
+
+processData(); // 1
+processData(); // 2 (getInitialValue dipanggil ulang)
 ```
 
 ---
 
-## 3. Evaluasi Waktu Panggil (Call-time Evaluation)
+## 3. Parameter Shadowing & Order
 
-Nilai default tidak hanya berupa angka statis. Ia bisa berupa hasil dari ekspresi atau pemanggilan fungsi lain yang dievaluasi **setiap kali** fungsi dipanggil tanpa argumen.
+Parameter yang dideklarasikan lebih awal tersedia untuk parameter yang dideklarasikan setelahnya. Ini disebut sebagai **Temporal Dead Zone** untuk parameter.
 
 ```javascript
-function getBasePower() { return 100; }
-
-function supplyEnergy(amount = getBasePower()) {
-    console.log(`Menyuplai ${amount}MW`);
+// Valid: 'b' menggunakan nilai 'a'
+function calculate(a, b = a * 2) {
+    return a + b;
 }
+
+// ERROR: 'a' tidak bisa menggunakan 'b' karena 'b' belum didefinisikan
+function fail(a = b, b = 5) { ... }
 ```
 
 ---
@@ -45,14 +53,14 @@ function supplyEnergy(amount = getBasePower()) {
 ## Arsitek Mindset: Ketahanan Sistem
 
 Sebagai arsitek Hub:
-- Gunakan default parameters untuk membuat fungsi Anda lebih tangguh (*robust*).
-- Hindari ketergantungan pada pengecekan `if (param === undefined)` yang manual dan berulang.
-- Letakkan parameter dengan nilai default di urutan paling akhir untuk memudahkan pemanggilan fungsi.
+- **Fallback Logic**: Gunakan default parameters untuk membuat fungsi Anda lebih tangguh (*robust*) terhadap input yang tidak lengkap.
+- **Explicit Undefined**: Ingat bahwa nilai default hanya dipicu oleh `undefined`. Mengirim `null` akan tetap dianggap sebagai nilai sah dan **tidak** memicu default.
+- **Clean API**: Letakkan parameter opsional di akhir tanda tangan fungsi untuk menjaga keterbacaan kode pemanggil.
 
 ---
 
 ## Hands-on: Lab Cadangan Bahan Bakar
-Buka file `examples/default_params_lab.js` untuk melihat bagaimana kita membangun fungsi konfigurasi modul yang tetap aman meskipun datanya tidak lengkap.
+Pelajari kasus nyata penggunaan default parameters pada sistem konfigurasi di `examples/default_params_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

@@ -1,0 +1,46 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f472b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#db2777;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- The Regular Engine (Bulky) -->
+  <g transform="translate(40, 80)">
+    <rect x="0" y="0" width="120" height="150" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.3" />
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="10" fill="#38bdf8" text-anchor="middle">REGULAR ENGINE</text>
+    <circle cx="60" cy="80" r="15" fill="#38bdf8" opacity="0.4" /> <!-- Internal This -->
+    <text x="60" y="110" font-family="Arial, sans-serif" font-size="8" fill="#38bdf8" text-anchor="middle">OWN "this"</text>
+    <rect x="30" y="125" width="60" height="10" fill="#38bdf8" opacity="0.4" />
+    <text x="60" y="145" font-family="Arial, sans-serif" font-size="8" fill="#38bdf8" text-anchor="middle">arguments obj</text>
+  </g>
+
+  <!-- The High-Speed Interceptor (Arrow Function) -->
+  <g transform="translate(220, 100)">
+    <path d="M 0 0 L 140 50 L 0 100 L 20 50 Z" fill="url(#arrowGrad)" filter="url(#glow)" />
+    <text x="70" y="-15" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">ARROW UNIT (=&gt;)</text>
+    
+    <!-- Borrowed Context -->
+    <path d="M 60 50 L -120 150" stroke="#f472b6" stroke-width="1" stroke-dasharray="2,2" />
+    <text x="-40" y="140" font-family="Arial, sans-serif" font-size="8" fill="#f472b6" text-anchor="middle">BORROWED "this"</text>
+  </g>
+
+  <!-- Features comparison -->
+  <text x="50" y="260" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">Heavy / Dynamic Context</text>
+  <text x="350" y="260" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8" text-anchor="end">Light / Lexical Context</text>
+
+  <text x="200" y="40" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">THE HIGH-SPEED INTERCEPTOR</text>
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">"Lightweight units that inherit their parent's navigation system"</text>
+
+</svg>

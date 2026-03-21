@@ -1,44 +1,61 @@
-# CH-01: RegExp Methods (Scanner Operations)
+# SEC-01: RegExp Methods (The Probe Analyzers)
 
-> **"Setelah memiliki pemindai yang tepat, Anda butuh instruksi operasi. RegExp Methods adalah 'Operasi Pemindai' (Scanner Operations) yang menentukan apakah scanner hanya melihat-lihat (test) atau membongkar seluruh isi data (exec)."**
+> **"Setelah memiliki pemindai yang tepat, Anda butuh instruksi operasi. RegExp Methods adalah 'Penganalisis Probe' (Probe Analyzers) yang menentukan apakah scanner hanya melihat-lihat keberadaan data (test) atau melakukan biopsi mendalam untuk membongkar seluruh isinya (exec)."**
 
-Metode pada objek RegExp (`test` dan `exec`) adalah alat utama untuk validasi dan ekstraksi.
-
-## 1. Mental Model: "Scanner Operations"
-
-- **.test() (Quick Check)**: Seperti lampu indikator hijau/merah. Ia hanya memberi tahu lewat nilai Boolean (`true/false`) apakah pola ditemukan atau tidak. Cepat dan efisien untuk konfirmasi.
-- **.exec() (Deep Inspection)**: Seperti tim forensik. Ia membongkar data, mencari kecocokan pertama, dan memberikan detail mendalam (termasuk isi Capturing Groups dan posisi index).
+Metode yang menempel pada objek RegExp (`test` dan `exec`) adalah instrumen utama untuk melakukan validasi cepat dan ekstraksi data yang mendalam dari aliran teks di Grid.
 
 ---
 
-## 2. Cara Kerja .test()
+## 1. Mental Model: "The Probe Analyzers"
 
-Gunakan ini jika Anda hanya ingin memvalidasi format data (misal: "Apakah ini email yang sah?").
+Bayangkan dua jenis alat sensor di tangan Anda:
+- **`.test()` (The Presence Probe)**: Seperti lampu indikator hijau/merah. Ia hanya memberi tahu lewat nilai Boolean (`true/false`) apakah pola ditemukan atau tidak. Sangat cepat dan efisien untuk konfirmasi validitas data.
+- **`.exec()` (The Biopsy Probe)**: Seperti tim forensik yang membedah sampel data. Ia mengembalikan objek hasil yang sangat detail, termasuk isi dari setiap *Capturing Group*, posisi index temuan, dan input aslinya.
+
+![Probe Analyzers Premium](./assets/probe_analyzers_premium.svg)
+
+---
+
+## 2. Cara Kerja Operasional
+
+### A. Validasi Cepat dengan `.test()`
+Gunakan ini jika hasil akhir yang Anda butuhkan hanyalah jawaban "Ya" atau "Tidak".
 
 ```javascript
-const scanner = /@grid\.com$/;
-console.log(scanner.test("admin@grid.com")); // true
+const validator = /^[A-Z]{3}-\d{2}$/; // Format: AAA-00
+console.log(validator.test("HUB-01")); // true
+```
+
+### B. Ekstraksi Detail dengan `.exec()`
+Gunakan ini saat Anda perlu mengambil data spesifik (misal: mengambil ID dan Status dari log).
+
+```javascript
+const extractor = /UNIT-(?<id>\d+): (?<status>\w+)/;
+const data = extractor.exec("LOG: UNIT-45: ONLINE");
+console.log(data.groups.id); // "45"
 ```
 
 ---
 
-## 3. Cara Kerja .exec() dan Global Flag
+## 3. Statefulness: Rahasia `lastIndex`
 
-Saat menggunakan flag `g` (global), `.exec()` akan mengingat posisi terakhir pemindaian (`lastIndex`). Jika dipanggil berulang kali, ia akan terus mencari temuan berikutnya sampai habis.
+Saat menggunakan flag `g` (global), objek RegExp menjadi **Stateful** (mengingat posisi). Setiap kali `.exec()` dipanggil, ia akan mulai mencari dari posisi terakhir ia berhenti (`lastIndex`).
+- Jika Anda ingin memindai ulang string yang sama dari awal, pastikan reset `scanner.lastIndex = 0`.
+- Jika Anda menggunakan loop `while` dengan `.exec()`, scanner akan terus memanen data sampai tidak ada lagi yang tersisa (`null`).
 
 ---
 
-## Arsitek Mindset: Efisiensi Pencarian
+## Arsitek Mindset: Efisiensi Operasi
 
 Sebagai arsitek Hub:
-- Pilih `.test()` jika hasil akhirnya hanya untuk percabangan `if`. Ini menghemat memori karena Hub tidak perlu membuat objek hasil yang kompleks.
-- Gunakan loop `while` dengan `.exec()` jika Anda perlu mengekstrak banyak data berulang-ulang dari sebuah string yang sangat panjang.
-- Berhati-hatilah dengan `lastIndex`. Jika Anda menggunakan scanner yang sama (`global`) untuk string yang berbeda tanpa mereset `scanner.lastIndex = 0`, hasil pemindaian berikutnya bisa salah.
+- **Boolean First**: Selalu pilih `.test()` jika Anda hanya sedang melakukan percabangan `if`. Ini jauh lebih hemat sumber daya Hub daripada `.exec()`.
+- **Iterative Extraction**: Gunakan `.exec()` di dalam loop `while` untuk memanen banyak temuan dari dokumen log yang sangat panjang secara efisien.
+- **Shared Scanner Caution**: Berhati-hatilah saat berbagi satu objek RegExp global di antara beberapa fungsi. Pastikan Anda membersihkan `lastIndex` agar tidak terjadi kebocoran posisi pemindaian.
 
 ---
 
-## Hands-on: Lab Operasi Pemindai
-Buka file `examples/scanner_ops_lab.js` untuk melihat bagaimana lampu indikator `.test()` dan tim forensik `.exec()` bekerja berdampingan.
+## Hands-on: Lab Penganalisis Probe
+Bandingkan lampu indikator `.test()` dan tim forensik `.exec()` saat mereka memproses data Grid di `examples/probe_methods_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

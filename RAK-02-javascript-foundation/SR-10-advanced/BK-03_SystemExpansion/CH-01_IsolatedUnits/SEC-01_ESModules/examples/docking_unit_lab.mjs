@@ -1,33 +1,40 @@
 /**
- * LAB: ES Modules (Isolated Expansion Units)
- * Note: File ini menggunakan ekstensi .mjs agar Node.js mengenali sebagai modul ESM.
+ * LAB: ES Modules (The Inter-Hub Relays)
+ * Level: Gold Standard Implementation
  */
 
-// 1. Simulasi Modul Eksternal (Internal di file ini untuk contoh)
-// Di dunia nyata, ini akan berada di file berbeda
-const sensorTools = {
-    getTemperature: () => 45,
-    getHumidity: () => 0.8
+// 1. Dasar: Static Component Docking
+import Generator, { UNIT_NAME, getStatus } from './SubHub_Unit.mjs';
+
+console.log("--- STATIC RELAY ACTIVE ---");
+console.log(`Connection established with: ${UNIT_NAME}`);
+console.log(getStatus());
+
+const gen = new Generator();
+gen.ignite();
+
+console.log("---");
+
+// 2. Lanjutan: Top-Level Await (ES2022)
+// Tidak perlu lagi membungkus dalam async function
+console.log("Waiting for network handshake...");
+await new Promise(resolve => setTimeout(resolve, 500));
+console.log("Handshake Complete.");
+
+console.log("---");
+
+// 3. Arsitektur: Dynamic Logistics (Lazy Loading)
+const loadEmergencyUnit = async () => {
+    console.log("Deploying Emergency Unit...");
+    
+    // Memuat modul secara dinamis hanya saat dibutuhkan
+    const { CORE_VOLTAGE } = await import('./SubHub_Unit.mjs');
+    console.log(`Emergency Voltage detected: ${CORE_VOLTAGE}V`);
 };
 
-export const SECTOR_CODE = "GAMMA-9";
+await loadEmergencyUnit();
 
-export function logSensorData() {
-    console.log(`[MODULE] Membaca sensor dari ${SECTOR_CODE}...`);
-    console.log(`Temp: ${sensorTools.getTemperature()}C`);
-}
+console.log("---");
 
-export default class GridModule {
-    constructor() {
-        this.initialized = true;
-    }
-    status() { return "ONLINE"; }
-}
-
-/**
- * CARA MENJALANKAN DI GRID:
- * export default GridModule;
- * 
- * DI FILE LAIN:
- * import GridModule, { SECTOR_CODE, logSensorData } from './this_file.mjs';
- */
+// 4. Architect Drill: Metadata Inspection
+console.log("Relay Metadata:", import.meta.url);

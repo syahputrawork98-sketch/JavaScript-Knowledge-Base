@@ -1,32 +1,52 @@
 /**
  * LAB: Literal vs Constructor (Scanner Models)
- * Mental Model: "Scanner Models"
+ * Level: Gold Standard Implementation
  */
 
-// 1. Scanner Statis (Literal) - Cepat & Langsung
-const staticScanner = /PULSE-\d{3}/;
-const testData = "Incoming signal: PULSE-888";
+// 1. Dasar: The Preset Scanner (Literal)
+const logData = "ALERT: Reactor-01 overheating. Shutdown initiated.";
+const literalScanner = /reactor-\d+/i;
 
-console.log("--- Mengetes Scanner Statis ---");
-console.log(`Pola Ditemukan: ${staticScanner.test(testData)}`);
+const found = logData.match(literalScanner);
+console.log("Literal Scan Result:", found ? found[0] : "NOT FOUND");
 
+console.log("---");
 
-// 2. Scanner Dinamis (Constructor) - Fleksibel
-function createScanner(sectorCode) {
-    // Merakit pola berdasarkan input
-    const pattern = `SECTOR-${sectorCode}`;
-    return new RegExp(pattern, "g");
+// 2. Lanjutan: The Dynamic Assembly (Constructor)
+function dynamicSearch(targetId) {
+    // Merakit pola secara dinamis menggunakan variabel
+    const pattern = `${targetId}-\\d+`; // Catatan: double backslash di string!
+    const scanner = new RegExp(pattern, "i");
+    
+    console.log(`[SYS] Deploying Dynamic Scanner for: ${pattern}`);
+    return logData.match(scanner);
 }
 
-const dynamicScanner = createScanner("ALPHA");
-const gridLog = "SECTOR-ALPHA: High Voltage, SECTOR-BETA: Stable, SECTOR-ALPHA: Normal";
+console.log("Dynamic Scan Result (Reactor-01):", dynamicSearch("Reactor-01")?.[0]);
+console.log("Dynamic Scan Result (Reactor-99):", dynamicSearch("Reactor-99")?.[0] || "NULL");
 
-console.log("\n--- Mengetes Scanner Dinamis (Sektor ALPHA) ---");
-const matches = gridLog.match(dynamicScanner);
-console.log(`Temuan Sektor ALPHA: ${matches ? matches.length : 0} kali.`);
+console.log("---");
 
+// 3. Arsitektur: Performance Perspective
+console.log("Performance Check:");
+console.time("Literal-Loop");
+for(let i=0; i<10000; i++) {
+    /test/.test("testing");
+}
+console.timeEnd("Literal-Loop");
 
-// 3. Jebakan Constructor (String Escaping)
-// Hati-hati: saat menggunakan string di constructor, backslash harus di-double
-const escapeScanner = new RegExp("\\d{3}"); // Sama dengan /\d{3}/
-console.log(`\nShortcut Digit Found: ${escapeScanner.test("123")}`);
+console.time("Constructor-Loop");
+for(let i=0; i<10000; i++) {
+    new RegExp("test").test("testing");
+}
+console.timeEnd("Constructor-Loop");
+
+console.log("Architect Note: Literal scanners are significantly faster in loops!");
+
+console.log("---");
+
+// 4. Architect Drill: Double Escaping Challenge
+const literalDigit = /\d/;
+const constructorDigit = new RegExp("\\d");
+
+console.log("Are they equivalent?", literalDigit.test("1") === constructorDigit.test("1"));

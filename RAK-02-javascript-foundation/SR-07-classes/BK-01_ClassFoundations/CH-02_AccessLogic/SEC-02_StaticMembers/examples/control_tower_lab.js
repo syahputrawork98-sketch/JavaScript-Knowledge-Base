@@ -1,42 +1,77 @@
 /**
- * LAB: Static Members (Control Tower Tools)
- * Mental Model: "Control Tower Tools"
+ * LAB: Static Members (The Shared Infrastructure)
+ * Level: Gold Standard Implementation
  */
 
-class HubRegistry {
-    static #totalUnitsCreated = 0; // Private Static Field
-    static MASTER_VOLTAGE = 220;   // Public Static Field
-
-    constructor(name) {
-        this.name = name;
-        HubRegistry.#totalUnitsCreated++;
-        console.log(`[Registry] Unit '${name}' terdaftar.`);
-    }
-
-    // Static Method: Alat bantu global
-    static getGlobalInventoryCount() {
-        return `Total Unit terdaftar di seluruh Hub: ${HubRegistry.#totalUnitsCreated}`;
-    }
-
-    // Static Method: Konversi Energi
-    static convertToKilowatts(watts) {
-        return watts / 1000;
+// 1. Dasar: Peralatan Global (Utility)
+class PhysicsEngine {
+    static GRAVITY = 9.81; // Konstanta global
+    
+    static calculateForce(mass) {
+        // 'this' di sini merujuk pada PhysicsEngine
+        return mass * this.GRAVITY;
     }
 }
 
-console.log("--- Mengakses Alat Menara Kontrol ---");
-console.log(`Standar Voltase: ${HubRegistry.MASTER_VOLTAGE}V`);
+console.log("Global Gravity:", PhysicsEngine.GRAVITY);
+console.log("Force for 10kg:", PhysicsEngine.calculateForce(10), "N");
 
-// Membuat unit
-const u1 = new HubRegistry("ALPHA");
-const u2 = new HubRegistry("BETA");
+console.log("---");
 
-console.log(`\n${HubRegistry.getGlobalInventoryCount()}`);
-console.log(`Konversi: ${HubRegistry.convertToKilowatts(5000)} KW`);
+// 2. Lanjutan: Factory Method Pattern
+// Menggunakan static method untuk memproduksi instance dengan profil tertentu.
+class EnergyUnit {
+    constructor(id, type, capacity) {
+        this.id = id;
+        this.type = type;
+        this.capacity = capacity;
+    }
 
-// Mencoba panggil method static dari instansi (AKAN ERROR)
+    // Factory: Menciptakan unit Solar secara instan
+    static createSolar(id) {
+        return new EnergyUnit(id, "SOLAR", 5000);
+    }
+
+    // Factory: Menciptakan unit Nuclear secara instan
+    static createNuclear(id) {
+        return new EnergyUnit(id, "NUCLEAR", 99999);
+    }
+}
+
+const sun01 = EnergyUnit.createSolar("SUN-XP");
+console.log("Generated Unit:", sun01);
+
+console.log("---");
+
+// 3. Arsitektur: Shared Cache (Registry)
+// Menyimpan data yang bisa diakses oleh seluruh instance.
+class RobotRegistry {
+    static #roster = []; // Private Static Field (ES2022+)
+
+    constructor(name) {
+        this.name = name;
+        RobotRegistry.#roster.push(name);
+    }
+
+    static getCount() {
+        return RobotRegistry.#roster.length;
+    }
+
+    static listAll() {
+        return `Current Roster: ${RobotRegistry.#roster.join(", ")}`;
+    }
+}
+
+const r1 = new RobotRegistry("Aegis");
+const r2 = new RobotRegistry("Sentinel");
+
+console.log("Total Robots:", RobotRegistry.getCount());
+console.log(RobotRegistry.listAll());
+
+// 4. Architect Warning: Static Context
 try {
-    u1.getGlobalInventoryCount();
+    // static member tidak ada di instance!
+    console.log(r1.getCount()); 
 } catch (e) {
-    console.log("\n[!] Error: Unit individu tidak memiliki alat Menara Kontrol.");
+    console.log("Architect Warning: Static members are NOT inherited by instances.");
 }

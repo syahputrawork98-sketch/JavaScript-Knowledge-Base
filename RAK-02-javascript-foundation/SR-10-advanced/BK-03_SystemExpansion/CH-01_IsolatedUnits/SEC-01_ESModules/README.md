@@ -1,58 +1,63 @@
-# CH-01: ES Modules (The Docking System)
+# SEC-01: ES Modules (The Inter-Hub Relays)
 
-> **"Web Energy Hub tidak lagi dibangun sebagai satu blok tunggal yang masif. Modules adalah 'Sistem Penambatan' (The Docking System) yang memungkinkan kita membagi Hub menjadi unit-unit terisolasi yang bisa dipasang (import) dan dilepas (export) sesuai kebutuhan."**
+> **"Web Energy Hub tidak lagi dibangun sebagai satu blok tunggal yang masif. Modules adalah 'Relai Antar-Hub' (The Inter-Hub Relays) yang memungkinkan kita membagi sistem menjadi unit-unit terisolasi yang bisa dipasang (import) dan dilepas (export) melintasi jaringan Grid dengan aman."**
 
-ES Modules (ESM) adalah standar resmi JavaScript untuk pengorganisasian kode dalam file yang berbeda.
-
-## 1. Mental Model: "The Docking System"
-
-Bayangkan Hub memiliki banyak dermaga (ports).
-- **Export**: Mengirimkan komponen (fungsi, kelas, variabel) dari satu unit agar bisa digunakan di tempat lain.
-- **Import**: Menyambungkan unit lain ke dermaga unit Anda saat ini untuk mengakses kemampuannya.
-- **Default vs Named**:
-    - **Default**: Satu barang utama di dermaga tersebut.
-    - **Named**: Banyak paket kecil yang diberi label berbeda.
-
-![Module Docking](./assets/module_docking.svg)
+**ES Modules (ESM)** adalah standar resmi JavaScript untuk pengorganisasian kode. Berbeda dengan skrip tradisional, modul memiliki *scope* terisolasi dan mendukung pemuatan asinkron yang sangat efisien.
 
 ---
 
-## 2. Sintaks Penambatan
+## 1. Mental Model: "The Inter-Hub Relays"
 
-**Unit Pengirim (Generator.js):**
-```javascript
-export const power = 500;
-export function activate() { ... }
-export default class Reactor { ... }
-```
+Bayangkan setiap file `.mjs` adalah sebuah satelit Hub independen:
+- **`export` (The Transmitter)**: Mengirimkan teknologi (fungsi, kelas, variabel) agar bisa dideteksi oleh satelit lain.
+- **`import` (The Receiver)**: Menangkap transmisi dari satelit lain untuk memperkuat kemampuan satelit sendiri.
+- **Static vs Dynamic Logistics**:
+    - **Static (`import ...`)**: Sambungan permanen yang dipasang sebelum satelit aktif.
+    - **Dynamic (`import()`)**: Sambungan darurat yang dipasang hanya saat dibutuhkan, menghemat cadangan energi sistem.
+- **Top-Level Await**: Kemampuan satelit untuk menunggu transmisi data dari luar angkasa sebelum ia benar-benar mengaktifkan sistem internalnya.
 
-**Unit Penerima (Hub.js):**
+![Relay Premium](./assets/relay_premium.svg)
+
+---
+
+## 2. Protokol Transmisi
+
+### A. Named vs Default Relays
+| Tipe | Pengirim (`export`) | Penerima (`import`) |
+| :--- | :--- | :--- |
+| **Named** | `export const unit = 1;` | `import { unit } from './hub.js';` |
+| **Default** | `export default class {}` | `import MainUnit from './hub.js';` |
+
+### B. Dynamic Logistics (`import()`)
+Berguna untuk *Code Splitting*—memuat modul hanya saat pengguna menekan tombol atau mencapai kondisi tertentu di Grid.
 ```javascript
-import Reactor, { power, activate } from './Generator.js';
+if (emergency) {
+    const { activateProtocol } = await import('./Safety.js');
+    activateProtocol();
+}
 ```
 
 ---
 
-## 3. Fitur Utama Modularitas
-
-1.  **Strict Mode Otomatis**: Semua modul berjalan dalam mode ketat secara default.
-2.  **Scope Terisolasi**: Variabel di dalam modul tidak mencemari Grid global.
-3.  **Dynamic Import**: Mengunduh modul hanya saat dibutuhkan (`await import()`), menghemat energi awal sistem.
+## 3. Metadata Satelit (`import.meta`)
+Setiap modul memiliki akses ke objek `import.meta`, yang berisi informasi tentang lokasi satelit tersebut (`url`) di dalam jaringan.
+```javascript
+console.log("Lokasi Satelit:", import.meta.url);
+```
 
 ---
 
 ## Arsitek Mindset: Granularitas Hub
 
 Sebagai arsitek Hub:
-- Bagilah fungsi-fungsi besar menjadi modul-modul kecil agar lebih mudah diperbaiki tanpa mematikan seluruh sistem.
-- Gunakan Named Exports jika modul tersebut berisi kumpulan alat utilitas.
-- Gunakan Default Export untuk komponen utama dari sebuah file (seperti kelas utama).
-- Manfaatkan `import.meta.url` untuk mengetahui lokasi absolut unit Anda di dalam jaringan Grid.
+- **Encapsulation**: Gunakan modul untuk menyembunyikan logika internal (private script) dan hanya mengekspor API yang dibutuhkan oleh Hub lain.
+- **Lazy Loading**: Manfaatkan Dynamic Import untuk fitur-fitur berat yang jarang digunakan guna mempercepat waktu sinkronisasi awal Hub.
+- **MIME Type Compliance**: Pastikan server Grid Anda mengirimkan header `Content-Type: text/javascript` agar modul bisa terpasang dengan benar.
 
 ---
 
-## Hands-on: Lab Sistem Penambatan
-Buka folder `examples/` untuk menjalankan simulasi penyambungan modul generator ke dalam unit kontrol utama.
+## Hands-on: Lab Sistem Relai
+Simulasikan penyambungan antar unit satelit menggunakan Static dan Dynamic imports di `examples/docking_unit_lab.mjs`.
 
 ---
 *Status: [status.md](../../../status.md)*

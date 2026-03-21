@@ -1,50 +1,69 @@
 /**
- * LAB: Recursion Ref (Nested Sub-Processing)
- * Mental Model: "Nested Sub-Processing"
+ * LAB: Recursion (The Fractal Engine)
+ * Level: Gold Standard Implementation
  */
 
-// 1. Matematika Berantai: Factorial Energy Calculation
-function factorialPower(n) {
-    // Base Case
-    if (n <= 1) return 1;
-    
-    // Recursive Case
-    return n * factorialPower(n - 1);
+// 1. Dasar: Factorial (The Multiplier Chain)
+// Perhitungan bertingkat: n * (n-1) * (n-2)...
+function factorial(n) {
+    if (n === 0 || n === 1) return 1; // Base Case
+    return n * factorial(n - 1);     // Recursive Step
 }
 
-console.log("Factorial Power calculation chain (5!):", factorialPower(5));
+console.log("Factorial of 5:", factorial(5)); // 120
+console.log("---");
 
+// 2. Lanjutan: Fibonacci Sequence (The Growth Pattern)
+const fib = (n) => {
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+};
 
-// 2. Navigasi Struktur Data (Sub-Grid Scanning)
-const energyGrid = {
-    name: "Main Grid",
-    load: 100,
-    subGrids: [
-        {
-            name: "West Zone",
-            load: 200,
-            subGrids: [
-                { name: "West-Alpha", load: 50, subGrids: [] }
-            ]
-        },
-        {
-            name: "East Zone",
-            load: 300,
-            subGrids: []
+console.log("Fibonacci Position 7:", fib(7)); // 13
+console.log("---");
+
+// 3. Arsitektur: Deep Search (The Tree Explorer)
+// Mencari nilai di dalam objek yang memiliki kedalaman tidak diketahui.
+const hubNetwork = {
+    id: "ROOT",
+    subHubs: [
+        { id: "NORTH-BRANCH", subHubs: [] },
+        { 
+            id: "SOUTH-BRANCH", 
+            subHubs: [
+                { id: "ENERGY-CORE", status: "ACTIVE" }
+            ] 
         }
     ]
 };
 
-function calculateTotalLoad(grid) {
-    let total = grid.load;
+function findHubById(network, targetId) {
+    // 1. Check current node
+    if (network.id === targetId) return network;
     
-    // Memanggil dirinya sendiri untuk setiap sub-grid
-    grid.subGrids.forEach(sub => {
-        total += calculateTotalLoad(sub);
-    });
+    // 2. Recursive step: Check children
+    if (network.subHubs) {
+        for (let child of network.subHubs) {
+            const result = findHubById(child, targetId);
+            if (result) return result;
+        }
+    }
     
-    return total;
+    return null; // Not found in this branch
 }
 
-console.log("\n--- Total Load Scan across all nesting levels ---");
-console.log(`Total System Load: ${calculateTotalLoad(energyGrid)} MW`);
+const target = "ENERGY-CORE";
+const foundNode = findHubById(hubNetwork, target);
+console.log(`Searching for [${target}]...`);
+console.log(foundNode ? `Found node: ${foundNode.id} | Status: ${foundNode.status}` : "Node not found.");
+
+console.log("---");
+
+// 4. Architect Warning: Finite Recursion
+function countdown(n) {
+    if (n < 0) return; // Base Case
+    console.log(`System shutdown in ${n}...`);
+    countdown(n - 1);
+}
+
+countdown(3);

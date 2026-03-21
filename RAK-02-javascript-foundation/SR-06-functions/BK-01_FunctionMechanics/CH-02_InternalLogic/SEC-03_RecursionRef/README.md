@@ -1,42 +1,56 @@
-# CH-03: Recursion Ref (Nested Sub-Processing)
+# SEC-03: Recursion (The Fractal Engine)
 
-> **"Beberapa masalah besar di Hub harus diselesaikan dengan memecahnya menjadi replika masalah yang lebih kecil. Rekursi adalah 'Pemrosesan Mandiri' (Self-Processing) di mana sebuah unit memanggil salinan dirinya sendiri untuk menyelesaikan tugas secara bertingkat."**
+> **"Beberapa masalah besar di Hub harus diselesaikan dengan memecahnya menjadi replika masalah yang lebih kecil. Rekursi adalah 'Mesin Fraktal' (Fractal Engine) di mana sebuah unit memanggil salinan dirinya sendiri untuk menyelesaikan tugas secara bertingkat."**
 
-Rekursi adalah teknik di mana sebuah fungsi memanggil dirinya sendiri.
+Rekursi adalah teknik di mana sebuah fungsi memanggil dirinya sendiri untuk menyelesaikan masalah dengan memecahnya menjadi sub-masalah yang lebih kecil dari jenis yang sama.
 
-## 1. Mental Model: "Nested Sub-Processing"
+---
 
-Bayangkan Anda harus memindai seluruh jaringan kabel yang bercabang-cabang. Daripada menulis satu instruksi raksasa, Anda menginstruksikan unit: "Periksa sambungan ini. Jika ada cabang, buat unit seperti dirimu untuk masuk ke cabang tersebut."
+## 1. Mental Model: "The Fractal Engine"
 
-Struktur ini sangat efektif untuk navigasi data bertingkat (Tree/DOM) atau perhitungan matematis berantai.
+Bayangkan sebuah struktur fraktal di mana setiap cabang adalah replika kecil dari batang utama. 
+- **Level 1**: Masalah utama yang harus diselesaikan.
+- **Level 2 & Seterusnya**: Replika fungsi yang bekerja pada bagian data yang lebih kecil.
+- **Base Case**: Titik pusat di mana replikasi berhenti dan hasil mulai dikirimkan kembali ke atas.
+
+Tanpa **Base Case**, mesin akan terus bereplikasi tanpa henti hingga sistem kehabisan memori.
+
+![Recursion Fractal Engine](./assets/recursion_fractal.svg)
 
 ---
 
 ## 2. Anatomi Rekursi yang Aman
 
-- **Base Case (Titik Henti)**: Kondisi darurat untuk berhenti. Tanpa ini, unit akan terus beroperasi sampai Hub meledak (*Stack Overflow*).
-- **Recursive Case (Langkah Berulang)**: Bagian di mana unit memanggil dirinya sendiri dengan input yang lebih sederhana atau mendekati titik henti.
+Setiap fungsi rekursif yang baik harus memiliki dua komponen kritikal:
+1.  **Base Case**: Kondisi berhenti yang mengakhiri rekursi.
+2.  **Recursive Step**: Bagian di mana fungsi memanggil dirinya sendiri dengan input yang "lebih sederhana" (mendekati base case).
+
+```javascript
+function factorial(n) {
+    if (n <= 1) return 1; // BASE CASE
+    return n * factorial(n - 1); // RECURSIVE STEP
+}
+```
 
 ---
 
-## 3. Stack dan Memori
+## 3. Limitasi: Call Stack & Stack Overflow
 
-Setiap pemanggilan fungsi memakan ruang di "Call Stack" Hub. Jika rekursi terlalu dalam, Anda akan kehabisan ruang.
-*Catatan Teknis: Gunakan rekursi pada data yang kedalamannya terukur atau pertimbangkan menggunakan perulangan (`loop`) jika performa memori sangat kritis.*
+Setiap kali fungsi memanggil dirinya sendiri, sebuah lapisan baru ditambahkan ke **Call Stack**. Jika rekursi terlalu dalam (misal: memanggil diri sendiri 1 juta kali), sistem akan kehabisan ruang dan menyebabkan error `Maximum call stack size exceeded`.
 
 ---
 
 ## Arsitek Mindset: Elegan vs Efisien
 
 Sebagai arsitek Hub:
-- Gunakan rekursi saat struktur data memang bersifat rekursif (misal: JSON bersarang atau folder direktori).
-- Rekursi sering kali menghasilkan kode yang lebih elegan dan mudah dibaca daripada tumpukan loop yang rumit.
-- Selalu pastikan Base Case Anda tidak bisa dilewati agar keamanan sistem terjamin.
+- **Navigasi Pohon**: Gunakan rekursi saat berhadapan dengan struktur data bertingkat seperti folder file, kategori produk, atau DOM pohon.
+- **Keterbacaan**: Rekursi sering kali menghasilkan kode yang jauh lebih bersih dan elegan dibandingkan perulangan `while` yang rumit.
+- **Keamanan**: Selalu uji rekursi Anda dengan nilai ekstrem untuk memastikan base case selalu tercapai.
 
 ---
 
 ## Hands-on: Lab Pemecahan Berantai
-Buka file `examples/recursion_math_lab.js` untuk melihat bagaimana kita menghitung total beban pada sirkuit paralel yang bertingkat-tingkat menggunakan logika rekursi.
+Eksperimen dengan pencarian data mendalam dan perhitungan matematis bertingkat di `examples/recursion_math_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

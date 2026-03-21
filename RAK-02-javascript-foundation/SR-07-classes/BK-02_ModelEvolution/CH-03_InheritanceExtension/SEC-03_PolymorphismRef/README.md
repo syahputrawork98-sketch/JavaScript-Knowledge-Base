@@ -1,60 +1,68 @@
-# CH-03: Polymorphism Ref (Versatile Output)
+# SEC-03: Polymorphism (The Adaptive Interface)
 
-> **"Pusat Grid dapat mengirimkan satu perintah tunggal 'Operasikan!', namun setiap model unit akan merespons dengan cara yang berbeda sesuai dengan keahliannya. Polymorphism adalah 'Output Serbaguna' (Versatile Output) yang memungkinkan standarisasi perintah untuk berbagai jenis unit."**
+> **"Pusat Grid dapat mengirimkan satu perintah tunggal 'Operasikan!', namun setiap model unit akan merespons dengan cara yang berbeda sesuai dengan keahliannya. Polymorphism adalah 'Antarmuka Adaptif' (Adaptive Interface) yang memungkinkan standarisasi perintah untuk berbagai jenis unit yang beragam."**
 
-Polimorfisme (banyak bentuk) dalam OOP memungkinkan kita menggunakan antarmuka yang sama untuk berbagai jenis objek yang mendasarinya.
-
-## 1. Mental Model: "Versatile Output"
-
-Bayangkan Hub memiliki tombol besar berlabel `ACTIVATE_ALL`.
-- Unit **Solar** akan merespons dengan membuka panel.
-- Unit **Nuclear** akan merespons dengan memutar turbin uap.
-- Unit **Battery** akan merespons dengan melepaskan arus DC.
-
-Pusat tidak perlu tahu **bagaimana** masing-masing unit bekerja; ia hanya perlu tahu bahwa semua unit tersebut memiliki metode `activate()`.
+**Polimorfisme** (berasal dari bahasa Yunani yang berarti "banyak bentuk") dalam OOP memungkinkan kita menggunakan antarmuka (nama metode) yang sama untuk berbagai jenis objek yang berbeda, di mana setiap objek memiliki implementasi spesifiknya masing-masing.
 
 ---
 
-## 2. Implementasi Polimorfisme
+## 1. Mental Model: "The Adaptive Interface"
 
-Ini biasanya dicapai melalui pewarisan di mana setiap class anak mendefinisikan ulang (*override*) metode yang sama dari induknya.
+Bayangkan Hub memiliki tombol besar di pusat kendali berlabel `ENGAGE`.
+- Saat ditekan, sinyal dikirim ke seluruh unit di Grid.
+- **Unit Solar**: Merespons dengan membuka panel fotovoltaik.
+- **Unit Wind**: Merespons dengan membebaskan rem pada bilah turbin.
+- **Unit Battery**: Merespons dengan menutup sirkuit pelepasan arus.
+
+Pusat kendali tidak perlu tahu rincian teknis **bagaimana** masing-masing unit bekerja; ia hanya perlu tahu bahwa semua unit tersebut memiliki fungsi `engage()`.
+
+![Class Polymorphism Premium](./assets/class_polymorphism_premium.svg)
+
+---
+
+## 2. Implementasi via Method Overriding
+
+Polimorfisme paling sering dicapai melalui pewarisan. Class anak mendefinisikan ulang (*override*) metode yang sudah ada di class induk untuk memberikan perilaku yang lebih spesifik.
 
 ```javascript
-class BaseModule {
-    produceEnergy() { /* Dasar */ }
+class EnergyUnit {
+    activate() { throw new Error("Method must be implemented!"); }
 }
 
-class Solar extends BaseModule {
-    produceEnergy() { console.log("Energy from SUN"); }
+class SolarUnit extends EnergyUnit {
+    activate() { console.log("Solar panels deployed."); }
 }
 
-class Wind extends BaseModule {
-    produceEnergy() { console.log("Energy from WIND"); }
+class WindUnit extends EnergyUnit {
+    activate() { console.log("Wind turbine spinning."); }
 }
 
-const modules = [new Solar(), new Wind()];
-modules.forEach(m => m.produceEnergy()); // Satu perintah, banyak hasil!
+// Polimorfisme dalam aksi
+const units = [new SolarUnit(), new WindUnit()];
+units.forEach(u => u.activate()); // Satu perintah, banyak respons!
 ```
 
 ---
 
 ## 3. Manfaat Arsitektural
 
-- **Flexibility**: Hub bisa menambah jenis unit baru tanpa perlu mengubah kode sistem pusat.
-- **Simplification**: Anda bisa mengelola daftar unit yang beragam dalam satu koleksi seragam.
+- **Scalability**: Anda bisa menambah jenis unit energi baru (misal: `NuclearUnit`) ke dalam Grid tanpa harus mengubah setetes pun kode di pusat kendali.
+- **Simplicity**: Mengurangi percabangan `if/else` atau `switch` yang rumit untuk mengecek jenis unit sebelum memberikan perintah.
+- **Interchangeability**: Unit dapat ditukar-tukar selama mereka mematuhi kontrak antarmuka yang sama.
 
 ---
 
-## Arsitek Mindset: Antarmuka yang Seragam
+## Arsitek Mindset: Standarisasi Kontrak
 
 Sebagai arsitek Hub:
-- Gunakan polimorfisme untuk menstandarisasi kontrak (metode) di seluruh sistem.
-- Pastikan setiap unit anak mematuhi tanda tangan metode (*method signature*) yang sama agar sistem pusat tidak mengalami kegagalan saat memanggil perintah.
+- **Contract Enforcement**: Gunakan polimorfisme untuk menstandarisasi kontrak operasional di seluruh Hub.
+- **Signature Consistency**: Pastikan metode yang di-override memiliki jumlah parameter dan tipe kembalian yang sama agar sistem pemanggil tidak bingung.
+- **Duck Typing**: Di JavaScript, kita sering menggunakan konsep "Jika ia berjalan seperti bebek dan bersuara seperti bebek, maka ia adalah bebek". Selama objek memiliki metode yang kita butuhkan, sirkuit polimorfik akan tetap berjalan lancar.
 
 ---
 
-## Hands-on: Lab Output Serbaguna
-Buka file `examples/polymorphism_lab.js` untuk melihat bagaimana berbagai jenis unit merespons perintah `activate()` yang sama dengan cara mereka masing-masing.
+## Hands-on: Lab Antarmuka Adaptif
+Eksperimen dengan perintah massal dan respons unit yang beragam di `examples/polymorphism_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

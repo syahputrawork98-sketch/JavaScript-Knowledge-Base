@@ -1,47 +1,82 @@
 /**
- * LAB: Getters & Setters (Regulation Valves)
- * Mental Model: "Regulation Valves"
+ * LAB: Getters & Setters (The Security Gatekeepers)
+ * Level: Gold Standard Implementation
  */
 
-class HeatRegulator {
-    #celsius = 25;
+// 1. Dasar: Validasi & Proteksi State
+class FuelRegulator {
+    #liters = 0;
+    #maxCapacity = 500;
 
-    constructor(initialTemp) {
-        this.#celsius = initialTemp;
+    // Getter untuk akses baca yang aman
+    get currentLitres() {
+        return `${this.#liters} / ${this.#maxCapacity} L`;
     }
 
-    // Katup Baca (Getter)
-    get temperature() {
-        return `${this.#celsius}°C`;
-    }
-
-    get fahrenheit() {
-        return `${(this.#celsius * 9/5) + 32}°F`;
-    }
-
-    // Katup Tulis (Setter) - Dengan Filter Keamanan
-    set temperature(newValue) {
-        if (newValue > 100) {
-            console.warn("[!] BAHAYA: Suhu melebihi batas didih! Menurunkan ke 100 secara otomatis.");
-            this.#celsius = 100;
-        } else if (newValue < -50) {
-            console.warn("[!] BAHAYA: Suhu terlalu beku! Menaikkan ke -50 secara otomatis.");
-            this.#celsius = -50;
+    // Setter untuk gerbang validasi
+    set currentLitres(value) {
+        if (typeof value !== 'number') {
+            console.error("Critical: Input must be a numeric value!");
+            return;
+        }
+        if (value < 0) {
+            console.warn("Safety Triggered: Cannot set negative fuel. Resetting to 0.");
+            this.#liters = 0;
+        } else if (value > this.#maxCapacity) {
+            console.warn(`Safety Triggered: Overflow detected! Capping at ${this.#maxCapacity}.`);
+            this.#liters = this.#maxCapacity;
         } else {
-            this.#celsius = newValue;
-            console.log(`[Update] Suhu diatur ke ${newValue}°C`);
+            this.#liters = value;
         }
     }
 }
 
-const ac = new HeatRegulator(25);
+const tank = new FuelRegulator();
+tank.currentLitres = 100;    // Valid
+tank.currentLitres = -50;    // Invalid -> Reset ke 0
+tank.currentLitres = 1000;   // Overflow -> Cap ke 500
 
-console.log(`--- Laporan Suhu Awal ---`);
-console.log(`Status: ${ac.temperature} / ${ac.fahrenheit}`);
+console.log("Tank Status:", tank.currentLitres);
 
-console.log(`\n--- Mencoba Mengubah Arus Suhu ---`);
-ac.temperature = 35;   // Normal
-ac.temperature = 150;  // Terlalu panas
-ac.temperature = -200; // Terlalu dingin
+console.log("---");
 
-console.log(`\nLaporan Akhir: ${ac.temperature}`);
+// 2. Lanjutan: Derived Properties (Data Turunan)
+class SensorMatrix {
+    constructor(voltage, current) {
+        this.voltage = voltage;
+        this.current = current;
+    }
+
+    // Properti turunan: Tidak disimpan, dihitung saat diminta
+    get wattage() {
+        return this.voltage * this.current;
+    }
+
+    get efficiencyLevel() {
+        if (this.wattage > 1000) return "HIGH PERFORMANCE";
+        if (this.wattage > 500) return "OPTIMAL";
+        return "LOW POWER";
+    }
+}
+
+const sensor = new SensorMatrix(220, 5);
+console.log(`Current Wattage: ${sensor.wattage}W`);
+console.log(`Efficiency: ${sensor.efficiencyLevel}`);
+
+console.log("---");
+
+// 3. Arsitektur: Read-Only Properties
+// Membuat properti yang seolah-olah hanya bisa dibaca (karena tidak ada Setter).
+class VersionHub {
+    #version = "2.5.1-GOLD";
+
+    get version() {
+        return this.#version;
+    }
+    // Tidak ada Setter untuk 'version'
+}
+
+const vHub = new VersionHub();
+console.log("Core Version:", vHub.version);
+vHub.version = "Hacked-v9"; // Gagal secara diam-diam (atau error di strict mode)
+console.log("Core Version (After tampering):", vHub.version);

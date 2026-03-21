@@ -1,39 +1,65 @@
 /**
- * LAB: The Iterable Protocol (The Standard Track)
- * Mental Model: "The Standard Track"
+ * LAB: The Iterable Protocol (The Universal Transport)
+ * Level: Gold Standard Implementation
  */
 
-// 1. Verifikasi Unit Bawaan (Standard Units)
-const dataStack = [100, 200, 300];
-const signal = "PULSE";
+// 1. Dasar: Verifikasi Pintu [Symbol.iterator]
+function checkIterable(obj, label) {
+    const isIterable = obj && typeof obj[Symbol.iterator] === 'function';
+    console.log(`[CHECK] Is ${label} iterable? ${isIterable ? "YES (Gateway Found)" : "NO (Access Denied)"}`);
+    return isIterable;
+}
 
-console.log("--- Memeriksa Sertifikasi Iterable ---");
+const sensors = ["TEMP", "PRESSURE", "VOLT"];
+const message = "NEXUS-ON";
+const reactor = { id: "RX-1", fuel: 50 }; // Objek biasa bukan iterable secara default
 
-console.log(`Array memiliki pintu iterator? ${typeof dataStack[Symbol.iterator] === 'function'}`);
-console.log(`String memiliki pintu iterator? ${typeof signal[Symbol.iterator] === 'function'}`);
+checkIterable(sensors, "Array Sensors");
+checkIterable(message, "String Message");
+checkIterable(reactor, "Object Reactor");
 
-// 2. Unit Non-Iterable (Manual Access Only)
-const config = { power: 500, status: "OK" };
-console.log(`Object biasa memiliki pintu iterator? ${typeof config[Symbol.iterator] === 'function'}`);
+console.log("---");
 
+// 2. Lanjutan: Manual Extraction (Mengintip di Balik Gerbang)
+if (checkIterable(sensors, "Array Sensors")) {
+    // Memanggil fungsi iterator secara manual
+    const iterator = sensors[Symbol.iterator]();
+    
+    console.log("Manual Pull 1:", iterator.next()); 
+    console.log("Manual Pull 2:", iterator.next());
+}
 
-// 3. Eksperimen: Membuat Pintu Kustom (Custom Entry)
-const customVault = {
-    items: ["Gold", "Silver", "Bronze"],
-    [Symbol.iterator]: function() {
-        let index = 0;
-        return {
-            next: () => {
-                if (index < this.items.length) {
-                    return { value: this.items[index++], done: false };
-                }
-                return { value: undefined, done: true };
-            }
-        };
+console.log("---");
+
+// 3. Arsitektur: The Tools in Action
+// Selama objek punya [Symbol.iterator], alat-alat ini akan bekerja:
+
+const dataStream = "ABCD";
+
+// A. Loop for...of
+console.log("Looping Stream:");
+for (const char of dataStream) {
+    console.log(`- Data: ${char}`);
+}
+
+// B. Spread Operator
+const dataArray = [...dataStream];
+console.log("Spread to Array:", dataArray);
+
+// C. Destructuring
+const [first, second] = dataStream;
+console.log(`Extracted: ${first}, ${second}`);
+
+console.log("---");
+
+// 4. Architect Drill: Iterability of Maps
+const assetMap = new Map([
+    ["ID-01", "TURBINE"],
+    ["ID-02", "COOLER"]
+]);
+
+if (checkIterable(assetMap, "Map Assets")) {
+    for (const [id, name] of assetMap) {
+        console.log(`Mapping: ${id} -> ${name}`);
     }
-};
-
-console.log("\n--- Mengetes Jalur Kustom ---");
-for (const item of customVault) {
-    console.log(`Mengambil dari Vault: ${item}`);
 }

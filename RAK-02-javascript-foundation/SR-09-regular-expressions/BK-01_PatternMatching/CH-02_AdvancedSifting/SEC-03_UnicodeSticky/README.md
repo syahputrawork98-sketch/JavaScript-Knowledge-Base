@@ -1,55 +1,52 @@
-# CH-03: Unicode & Sticky (Global Grid Standards)
+# SEC-03: Flags (The Global Calibrators)
 
-> **"Hub Energi kini meluas ke seluruh galaksi, membawa simbol-simbol dari berbagai bahasa dan sistem data yang berbeda. Unicode & Sticky Flags adalah 'Standar Grid Global' (Global Grid Standards) yang memastikan scanner Anda bisa mengenali emoji, karakter non-Latin, serta memindai data secara berurutan tanpa melompati satu bit pun."**
+> **"Hub Energi kini meluas ke seluruh galaksi, membawa simbol-simbol dari berbagai bahasa dan sistem data yang berbeda. Flags adalah 'Kalibrator Global' (Global Calibrators) yang menyesuaikan sensitivitas, jangkauan, dan ketelitian scanner Anda terhadap standar data jagat raya."**
 
-Flag `u` (Unicode) dan `y` (Sticky) adalah fitur krusial untuk aplikasi modern dan performa tinggi.
-
-## 1. Mental Model: "Global Grid Standards"
-
-- **Unicode Flag (u)**: Tanpa flag ini, scanner Anda mungkin "rabun" terhadap karakter kompleks di luar jangkauan dasar (seperti emoji 🔌 atau aksara kuno). Flag `u` memberikan scanner penglihatan definisi tinggi untuk membedah karakter multi-byte secara akurat.
-- **Sticky Flag (y)**: Seperti scanner yang hanya mau bekerja jika objek tepat berada di bawah sensornya (`lastIndex`). Jika data tidak cocok tepat di posisi tersebut, ia langsung menyerah (Gagal), alih-alih mencari di seluruh sisa string.
+**Flags** adalah parameter opsional yang ditambahkan di akhir RegExp (setelah garis miring penutup) untuk mengubah perilaku dasar pencarian pola.
 
 ---
 
-## 2. Cara Kerja Unicode flag
+## 1. Mental Model: "The Global Calibrators"
 
-```javascript
-/* Tanpa u: Salah menghitung panjang karakter kompleks */
-console.log(/^.$/.test("🔌")); // Bisa False tergantung environment
+Bayangkan pemindai pola Anda memiliki panel kontrol dengan beberapa dial kalibrasi:
+- **`g` (Global)**: Scanner tidak langsung berhenti setelah menemukan satu kecocokan; ia akan menyapu seluruh Grid sampai selesai.
+- **`i` (Ignore Case)**: Mengabaikan perbedaan antara huruf besar dan kecil.
+- **`u` (Unicode)**: Memberikan "Resolusi Tinggi" pada scanner agar bisa mengenali karakter kompleks seperti emoji atau aksara non-Latin.
+- **`y` (Sticky)**: Memaksa scanner untuk hanya mencari tepat di posisi saat ini (`lastIndex`), tanpa melompat ke depan. Ini adalah mode "Melekat".
 
-/* Dengan u: Mengenali karakter astronimok */
-console.log(/^.$/u.test("🔌")); // True
-```
-
----
-
-## 3. Cara Kerja Sticky flag
-
-Sticky sangat berguna untuk membuat parser bahasa yang sangat cepat.
-
-```javascript
-const str = "Energy: 500MW";
-const scanner = /\d+/y;
-
-scanner.lastIndex = 8; // Tepat di angka '5'
-console.log(scanner.exec(str)); // ["500"]
-
-scanner.lastIndex = 7; // Masih di spasi
-console.log(scanner.exec(str)); // null (Karena tidak 'melekat' pada awal digit)
-```
+![Global Calibrators Premium](./assets/global_calibrators_premium.svg)
 
 ---
 
-## Arsitek Mindset: Standarisasi Masa Depan
+## 2. Tabel Dial Kalibrasi
+
+| Flag | Nama | Deskripsi |
+| :--- | :--- | :--- |
+| **`g`** | Global | Mencari semua kecocokan, bukan hanya yang pertama. |
+| **`i`** | Ignore Case | Pencarian tidak peka terhadap besar/kecil huruf. |
+| **`m`** | Multiline | Mengubah perilaku `^` dan `$` agar berlaku di tiap awal/akhir baris baru (\n). |
+| **`s`** | dotAll | Memungkinkan titik `.` mencocokkan karakter baris baru (\n). |
+| **`u`** | Unicode | Penanganan karakter Unicode secara penuh (4-byte characters). |
+| **`y`** | Sticky | Pencarian dimulai tepat dari properti `lastIndex` objek tersebut. |
+
+---
+
+## 3. Kekuatan Sticky (y) dalam Parsing
+Flag `y` adalah rahasia di balik performa tinggi sistem *Tokenizer* (pemecah kode). Ia menjamin bahwa data ditemukan secara berurutan tanpa ada jeda atau karakter yang terlewat di tengah-tengah aliran data.
+
+---
+
+## Arsitek Mindset: Kalibrasi Strategis
 
 Sebagai arsitek Hub:
-- Gunakan flag `u` secara default jika Hub Anda memproses input dari pengguna global atau berurusan dengan emoji.
-- Gunakan flag `y` jika Anda sedang membangun sistem pemecah kode (*Tokenizer*) yang membutuhkan performa maksimal dan kepastian lokasi data.
+- **Default to Unicode**: Selalu gunakan flag `u` jika Hub Anda berurusan dengan input teks dari pengguna luar untuk menghindari error saat memproses emoji atau simbol internasional.
+- **Tokenizer Performance**: Gunakan flag `y` jika Anda sedang membangun sistem pemroses log atau parser yang membutuhkan kepastian lokasi dan kecepatan tinggi.
+- **Combine Dials**: Anda bisa mengombinasikan beberapa flag sekaligus (misal: `/pattern/giu`) untuk menciptakan scanner yang sangat tangguh dan fleksibel.
 
 ---
 
-## Hands-on: Lab Standar Global
-Buka file `examples/global_standards_lab.js` untuk melihat bagaimana scanner Anda menangani simbol-simbol eksotis dan aturan penempatan 'Sticky'.
+## Hands-on: Lab Kalibrator Global
+Uji sensitivitas scanner Anda terhadap simbol-simbol eksotis dan aturan 'Sticky' di `examples/calibration_flags_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

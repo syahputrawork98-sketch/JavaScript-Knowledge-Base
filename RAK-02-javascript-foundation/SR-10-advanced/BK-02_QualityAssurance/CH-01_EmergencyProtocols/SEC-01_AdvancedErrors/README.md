@@ -1,53 +1,69 @@
-# CH-01: Advanced Errors (The Containment Box)
+# SEC-01: Advanced Errors (The Nested Fuses)
 
-> **"Kabel terbakar? Kebocoran energi? Di Grid yang kompleks, kegagalan adalah kepastian. Error Handling adalah 'Kotak Kontomasi' (The Containment Box) yang memastikan ketika satu mesin meledak, ledakannya tidak merambat ke seluruh Hub."**
+> **"Kabel terbakar? Kebocoran energi? Di Grid yang kompleks, kegagalan adalah kepastian. Advanced Errors adalah 'Sekring Berlapis' (The Nested Fuses) yang memastikan ketika satu komponen meledak, ledakannya terisolasi dan tidak merambat ke seluruh Hub, sambil tetap menyimpan rekam jejak kegagalannya."**
 
-JavaScript menyediakan blok `try...catch...finally` dan kemampuan untuk membuat tipe Error kustom untuk klasifikasi kegagalan yang lebih presisi.
-
-## 1. Mental Model: "The Containment Box"
-
-Bayangkan setiap operasi krusial dijalankan di dalam ruangan bersegel.
-- **try**: Ruangan tempat eksperimen/operasi dijalankan.
-- **catch**: Protokol darurat yang aktif jika terjadi kegagalan (ledakan). Anda mendapatkan laporan kerusakan (`error`).
-- **finally**: Tim pembersihan yang selalu datang, tidak peduli eksperimennya sukses atau gagal, untuk mematikan daya atau menutup katup.
-
-![Error Containment](./assets/error_containment.svg)
+**Error Handling** tingkat lanjut di JavaScript tidak hanya tentang menangkap kesalahan, tetapi juga tentang klasifikasi, pelacakan penyebab (*Error Chaining*), dan pembersihan sumber daya yang aman.
 
 ---
 
-## 2. Struktur Error yang Canggih
+## 1. Mental Model: "The Nested Fuses"
 
-Selain menangkap error, Anda bisa membuat klasifikasi error sendiri agar sistem tahu seberapa gawat situasinya.
+Setiap operasi kritis di dalam Hub dilindungi oleh sistem sekring:
+- **`try` (The Chamber)**: Ruangan tempat eksperimen atau operasi data dijalankan.
+- **`catch` (The Automatic Fuse)**: Saklar darurat yang aktif seketika jika terjadi "percikan api" (Error). Ia menangkap objek kegagalan untuk dianalisis.
+- **`finally` (The Recovery Team)**: Tim pembersih yang WAJIB datang setelah operasi selesai, baik meledak maupun sukses, untuk melepaskan beban energi atau menutup katup data.
+- **`cause` (The Lineage)**: Rekam jejak yang menghubungkan satu ledakan ke ledakan lainnya untuk mengetahui akar masalah sebenarnya.
+
+![Nested Fuses Premium](./assets/nested_fuses_premium.svg)
+
+---
+
+## 2. Fitur Keamanan Modern
+
+### A. Error Chaining (ES2022)
+Gunakan properti `cause` saat melempar kembali error untuk melampirkan error asli sebagai penyebab. Ini menjaga *stack trace* tetap utuh.
+```javascript
+try {
+    processData();
+} catch (err) {
+    throw new Error("Gagal memproses data di Sektor 7", { cause: err });
+}
+```
+
+### B. Custom Error Classes
+Membangun hierarki kegagalan khusus agar Hub bisa membedakan antara "Kesalahan Input" (Minor) dan "Kerusakan Reaktor" (Kritis).
 
 ```javascript
-class PowerOverloadError extends Error {
-    constructor(amount) {
-        super(`Energy Overload detected: ${amount}MW`);
-        this.name = "PowerOverloadError";
-        this.severity = "CRITICAL";
+class CriticalSystemError extends Error {
+    constructor(message, options) {
+        super(message, options);
+        this.name = "CriticalSystemError";
+        this.automatedAlert = true;
     }
 }
 ```
 
 ---
 
-## 3. Rethrowing (Melempar Kembali)
-
-Terkadang, protokol lokal tidak bisa menangani masalah besar. Anda bisa melempar kembali (`throw`) error tersebut ke level Hub yang lebih tinggi setelah melakukan logging awal.
+## 3. Protokol Pembersihan (finally)
+Apapun yang terjadi di dalam `try`, blok `finally` akan dieksekusi. Ini adalah tempat yang paling aman untuk:
+- Menutup koneksi database.
+- Menghapus timer/interval.
+- Mengubah status "Loading" menjadi "Idle".
 
 ---
 
-## Arsitek Mindset: Ketahanan Sistem
+## Arsitek Mindset: Ketahanan Berlapis
 
 Sebagai arsitek Hub:
-- Jangan biarkan blok `catch` kosong. Selalu operasikan protokol pemulihan atau minimal catat kegagalannya.
-- Gunakan `finally` untuk melepas sumber daya (seperti menutup koneksi database atau menghapus timer) agar tidak terjadi kebocoran memori.
-- Buat Custom Errors yang informatif; "Error 123" jauh kurang berguna daripada `SectorOfflineError`.
+- **Never Swallow Errors**: Jangan pernah menggunakan `catch` kosong. Minimal, kirimkan log ke sistem pemantauan Hub.
+- **Preserve the Cause**: Selalu lampirkan error asli menggunakan `{ cause: err }` agar teknisi di masa depan tahu persis di mana kabel pertama kali terbakar.
+- **Classification Matters**: Gunakan `instanceof` untuk menangani berbagai tipe error dengan cara yang berbeda di satu blok `catch`.
 
 ---
 
 ## Hands-on: Lab Protokol Darurat
-Buka file `examples/emergency_protocols_lab.js` untuk berlatih membangun sistem keamanan yang berlapis menggunakan Custom Errors dan nested try-catch.
+Bangun sistem keamanan yang berlapis dan lacak akar masalah menggunakan teknik error chaining di `examples/emergency_protocols_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

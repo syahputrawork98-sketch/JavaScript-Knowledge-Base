@@ -1,58 +1,59 @@
-# CH-01: Lexical Scoping (Internal Factory Wiring)
+# SEC-01: Lexical Scoping (The Containment Units)
 
 > **"Di dalam Hub Energi, setiap unit pemrosesan memiliki 'Kabel Internal' (Internal Wiring). Aliran energi hanya bisa mengalir dari unit pusat ke unit cabang, bukan sebaliknya. Lexical Scoping adalah aturan yang menentukan jalur kabel tersebut berdasarkan tempat unit dipasang."**
 
-Lexical Scoping menentukan jangkauan variabel berdasarkan lokasi fisiknya di dalam kode sumber.
-
-## 1. Mental Model: "Internal Factory Wiring"
-
-Bayangkan sebuah pabrik besar. Di dalam pabrik ada **Ruang Utama**. Di dalam ruang utama ada **Kotak Kontrol**.
-- Operator di dalam **Kotak Kontrol** bisa menarik kabel ke **Ruang Utama** (akses variabel luar).
-- Namun, operator di **Ruang Utama** tidak bisa melihat atau menarik kabel ke dalam **Kotak Kontrol** yang tertutup rapat (tidak punya akses ke variabel dalam).
-
-Keputusan "siapa bisa akses siapa" dibuat saat unit dibangun (berdasarkan struktur teks kode), bukan saat unit dijalankan.
-
-![Lexic Wiring](./assets/lexic_wiring.svg)
+Lexical Scoping (juga dikenal sebagai Static Scoping) menentukan jangkauan (*scope*) variabel berdasarkan lokasi fisiknya di dalam kode sumber saat waktu kompilasi, bukan saat waktu eksekusi.
 
 ---
 
-## 2. Rantai Scoping
+## 1. Mental Model: "The Containment Units"
 
-JavaScript akan mencari variabel mulai dari lingkup paling dalam. Jika tidak ditemukan, ia akan naik satu tingkat ke luar, terus hingga ke tingkat Global.
+Bayangkan sebuah struktur kotak di dalam kotak. 
+- **Global Grid** adalah kotak terluar.
+- **Outer Unit** adalah kotak di dalamnya.
+- **Inner Unit** adalah kotak yang paling dalam.
+
+Unit yang berada di dalam memiliki pandangan tembus pandang ke arah luar (bisa mengakses variabel di kotak induk). Namun, unit di luar tidak bisa melihat ke dalam kotak yang lebih kecil di bawahnya.
+
+![Lexical Containment Units](./assets/lexical_containment.svg)
+
+---
+
+## 2. Hirarki Rantai Lingkup (Scope Chain)
+
+Saat JavaScript mencoba mengakses sebuah variabel, ia akan melakukan pencarian berantai:
+1. Cari di lingkup **Lokal** saat ini.
+2. Jika tidak ada, naik ke lingkup **Induk** (Parent).
+3. Terus naik hingga mencapai lingkup **Global**.
+4. Jika tetap tidak ditemukan, sistem akan melempar `ReferenceError`.
+
+---
+
+## 3. Sifat Statis (Static Inheritance)
+
+Keputusan "siapa memiliki akses ke mana" sudah final saat Anda menulis kode. Jika sebuah fungsi dideklarasikan di lingkup Global, ia akan selalu merujuk pada variabel Global tersebut, di mana pun fungsi itu nantinya dipanggil dalam program Anda.
 
 ```javascript
-const globalEnergy = "Solar";
+const name = "Global-01";
 
-function outerUnit() {
-    const unitEnergy = "Wind";
-
-    function innerUnit() {
-        console.log(`Menggunakan: ${globalEnergy} & ${unitEnergy}`);
-    }
-    
-    innerUnit();
+function checkName() {
+    console.log(name); // Akan selalu mencari 'name' di tempat ia dilahirkan (Global)
 }
 ```
 
 ---
 
-## 3. Static Nature
-
-Ingat, Lexical Scope bersifat **statis**. Dimana fungsi tersebut dideklarasikan menentukan lingkup variabelnya, bukan dimana fungsi tersebut dipanggil.
-
----
-
-## Arsitek Mindset: Desain Modular
+## Arsitek Mindset: Desain Modular & Enkapsulasi
 
 Sebagai arsitek Hub:
-- Manfaatkan Lexical Scoping untuk menyembunyikan detail teknis di dalam fungsi.
-- Minimalkan variabel di tingkat Global agar tidak terjadi "Gangguan Arus" (Variable Collision) antar sirkuit.
-- Pahami bahwa setiap fungsi baru yang Anda buat adalah "Kotak Kontrol" baru dengan jalur kabelnya sendiri.
+- **Penyembunyian Informasi**: Manfaatkan scoping untuk menyembunyikan variabel sensitif di dalam fungsi agar tidak bisa dimanipulasi dari luar.
+- **Shadowing**: Hati-hati dengan *Variable Shadowing*, di mana variabel lokal dengan nama yang sama "menutupi" variabel global.
+- **Prediktabilitas**: Karena bersifat statis, Lexical Scoping membuat alur data dalam aplikasi Anda menjadi prediktabel dan mudah dilacak.
 
 ---
 
 ## Hands-on: Lab Jalur Kabel
-Buka file `examples/lexical_wiring_lab.js` untuk melihat bagaimana fungsi bersarang mengakses data dari lingkungan luarnya tanpa kebocoran data.
+Eksperimen dengan visualisasi rantai lingkup dan efek shadowing di `examples/lexical_wiring_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

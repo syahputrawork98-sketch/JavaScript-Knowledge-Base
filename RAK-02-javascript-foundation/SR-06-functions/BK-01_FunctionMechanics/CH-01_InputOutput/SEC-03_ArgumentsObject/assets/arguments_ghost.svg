@@ -1,0 +1,49 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ghostGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#94a3b8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:0.8" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- The Legacy Log Book (Arguments Object) -->
+  <g transform="translate(100, 60)">
+    <rect x="0" y="0" width="200" height="180" rx="5" fill="url(#ghostGrad)" fill-opacity="0.2" stroke="#94a3b8" stroke-dasharray="4" filter="url(#glow)" />
+    <text x="100" y="40" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle" font-weight="bold">ARGUMENTS</text>
+    <text x="100" y="60" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">"The Legacy Log Book"</text>
+    
+    <!-- Checklist items inside the log -->
+    <rect x="30" y="80" width="140" height="15" fill="#1e293b" opacity="0.5" />
+    <text x="35" y="91" font-family="Courier, monospace" font-size="10" fill="#ffffff" opacity="0.6">[0]: "Fuel-A"</text>
+    
+    <rect x="30" y="105" width="140" height="15" fill="#1e293b" opacity="0.5" />
+    <text x="35" y="116" font-family="Courier, monospace" font-size="10" fill="#ffffff" opacity="0.6">[1]: "Volt-B"</text>
+    
+    <rect x="30" y="130" width="140" height="15" fill="#1e293b" opacity="0.5" />
+    <text x="35" y="141" font-family="Courier, monospace" font-size="10" fill="#ffffff" opacity="0.6">length: 2</text>
+  </g>
+
+  <!-- Arrow Function Restriction (NO ACCESS) -->
+  <g transform="translate(300, 180)">
+    <path d="M-20 -20 L20 20 M-20 20 L20 -20" stroke="#ef4444" stroke-width="5" />
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold">No Arguments in Arrow</text>
+  </g>
+
+  <!-- Array Conversion Warning -->
+  <path d="M 100 220 L 300 220" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+  <text x="200" y="240" font-family="Arial, sans-serif" font-size="10" fill="#38bdf8" text-anchor="middle">"Must convert to Array.from() to use Map/Filter"</text>
+
+  <text x="200" y="40" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">THE GHOST RECORDS</text>
+  <text x="200" y="270" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">"Shadowy records of every incoming input"</text>
+
+</svg>

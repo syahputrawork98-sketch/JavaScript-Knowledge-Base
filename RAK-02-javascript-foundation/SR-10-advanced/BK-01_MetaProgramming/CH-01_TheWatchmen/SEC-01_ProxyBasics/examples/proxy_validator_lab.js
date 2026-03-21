@@ -1,61 +1,86 @@
 /**
- * LAB: Proxy Basics (The Interceptor)
- * Mental Model: "The Interceptor"
+ * LAB: Proxy Basics (The Watchmen)
+ * Level: Gold Standard Implementation
  */
 
-// 1. Target: Unit Kontrol Energi asli
-const energyUnit = {
-    level: 100,
-    status: "STABLE",
-    sector: "ALPHA-1"
+// 1. Dasar: Schema Validation (The Gatekeeper)
+const energyUnitSchema = {
+    id: "string",
+    output: "number"
 };
 
-// 2. Handler: Protokol Pengawasan (Watchman Protocol)
-const validatorHandler = {
-    // Trap untuk pembacaan data
-    get(target, prop) {
-        if (!(prop in target)) {
-            console.warn(`[ALERT] Akses ilegal ke properti yang tidak ada: ${prop}`);
-            return "ACCESS_DENIED";
-        }
-        return target[prop];
-    },
+const rawUnit = { id: "GEN-01", output: 500 };
 
-    // Trap untuk penulisan data
+const secureUnit = new Proxy(rawUnit, {
     set(target, prop, value) {
-        if (prop === 'level') {
-            if (typeof value !== 'number') throw new Error("Level energi harus berupa angka!");
-            if (value < 0 || value > 1000) throw new Error("Level energi di luar kapasitas (0-1000)!");
-            
-            console.log(`[LOG] Mengubah Energy Level dari ${target[prop]} ke ${value}`);
+        // Cek apakah properti ada di skema
+        if (!(prop in energyUnitSchema)) {
+            console.error(`[WATCHMAN] Akses Ditolak: Properti '${prop}' ilegal.`);
+            return false;
         }
         
-        target[prop] = value;
-        return true; // Menandakan operasi sukses
+        // Validasi tipe data
+        if (typeof value !== energyUnitSchema[prop]) {
+            console.error(`[WATCHMAN] Kegagalan Tipe: '${prop}' harus berupa ${energyUnitSchema[prop]}.`);
+            return false;
+        }
+
+        // Jika aman, gunakan Reflect untuk menyimpan nilai asli
+        console.log(`[WATCHMAN] Memverifikasi data: ${prop} = ${value}`);
+        return Reflect.set(target, prop, value);
     }
-};
+});
 
-// 3. Inisialisasi Proxy
-const secureUnit = new Proxy(energyUnit, validatorHandler);
+secureUnit.output = 600;      // OK
+secureUnit.output = "HIGH";   // FAIL: Tipe salah
+secureUnit.unauthorized = 1;  // FAIL: Properti ilegal
 
-console.log("--- Operasi Grid Terpantau ---");
+console.log("---");
 
-// Test Get
-console.log(`Status Unit: ${secureUnit.status}`);
-console.log(`Akses Ilegal: ${secureUnit.vaultCode}`); // Memicu warning
+// 2. Lanjutan: Automated Logging (The Auditor)
+const dataVault = { secrets: "TOP_SECRET_CODE", public: "Welcome" };
 
-// Test Set (Valid)
-secureUnit.level = 450;
+const auditedVault = new Proxy(dataVault, {
+    get(target, prop, receiver) {
+        if (prop === "secrets") {
+            console.warn(`[AUDITOR] PERINGATAN! Akses ke data SENSITIF terdeteksi pada ${new Date().toISOString()}`);
+        }
+        return Reflect.get(target, prop, receiver);
+    }
+});
 
-// Test Set (Invalid)
+console.log("Accessing public:", auditedVault.public);
+console.log("Accessing private:", auditedVault.secrets);
+
+console.log("---");
+
+// 3. Arsitektur: Default Values (The Stabilizer)
+const settings = { theme: "dark" };
+
+const stableSettings = new Proxy(settings, {
+    get(target, prop) {
+        if (!(prop in target)) {
+            console.log(`[STABILIZER] Properti '${prop}' tidak ada. Memberikan nilai fallback.`);
+            return "DEFAULT_VALUE";
+        }
+        return target[prop];
+    }
+});
+
+console.log("Theme:", stableSettings.theme);
+console.log("Volume:", stableSettings.volume); // Fallback triggered
+
+console.log("---");
+
+// 4. Architect Drill: Revocable Proxy (Temporary Access)
+const temporaryData = { key: "XYZ-123" };
+const { proxy, revoke } = Proxy.revocable(temporaryData, {});
+
+console.log("Temporary Access:", proxy.key);
+revoke(); // Memutus koneksi penjaga
+
 try {
-    secureUnit.level = "HIGH"; // Memicu error tipe data
+    console.log(proxy.key);
 } catch (e) {
-    console.error(`[ERROR] ${e.message}`);
-}
-
-try {
-    secureUnit.level = 5000; // Memicu error kapasitas
-} catch (e) {
-    console.error(`[ERROR] ${e.message}`);
+    console.error("[SYS] Akses Gagal: Proxy telah dicabut statusnya (Revoked).");
 }

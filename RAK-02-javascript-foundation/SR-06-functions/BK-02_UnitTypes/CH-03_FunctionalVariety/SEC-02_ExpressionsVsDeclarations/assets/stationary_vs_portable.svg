@@ -1,0 +1,50 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="staticGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="portableGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f472b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#db2777;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- LEFT: Function Declaration (Stationary Tower) -->
+  <g transform="translate(40, 60)">
+    <rect x="10" y="80" width="100" height="120" fill="url(#staticGrad)" filter="url(#glow)" rx="5" />
+    <text x="60" y="200" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">DECLARATION</text>
+    <text x="60" y="215" font-family="Arial, sans-serif" font-size="8" fill="#38bdf8" text-anchor="middle">"Stationary Tower"</text>
+    
+    <!-- Hoisting Arrow (Going Up) -->
+    <path d="M 60 70 L 60 10" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,2" />
+    <path d="M 55 15 L 60 5 L 65 15" fill="none" stroke="#38bdf8" stroke-width="2" />
+    <text x="70" y="30" font-family="Arial, sans-serif" font-size="9" fill="#38bdf8" font-weight="bold">HOISTED</text>
+  </g>
+
+  <!-- RIGHT: Function Expression (Portable Generator) -->
+  <g transform="translate(240, 100)">
+    <rect x="0" y="60" width="120" height="80" rx="10" fill="#1e293b" stroke="#f472b6" stroke-width="2" />
+    <rect x="20" y="80" width="80" height="40" fill="url(#portableGrad)" filter="url(#glow)" rx="5" />
+    <text x="60" y="160" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">EXPRESSION</text>
+    <text x="60" y="175" font-family="Arial, sans-serif" font-size="8" fill="#f472b6" text-anchor="middle">"Portable Generator"</text>
+    
+    <!-- No Hoisting Arrow (X mark at top) -->
+    <path d="M 50 10 L 70 30 M 70 10 L 50 30" stroke="#ef4444" stroke-width="2" />
+    <text x="60" y="45" font-family="Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">NO HOISTING</text>
+  </g>
+
+  <text x="200" y="40" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">STATIONARY VS PORTABLE</text>
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">"Towers are built at the start; Generators are deployed on the line"</text>
+
+</svg>

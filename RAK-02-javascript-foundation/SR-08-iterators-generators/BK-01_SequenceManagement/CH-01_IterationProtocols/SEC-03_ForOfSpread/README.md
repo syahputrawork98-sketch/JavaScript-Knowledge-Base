@@ -1,56 +1,62 @@
-# CH-03: for...of & Spread (Automatic Conveyors)
+# SEC-03: for...of & Spread (The Content Harvesters)
 
-> **"Menekan tombol `next()` secara manual mungkin melelahkan untuk aliran energi besar. JavaScript menyediakan 'Ban Berjalan Otomatis' (Automatic Conveyors) dalam bentuk `for...of` dan Spread Operator yang secara otomatis mengelola seluruh protokol iterasi di balik layar."**
+> **"Menekan tombol `next()` secara manual mungkin melelahkan untuk aliran energi besar. JavaScript menyediakan 'Pemanen Konten' (Content Harvesters) dalam bentuk `for...of` dan Spread Operator yang secara otomatis mengelola seluruh protokol iterasi di balik layar."**
 
-Gula sintaksis ini memudahkan kita memproses objek yang sudah tersertifikasi sebagai **Iterable**.
-
-## 1. Mental Model: "Automatic Conveyors"
-
-Bayangkan ban berjalan di pabrik yang sudah terhubung ke pintu `Symbol.iterator`. Anda tidak perlu menekan tombol satu per satu; cukup letakkan wadah (`for...of`) di ujung ban, dan data akan mengalir masuk sampai habis (`done: true`).
+Gula sintaksis ini memudahkan kita memproses objek yang sudah tersertifikasi sebagai **Iterable**. Mereka adalah konsumen otomatis yang akan menarik data sampai sinyal `done: true` diterima.
 
 ---
 
-## 2. Pemanfaatan Utama
+## 1. Mental Model: "The Content Harvesters"
+
+Bayangkan sebuah ladang data yang sudah terhubung ke gerbang `Symbol.iterator`. Anda tidak perlu menarik data satu per satu; cukup gunakan alat pemanen otomatis:
+- **`for...of`**: Seperti truk pengumpul yang berjalan menyusuri baris data dan memasukkannya ke dalam variabel untuk segera diproses.
+- **Spread Operator (`...`)**: Seperti kipas besar yang meniup seluruh isi kontainer data dan menyebarkannya ke dalam wadah (array) baru.
+
+![Content Harvester Premium](./assets/harvester_premium.svg)
+
+---
+
+## 2. Bedah Alat Pemanen
 
 ### A. Pengulangan `for...of`
-Alat paling umum untuk memproses data berurutan. Ia secara otomatis mengekstrak `.value` dan berhenti saat `.done` bernilai `true`.
+Alat paling efisien untuk memproses nilai dari iterable. Ia secara otomatis mengekstrak `.value` dan berhenti seketika saat `.done` bernilai `true`.
 
 ```javascript
-const energyUnits = ["10MW", "20MW", "30MW"];
+const gridUnits = ["Alpha", "Beta", "Gamma"];
 
-for (const unit of energyUnits) {
-    console.log(`Mengirim: ${unit}`);
+for (const unit of gridUnits) {
+    console.log(`Harvesting energy from: ${unit}`);
 }
 ```
 
 ### B. Spread Operator `[...]`
-Membuka seluruh segel data iterable dan menyebarkannya ke dalam wadah baru.
+Sangat berguna untuk penggabungan data atau konversi cepat dari iterable (seperti NodeList atau Set) ke dalam Array standar.
 
 ```javascript
-const alphaGrid = [1, 2];
-const combinedGrid = [...alphaGrid, 3, 4]; // [1, 2, 3, 4]
+const staticData = [...gridUnits, "Delta"]; // ["Alpha", "Beta", "Gamma", "Delta"]
 ```
 
 ---
 
-## 3. Keuntungan Arsitektural
+## 3. Peringatan: `for...of` vs `for...in`
 
-- **Kebersihan Kode**: Menghindari hitungan indeks manual yang rawan kesalahan (*off-by-one errors*).
-- **Interoperabilitas**: Cara ini bekerja pada semua jenis iterable kustom Anda secara seragam.
+Sebagai arsitek Hub, jangan sampai tertukar:
+- **`for...in`**: Memanen **KUNCI/INDEKS** (Properti objek). Cocok untuk inspeksi struktur.
+- **`for...of`**: Memanen **NILAI** (Konten iterable). Cocok untuk pemrosesan data.
 
 ---
 
 ## Arsitek Mindset: Otomasi Grid
 
 Sebagai arsitek Hub:
-- Pilih `for...of` daripada loop `for` tradisional (dengan indeks `i`) jika Anda hanya butuh data berurutannya saja.
-- Gunakan spread operator untuk menggabungkan atau menyalin aliran data secara efisien.
-- Ingat bahwa `for...of` hanya bekerja pada objek yang memiliki kontrak **Iterable**. Objek biasa `{}` tidak akan bisa masuk ke ban berjalan otomatis ini secara default.
+- **Clean Loops**: Gunakan `for...of` untuk menjaga kode tetap bersih dari pengelolaan indeks manual (`i++`).
+- **Destructuring Harvest**: Anda bisa mengombinasikan `for...of` dengan destructuring untuk memanen data yang kompleks (misal: `for (const [id, val] of map) { ... }`).
+- **One-Way Consumption**: Ingat bahwa beberapa iterable (seperti Generators) bersifat sekali panen. Begitu selesai dipanen oleh `for...of`, mereka tidak bisa dipanen lagi.
 
 ---
 
 ## Hands-on: Lab Ban Berjalan Otomatis
-Buka file `examples/conveyor_lab.js` untuk membandingkan kemudahan pemrosesan data menggunakan alat otomatis ini dibandingkan manual `next()`.
+Bandingkan efisiensi pemanenan data menggunakan berbagai instrumen otomatis di `examples/conveyor_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

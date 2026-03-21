@@ -1,25 +1,32 @@
-# CH-04: Async Iterators (Future Energy Streams)
+# SEC-04: Async Iterators (The Latency Compensator)
 
-> **"Beberapa aliran energi di Hub tidak datang secara instan. Menunggu muatan dari sektor jauh membutuhkan kesabaran. Async Iterators adalah 'Aliran Energi Masa Depan' (Future Energy Streams) yang memungkinkan kita memproses data yang datang secara asinkron dengan kemudahan ban berjalan."**
+> **"Beberapa aliran energi di Hub tidak datang secara instan. Menunggu muatan dari sektor jauh membutuhkan kesabaran. Async Iterators adalah 'Kompensator Latensi' (Latency Compensator) yang memungkinkan kita memproses data yang datang secara asinkron dengan kemudahan ban berjalan otomatis."**
 
-Async iterators dan loop `for await...of` adalah cara modern untuk menangani aliran data asinkron (*streams*).
-
-## 1. Mental Model: "Future Energy Streams"
-
-Bayangkan ban berjalan yang tidak bermesin. Robot di ujung ban menekan tombol `next()`, namun alih-alih mendapatkan paket data langsung, ia mendapatkan "Tanda Terima Janji" (Promise). Ban berjalan hanya akan bergerak saat energi akhirnya tiba dari pembangkit listrik jauh.
+**Async Iterators** adalah evolusi dari iterator biasa yang dirancang untuk menangani sumber data asinkron. Alih-alih mendapatkan nilai secara instan, pemanggil akan mendapatkan sebuah **Promise** untuk setiap potongan data yang ditarik.
 
 ---
 
-## 2. Protokol Asinkron
+## 1. Mental Model: "The Latency Compensator"
 
-Berbeda dengan iterator biasa, `next()` pada async iterator mengembalikan sebuah **Promise** yang akan melakukan *resolve* ke objek `{ value, done }`.
+Bayangkan ban berjalan di Hub yang terhubung ke pembangkit listrik di planet lain. 
+1. Saat robot menekan tombol `next()`, ia tidak langsung mendapatkan kotak energi.
+2. Ia mendapatkan sebuah "Tanda Terima Janji" (Promise).
+3. Robot (Loop `for await...of`) akan menunggu dengan sabar sampai janji tersebut terpenuhi (*resolved*) dan energi akhirnya tiba. Begitu tiba, ia segera memprosesnya dan menekan tombol `next()` lagi untuk data berikutnya.
+
+![Async Iterator Premium](./assets/async_iterator_premium.svg)
+
+---
+
+## 2. Protokol Asinkron: `Symbol.asyncIterator`
+
+Sebuah objek sah menjadi async iterable jika ia memiliki properti `[Symbol.asyncIterator]`. Metode `next()` di dalamnya harus mengembalikan Promise yang berisi objek `{ value, done }`.
 
 ```javascript
-const asyncIterable = {
+const remoteStream = {
     [Symbol.asyncIterator]() {
         return {
             async next() {
-                const data = await fetchFromGrid(); // Menunggu data
+                const data = await fetchFromRemote(); 
                 return { value: data, done: false };
             }
         };
@@ -29,14 +36,14 @@ const asyncIterable = {
 
 ---
 
-## 3. for await...of
+## 3. Ban Berjalan Otomatis: `for await...of`
 
-Simbol ban berjalan otomatis khusus untuk aliran asinkron. Ia secara otomatis menunggu setiap promise selesai sebelum memberikan nilai ke badan loop.
+Ini adalah instrumen paling efisien untuk mengonsumsi aliran asinkron. Ia melakukan `await` pada setiap promise secara internal sebelum melangkah ke iterasi berikutnya.
 
 ```javascript
-async function processStream(stream) {
+async function consumeEnergy(stream) {
     for await (const pulse of stream) {
-        console.log(`Mengolah Energi: ${pulse}`);
+        console.log(`Processing Pulse: ${pulse}`);
     }
 }
 ```
@@ -46,13 +53,14 @@ async function processStream(stream) {
 ## Arsitek Mindset: Kesabaran Grid
 
 Sebagai arsitek Hub:
-- Gunakan `for await...of` saat Anda menarik data dari jaringan, sensor eksternal, atau file sistem yang dibaca per baris.
-- Pastikan Anda menangani kesalahan (`try...catch`) karena aliran energi asinkron lebih rentan terhadap kegagalan transmisi dibandingkan aliran lokal.
+- **Streaming Data**: Gunakan Async Iterators saat menangani pembacaan file besar baris demi baris, atau menerima rangkaian data dari API (misal: Pagination otomatis).
+- **Error Handling**: Aliran asinkron lebih rentan terhadap kegagalan transmisi (jaringan putus, timeout). Selalu bungkus konsumsi streaming dalam `try...catch`.
+- **Latency Efficiency**: Dengan async iteration, Hub tidak perlu memblokir seluruh operasinya hanya untuk menunggu satu paket data; ia bisa mengerjakan tugas lain sambil menunggu janji data terpenuhi.
 
 ---
 
 ## Hands-on: Lab Aliran Masa Depan
-Buka file `examples/async_iter_lab.js` untuk mensimulasikan penerimaan paket energi dari sensor jauh secara bertahap menggunakan bantuan `async`.
+Eksperimen dengan penarikan paket energi dari sensor jauh secara bertahap menggunakan bantuan `async` di `examples/async_iter_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

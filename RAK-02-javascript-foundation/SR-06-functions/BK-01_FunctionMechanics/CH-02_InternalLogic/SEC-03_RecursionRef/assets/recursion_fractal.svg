@@ -1,0 +1,43 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fractalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f472b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#db2777;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- Level 1 (The Main Module) -->
+  <rect x="50" y="50" width="300" height="200" rx="10" fill="#1e293b" stroke="#f472b6" stroke-width="2" opacity="0.3" />
+  <text x="60" y="75" font-family="Arial, sans-serif" font-size="12" fill="#f472b6">LEVEL 1: MAIN()</text>
+
+  <!-- Level 2 (The Sub-Replica) -->
+  <rect x="100" y="100" width="200" height="120" rx="5" fill="#1e293b" stroke="#f472b6" stroke-width="2" opacity="0.6" />
+  <text x="110" y="120" font-family="Arial, sans-serif" font-size="10" fill="#f472b6">LEVEL 2: REPLICA()</text>
+
+  <!-- Level 3 (The Core Hub / Base Case) -->
+  <rect x="150" y="140" width="100" height="60" rx="5" fill="url(#fractalGrad)" filter="url(#glow)" />
+  <text x="200" y="170" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">BASE CASE</text>
+  <text x="200" y="185" font-family="Arial, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle">STOPPING POINT</text>
+
+  <!-- The Recursive Call Path -->
+  <path d="M 120 75 Q 80 150 150 160" fill="none" stroke="#f472b6" stroke-width="2" stroke-dasharray="4,4" />
+  <path d="M 170 120 Q 140 160 150 160" fill="none" stroke="#f472b6" stroke-width="2" stroke-dasharray="4,4" />
+
+  <!-- Stack Overflow Warning (Edge) -->
+  <text x="380" y="30" font-family="Arial, sans-serif" font-size="8" fill="#ef4444" text-anchor="end">CALL STACK WARNING!</text>
+  <rect x="350" y="40" width="30" height="150" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-dasharray="2" />
+
+  <text x="200" y="40" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">THE FRACTAL ENGINE</text>
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">"Self-replicating logic until the base case is reached"</text>
+
+</svg>

@@ -1,45 +1,58 @@
 /**
- * LAB: Extends (Model Series)
- * Mental Model: "Model Series"
+ * LAB: Class Extends (The Modular Upgrade)
+ * Level: Gold Standard Implementation
  */
 
-// Model Dasar (Blueprint Umum)
-class GridModule {
+// 1. Dasar: Fondasi & Ekspansi
+class BasicModule {
     constructor(id) {
         this.id = id;
-        this.load = 0;
+        this.isOnline = false;
     }
 
-    status() {
-        console.log(`[STATUS] ${this.id}: ${this.load} MW`);
+    turnOn() {
+        this.isOnline = true;
+        console.log(`[${this.id}] Base Systems: ONLINE`);
     }
-}
 
-// Upgrade Model: Solar Module
-class SolarModule extends GridModule {
-    // Mewarisi constructor dan metode status()
-    collectSunlight() {
-        this.load += 50;
-        console.log(`[${this.id}] Menyerap energi matahari... (+50MW)`);
+    report() {
+        return `Status for ${this.id}: ${this.isOnline ? "OPERATIONAL" : "IDLE"}`;
     }
 }
 
-// Upgrade Model: Wind Module
-class WindModule extends GridModule {
-    captureWind() {
-        this.load += 80;
-        console.log(`[${this.id}] Menangkap angin... (+80MW)`);
+// Meng-upgrade model dasar menjadi model sensor
+class SensorModule extends BasicModule {
+    scan() {
+        if (!this.isOnline) {
+            console.error(`[${this.id}] Error: Cannot scan while offline!`);
+            return;
+        }
+        console.log(`[${this.id}] Scanning grid environment... OK`);
     }
 }
 
-console.log("--- Inisialisasi Seri Model Baru ---");
+const s1 = new SensorModule("SENSE-99");
+s1.turnOn(); // Mewarisi dari BasicModule
+s1.scan();   // Fitur unik SensorModule
+console.log(s1.report());
 
-const solarX = new SolarModule("SOL-A1");
-const windX = new WindModule("WIN-B2");
+console.log("---");
 
-solarX.collectSunlight();
-windX.captureWind();
+// 2. Lanjutan: Verifikasi Silsilah (Hierarchy Check)
+console.log("Is s1 a SensorModule?", s1 instanceof SensorModule); // true
+console.log("Is s1 also a BasicModule?", s1 instanceof BasicModule); // true (Inheritance)
+console.log("Is s1 an Object?", s1 instanceof Object); // true (The root of all)
 
-console.log("\nLaporan Terpadu:");
-solarX.status();
-windX.status();
+console.log("---");
+
+// 3. Arsitektur: Multiple Subclasses
+class IndustrialDrill extends BasicModule {
+    drill() {
+        console.log(`[${this.id}] Drilling core... BRRRRRRR!`);
+    }
+}
+
+const d1 = new IndustrialDrill("DRILL-X");
+d1.turnOn();
+d1.drill();
+// d1.scan(); // ERROR: Drill tidak punya kemampuan scanning

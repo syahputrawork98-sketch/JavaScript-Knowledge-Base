@@ -1,54 +1,57 @@
-# CH-02: Constructors (The Assembly Line)
+# SEC-02: Constructors (The Assembly Line)
 
 > **"Blueprint saja tidak cukup; Anda harus tahu bagaimana cara merakit unit tersebut saat pertama kali keluar dari gudang. Constructor adalah 'Lini Perakitan' (Assembly Line) yang secara otomatis berjalan untuk memberikan identitas dan energi awal pada unit baru."**
 
-Metode `constructor` adalah metode khusus untuk membuat dan menginisialisasi objek yang dibuat dengan sebuah class.
-
-## 1. Mental Model: "The Assembly Line"
-
-Bayangkan sebuah robot di pabrik. Begitu blueprint `Transformer` dipilih dan tombol `new` ditekan, robot perakit (`constructor`) langsung bekerja:
-1.  Memasang label nama (`this.name`).
-2.  Mengisi daya awal (`this.power`).
-3.  Memastikan semua kabel terhubung sebelum unit dilepaskan ke Grid.
+Metode `constructor` adalah metode khusus yang digunakan untuk menciptakan dan menginisialisasi objek yang dibuat dengan sebuah class. Metode ini dipanggil secara otomatis saat kata kunci `new` digunakan.
 
 ---
 
-## 2. Inisialisasi Properti
+## 1. Mental Model: "The Assembly Line"
 
-Di dalam constructor, kita menggunakan kata kunci `this` untuk merujuk pada unit spesifik yang sedang dibangun.
+Bayangkan sebuah robot di pabrik. Begitu blueprint dipilih dan tombol `new` ditekan, robot perakit (**Constructor**) langsung bekerja menyuntikkan data awal:
+- **Identity Injection**: Memberikan nama unik (`this.id`).
+- **Energy Setup**: Mengatur kapasitas daya awal (`this.capacity`).
+- **Initial Verification**: Memastikan semua komponen dalam kondisi prima sebelum unit dikirim ke Grid.
+
+![Class Assembly Premium](./assets/class_assembly_premium.svg)
+
+---
+
+## 2. Cara Kerja `this` dalam Perakitan
+
+Di dalam constructor, kata kunci `this` merujuk pada **instansi baru** (objek yang sedang dikonstruksi). Kita menggunakan `this` untuk menempelkan properti pada unit tersebut.
 
 ```javascript
 class Transformer {
     constructor(id, capacity) {
         this.id = id;
         this.capacity = capacity;
-        this.status = "OFFLINE"; // Status default awal
+        this.isOperational = false; // Status default
     }
 }
-
-const unitX = new Transformer("TX-99", 5000);
 ```
 
 ---
 
-## 3. Aturan Penting
+## 3. Aturan Emas Arsitektur
 
-- Sebuah class hanya boleh memiliki **satu** metode `constructor`.
-- Jika Anda tidak menulis `constructor`, JavaScript akan memberikan yang kosong secara otomatis.
-- Di dalam inheritance (pewarisan), `this` tidak bisa digunakan sebelum Anda memanggil `super()`.
+- **Single Assembly**: Sebuah class hanya boleh memiliki **satu** metode constructor. Memiliki dua constructor akan menyebabkan `SyntaxError`.
+- **Auto-Injection**: Jika Anda tidak menulis constructor sendiri, JavaScript akan menyisipkan constructor kosong secara otomatis.
+- **Immediate Execution**: Instruksi di dalam constructor dijalankan tepat di awal siklus hidup objek, menjadikannya tempat terbaik untuk validasi input.
 
 ---
 
-## Arsitek Mindset: Validasi Rakitan
+## Arsitek Mindset: Integritas Rakitan
 
 Sebagai arsitek Hub:
-- Gunakan constructor untuk memvalidasi input sebelum unit benar-benar dibuat (misal: pastikan kapasitas tidak negatif).
-- Jangan meletakkan logika pemrosesan berat di dalam constructor. Constructor seharusnya hanya untuk perakitan awal yang ringan.
+- **Input Validation**: Gunakan constructor untuk memblokir perakitan unit yang cacat (misal: kapasitas negatif atau ID yang tidak valid).
+- **Lightweight Process**: Jangan meletakkan logika komputasi yang berat di sini. Constructor hanya untuk persiapan; biarkan metode lain yang menangani operasional berat.
+- **Default Value**: Berikan nilai awal yang aman agar unit tetap bisa berfungsi meskipun tidak semua parameter dikirimkan oleh operator.
 
 ---
 
 ## Hands-on: Lab Lini Perakitan
-Buka file `examples/assembly_line_lab.js` untuk mensimulasikan perakitan modul energi dengan berbagai spesifikasi input yang berbeda.
+Simulasikan perakitan modul energi dengan validasi cerdas di `examples/assembly_line_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

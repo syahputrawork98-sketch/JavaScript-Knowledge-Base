@@ -1,0 +1,51 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="siftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- The Sifter (Filter Unit) -->
+  <g transform="translate(60, 60)">
+    <rect x="0" y="0" width="280" height="140" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" />
+    <text x="140" y="30" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">CHARACTER SIFTER</text>
+    
+    <!-- Sifter Slots (Shorthands) -->
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="70" height="60" rx="5" fill="url(#siftGrad)" filter="url(#glow)" />
+      <text x="35" y="35" font-family="Courier, monospace" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="bold">\d</text>
+      <text x="35" y="55" font-family="Arial, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle">DIGITS</text>
+    </g>
+
+    <g transform="translate(105, 50)">
+      <rect x="0" y="0" width="70" height="60" rx="5" fill="url(#siftGrad)" filter="url(#glow)" />
+      <text x="35" y="35" font-family="Courier, monospace" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="bold">\w</text>
+      <text x="35" y="55" font-family="Arial, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle">WORDS</text>
+    </g>
+
+    <g transform="translate(190, 50)">
+      <rect x="0" y="0" width="70" height="60" rx="5" fill="url(#siftGrad)" filter="url(#glow)" />
+      <text x="35" y="35" font-family="Courier, monospace" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="bold">\s</text>
+      <text x="35" y="55" font-family="Arial, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle">SPACE</text>
+    </g>
+  </g>
+
+  <!-- Input Data Stream -->
+  <text x="50" y="230" font-family="Courier, monospace" font-size="12" fill="#94a3b8">"Reactor-01 @ 500kW"</text>
+  <path d="M 50 210 L 100 200 L 60 180" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="4,2" fill="none" />
+
+  <text x="200" y="30" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">THE FREQUENCY SIFTERS</text>
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">"Categorizing raw data streams into distinct signature classes"</text>
+
+</svg>

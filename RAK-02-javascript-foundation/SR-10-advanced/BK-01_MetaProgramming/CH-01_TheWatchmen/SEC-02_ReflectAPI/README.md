@@ -1,35 +1,41 @@
-# CH-02: Reflect API (The Mirror Protocol)
+# SEC-02: Reflect API (The Official Record)
 
-> **"Jika Proxy adalah penjaga yang mencegat permintaan, maka Reflect adalah 'Protokol Cermin' (The Mirror Protocol) yang menyediakan cara standar untuk meneruskan permintaan tersebut ke objek asli tanpa merusak alur internal sistem."**
+> **"Jika Proxy adalah penjaga yang mencegat permintaan, maka Reflect adalah 'Catatan Resmi' (The Official Record) yang menyediakan cara standar dan aman untuk melakukan operasi pada objek tanpa merusak alur internal sistem Hub."**
 
-Reflect adalah objek built-in yang menyediakan metode untuk mengoperasikan objek dengan cara yang lebih teratur dan fungsional.
-
-## 1. Mental Model: "The Mirror Protocol"
-
-Bayangkan Proxy sebagai filter. Setelah filter menyetujui sebuah permintaan, ia harus meneruskannya ke Target.
-- Menggunakan `target[prop] = value` secara manual kadang berisiko (misal: jika objek di-*freeze*).
-- Menggunakan `Reflect.set(target, prop, value)` seperti menggunakan alat standar Hub yang menjamin operasi tersebut dilakukan dengan benar dan mengembalikan status sukses/gagal secara eksplisit.
-
-![Reflect Mirror](./assets/reflect_mirror.svg)
+**Reflect** adalah objek statis built-in yang menyediakan metode untuk mengoperasikan objek dengan cara yang lebih teratur, fungsional, dan dapat diprediksi. Setiap "Trap" pada Proxy memiliki metode yang sesuai di dalam Reflect.
 
 ---
 
-## 2. Mengapa Menggunakan Reflect?
+## 1. Mental Model: "The Official Record"
 
-1.  **Pengembalian Nilai yang Jelas**: Metode Reflect mengembalikan Boolean (`true/false`) untuk operasi seperti `set` atau `deleteProperty`, memudahkannya digunakan dalam logika `if`.
-2.  **Konsistensi dengan Proxy**: Setiap "Trap" yang ada di Proxy memiliki metode yang sesuai di Reflect.
-3.  **Gaya Fungsional**: Mengubah operator (seperti `delete` atau `in`) menjadi pemanggilan fungsi yang bersih.
+Bayangkan Proxy sebagai filter atau penjaga. Setelah filter menyetujui sebuah permintaan (misal: penulisan data), ia harus meneruskannya ke objek asli.
+- **Direct Access (`obj[prop] = value`)**: Seperti mencoba membuka brankas secara paksa; jika brankas terkunci (*frozen*), operasi ini akan gagal بصمت (secara diam-diam) atau melempar error yang tidak konsisten.
+- **Reflect Access (`Reflect.set(...)`)**: Seperti menggunakan kunci resmi dari Hub. Ia menjamin operasi dilakukan dengan protokol yang benar dan memberikan laporan status (`true/false`) secara eksplisit.
+
+![Reflect Mirror Premium](./assets/reflect_mirror_premium.svg)
 
 ---
 
-## 3. Contoh Sinergi Proxy + Reflect
+## 2. Keunggulan Protokol Reflect
+
+| Fitur | Pendekatan Objek/Operator | Pendekatan Reflect | Manfaat |
+| :--- | :--- | :--- | :--- |
+| **Nilai Balik** | `delete obj.p` (bisa gagal diam-diam) | `Reflect.deleteProperty(obj, 'p')` | Mengembalikan Boolean (`true/false`) |
+| **Konteks `this`** | Manual binding | Parameter `receiver` | Menjaga pewarisan (*inheritance*) tetap akurat |
+| **Error Handling** | `Object.defineProperty` (lempar error) | `Reflect.defineProperty` | Mengembalikan Boolean (lebih aman) |
+| **Fungsional** | `(x in obj)` | `Reflect.has(obj, x)` | Memudahkan gaya pemrograman fungsional |
+
+---
+
+## 3. Sinergi dengan Proxy: Parameter `receiver`
+
+Salah satu alasan terkuat menggunakan `Reflect` di dalam Proxy adalah parameter `receiver`. Parameter ini memastikan bahwa jika objek target sedang diakses melalui *inheritance* (pewarisan), konteks `this` akan tetap merujuk pada objek akhir yang memanggilnya, bukan pada objek target perantara.
 
 ```javascript
 const handler = {
-    set(target, prop, value, receiver) {
-        console.log(`Mencoba set ${prop}`);
-        // Meneruskan dengan Reflect
-        return Reflect.set(target, prop, value, receiver);
+    get(target, prop, receiver) {
+        // 'receiver' memastikan getter di prototype bekerja dengan 'this' yang benar
+        return Reflect.get(target, prop, receiver);
     }
 };
 ```
@@ -39,14 +45,14 @@ const handler = {
 ## Arsitek Mindset: Standarisasi Operasi
 
 Sebagai arsitek Hub:
-- Selalu gunakan `Reflect` di dalam Proxy handler Anda untuk memastikan konteks `this` tetap terjaga (melalui parameter `receiver`).
-- Gunakan `Reflect.has()` daripada operator `in` jika Anda ingin kode yang lebih konsisten dalam gaya pemrograman fungsional.
-- Gunakan `Reflect.apply()` untuk memanggil fungsi dengan cara yang lebih aman dan terstruktur.
+- **Consistency First**: Gunakan `Reflect` setiap kali Anda berada di dalam Proxy Trap. Ini adalah praktik standar industri untuk menghindari bug halus terkait konteks `this`.
+- **Functional Style**: Gunakan `Reflect` untuk menggantikan operator lama (`delete`, `in`) jika Anda sedang membangun utilitas yang membutuhkan pemanggilan fungsi (seperti pada `.map()` atau `.filter()`).
+- **Safe Definition**: Gunakan `Reflect.defineProperty` jika Anda ingin mencoba mendefinisikan properti tanpa harus membungkus kode Anda dalam blok `try...catch`.
 
 ---
 
 ## Hands-on: Lab Protokol Cermin
-Buka file `examples/reflect_mirror_lab.js` untuk melihat bagaimana Reflect menyempurnakan cara kerja Proxy dalam menjaga integritas data.
+Sempurnakan cara kerja Proxy Anda dan pelajari perbedaan performa serta keamanan antara `Object` dan `Reflect` di `examples/reflect_mirror_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

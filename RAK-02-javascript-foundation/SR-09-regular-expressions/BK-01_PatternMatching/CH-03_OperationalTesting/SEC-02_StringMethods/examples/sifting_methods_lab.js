@@ -1,32 +1,49 @@
 /**
- * LAB: String Methods (Replacement Stations)
- * Mental Model: "Replacement Stations"
+ * LAB: String Methods (The Data Modifiers)
+ * Level: Gold Standard Implementation
  */
 
-// 1. Stasiun Penggantian Format (Replace + Groups)
-const rawData = "Price: USD 500, Price: USD 1200";
-const formatted = rawData.replace(/USD (\d+)/g, "$ $1");
+const rawData = "NODE-01: Active, NODE-05: Passive, NODE-99: Active";
 
-console.log("--- Format Currency Check ---");
-console.log(`Original: ${rawData}`);
-console.log(`Formatted: ${formatted}`); // Price: $ 500, Price: $ 1200
+// 1. Dasar: Sifting with .match()
+console.log("--- BATCH MATCHING ---");
+const activeNodes = rawData.match(/NODE-\d{2}(?=: Active)/g);
+console.log("Active Nodes Only:", activeNodes);
 
+console.log("---");
 
-// 2. Stasiun Masking (Replace with Callback)
-const secretLog = "Admin: Syahputra, Key: SECURE_123, Admin: John, Key: PASS_XYZ";
-const maskedLog = secretLog.replace(/Key: (\w+)/g, (match, p1) => {
-    return "Key: " + "*".repeat(p1.length);
-});
+// 2. Lanjutan: Forensic Sifting with .matchAll()
+console.log("--- FORENSIC EXTRACTION ---");
+const fullScanner = /NODE-(?<id>\d+): (?<status>\w+)/g;
+const matches = rawData.matchAll(fullScanner);
 
-console.log("\n--- Masking Data Rahasia ---");
-console.log(maskedLog);
-
-
-// 3. Stasiun Ekstraksi Massal (matchAll)
-const multiSignal = "SIG-A:88, SIG-B:99, SIG-C:101";
-const signalScanner = /SIG-(?<name>\w):(?<val>\d+)/g;
-
-console.log("\n--- Forensik Sinyal (matchAll) ---");
-for (const match of multiSignal.matchAll(signalScanner)) {
-    console.log(`[STREAM] Sensor ${match.groups.name} melaporkan intensitas ${match.groups.val}`);
+for (const m of matches) {
+    const { id, status } = m.groups;
+    console.log(`- Detected ID [${id}] with state [${status}] at position ${m.index}`);
 }
+
+console.log("---");
+
+// 3. Arsitektur: Smart Transformation with .replace()
+console.log("--- DATA MASKING (REPLACE) ---");
+const secretKey = "API_KEY: 8822-1100-4455-9988";
+
+// Menggunakan callback untuk menyembunyikan digit sensitif
+const maskedKey = secretKey.replace(/\d{4}-\d{4}-\d{4}-/, (match) => {
+    return "****-****-****-";
+});
+console.log("Secured Key:", maskedKey);
+
+// Menggunakan groups untuk reformatting
+const rawName = "Syahputra, Work";
+const formattedName = rawName.replace(/(?<last>\w+), (?<first>\w+)/, "$<first> $<last>");
+console.log("Reformatted Name:", formattedName);
+
+console.log("---");
+
+// 4. Architect Drill: Complex Splitting
+console.log("--- COMPLEX SPLITTING ---");
+const messyLog = "Log1;Log2,Log3 Log4|Log5";
+// Split berdasarkan karakter pemisah apa pun (; , spasi |)
+const tokens = messyLog.split(/[;, |]+/);
+console.log("Clean Tokens:", tokens);

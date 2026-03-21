@@ -1,0 +1,51 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueprintGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- The Architectural Blueprint (Class) -->
+  <g transform="translate(40, 60)">
+    <rect x="0" y="0" width="160" height="200" rx="5" fill="#1e293b" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5,5" />
+    <text x="80" y="30" font-family="Arial, sans-serif" font-size="14" fill="#38bdf8" text-anchor="middle" font-weight="bold">CLASS BLUEPRINT</text>
+    
+    <!-- Specs -->
+    <rect x="20" y="60" width="120" height="10" fill="#38bdf8" opacity="0.2" />
+    <text x="25" y="68" font-family="Courier, monospace" font-size="8" fill="#ffffff">prop: energy_type</text>
+    
+    <rect x="20" y="80" width="120" height="10" fill="#38bdf8" opacity="0.2" />
+    <text x="25" y="88" font-family="Courier, monospace" font-size="8" fill="#ffffff">method: activate()</text>
+    
+    <rect x="20" y="100" width="120" height="10" fill="#38bdf8" opacity="0.2" />
+    <text x="25" y="108" font-family="Courier, monospace" font-size="8" fill="#ffffff">constructor()</text>
+  </g>
+
+  <!-- The Factory Process (new) -->
+  <path d="M 200 150 L 260 150" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4" />
+  <text x="230" y="140" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">"new" keyword</text>
+
+  <!-- Physical Instances (Objects) -->
+  <g transform="translate(280, 80)">
+    <rect x="0" y="0" width="80" height="60" rx="5" fill="url(#blueprintGrad)" filter="url(#glow)" />
+    <text x="40" y="35" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">UNIT-01</text>
+    
+    <rect x="0" y="80" width="80" height="60" rx="5" fill="url(#blueprintGrad)" filter="url(#glow)" />
+    <text x="40" y="115" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">UNIT-02</text>
+  </g>
+
+  <text x="200" y="40" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">THE MASTER BLUEPRINT</text>
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">"Defining the DNA for thousands of identical Hub units"</text>
+
+</svg>

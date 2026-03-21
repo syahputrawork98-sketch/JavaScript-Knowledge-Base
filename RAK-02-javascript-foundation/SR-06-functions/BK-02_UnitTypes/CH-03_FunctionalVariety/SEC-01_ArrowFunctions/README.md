@@ -1,50 +1,62 @@
-# CH-01: Arrow Functions (Compact Specialized Units)
+# SEC-01: Arrow Functions (The High-Speed Interceptor)
 
-> **"Beberapa tugas di Hub hanya membutuhkan unit kecil yang cepat dan spesifik tanpa perlu seluruh ruang mesin yang besar. Arrow Functions adalah 'Unit Kompak' (Compact Specialized Units) yang dirancang untuk efisiensi tinggi dan kesederhanaan."**
+> **"Beberapa tugas di Hub hanya membutuhkan unit kecil yang cepat dan spesifik tanpa perlu seluruh ruang mesin yang besar. Arrow Functions adalah 'Unit Pencegat Cepat' (High-Speed Interceptor) yang dirancang untuk efisiensi tinggi, berpergian ringan tanpa membawa sistem navigasi sendiri."**
 
-Arrow functions menyediakan sintaksis yang lebih ringkas dan memiliki perilaku khusus terkait konteks `this`.
-
-## 1. Mental Model: "The Compact Unit"
-
-Bayangkan sebuah unit pengolah mini. Ia tidak memiliki "Sistem Deteksi Konteks" sendiri (`this`) dan tidak memiliki "Buku Log Lama" sendiri (`arguments`). Ia selalu meminjam sistem deteksi dari ruangan (lingkungan) tempat ia dipasang.
+**Arrow function** menyediakan cara yang lebih ringkas untuk menulis ekspresi fungsi. Namun, perbedaannya bukan sekadar sintaksis; ia memiliki perilaku fundamental yang berbeda terkait konteks `this` dan objek `arguments`.
 
 ---
 
-## 2. Karakteristik Utama
+## 1. Mental Model: "The High-Speed Interceptor"
 
-- **Sintaksis Ringkas**: Tanpa kata kunci `function` dan seringkali tanpa kurung kurawal atau `return` (untuk satu pernyataan).
-- **Lexical `this`**: `this` selalu merujuk ke nilai `this` di sekelilingnya saat fungsi dibuat.
-- **Tanpa `arguments`**: Selalu gunakan Rest Parameters jika butuh akses banyak argumen.
+Bayangkan Arrow Function sebagai pesawat pencegat yang ringan. Pesawat ini tidak membawa sistem navigasi (*Context Unit*) sendiri. Sebagai gantinya, ia selalu menggunakan sistem navigasi dari kapal induk (lingkup induk) tempat ia diluncurkan.
+
+![Arrow Interceptor Premium](./assets/arrow_interceptor_premium.svg)
+
+---
+
+## 2. Fitur "Lexical This"
+
+Inilah fitur paling kuat dari Arrow Function. Di dalam fungsi tradisional, nilai `this` ditentukan oleh **bagaimana** fungsi itu dipanggil (dinamis). Di dalam Arrow Function, `this` ditentukan oleh **di mana** fungsi itu didefinisikan (statis/leksikal).
 
 ```javascript
-// Tradisional
-function add(a, b) { return a + b; }
+function Hub() {
+    this.energy = 100;
 
-// Arrow
-const add = (a, b) => a + b;
+    // Arrow function 'meminjam' this dari Hub()
+    setInterval(() => {
+        this.energy++; // Bekerja sesuai harapan!
+    }, 1000);
+}
 ```
 
 ---
 
-## 3. Kapan Menggunakan Arrow Functions?
+## 3. Sintaksis & Implicit Return
 
-Sangat ideal untuk:
-- Fungsi callback (Array methods: `map`, `filter`).
-- Fungsi pendek yang tidak membutuhkan konteks `this` sendiri.
-- Metode di dalam class atau objek yang butuh memastikan `this` tetap merujuk ke instance-nya.
+Arrow functions memungkinkan penulisan satu baris yang sangat bersih dengan **Implicit Return** (mengembalikan nilai tanpa kata kunci `return`).
+
+```javascript
+// Satu parameter, satu ekspresi: Super Ringkas
+const square = x => x * x; 
+
+// Tanpa parameter, butuh kurung kosong
+const notify = () => console.log("Alert!");
+```
 
 ---
 
-## Arsitek Mindset: Pilih Alat yang Tepat
+## Arsitek Mindset: Kapan Harus Menghindar?
 
 Sebagai arsitek Hub:
-- Gunakan **Arrow Functions** untuk logika transformasi data rutin yang bersih.
-- Gunakan **Function Declaration/Expression** tradisional jika Anda memang membutuhkan konteks `this` yang dinamis atau ingin fungsi tersebut dapat digunakan sebagai konstruktor.
+- **Metode Objek**: Jangan gunakan Arrow Function sebagai metode objek jika Anda ingin mengakses properti objek tersebut via `this`.
+- **Konstruktor**: Arrow Functions tidak bisa digunakan dengan kata kunci `new`. Mereka bukan konstruktor.
+- **Generator**: Arrow Functions tidak bisa menjadi Generator (tidak bisa menggunakan `yield`).
+- **Standardisasi**: Gunakan Arrow Functions untuk callback (Array methods) dan fungsi utilitas murni untuk menjaga kebersihan sirkuit kode Anda.
 
 ---
 
-## Hands-on: Lab Unit Kompak
-Buka file `examples/arrow_unit_lab.js` untuk melihat perbandingan efisiensi penulisan dan perilaku `this` antara unit tradisional dan unit kompak.
+## Hands-on: Lab Unit Pencegat
+Eksperimen dengan perbandingan perilaku `this` dan efisiensi sintaksis di `examples/arrow_unit_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

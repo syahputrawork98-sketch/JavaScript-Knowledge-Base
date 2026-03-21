@@ -1,49 +1,53 @@
-# CH-02: Character Classes (Signature Categories)
+# SEC-02: Character Classes (The Frequency Sifters)
 
-> **"Tidak semua data di Grid adalah teks biasa. Ada angka, spasi, atau karakter khusus lainnya. Character Classes adalah 'Kategori Tanda Tangan' (Signature Categories) yang memungkinkan scanner Anda mengenali kelompok data tertentu secara instan menggunakan kode singkat."**
+> **"Tidak semua data di Grid adalah teks biasa. Ada angka, spasi, atau simbol transmisi lainnya. Character Classes adalah 'Penyaring Frekuensi' (Frequency Sifters) yang memungkinkan scanner Anda mengenali kelompok data tertentu secara instan menggunakan kode singkat."**
 
-Character classes membedakan jenis karakter, seperti membedakan huruf dari angka.
-
-## 1. Mental Model: "Signature Categories"
-
-Bayangkan filter pada scanner Anda. Alih-alih mencari angka `0, 1, 2, 3...` secara manual, Anda cukup menggunakan filter "Digit".
-- `\d`: Filter untuk memindai **Digit** (angka).
-- `\w`: Filter untuk memindai **Word** (huruf, angka, underscore).
-- `\s`: Filter untuk memindai **Space** (spasi, tab, newline).
+**Character Classes** adalah komponen dasar RegExp yang memungkinkan pemindai untuk mencocokkan satu karakter dari set karakter yang sudah ditentukan. Ini adalah cara tercepat untuk membedah data berdasarkan "tanda tangan" kategorinya.
 
 ---
 
-## 2. Pintasan Scanner (Shorthands)
+## 1. Mental Model: "The Frequency Sifters"
+
+Bayangkan filter pada pemindai pola Anda memiliki tiga slot utama untuk menyaring aliran data mentah:
+- **`\d` (Digits)**: Hanya mengizinkan angka (0-9) untuk lolos.
+- **`\w` (Words)**: Mengizinkan huruf, angka, dan garis bawah (*underscore*) untuk lolos.
+- **`\s` (Spaces)**: Hanya menangkap spasi, tab, dan jeda baris.
+
+![Character Sifters Premium](./assets/character_sifters_premium.svg)
+
+---
+
+## 2. Tabel Penyaring Standar (Shorthands)
 
 | Simbol | Deskripsi | Lawan (Negasi) | Deskripsi Lawan |
 | :--- | :--- | :--- | :--- |
-| `.` | Karakter apa saja | - | - |
-| `\d` | Digit [0-9] | `\D` | Bukan Digit |
-| `\w` | Alfanumerik [A-Za-z0-9_] | `\W` | Bukan Alfanumerik |
-| `\s` | Whitespace (spasi/tab) | `\S` | Bukan Whitespace |
+| `.` | **Wildcard**: Karakter apa saja (kecuali newline) | - | - |
+| `\d` | **Digit**: Angka [0-9] | `\D` | Bukan Digit |
+| `\w` | **Word**: Alfanumerik [A-Za-z0-9_] | `\W` | Bukan Alfanumerik |
+| `\s` | **Space**: Spasi, tab, line break | `\S` | Bukan Spasi |
 
 ---
 
-## 3. Kustomisasi Kategori `[ ]`
+## 3. Penyaring Kustom `[ ]`
 
-Anda juga bisa membuat kategori kustom menggunakan kurung siku.
-- `[aeiou]`: Hanya pindai huruf vokal.
-- `[0-5]`: Hanya pindai angka 0 sampai 5 (Range).
-- `[^0-9]`: Pindai apa pun **kecuali** angka (Negated Range).
+Terkadang sifter standar terlalu luas. Anda bisa merakit sifter kustom menggunakan kurung siku:
+- **Range**: `[a-z]` (huruf kecil saja), `[0-5]` (angka 0 hingga 5).
+- **Custom Set**: `[aeiou]` (hanya huruf vokal).
+- **Negation**: `[^0-9]` (apa pun **kecuali** angka).
 
 ---
 
 ## Arsitek Mindset: Presisi Pemindaian
 
 Sebagai arsitek Hub:
-- Gunakan shorthands (`\d`, `\w`) untuk menjaga pola tetap pendek dan mudah dibaca.
-- Gunakan negasi (`\D`, `\S`) jika Anda lebih mudah mendefinisikan apa yang **tidak** Anda inginkan daripada apa yang Anda inginkan.
-- Hati-hati dengan titik `.` karena ia sangat rakus dan memindai hampir semua hal kecuali baris baru.
+- **Keep it Simple**: Gunakan shorthands (`\d`, `\w`) sesering mungkin agar pola scanner Anda tetap ramping dan mudah dibaca oleh operator lain.
+- **Negative Sifting**: Gunakan negasi (`\D`, `\S`) jika mengecualikan sesuatu terasa lebih intuitif daripada mencocokkan ribuan kemungkinan lain.
+- **Wildcard Caution**: Berhati-hatilah dengan titik `.`. Ia mampu menembus hampir semua firewall data, namun bisa menyebabkan scanner Anda menjadi "terlalu rakus" dan mengambil data yang tidak diinginkan.
 
 ---
 
-## Hands-on: Lab Kategori Tanda Tangan
-Buka file `examples/signature_categories_lab.js` untuk mencoba berbagai filter kategori untuk membedah data log dari Grid.
+## Hands-on: Lab Penyaring Frekuensi
+Gunakan berbagai filter kategori untuk membedah data log dari Grid di `examples/signature_categories_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

@@ -1,51 +1,50 @@
-# CH-01: Generator Functions (The Pulse Origin)
+# SEC-01: Generator Functions (The Pulse Origin)
 
-> **"Jika fungsi biasa adalah ledakan daya yang harus selesai dalam satu waktu, Generator adalah 'Pusat Generator' (Pulse Generators) yang bisa dinyalakan, dihentikan sementara, dan dilanjutkan kembali sesuka hati. Mereka tidak menghasilkan output sekaligus, melainkan menghasilkan denyut-denyut (Pulses) nilai."**
+> **"Jika fungsi biasa adalah ledakan daya yang harus selesai dalam satu waktu, Generator adalah 'Pusat Generator' (Pulse Generator) yang bisa dinyalakan, dihentikan sementara, dan dilanjutkan kembali sesuka hati. Mereka tidak menghasilkan output sekaligus, melainkan menghasilkan denyut-denyut (Pulses) data."**
 
-Generator functions ditandai dengan sintaksis `function*` dan mengembalikan sebuah objek **Generator**.
+**Generator functions** adalah jenis fungsi spesial yang dapat dihentikan di tengah jalan (*pause*) dan dilanjutkan kembali (*resume*). Mereka ditandai dengan sintaksis `function*` dan selalu mengembalikan sebuah objek **Generator**.
+
+---
 
 ## 1. Mental Model: "The Pulse Generator"
 
-Bayangkan sebuah mesin generator di Hub. Anda menekan tombol "Start". Mesin mulai bekerja, namun kemudian mencapai titik `yield` dan berhenti. Daya tetap tersimpan, kondisi mesin (variabel lokal) tetap terjaga. Saat Anda menekan "Resume" (`next()`), mesin melanjutkan tepat dari posisi ia berhenti bekerja.
+Bayangkan sebuah mesin generator di Hub. 
+- Saat Anda memanggil fungsi generator, mesin belum benar-benar menyala. Ia hanya memberikan Anda **Remote Control** (Objek Generator).
+- Setiap kali Anda menekan tombol `next()` pada remote, mesin akan berjalan sampai menemukan instruksi `yield` (titik henti).
+- Mesin akan mengirimkan satu "Denyut" (Pulse) data, lalu berhenti bernapas (*pause*), namun ia tetap mengingat semua kondisi internalnya (variabel, posisi baris).
 
-![Generator Pulse Unit](./assets/generator_pulse_unit.svg)
-
----
-
-## 2. Sintaksis Dasar
-
-```javascript
-function* powerGenerator() {
-    console.log("Fase 1: Mulai Aliran");
-    yield 100;
-    console.log("Fase 2: Aliran Lanjut");
-    yield 200;
-}
-
-const gen = powerGenerator(); // Belum ada kode yang berjalan!
-```
+![Generator Pulse Premium](./assets/pulse_gen_premium.svg)
 
 ---
 
-## 3. Keunggulan Unik
+## 2. Karakteristik "Dual-Protocol"
 
-- **Execution Pausing**: Kemampuan untuk menghentikan fungsi di tengah-tengah.
-- **Lazy Evaluation**: Menghasilkan nilai hanya saat diminta, sangat efisien untuk deret data tak terhingga.
-- **Dual Communication**: Generator bisa menerima input kembali melalui `next(input)` saat sedang diactivasi ulang.
+Generator adalah unit yang sangat canggih karena ia mematuhi dua protokol sekaligus:
+1. **Iterable**: Ia memiliki gerbang `[Symbol.iterator]` (sehingga bisa digunakan di `for...of`).
+2. **Iterator**: Ia memiliki metode `next()` (sehingga bisa ditarik datanya secara manual).
 
 ---
 
-## Arsitek Mindset: Manajemen Arus terkendali
+## 3. Kekuatan Lazy Evaluation
+
+Karena generator hanya bekerja saat diminta (`next()`), ia sangat efisien untuk menangani:
+- **Infinite Series**: Deret angka yang tidak terbatas.
+- **Large Datasets**: Memproses data besar tanpa harus memuat semuanya ke memori Hub sekaligus.
+- **Workflow Control**: Alur kerja yang membutuhkan banyak tahapan persetujuan/interaksi di tengah jalan.
+
+---
+
+## Arsitek Mindset: Manajemen Arus Terkendali
 
 Sebagai arsitek Hub:
-- Gunakan Generator untuk alur kerja yang membutuhkan banyak tahapan atau persetujuan di tengah jalan.
-- Gunakan Generator untuk mensimulasikan deret data matematis yang sangat panjang tanpa memenuhi memori fisik Hub.
-- Pahami bahwa Generator adalah Iterable sekaligus Iterator secara otomatis.
+- **Standardize Flows**: Gunakan Generator untuk menstandardisasi alur data yang bersifat streaming atau bertahap.
+- **Memory Optimization**: Jika Anda merasa sebuah array akan menjadi terlalu besar dan membebani grid, segera ubah menjadi Generator.
+- **State Persistence**: Manfaatkan kemampuan generator untuk "mengingat" kondisi terakhir tanpa perlu menggunakan variabel global yang mengotori namespace Hub.
 
 ---
 
 ## Hands-on: Lab Pusat Generator
-Buka file `examples/pulse_gen_lab.js` untuk melihat bagaimana kita mengontrol ritme kerja mesin generator menggunakan perintah `yield`.
+Eksperimen dengan kontrol ritme kerja mesin generator dan pemanenan denyut data di `examples/pulse_gen_lab.js`.
 
 ---
 *Status: [status.md](../../../status.md)*

@@ -1,38 +1,65 @@
 /**
- * LAB: Arrow Functions (Compact Specialized Units)
- * Mental Model: "The Compact Unit"
+ * LAB: Arrow Functions (The High-Speed Interceptor)
+ * Level: Gold Standard Implementation
  */
 
-// 1. Konsistensi 'this' (Self-Repairing Sensor)
-const repairUnit = {
-    id: "REP-01",
-    tasks: ["Check Cables", "Verify Output"],
-    
-    // Regular Function: 'this' bocor ke global di dalam setTimeout
-    runRegular: function() {
-        setTimeout(function() {
-            console.log("\n--- REGULAR ATTEMPT ---");
-            console.log(`Unit ${this.id} starting...`); // Error: id undefined
-        }, 100);
-    },
+// 1. Dasar: Sintaksis Evolution
+const prices = [100, 200, 300];
 
-    // Arrow Function: 'this' tetap merujuk ke repairUnit
-    runArrow: function() {
+// Tradisional
+const doubleTrad = prices.map(function(p) { return p * 2; });
+
+// Arrow (Compact)
+const doubleArrow = prices.map(p => p * 2);
+
+console.log("Doubled Prices:", doubleArrow);
+console.log("---");
+
+// 2. Perilaku 'this': The Game Changer
+const robotHub = {
+    name: "Aegis-01",
+    energy: 50,
+    
+    // Metode Tradisional: Memiliki 'this' dinamis
+    reportTraditional: function() {
+        console.log(`[TRAD] ${this.name} status: ${this.energy}%`);
+    },
+    
+    // Metode Arrow: Mengambil 'this' dari lingkup luar (Global/Module)
+    reportArrow: () => {
+        // 'this' di sini BUKAN robotHub, tapi lingkup saat robotHub didefinisikan
+        console.log(`[ARROW] ${this.name || "Unknown"} status: ${this.energy || "NaN"}%`);
+    },
+    
+    // Solusi Callback: Dimana Arrow bersinar
+    recharge: function() {
+        console.log("Recharging...");
+        // Arrow di dalam metode tradisional: MEMINJAM 'this' dari metode tersebut
         setTimeout(() => {
-            console.log("\n--- ARROW ATTEMPT ---");
-            console.log(`Unit ${this.id} starting... OK!`); // Berhasil!
-        }, 200);
+            this.energy = 100;
+            console.log(`[DELAYED] ${this.name} fully recharged!`);
+        }, 500);
     }
 };
 
-repairUnit.runRegular();
-repairUnit.runArrow();
+robotHub.reportTraditional();
+robotHub.reportArrow();
+robotHub.recharge();
 
+console.log("---");
 
-// 2. Ringkasnya Transformasi (Signal Processing)
-const rawSignals = [10, 20, 30, 40, 50];
+// 3. Arsitektur: No Constructor Rule
+const Drone = (id) => {
+    this.id = id;
+};
 
-// Sangat bersih untuk pemrosesan data satu baris
-const ampSignals = rawSignals.map(s => s * 1.5).filter(s => s > 30);
+try {
+    const d1 = new Drone("D-01");
+} catch (e) {
+    console.log("Architect Warning: Arrow functions cannot be used as constructors!");
+}
 
-console.log("\nProcessed Signals (Arrow Pipeline):", ampSignals);
+// 4. Returning Objects Implicitly
+// PENTING: Bungkus dengan kurung () jika ingin return object literal secara implicit
+const createPoint = (x, y) => ({ x, y });
+console.log("Implicit Object:", createPoint(10, 20));

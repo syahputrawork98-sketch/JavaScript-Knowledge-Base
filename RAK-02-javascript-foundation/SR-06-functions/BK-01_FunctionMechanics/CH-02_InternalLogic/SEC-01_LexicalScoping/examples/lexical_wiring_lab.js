@@ -1,30 +1,69 @@
 /**
- * LAB: Lexical Scoping (Internal Factory Wiring)
- * Mental Model: "Internal Factory Wiring"
+ * LAB: Lexical Scoping (The Containment Units)
+ * Level: Gold Standard Implementation
  */
 
-const mainGridLoad = 5000; // Global
+// 1. Dasar: Accessing Outer Scope
+const globalSignal = "INTERNET-BACKBONE";
 
-function factoryRoom() {
-    const roomLoad = 1000;
-    
-    function machineUnit() {
-        const machineLoad = 200;
-        
-        console.log("--- Diagnostic: Machine Unit ---");
-        console.log(`Global Access: ${mainGridLoad} MW`); // OK
-        console.log(`Room Access: ${roomLoad} MW`);       // OK (Lexical Parent)
-        console.log(`Machine Local: ${machineLoad} MW`);   // OK
+function regionalHub() {
+    const regionalSignal = "LOCAL-FIBER";
+
+    function terminalNode() {
+        // Inner unit bisa mengakses semua lapisan di atasnya
+        console.log(`Connected to: ${globalSignal} via ${regionalSignal}`);
     }
-    
-    machineUnit();
-    
-    console.log("\n--- Diagnostic: Factory Room ---");
-    try {
-        console.log(`Can see machineLoad? ${machineLoad}`);
-    } catch (e) {
-        console.log("[!] AKSES DITOLAK: Room tidak bisa melihat kabel ke dalam Machine.");
-    }
+
+    terminalNode();
 }
 
-factoryRoom();
+regionalHub();
+console.log("---");
+
+// 2. Efek Shadowing (Variable Overlap)
+// Variabel lokal 'menutupi' variabel luar dengan nama yang sama.
+const version = "v1.0.0";
+
+function updateFirmware() {
+    const version = "v2.5.0-ALPHA"; // Shadowing occurs
+    console.log("Current Firmware inside function:", version);
+}
+
+updateFirmware();
+console.log("Global Firmware status:", version); // Tetap v1.0.0
+console.log("---");
+
+// 3. Static Nature (Scope is born at definition)
+const energyType = "Solar";
+
+function reportEnergy() {
+    console.log(`Current Energy Source: ${energyType}`);
+}
+
+function nuclearPowerPlant() {
+    const energyType = "Nuclear";
+    // Meskipun dipanggil di dalam lingkungan 'Nuclear', 
+    // reportEnergy() tetap setia pada lingkup 'Solar' tempat ia dilahirkan.
+    reportEnergy(); 
+}
+
+nuclearPowerPlant(); // Output: Solar
+console.log("---");
+
+// 4. Architect Drill: Nested Scope Chain
+function deepLevelAudit() {
+    const level1 = "A";
+    
+    return function() {
+        const level2 = "B";
+        
+        return function() {
+            const level3 = "C";
+            console.log(`Auditing Sequence: ${level1} -> ${level2} -> ${level3}`);
+        };
+    };
+}
+
+const step1 = deepLevelAudit();
+const step2 = step1();
+step2(); // Akses ke level 1, 2, dan 3 tetap terjaga

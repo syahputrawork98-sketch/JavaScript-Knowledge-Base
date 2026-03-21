@@ -1,32 +1,64 @@
 /**
- * LAB: The Iterator Protocol (The Moving Unit)
- * Mental Model: "The Moving Unit"
+ * LAB: The Iterator Protocol (The Sequential Puller)
+ * Level: Gold Standard Implementation
  */
 
-function createEnergyStream(limit) {
-    let current = 0;
+// 1. Dasar: Manual Pulling dari Array
+const energyLogs = ["LOG-A", "LOG-B"];
+const puller = energyLogs[Symbol.iterator]();
+
+console.log("Pull 1:", puller.next()); // { value: 'LOG-A', done: false }
+console.log("Pull 2:", puller.next()); // { value: 'LOG-B', done: false }
+console.log("Pull 3 (Exhausted):", puller.next()); // { value: undefined, done: true }
+
+console.log("---");
+
+// 2. Lanjutan: Membuat Custom Iterator
+// Sebuah unit yang menghasilkan angka genap secara berurutan.
+function createEvenIterator(limit) {
+    let nextValue = 0;
     
-    // Mengembalikan objek Iterator
+    // Objek ini mengikuti Iterator Protocol karena punya next()
     return {
         next() {
-            if (current < limit) {
-                current += 10;
-                return { value: `${current}MW`, done: false };
+            if (nextValue <= limit) {
+                const result = { value: nextValue, done: false };
+                nextValue += 2;
+                return result;
+            } else {
+                return { value: undefined, done: true };
             }
-            return { value: undefined, done: true };
         }
     };
 }
 
-console.log("--- Menyalakan Aliran Energi Manual ---");
+const evenPuller = createEvenIterator(6);
+console.log("Custom Pull 1:", evenPuller.next());
+console.log("Custom Pull 2:", evenPuller.next());
+console.log("Custom Pull 3:", evenPuller.next());
+console.log("Custom Pull 4:", evenPuller.next());
+console.log("Custom Pull 5:", evenPuller.next());
 
-const stream = createEnergyStream(30);
+console.log("---");
 
-// Klik tombol next() satu per satu
-console.log("Klik 1:", stream.next()); // { value: '10MW', done: false }
-console.log("Klik 2:", stream.next()); // { value: '20MW', done: false }
-console.log("Klik 3:", stream.next()); // { value: '30MW', done: false }
-console.log("Klik 4:", stream.next()); // { value: undefined, done: true }
+// 3. Arsitektur: Iterator as a State Machine
+// Iterator melacak kemajuan tanpa variabel global.
+const countdown = (start) => {
+    let count = start;
+    return {
+        next() {
+            return count >= 0 
+                ? { value: count--, done: false } 
+                : { value: "LIFTOFF", done: true };
+        }
+    };
+};
 
-// Setelah 'done: true', iterator biasanya tidak menghasilkan apa-apa lagi
-console.log("Klik 5 (Exhausted):", stream.next());
+const missionTimer = countdown(3);
+let step = missionTimer.next();
+
+while(!step.done) {
+    console.log(`T-Minus: ${step.value}`);
+    step = missionTimer.next();
+}
+console.log("Status:", step.value);
