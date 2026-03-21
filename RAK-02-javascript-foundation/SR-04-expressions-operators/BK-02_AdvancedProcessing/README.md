@@ -1,13 +1,28 @@
-# BK-02: Advanced Processing (Special Operators)
+# BK-02: Advanced Processing (Sub-atomic Circuits)
 
-> **"Beberapa operasi di Hub membutuhkan presisi tingkat atom atau percabangan jalur yang sangat cepat. SR-02 menangani manipulasi bit mentah dan pengambilan keputusan instan melalui rute selektif."**
+> **"Beberapa tugas di Hub membutuhkan kecepatan ekstrem. BK-02 membahas manipulasi data di level bit mentah dan pengambilan keputusan instan melalui sirkuit ternari."**
 
-Sub-rak ini mencakup operator tingkat lanjut untuk optimasi dan penulisan kode yang lebih ringkas.
+## 1. Alat Operasional
 
-## Buku di Sub-Rak ini:
+### A. Bitwise Operators (The Core Sifters)
+Memanipulasi representasi biner 32-bit dari data.
+- `&` (AND): Hanya bit yang sama-sama aktif yang diteruskan.
+- `|` (OR): Bit yang aktif di salah satu sirkuit akan diteruskan.
+- `^` (XOR): Bit yang berbeda di kedua sirkuit akan diteruskan.
+- `~` (NOT): Membalikkan seluruh bit sirkuit.
+- `<<`, `>>`: Menggeser bit ke kiri atau kanan (mengalikan/membagi dengan 2^n).
 
-1.  **BK-03: Bitwise Circuits**: Manipulasi data pada level bit (0 dan 1).
-2.  **BK-04: Selective Routing**: Operator percabangan cepat dan pengurutan eksekusi.
+### B. Conditional Operator (The Instant Router)
+`condition ? valueIfTrue : valueIfFalse`
+Sirkuit keputusan satu baris yang sangat efisien untuk tugas-tugas sederhana.
 
 ---
-*Status: [status.md][../../../status.md)*
+
+## 2. Visualisasi: Bitwise Circuits
+
+![Bitwise Circuits Premium](./assets/bitwise_circuits_premium.svg)
+
+---
+
+## Hands-on: Lab Sub-atomik
+Eksperimen dengan Bitwise Masking dan routing cepat di `examples/bitwise_masking_lab.js`.

@@ -1,33 +1,54 @@
-# SR-04-javascript/CH-04-expressions-operators: Expressions & Operators (Energy Manipulation)
+# SR-04: Expressions & Operators (Energy Manipulation)
 
-> **"Jika Objek adalah mesin dan Data adalah energinya, maka `Operator` adalah katup, penyambung, dan pengolah yang menentukan bagaimana energi tersebut mengalir dan bertransformasi di dalam Hub."**
+> **"Jika Objek adalah mesin dan Data adalah energinya, maka `Operator` adalah katup, penyambung, dan pengolah yang menentukan bagaimana energi tersebut mengalir dan bertransformasi di dalam Hub. SR-04 adalah pusat kendali manipulasi energi di level sub-atomik."**
 
-SR-01-get-started-javascript/CH-04-expressions-operators membedah seluruh mekanisme manipulasi data di JavaScript, mulai dari perhitungan matematika dasar hingga operasi bit-level yang super cepat.
+Dalam Hub Energi, data tidak pernah statis. Ia selalu bergerak (Expressions) dan diproses (Operators). Sub-Rack ini membagi manipulasi energi menjadi tiga tingkatan presisi.
+
+---
+
+## 🧭 Peta Navigasi Energi
+
+### 1. [BK-01: Energy Flow (Basic)](./BK-01_EnergyFlow/README.md)
+Berfokus pada alokasi dan perhitungan energi dasar.
+- **Arithmetic**: `+`, `-`, `*`, `/`, `%`, `**`.
+- **Assignment**: `=`, `+=`, `-=`, dll.
+- **Comparison**: `==`, `===`, `!=`, `!==`, `>`, `<`.
+- **Logical**: `&&`, `||`, `!`, `??`.
+
+### 2. [BK-02: Advanced Processing (Sub-atomic)](./BK-02_AdvancedProcessing/README.md)
+Manipulasi bit mentah untuk performa ekstrem.
+- **Bitwise**: `&`, `|`, `^`, `~`, `<<`, `>>`, `>>>`.
+- **Conditional (Ternary)**: `condition ? expr1 : expr2`.
+
+### 3. [BK-03: System Meta (Inspector)](./BK-03_SystemMeta/README.md)
+Memeriksa integritas sirkuit dan tipe data.
+- **Unary**: `typeof`, `delete`, `void`.
+- **Relational**: `in`, `instanceof`.
+
+---
 
 ## 1. Mental Model: "Energy Manipulation"
 
-Dalam Hub Energi, data tidak pernah statis. Ia selalu bergerak dan berubah. Operator adalah alat yang kita gunakan untuk:
-- **Flow**: Mengalirkan dan menghitung energi (Aritmatika/Assignment).
-- **Check**: Memastikan integritas dan kualitas energi (Comparison/Logical).
-- **Sub-atomic**: Mengontrol bit mentah energi (Bitwise).
-- **Meta-Inspect**: Memeriksa properti sirkuit (`typeof`, `in`).
+Operator bukan sekadar simbol matematika; mereka adalah alat operasional Hub:
+- **Flow Gate**: Mengalirkan energi dari satu penyimpanan ke penyimpanan lain (`=`).
+- **Logic Gates**: Menyaring aliran energi berdasarkan kondisi tertentu (`&&`, `||`).
+- **Sub-atomic Sifters**: Membedah struktur internal energi di level bit (`&`, `|`).
+
+![Logic Gates](./BK-01_EnergyFlow/assets/logic_gates_premium.svg)
 
 ---
 
-## 2. Peta Navigasi RAK
+## Arsitek Mindset: Presisi vs Kecepatan
 
-- **SR-01: Energy Flow (Basic)**: Perhitungan dan logika dasar.
-- **SR-02: Advanced Processing**: Manipulasi bit dan percabangan kompleks.
-- **SR-03: System Meta**: Inspeksi tipe dan relasi antar komponen.
-
----
-
-## Standar Kualitas Gold
-
-Setiap sub-rak dan buku di RAK ini dilengkapi dengan:
-1.  **Mental Model yang Solid**: Metafora energi hub yang konsisten.
-2.  **Visualisasi SVG**: Penjelasan visual untuk operator yang membingungkan.
-3.  **Lab Praktis (`examples/`)**: Kode yang dapat dijalankan untuk menguji teori.
+Sebagai arsitek Hub:
+- **Strict Equality**: Selalu gunakan `===` untuk menghindari kebocoran tipe data yang tidak terduga di dalam Grid.
+- **Short-circuiting**: Manfaatkan `&&` dan `||` untuk menghentikan aliran energi lebih awal jika kondisi tidak terpenuhi (*Efficiency*).
+- **Nullish Coalescing**: Gunakan `??` daripada `||` jika Anda hanya ingin menangani `null` atau `undefined`, tanpa mengganggu nilai *falsy* lain seperti `0` atau `""`.
 
 ---
-*Status: [status.md](../../status.md)*
+
+## Hands-on: Lab Manipulasi Energi
+Buka folder `examples/` untuk bereksperimen dengan routing logika dan manipulasi bit di dalam sistem Hub.
+
+---
+*Status: Gold Standard (100% Complete)*
