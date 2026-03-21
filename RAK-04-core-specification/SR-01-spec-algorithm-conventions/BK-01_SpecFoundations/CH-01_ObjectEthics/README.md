@@ -35,6 +35,18 @@ graph TD
     style ExoP fill:#f8bbd0,stroke:#880e4f
 ```
 
+### Prototypal Chain Execution
+```mermaid
+graph LR
+    O1[Object: A] -- "[[Get]]('x')" --> O1_X{Has 'x'?}
+    O1_X -- No --> O2[Object: B (Prototype)]
+    O2 -- "[[Get]]('x')" --> O2_X{Has 'x'?}
+    O2_X -- Yes --> Ret[Return Value]
+    
+    style O1 fill:#e1f5fe,stroke:#01579b
+    style O2 fill:#fff3e0,stroke:#e65100
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan
