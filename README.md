@@ -2,8 +2,8 @@
  
 > **"Mastering the Web's Language: From Syntax to Metaprogramming."**
 
-## 🏛️ Arsitektur 5-Rak (Universal Standard)
-Repositori ini menggunakan **5-Rack Universal Architecture** dengan prinsip **Digital Mirroring** untuk memisahkan antara fondasi penggunaan dengan dekonstruksi arsitektur mesin.
+## 🏛️ Arsitektur 6-Rak (Universal Standard)
+Repositori ini menggunakan **6-Rack Universal Architecture** dengan prinsip **Digital Mirroring** untuk memisahkan antara fondasi penggunaan dengan dekonstruksi arsitektur mesin.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%

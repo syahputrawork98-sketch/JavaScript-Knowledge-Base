@@ -1,37 +1,39 @@
 # JavaScript Knowledge Base: Universal Deconstruction Plan
 
 > **Status**: Gold Standard (6-Level Hierarchy)
-> **Last Updated**: 2026-03-21
+> **Last Updated**: 2026-03-22
 
 Rencana ini menggunakan **Unified Gold Standard** untuk mentransformasi dokumen teknis menjadi unit pelajaran yang presisi melalui hirarki **6-Level Depth**.
 
 ---
 
-## 1. Arsitektur 5-Rak (The Universe Blueprint)
+## 1. Arsitektur 6-Rak (The Universe Blueprint)
 
-Pemisahan antara "Fondasi Penggunaan" dengan "Dekonstruksi Arsitektur":
+Pemisahan secara abstraksi dari mulai akar filosofi hingga jeroan kompilernya:
 
-### I. RAK-01-javascript (The Foundation)
-Mirroring terhadap taksonomi MDN Web Docs. Menjamin kepiawaian praktisi.
-- **SR-01 s/d SR-10**: Dari pemula hingga fitur lanjut.
+### I. RAK-01-introduction-essence (The Landscape)
+Memahami filosofi, sejarah mula, dekonstruksi esensi JavaScript, dan batasan ekologi dasar (The Why & What).
 
-### II. RAK-02-evolution (History & Future)
-Mendokumentasikan evolusi, TC39, dan ESNext.
+### II. RAK-02-javascript-foundation (The Standard Book)
+Mempelajari sintaks dasar dan eksekusi instruksi JavaScript bersumber dari taksonomi MDN Web Docs secara presisi. Menjamin kepiawaian praktisi.
 
-### III. RAK-03-core-spec (The Internal Logic)
-Dekonstruksi ECMA-262 (Spec-Rigor). Fokus pada Abstract Operations.
+### III. RAK-03-evolution-esnext (History & Future)
+Mendokumentasikan evolusi spesifikasi ECMAScript dari masa ke masa (ES6 sampai ESNext) dan proses komite TC39.
 
-### IV. RAK-04-runtimes (The Environments)
-Eksplorasi runtime: **Node.js**, **Bun**, dan **Deno**.
+### IV. RAK-04-core-specification (The Internal Logic)
+Dekonstruksi ECMA-262 (Spec-Rigor). Fokus pada Mekanisme Alur Internal, Execution Context, ECMAScript Algorithms, dan OOP/Prototype.
 
-### V. RAK-05-engines (The Machine Room)
-Deep dive ke dalam **V8 Engine** (JIT, GC, Memory Management).
+### V. RAK-05-runtime-apis (The Environments)
+Eksplorasi Runtime Environment di luar core language: Browser (DOM/BOM APIs), **Node.js**, **Bun**, dan **Deno**.
+
+### VI. RAK-06-engines-internals (The Machine Room)
+Deep dive mutlak ke ruang mesin: **V8 Engine** (TurboFan, Ignition, Baseline), SpiderMonkey, JIT Compilation, dan Garbage Collection.
 
 ---
 
 ## 2. Hirarki Kedalaman (Digital Mirroring)
 
-Setiap materi didekonstruksi hingga 6 level kedalaman jika diperlukan:
+Setiap materi didekonstruksi secara dinamis hingga 6 level kedalaman jika diperlukan:
 1. **Root** (Pusat Hub)
 2. **RAK** (Domain)
 3. **SR** (Track)
@@ -40,4 +42,4 @@ Setiap materi didekonstruksi hingga 6 level kedalaman jika diperlukan:
 6. **SEC** (Section)
 
 ---
-*Referensi Utama: [Unified Gold Standard](../../../brain/931398eb-3011-4b69-bb8c-e94cd60f9e78/unified_gold_standard_v1.md)*
+*Referensi Utama: Unified Gold Standard v1 (docs/standards/architecture.md).*
