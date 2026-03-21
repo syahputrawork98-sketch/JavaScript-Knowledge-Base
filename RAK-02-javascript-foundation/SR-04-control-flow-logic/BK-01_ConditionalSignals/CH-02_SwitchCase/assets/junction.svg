@@ -1,0 +1,44 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="junctionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f83600;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f9d423;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- The Selecting Hub -->
+  <circle cx="100" cy="150" r="40" fill="url(#junctionGradient)" filter="url(#glow)">
+     <animateTransform attributeName="transform" type="rotate" from="0 100 150" to="360 100 150" dur="5s" repeatCount="indefinite" />
+  </circle>
+  <text x="100" y="210" font-family="Arial, sans-serif" font-size="12" fill="#f9d423" text-anchor="middle" font-weight="bold">SWITCH (VAL)</text>
+
+  <!-- Outgoing Tracks -->
+  <!-- Case A -->
+  <path d="M140 150 L300 80" stroke="#94a3b8" stroke-width="3" fill="none" />
+  <rect x="300" y="60" width="80" height="30" rx="5" fill="#1e293b" stroke="#f83600" stroke-width="2" />
+  <text x="340" y="80" font-family="Arial, sans-serif" font-size="10" fill="#f83600" text-anchor="middle">CASE 'A'</text>
+
+  <!-- Case B -->
+  <path d="M140 150 L300 150" stroke="#94a3b8" stroke-width="3" fill="none" />
+  <rect x="300" y="135" width="80" height="30" rx="5" fill="#1e293b" stroke="#f9d423" stroke-width="2" />
+  <text x="340" y="155" font-family="Arial, sans-serif" font-size="10" fill="#f9d423" text-anchor="middle">CASE 'B'</text>
+
+  <!-- Default -->
+  <path d="M140 150 L300 220" stroke="#94a3b8" stroke-width="3" stroke-dasharray="4" fill="none" />
+  <rect x="300" y="210" width="80" height="30" rx="5" fill="#1e293b" stroke="#94a3b8" stroke-width="2" />
+  <text x="340" y="230" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">DEFAULT</text>
+
+  <text x="200" y="40" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">THE JUNCTION</text>
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">"Strict-Equality Multimode Steering"</text>
+
+</svg>

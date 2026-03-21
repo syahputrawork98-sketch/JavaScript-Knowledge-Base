@@ -1,0 +1,44 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- The Message Stream Tube -->
+  <rect x="50" y="120" width="300" height="60" rx="30" fill="#1e293b" stroke="#a8edea" stroke-width="2" opacity="0.5" />
+  
+  <!-- Floating Characters -->
+  <g filter="url(#glow)">
+    <text x="80" y="160" font-family="Courier, monospace" font-size="30" fill="url(#stringGradient)" font-weight="bold">H
+        <animate attributeName="x" values="80;320;80" dur="4s" repeatCount="indefinite" />
+    </text>
+    <text x="130" y="160" font-family="Courier, monospace" font-size="30" fill="url(#stringGradient)" font-weight="bold">U
+        <animate attributeName="x" values="130;370;30;130" dur="4s" repeatCount="indefinite" />
+    </text>
+    <text x="180" y="160" font-family="Courier, monospace" font-size="30" fill="url(#stringGradient)" font-weight="bold">B
+        <animate attributeName="x" values="180;420;80;180" dur="4s" repeatCount="indefinite" />
+    </text>
+  </g>
+
+  <!-- Immutability Sign -->
+  <circle cx="340" cy="80" r="25" fill="#ef4444" filter="url(#glow)" />
+  <line x1="325" y1="65" x2="355" y2="95" stroke="#ffffff" stroke-width="4" />
+  <line x1="355" y1="65" x2="325" y2="95" stroke="#ffffff" stroke-width="4" />
+  <text x="340" y="120" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold">IMMUTABLE</text>
+
+  <text x="200" y="60" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">MESSAGE STREAM</text>
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">"UTF-16 Atomic Sequences"</text>
+
+</svg>

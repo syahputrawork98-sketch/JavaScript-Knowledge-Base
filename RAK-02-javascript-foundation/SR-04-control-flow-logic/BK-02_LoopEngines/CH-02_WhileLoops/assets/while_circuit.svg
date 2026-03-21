@@ -1,0 +1,36 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38ef7d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#11998e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- The Continuous Circuit Path -->
+  <rect x="80" y="80" width="240" height="140" rx="20" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="10,5" />
+  
+  <!-- The Switch (Condition) -->
+  <g transform="translate(200, 80)">
+    <rect x="-30" y="-15" width="60" height="30" rx="15" fill="#1e293b" stroke="#38ef7d" stroke-width="2" />
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="10" fill="#38ef7d" text-anchor="middle" font-weight="bold">WHILE (ON?)</text>
+  </g>
+
+  <!-- Moving Current (Animation) -->
+  <circle r="6" fill="url(#circuitGradient)" filter="url(#glow)">
+    <animateMotion path="M80,100 L80,200 Q80,220 100,220 L300,220 Q320,220 320,200 L320,100 Q320,80 300,80 L100,80 Q80,80 80,100" dur="2s" repeatCount="indefinite" />
+  </circle>
+
+  <text x="200" y="50" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">CONTINUOUS CIRCUIT</text>
+  <text x="200" y="260" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">"Condition-Driven Indefinite Iteration"</text>
+
+</svg>

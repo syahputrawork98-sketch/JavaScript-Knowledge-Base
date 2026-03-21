@@ -1,0 +1,55 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="beltGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF9A8B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6A88;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- The Conveyor Belt -->
+  <rect x="20" y="140" width="360" height="20" rx="10" fill="#1e293b" stroke="#FF6A88" stroke-width="2" />
+  <circle cx="40" cy="150" r="8" fill="#FF6A88" />
+  <circle cx="360" cy="150" r="8" fill="#FF6A88" />
+
+  <!-- Processing Stations -->
+  <!-- Station 1: FILTER -->
+  <g transform="translate(80, 80)">
+    <rect x="0" y="0" width="60" height="40" rx="5" fill="#ef4444" filter="url(#glow)" />
+    <path d="M15 15 L45 35 M45 15 L15 35" stroke="#ffffff" stroke-width="3" />
+    <text x="30" y="55" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold">FILTER</text>
+  </g>
+
+  <!-- Station 2: MAP -->
+  <g transform="translate(180, 80)">
+    <rect x="0" y="0" width="60" height="40" rx="5" fill="#3b82f6" filter="url(#glow)" />
+    <path d="M15 25 L45 25" stroke="#ffffff" stroke-width="3" />
+    <polygon points="45,20 55,25 45,30" fill="#ffffff" />
+    <text x="30" y="55" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle" font-weight="bold">MAP</text>
+  </g>
+
+  <!-- Station 3: REDUCE -->
+  <g transform="translate(280, 80)">
+    <rect x="0" y="0" width="60" height="40" rx="5" fill="#10b981" filter="url(#glow)" />
+    <text x="30" y="28" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">Σ</text>
+    <text x="30" y="55" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle" font-weight="bold">REDUCE</text>
+  </g>
+
+  <!-- Floating Data -->
+  <rect x="130" y="130" width="20" height="20" fill="#FF9A8B" opacity="0.6">
+    <animate attributeName="x" values="20;360" dur="5s" repeatCount="indefinite" />
+  </rect>
+
+  <text x="200" y="50" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">CONVEYOR BELT</text>
+  <text x="200" y="240" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">"Functional Data Processing Stream"</text>
+
+</svg>

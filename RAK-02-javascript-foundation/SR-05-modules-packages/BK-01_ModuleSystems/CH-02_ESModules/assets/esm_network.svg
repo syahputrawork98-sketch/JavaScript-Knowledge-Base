@@ -1,0 +1,46 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="esmGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f2fe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4facfe;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="300" rx="15" fill="#0f172a" />
+
+  <!-- The Network Nodes -->
+  <circle cx="200" cy="150" r="40" fill="#1e293b" stroke="#00f2fe" stroke-width="2" filter="url(#glow)" />
+  <text x="200" y="155" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">MAIN HUB</text>
+
+  <!-- Connection: Module A -->
+  <line x1="200" y1="110" x2="200" y2="40" stroke="#00f2fe" stroke-width="2" stroke-dasharray="5,3">
+      <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite" />
+  </line>
+  <rect x="150" y="10" width="100" height="30" rx="5" fill="#1e293b" stroke="#4facfe" stroke-width="1" />
+  <text x="200" y="30" font-family="Arial, sans-serif" font-size="10" fill="#4facfe" text-anchor="middle">IMPORT 'tools.js'</text>
+
+  <!-- Connection: Module B -->
+  <line x1="240" y1="150" x2="340" y2="150" stroke="#00f2fe" stroke-width="2" stroke-dasharray="5,3">
+      <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite" />
+  </line>
+  <rect x="300" y="135" width="80" height="30" rx="5" fill="#1e293b" stroke="#4facfe" stroke-width="1" />
+  <text x="340" y="155" font-family="Arial, sans-serif" font-size="10" fill="#4facfe" text-anchor="middle">EXPORT DEFAULT</text>
+
+  <!-- Static Analyzer (Scanner) -->
+  <rect x="40" y="220" width="120" height="40" rx="20" fill="#1e293b" stroke="#38ef7d" stroke-width="2" />
+  <text x="100" y="245" font-family="Arial, sans-serif" font-size="10" fill="#38ef7d" text-anchor="middle" font-weight="bold">STATIC ANALYSIS</text>
+  <path d="M100 220 L200 150" stroke="#38ef7d" stroke-width="1" opacity="0.3" />
+
+  <text x="200" y="60" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold" opacity="0.1">ES MODULES</text>
+  <text x="300" y="260" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">OPTICAL NETWORK</text>
+  <text x="200" y="285" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">"Asynchronous &amp; Tree-Shakable (ESM)"</text>
+
+</svg>
