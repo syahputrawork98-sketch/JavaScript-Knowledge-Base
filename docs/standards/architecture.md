@@ -34,12 +34,12 @@ Hierarki ini mencerminkan struktur sumber primer (MDN/Ecma-262) secara **1:1**. 
 ---
 
 ## 4. Kriteria Kelulusan Standar (Gold Standard)
-Sebuah unit materi (CH/SEC) dianggap **Complete** jika memiliki 5 komponen utama:
-1. **Source Link** (Akurasi Spec).
-2. **Dual Definition** (Formal + Analogi).
-3. **Mermaid Diagram** (Aliran Status).
-4. **Mekanisme Detil** (Algorithm/Implementation).
-5. **Lab Praktis** (examples/ folder).
+Sebuah unit materi (CH/SEC) dianggap **Complete** secara berurutan dan terstruktur jika menyajikan 5 representasi ini di dalam `README.md`:
+1. **Source Link** (Akurasi Spec MDN/ECMA).
+2. **Dual Definition** (Definisi Formal + Analogi Model Mental).
+3. **Mermaid Diagram inline** (Visualisasi aliran/status yang dirender langsung di markdown, bukan direferensikan dari luar).
+4. **Mekanisme Detil** (Algoritma / Engine Behind-the-Scene).
+5. **Lab Praktis** (Penjelasan & relasi ke skrip termonitor di direktori `examples/`).
 
 ---
 *Referensi: [Unified Gold Standard](../../../brain/931398eb-3011-4b69-bb8c-e94cd60f9e78/unified_gold_standard_v1.md)*

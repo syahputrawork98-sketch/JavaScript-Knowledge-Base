@@ -18,15 +18,24 @@ Untuk menjaga keteraturan "Perpustakaan Dunia Maya", setiap file dan folder waji
 
 ## 2. Struktur Internal Unit (Level 5 & 6)
 
-Setiap folder Bab (**CH**) atau Section (**SEC**) wajib memiliki struktur tiga pilar:
+Setiap folder Bab (**CH**) atau Section (**SEC**) memiliki struktur dasar berikut:
 ```text
 CH- atau SEC-/
-├── README.md        <- Materi teks inti (Target Utama PPM).
-├── assets/          <- Visualisasi Mermaid/SVG.
-└── examples/        <- Kode fungsional (.js).
+├── README.md        <- Materi teks inti berserta diagram Mermaid inline (Target Utama PPM).
+├── examples/        <- Kode lab fungsional multi-file (.js). (Opsional jika "Nil Content")
+└── assets/          <- Arsip media statis eksternal (.png/.svg). (Opsional)
 ```
 
-## 3. Aturan README.md
+> [!CAUTION]
+> **Aturan "Nil Content" (Murni Narasi)**:
+> Jika sebuah unit secara spesifik bersifat sejarah/filosofis (Nil Content), Anda **DILARANG BERSERTA-SERTA** membuat direktori `examples/` maupun `assets/`. Biarkan folder unit tersebut hanya berisi `README.md` demi menjaga kebersihan repositori.
+
+## 3. Aturan Penamaan Lab Praktis (`examples/`)
+File di dalam direktori `examples/` **WAJIB** menggunakan *prefix* numerik berurutan untuk menjaga alur pembelajaran lab.
+**Contoh Benar**: `01_basic.js`, `02_advanced_closures.js`, `03_edge_cases.js`.
+**Contoh Salah**: `dasar.js`, `contoh-closure.js`, `test.js`.
+
+## 4. Aturan README.md
 Setiap tingkatan dari Level 2 hingga Level 6 wajib memiliki file `README.md` sebagai hub navigasi atau penyaji materi.
 
 ---
