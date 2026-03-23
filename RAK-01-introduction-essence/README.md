@@ -14,4 +14,4 @@ Rak ini didedikasikan untuk memahami sisi manusiawi, filosofis, dan historis dar
 6. **[BK-06_LibraryOrientation](./BK-06_LibraryOrientation/)**: Panduan Belajar di Perpustakaan ini.
 
 ---
-*Status: [/] Audit pilot RAK-01 sedang disinkronkan dengan standar `docs/`.*
+*Status: [x] Complete. RAK-01 telah lolos audit pilot berbasis standar `docs/`.*

@@ -23,11 +23,11 @@ Bayangkan JavaScript adalah **Lakban Ajaib (Duct Tape)**. Mungkin ia tidak sekua
 
 ## 3. Implementasi Utama (The Lab)
 > [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
 
 ## 4. Model Mental Visual (The Assets)
 > [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
 
 ---
 *Back to [The Core Mindset](../README.md)*

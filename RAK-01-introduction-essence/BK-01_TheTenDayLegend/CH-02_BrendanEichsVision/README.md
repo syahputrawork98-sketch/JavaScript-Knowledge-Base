@@ -23,11 +23,11 @@ Bayangkan membangun sebuah mobil dalam 10 hari. Anda tidak punya waktu untuk mem
 
 ## 3. Implementasi Utama (The Lab)
 > [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
 
 ## 4. Model Mental Visual (The Assets)
 > [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif.
+> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
 
 ---
 *Back to [The Ten Day Legend](../README.md)*
