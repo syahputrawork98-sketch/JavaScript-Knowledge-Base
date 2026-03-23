@@ -15,6 +15,12 @@ function checkStandards(basePath) {
             errors.push(`Missing standard file: ${f}`);
         }
     });
+
+    const repoPlanPath = path.join(basePath, 'docs', 'repository-plan', 'README.md');
+    if (!fs.existsSync(repoPlanPath)) {
+        errors.push("Missing repository plan blueprint: docs/repository-plan/README.md");
+    }
+
     return errors;
 }
 
@@ -77,13 +83,13 @@ function auditStructure(basePath) {
 
 function main() {
     const basePath = path.dirname(__dirname);
-    console.log(`--- Sentinel Audit (Unified 5-Rack Edition) ---`);
+    console.log(`--- Sentinel Audit (Unified 6-Rack Edition) ---`);
     console.log(`Auditing: ${basePath}\n`);
     
     const errors = [...checkStandards(basePath), ...auditStructure(basePath)];
     
     if (errors.length === 0) {
-        console.log("[PASS] Everything is perfectly standardized to the Unified Gold Standard! 🏆");
+        console.log("[PASS] Everything is perfectly standardized to the Unified 6-Rack Gold Standard! 🏆");
     } else {
         console.log(`[FAIL] Found ${errors.length} inconsistencies:`);
         errors.forEach(err => console.log(` - ${err}`));
