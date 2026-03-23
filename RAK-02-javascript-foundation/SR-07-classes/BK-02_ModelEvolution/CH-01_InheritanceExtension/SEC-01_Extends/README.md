@@ -4,6 +4,10 @@
 
 Pewarisan (*inheritance*) dalam JavaScript memungkinkan sebuah class untuk mewarisi properti dan metode dari class lain. Ini adalah fondasi dari penggunaan kembali kode (*code reuse*) yang efisien di dalam Hub.
 
+## Source Hub
+- [MDN Web Docs - extends](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends)
+- [MDN Web Docs - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+
 ---
 
 ## 1. Mental Model: "The Modular Upgrade"
@@ -14,6 +18,14 @@ Bayangkan Hub memiliki **Model Dasar** (`BaseModule`) yang memiliki kemampuan st
 - `TurboModule` secara otomatis memiliki semua kemampuan dasar, namun Anda menambahkan mesin "Turbo" baru di atasnya.
 
 ![Class Extends Premium](./assets/class_extends_premium.svg)
+
+```mermaid
+flowchart TD
+    A[BaseUnit] --> B[SpecializedProcessor]
+    A --> C[identify]
+    B --> D[compute]
+    B --> E[can still use identify]
+```
 
 ---
 
@@ -39,9 +51,9 @@ class SpecializedProcessor extends BaseUnit {
 
 ---
 
-## 3. Rantai Prototype (The Lineage)
+## 3. Alur Pewarisan yang Terasa di Pemakaian
 
-Saat Anda menggunakan `extends`, JavaScript secara otomatis menghubungkan `SpecializedProcessor` ke `BaseUnit` dalam sebuah "Garis Keturunan" (*Prototype Chain*). Jika sistem tidak menemukan sebuah metode di dalam unit khusus, ia akan naik satu tingkat ke blueprint dasar untuk mencarinya.
+Efek praktis dari `extends` adalah class anak bisa langsung memakai perilaku umum dari induknya, lalu menambah atau menyesuaikan bagian tertentu. Saat membaca kode, pikirkan ini sebagai "anak membawa bekal dari induk", bukan sebagai alasan untuk membangun hirarki yang terlalu dalam.
 
 ---
 

@@ -4,6 +4,10 @@
 
 Class di JavaScript bukanlah tipe data baru, melainkan "Gula Sintaksis" (*Syntactic Sugar*) di atas sistem prototipe yang sudah ada. Class menyediakan cara yang lebih bersih, elegan, dan terstruktur untuk membuat objek serta menangani warisan (*inheritance*).
 
+## Source Hub
+- [MDN Web Docs - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [MDN Web Docs - class declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class)
+
 ---
 
 ## 1. Mental Model: "The Master Blueprint"
@@ -14,6 +18,14 @@ Bayangkan Anda adalah arsitek Hub. Alih-alih menggambar setiap generator satu pe
 - **Constructor**: Bagaimana cara merakitnya saat pertama kali dipesan.
 
 ![Class Blueprint Premium](./assets/class_blueprint_premium.svg)
+
+```mermaid
+flowchart LR
+    A[class EnergyUnit] --> B[new EnergyUnit()]
+    B --> C[instance unit01]
+    A --> D[shared methods]
+    C --> E[own data via this]
+```
 
 ---
 

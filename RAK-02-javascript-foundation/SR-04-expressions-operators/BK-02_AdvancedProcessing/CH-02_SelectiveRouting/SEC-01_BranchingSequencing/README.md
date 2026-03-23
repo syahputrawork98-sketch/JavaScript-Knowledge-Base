@@ -1,4 +1,4 @@
-# CH-01: Branching & Sequencing (Selective Routing)
+# SEC-01: Branching & Sequencing (Selective Routing)
 
 > **"Terkadang aliran energi tidak butuh gerbang logika yang berat. Kita butuh percabangan cepat di persimpangan jalan atau pengurutan beberapa perintah dalam satu jalur. Selective Routing adalah kuncinya."**
 

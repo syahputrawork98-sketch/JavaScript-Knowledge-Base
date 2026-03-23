@@ -4,6 +4,10 @@
 
 **Polimorfisme** (berasal dari bahasa Yunani yang berarti "banyak bentuk") dalam OOP memungkinkan kita menggunakan antarmuka (nama metode) yang sama untuk berbagai jenis objek yang berbeda, di mana setiap objek memiliki implementasi spesifiknya masing-masing.
 
+## Source Hub
+- [MDN Web Docs - extends](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends)
+- [MDN Web Docs - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+
 ---
 
 ## 1. Mental Model: "The Adaptive Interface"
@@ -17,6 +21,13 @@ Bayangkan Hub memiliki tombol besar di pusat kendali berlabel `ENGAGE`.
 Pusat kendali tidak perlu tahu rincian teknis **bagaimana** masing-masing unit bekerja; ia hanya perlu tahu bahwa semua unit tersebut memiliki fungsi `engage()`.
 
 ![Class Polymorphism Premium](./assets/class_polymorphism_premium.svg)
+
+```mermaid
+flowchart LR
+    A[controller calls activate] --> B[SolarUnit.activate]
+    A --> C[WindUnit.activate]
+    A --> D[BatteryUnit.activate]
+```
 
 ---
 

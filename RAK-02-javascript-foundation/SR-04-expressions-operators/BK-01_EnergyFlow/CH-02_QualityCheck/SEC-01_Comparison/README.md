@@ -1,4 +1,4 @@
-# CH-01: Comparison Operators (Integrity Check)
+# SEC-01: Comparison Operators (Integrity Check)
 
 > **"Sebelum energi dialirkan ke komponen sensitif, kita harus melakukan Integrity Check. Apakah tekanan ini sama dengan standar? Apakah voltase ini melebihi batas? Operator perbandingan adalah sensor yang memberikan jawaban Ya atau Tidak."**
 

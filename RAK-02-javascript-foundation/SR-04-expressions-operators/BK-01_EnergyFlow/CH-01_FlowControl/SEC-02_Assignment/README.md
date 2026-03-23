@@ -1,4 +1,4 @@
-# CH-02: Assignment Operators (Energy Routing)
+# SEC-02: Assignment Operators (Energy Routing)
 
 > **"Setelah energi dihitung, ia harus disimpan ke dalam wadah (variabel). Assignment Operators adalah sistem perutean yang mengarahkan muatan energi ke tempat tujuan yang tepat di dalam Hub."**
 

@@ -4,6 +4,10 @@
 
 Member **static** (metode atau properti) adalah member yang dimiliki oleh Class itu sendiri, bukan oleh instansi (objek) yang dihasilkan dari class tersebut.
 
+## Source Hub
+- [MDN Web Docs - static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
+- [MDN Web Docs - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+
 ---
 
 ## 1. Mental Model: "The Shared Infrastructure"
@@ -14,6 +18,14 @@ Bayangkan sebuah pabrik produksi unit energi.
 - **Static Member**: Mesin Derek Pabrik. Hanya ada satu di pabrik. Derek ini bisa digunakan untuk memindahkan unit mana pun, tapi derek tersebut bukan bagian dari komponen unit itu sendiri. Ia adalah infrastruktur bersama milik pabrik (Class).
 
 ![Class Static Premium](./assets/class_static_premium.svg)
+
+```mermaid
+flowchart LR
+    A[class PowerHub] --> B[static GRID_STABILITY]
+    A --> C[static calculateEfficiency]
+    D[new PowerHub()] --> E[instance]
+    E -. no direct access .-> C
+```
 
 ---
 

@@ -4,6 +4,10 @@
 
 Kata kunci `super` adalah jembatan komunikasi antara class anak (*subclass*) dan class induk (*superclass*). Tanpa jembatan ini, unit anak tidak akan memiliki akses ke fondasi yang dibangun oleh induknya.
 
+## Source Hub
+- [MDN Web Docs - super](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super)
+- [MDN Web Docs - extends](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends)
+
 ---
 
 ## 1. Mental Model: "The Uplift Link"
@@ -13,6 +17,14 @@ Bayangkan Anda sedang merakit `UpgradeUnit`. Sebelum Anda memasang komponen-komp
 - **super.method()**: Adalah perintah untuk memanggil protokol operasional spesifik yang dimiliki oleh pusat (induk).
 
 ![Class Super Premium](./assets/class_super_premium.svg)
+
+```mermaid
+flowchart LR
+    A[child constructor] --> B[super(...)]
+    B --> C[parent setup]
+    C --> D[this now ready]
+    D --> E[child-specific setup]
+```
 
 ---
 

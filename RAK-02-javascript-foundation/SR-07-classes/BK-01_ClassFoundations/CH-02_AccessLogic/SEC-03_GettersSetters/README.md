@@ -4,6 +4,11 @@
 
 **Accessor properties** (`get` dan `set`) memungkinkan kita mendefinisikan metode yang terlihat dan berperilaku seperti properti biasa dari luar, namun menjalankan logika fungsi di dalamnya.
 
+## Source Hub
+- [MDN Web Docs - get](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
+- [MDN Web Docs - set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
+- [MDN Web Docs - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+
 ---
 
 ## 1. Mental Model: "The Security Gatekeepers"
@@ -13,6 +18,14 @@ Bayangkan sebuah gudang penyimpanan data sensitif:
 - **Getter (Output Guard)**: Petugas yang menyiapkan laporan. Ia mengambil data mentah dari rak, memformatnya agar cantik, lalu memberikannya kepada Anda dalam bentuk yang sudah siap digunakan.
 
 ![Class Accessor Premium](./assets/class_accessor_premium.svg)
+
+```mermaid
+flowchart LR
+    A[outside write] --> B[setter validation]
+    B --> C[#temperature]
+    C --> D[getter formatting]
+    D --> E[outside read]
+```
 
 ---
 

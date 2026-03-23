@@ -1,4 +1,4 @@
-# CH-02: Relational Operators (Connection Scoping)
+# SEC-02: Relational Operators (Connection Scoping)
 
 > **"Setiap komponen di Hub saling terhubung. Relational Operators memungkinkan Anda memindai apakah sebuah kabel terhubung ke port tertentu atau apakah sebuah modul adalah turunan dari cetak biru (blueprint) tertentu."**
 

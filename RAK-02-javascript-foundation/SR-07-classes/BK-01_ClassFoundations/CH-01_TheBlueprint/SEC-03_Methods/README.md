@@ -4,6 +4,10 @@
 
 Metode adalah fungsi yang didefinisikan di dalam class untuk menentukan perilaku dari instansi class tersebut. Metode memungkinkan objek untuk berinteraksi dengan data internalnya sendiri dan melakukan tugas-tugas spesifik.
 
+## Source Hub
+- [MDN Web Docs - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [MDN Web Docs - Method definitions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions)
+
 ---
 
 ## 1. Mental Model: "Operational Modules"
@@ -16,6 +20,15 @@ Bayangkan unit generator Anda memiliki slot-slot khusus untuk "Modul Kemampuan":
 Setiap unit yang dibuat dari blueprint yang sama akan memiliki modul kemampuan yang identik, namun setiap modul akan bekerja pada data (`this.state`) milik unit itu sendiri.
 
 ![Class Methods Premium](./assets/class_methods_premium.svg)
+
+```mermaid
+flowchart LR
+    A[class PowerCell] --> B[shared method checkStatus]
+    C[instance A] --> D[this.charge]
+    E[instance B] --> F[this.charge]
+    B --> C
+    B --> E
+```
 
 ---
 
@@ -38,9 +51,9 @@ class PowerCell {
 
 ---
 
-## 3. Efisiensi: Prototype Sharing
+## 3. Efisiensi: Berbagi Perilaku
 
-Penting untuk dipahami bahwa meskipun setiap unit terlihat memiliki metodenya sendiri, di balik layar JavaScript menyimpan metode tersebut di **Prototype** class. Ribuan unit akan berbagi alamat memori yang sama untuk kode metode mereka, namun masing-masing akan mengeksekusinya terhadap konteks `this` yang berbeda. Ini adalah kunci efisiensi memori yang luar biasa di dalam Hub.
+Dalam praktik sehari-hari, hal pentingnya adalah ini: unit-unit yang dibuat dari class yang sama bisa berbagi definisi perilaku yang sama tanpa Anda perlu menyalin ulang fungsi ke setiap objek. Hasilnya, class terasa rapi dipakai dan tetap efisien saat jumlah instansi bertambah.
 
 ---
 

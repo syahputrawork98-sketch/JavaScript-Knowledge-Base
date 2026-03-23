@@ -1,4 +1,4 @@
-# CH-01: Arithmetic Operators (The Power Gages)
+# SEC-01: Arithmetic Operators (The Power Gages)
 
 > **"Setiap unit di Hub Energi membutuhkan perhitungan yang presisi. Arithmetic Operators adalah panel pengukur tenaga yang memungkinkan Anda menambah, mengurangi, membagi, dan melipatgandakan muatan energi yang mengalir melalui sirkuit."**
 

@@ -1,4 +1,4 @@
-# CH-01: Bitwise Operators (Sub-atomic Control)
+# SEC-01: Bitwise Operators (Sub-atomic Control)
 
 > **"Kado terbesar dari Hub Energi adalah kemampuan untuk memanipulasi energi pada level atom. Bitwise Operators memungkinkan Anda mengubah bit 0 dan 1 secara langsung, memberikan performa maksimal untuk operasi tingkat rendah."**
 

@@ -1,4 +1,4 @@
-# CH-02: Logical Operators (Signal Combining)
+# SEC-02: Logical Operators (Signal Combining)
 
 > **"Satu sinyal saja jarang cukup untuk menyalakan reaktor utama. Kita butuh kombinasi sinyal dari berbagai sensor. Logical Operators adalah gerbang logika yang menentukan kapan aliran energi utama boleh dibuka."**
 

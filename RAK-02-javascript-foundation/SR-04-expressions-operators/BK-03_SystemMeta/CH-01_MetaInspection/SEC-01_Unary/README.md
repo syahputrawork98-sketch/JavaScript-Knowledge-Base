@@ -1,4 +1,4 @@
-# CH-01: Unary Operators (Point Interaction)
+# SEC-01: Unary Operators (Point Interaction)
 
 > **"Terkadang Anda hanya membutuhkan satu titik interaksi pada sirkuit. Unary Operators adalah alat genggam Arsitek untuk diagnosis cepat dan modifikasi muatan tunggal tanpa butuh operand kedua."**
 

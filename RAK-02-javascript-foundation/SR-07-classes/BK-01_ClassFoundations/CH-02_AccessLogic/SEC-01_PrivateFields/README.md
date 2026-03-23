@@ -4,6 +4,10 @@
 
 **Private Fields** (ditandai dengan awalan `#`) adalah fitur JavaScript modern yang memberikan enkapsulasi tingkat keras. Properti atau metode yang ditandai dengan `#` hanya bisa diakses dan dimodifikasi dari dalam tubuh (*body*) class tersebut.
 
+## Source Hub
+- [MDN Web Docs - Private elements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_elements)
+- [MDN Web Docs - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+
 ---
 
 ## 1. Mental Model: "The Internal Vault"
@@ -15,6 +19,13 @@ Bayangkan sebuah unit generator dengan Panel Kontrol publik di bagian depan.
 Hanya sirkuit internal generator tersebut yang memiliki kunci untuk membuka brankas tersebut. Bahkan jika unit lain mencoba "mengintip" atau memodifikasi energi di dalamnya secara langsung, sistem akan memblokir akses tersebut secara permanen.
 
 ![Class Private Vault](./assets/class_vault_premium.svg)
+
+```mermaid
+flowchart LR
+    A[outside code] -->|cannot touch| B[#radiationLevel]
+    C[class methods] -->|can read/write| B
+    B --> D[internal state stays protected]
+```
 
 ---
 

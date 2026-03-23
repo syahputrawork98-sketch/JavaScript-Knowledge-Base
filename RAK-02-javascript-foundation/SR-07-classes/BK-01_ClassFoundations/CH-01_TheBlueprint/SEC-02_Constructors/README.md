@@ -4,6 +4,10 @@
 
 Metode `constructor` adalah metode khusus yang digunakan untuk menciptakan dan menginisialisasi objek yang dibuat dengan sebuah class. Metode ini dipanggil secara otomatis saat kata kunci `new` digunakan.
 
+## Source Hub
+- [MDN Web Docs - constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor)
+- [MDN Web Docs - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+
 ---
 
 ## 1. Mental Model: "The Assembly Line"
@@ -14,6 +18,15 @@ Bayangkan sebuah robot di pabrik. Begitu blueprint dipilih dan tombol `new` dite
 - **Initial Verification**: Memastikan semua komponen dalam kondisi prima sebelum unit dikirim ke Grid.
 
 ![Class Assembly Premium](./assets/class_assembly_premium.svg)
+
+```mermaid
+flowchart LR
+    A[new Transformer(id, capacity)] --> B[constructor runs]
+    B --> C[this.id = id]
+    B --> D[this.capacity = capacity]
+    B --> E[this.isOperational = false]
+    E --> F[ready instance]
+```
 
 ---
 
