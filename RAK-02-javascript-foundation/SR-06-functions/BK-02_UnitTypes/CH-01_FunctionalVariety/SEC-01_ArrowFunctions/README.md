@@ -2,6 +2,10 @@
 
 > **"Beberapa tugas di Hub hanya membutuhkan unit kecil yang cepat dan spesifik tanpa perlu seluruh ruang mesin yang besar. Arrow Functions adalah 'Unit Pencegat Cepat' (High-Speed Interceptor) yang dirancang untuk efisiensi tinggi, berpergian ringan tanpa membawa sistem navigasi sendiri."**
 
+## Source Hub
+- **Primary Source**: [MDN Web Docs - Arrow function expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- **Technical Reference**: [ECMA-262 - Arrow Function Definitions](https://tc39.es/ecma262/#sec-arrow-function-definitions)
+
 **Arrow function** menyediakan cara yang lebih ringkas untuk menulis ekspresi fungsi. Namun, perbedaannya bukan sekadar sintaksis; ia memiliki perilaku fundamental yang berbeda terkait konteks `this` dan objek `arguments`.
 
 ---
@@ -12,11 +16,17 @@ Bayangkan Arrow Function sebagai pesawat pencegat yang ringan. Pesawat ini tidak
 
 ![Arrow Interceptor Premium](./assets/arrow_interceptor_premium.svg)
 
+```mermaid
+graph LR
+    Parent[Parent Scope] --> Arrow[Arrow Function]
+    Arrow --> ThisRef[Uses parent this]
+```
+
 ---
 
 ## 2. Fitur "Lexical This"
 
-Inilah fitur paling kuat dari Arrow Function. Di dalam fungsi tradisional, nilai `this` ditentukan oleh **bagaimana** fungsi itu dipanggil (dinamis). Di dalam Arrow Function, `this` ditentukan oleh **di mana** fungsi itu didefinisikan (statis/leksikal).
+Inilah pembeda paling penting. Di dalam fungsi tradisional, nilai `this` ditentukan oleh **bagaimana** fungsi itu dipanggil. Di dalam Arrow Function, `this` mengikuti nilai `this` dari scope tempat arrow function dibuat.
 
 ```javascript
 function Hub() {
@@ -51,7 +61,7 @@ Sebagai arsitek Hub:
 - **Metode Objek**: Jangan gunakan Arrow Function sebagai metode objek jika Anda ingin mengakses properti objek tersebut via `this`.
 - **Konstruktor**: Arrow Functions tidak bisa digunakan dengan kata kunci `new`. Mereka bukan konstruktor.
 - **Generator**: Arrow Functions tidak bisa menjadi Generator (tidak bisa menggunakan `yield`).
-- **Standardisasi**: Gunakan Arrow Functions untuk callback (Array methods) dan fungsi utilitas murni untuk menjaga kebersihan sirkuit kode Anda.
+- **Standardisasi**: Gunakan Arrow Functions untuk callback (Array methods), transformasi data singkat, dan fungsi utilitas kecil yang tidak butuh `this` sendiri.
 
 ---
 

@@ -2,6 +2,10 @@
 
 > **"Beberapa masalah besar di Hub harus diselesaikan dengan memecahnya menjadi replika masalah yang lebih kecil. Rekursi adalah 'Mesin Fraktal' (Fractal Engine) di mana sebuah unit memanggil salinan dirinya sendiri untuk menyelesaikan tugas secara bertingkat."**
 
+## Source Hub
+- **Primary Source**: [MDN Web Docs - Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+- **Technical Reference**: [ECMA-262 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
+
 Rekursi adalah teknik di mana sebuah fungsi memanggil dirinya sendiri untuk menyelesaikan masalah dengan memecahnya menjadi sub-masalah yang lebih kecil dari jenis yang sama.
 
 ---
@@ -16,6 +20,14 @@ Bayangkan sebuah struktur fraktal di mana setiap cabang adalah replika kecil dar
 Tanpa **Base Case**, mesin akan terus bereplikasi tanpa henti hingga sistem kehabisan memori.
 
 ![Recursion Fractal Engine](./assets/recursion_fractal.svg)
+
+```mermaid
+graph TD
+    Start[Problem] --> Check{Base case?}
+    Check -->|No| Smaller[Call function with smaller input]
+    Smaller --> Check
+    Check -->|Yes| Return[Return result]
+```
 
 ---
 

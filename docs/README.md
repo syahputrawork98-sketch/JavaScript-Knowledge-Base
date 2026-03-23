@@ -9,6 +9,7 @@ Pusat dokumentasi ini menyimpan seluruh cetak biru, standar kualitas, dan pandua
 - **[Naming Conventions](./standards/conventions.md)**: Aturan penamaan folder dan file.
 - **[PPM Workflow](./standards/workflow.md)**: Alur Kerja Penulisan Materi & Aturan "Explicit Nil".
 - **[Status Protocol](./standards/status-protocol.md)**: Standar pelaporan progress dan status Gold Standard.
+- **[RAK-02 vs RAK-04 Boundary](./standards/rak-02-vs-rak-04-boundary.md)**: Kontrak pemisahan antara layer fondasi-praktik dan layer spesifikasi.
 
 ### 2. Cetak Biru (Blueprints)
 - **[Repository Plan](./repository-plan/README.md)**: Dekonstruksi MDN & Spec ke dalam 5-Rack Architecture.

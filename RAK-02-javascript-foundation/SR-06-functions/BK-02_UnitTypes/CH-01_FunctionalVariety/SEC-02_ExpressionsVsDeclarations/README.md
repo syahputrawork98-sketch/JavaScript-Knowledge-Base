@@ -2,6 +2,10 @@
 
 > **"Di dalam Hub, ada unit yang dibangun permanen sebagai bagian dari struktur dasar (Declarations) dan ada unit yang bisa dipindah-pindahkan atau disimpan dalam kontainer (Expressions). Mengetahui kapan menggunakan masing-masing adalah kunci fleksibilitas Hub."**
 
+## Source Hub
+- **Primary Source**: [MDN Web Docs - Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+- **Technical Reference**: [ECMA-262 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
+
 JavaScript memungkinkan kita mendefinisikan fungsi melalui pernyataan (Declaration) atau ekspresi (Expression). Perbedaan utamanya terletak pada **kapan** fungsi tersebut tersedia untuk digunakan.
 
 ---
@@ -13,11 +17,17 @@ JavaScript memungkinkan kita mendefinisikan fungsi melalui pernyataan (Declarati
 
 ![Stationary vs Portable Units](./assets/stationary_vs_portable.svg)
 
+```mermaid
+graph TD
+    Declaration[Function Declaration] --> EarlyUse[Can be called earlier in scope]
+    Expression[Function Expression] --> InitFirst[Use after variable initialization]
+```
+
 ---
 
 ## 2. Hoisting: "The Uplift Mechanism"
 
-Deklarasi fungsi diangkat (*hoisted*) ke bagian atas lingkupnya oleh mesin JavaScript sebelum eksekusi dimulai. Ekspresi fungsi, di sisi lain, tidak diangkat (hanya deklarasi variabelnya yang diangkat jika menggunakan `var`, tapi isinya tetap `undefined`).
+Deklarasi fungsi tersedia lebih awal di dalam scope yang sama. Ekspresi fungsi mengikuti aturan variabel tempat ia disimpan, sehingga Anda biasanya baru aman memakainya setelah baris inisialisasinya lewat.
 
 ```javascript
 /* STATIONARY: Aman dipanggil di mana saja */
@@ -48,9 +58,9 @@ const compute = function calculatePower(v, i) {
 ## Arsitek Mindset: Ketertiban Blueprint
 
 Sebagai arsitek Hub:
-- **Declarations**: Gunakan untuk fungsi-fungsi API utama yang merupakan infrastruktur dasar aplikasi Anda (Global Utils).
+- **Declarations**: Gunakan untuk fungsi-fungsi utama yang memang ingin dibaca sebagai fondasi alur atau helper penting dalam satu scope.
 - **Expressions**: Gunakan untuk fungsi yang dikirim sebagai argumen (*callbacks*), fungsi yang bersifat lokal/sementara, atau saat Anda ingin memastikan fungsi tidak bisa dipanggil sebelum didefinisikan secara eksplisit.
-- **Consitency**: Meskipun Hoisting memungkinkan pemanggilan sebelum definisi, tetaplah definisikan fungsi Anda sebelum digunakan untuk menjaga keterbacaan "Blueprint" kode Anda.
+- **Consistency**: Meskipun declaration bisa dipanggil lebih awal, tetaplah menulis fungsi dekat dengan area penggunaannya agar blueprint kode tetap mudah diikuti.
 
 ---
 

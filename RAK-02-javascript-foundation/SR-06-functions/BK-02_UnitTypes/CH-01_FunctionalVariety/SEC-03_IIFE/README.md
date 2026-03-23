@@ -2,6 +2,10 @@
 
 > **"Terkadang, Anda memerlukan ledakan energi sekali saja untuk inisialisasi awal tanpa ingin sisa residunya mengotori grid global. IIFE adalah 'Unit Ledakan Singkat' (Quick Burst) yang menyala, bekerja, dan langsung padam seketika."**
 
+## Source Hub
+- **Primary Source**: [MDN Web Docs - Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+- **Technical Reference**: [ECMA-262 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
+
 **Immediately Invoked Function Expression (IIFE)** adalah fungsi yang segera dieksekusi tepat setelah ia didefinisikan. 
 
 ---
@@ -11,6 +15,12 @@
 Bayangkan Hub memiliki tombol "Reset Global". Anda ingin tombol ini menyalakan sirkuit pembersihan, menyapu semua debu di memori, lalu sirkuit tersebut menghancurkan dirinya sendiri agar tidak mengonsumsi daya atau meninggalkan jejak. IIFE dibungkus dalam "Kurung Pelindung" `()` untuk mengubahnya menjadi ekspresi, dan langsung dipicu dengan "Tombol Eksekusi" `()`.
 
 ![IIFE Quick Burst Premium](./assets/iife_burst_premium.svg)
+
+```mermaid
+graph LR
+    Define[Define function expression] --> Invoke[Invoke immediately]
+    Invoke --> Isolate[Keep variables inside local scope]
+```
 
 ---
 

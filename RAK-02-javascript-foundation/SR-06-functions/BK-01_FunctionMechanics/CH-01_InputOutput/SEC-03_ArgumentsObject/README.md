@@ -2,6 +2,10 @@
 
 > **"Sebelum ada sistem penampung modern (Rest), Hub menggunakan 'Buku Log Bahan Bakar' (arguments Object). Ini adalah catatan otomatis yang mencatat semua yang masuk, tapi bentuknya kaku dan tidak mudah dikelola seperti Array modern."**
 
+## Source Hub
+- **Primary Source**: [MDN Web Docs - The arguments object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments)
+- **Technical Reference**: [ECMA-262 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
+
 Objek `arguments` adalah objek mirip array (*array-like*) yang tersedia secara lokal di dalam fungsi non-arrow.
 
 ---
@@ -11,6 +15,13 @@ Objek `arguments` adalah objek mirip array (*array-like*) yang tersedia secara l
 Bayangkan sebuah mesin tua. Ia tidak memiliki keranjang khusus untuk menampung barang sisa. Namun, ia memiliki buku log "hantu" yang secara otomatis mencatat setiap barang yang dilemparkan ke dalam mesin oleh operator. Anda bisa membaca catatan ini, tapi karena ini bukan keranjang (Array) asli, Anda tidak bisa memindah-mindahkan isinya dengan mudah tanpa menyalinnya ke wadah baru.
 
 ![Arguments Object Ghost](./assets/arguments_ghost.svg)
+
+```mermaid
+graph LR
+    Call[Function call] --> Arguments[arguments object]
+    Arguments --> Read[Indexed access and length]
+    Arguments --> Convert[Convert to real array if needed]
+```
 
 ---
 

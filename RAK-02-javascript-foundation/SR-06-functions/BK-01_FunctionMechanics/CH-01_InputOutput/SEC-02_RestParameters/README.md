@@ -2,6 +2,10 @@
 
 > **"Terkadang, jumlah bahan bakar yang masuk tidak menentu. Rest Parameters adalah 'Wadah Penampung' (Collector Bins) yang menangkap seluruh sisa argumen tak terbatas ke dalam satu Array tunggal yang rapi."**
 
+## Source Hub
+- **Primary Source**: [MDN Web Docs - Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+- **Technical Reference**: [ECMA-262 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
+
 Sintaksis Rest parameter (`...`) memungkinkan kita merepresentasikan sejumlah argumen yang tidak terbatas sebagai sebuah array.
 
 ---
@@ -11,6 +15,13 @@ Sintaksis Rest parameter (`...`) memungkinkan kita merepresentasikan sejumlah ar
 Bayangkan sebuah lini produksi. Anda memiliki slot untuk **Bahan Utama**, lalu di belakangnya ada keranjang raksasa berlabel **Lain-lain**. Berapa pun jumlah barang tambahan yang dilemparkan ke lini produksi, semuanya akan ditampung dengan rapi di dalam keranjang tersebut sebagai satu paket kesatuan.
 
 ![Rest Parameters Collector](./assets/rest_collector_premium.svg)
+
+```mermaid
+graph LR
+    First[Named parameters] --> Rest[...rest]
+    Extra[Extra arguments] --> Rest
+    Rest --> Array[Collected as array]
+```
 
 ---
 
@@ -31,9 +42,9 @@ function process(first, ...others) {
 
 ---
 
-## 3. Destructuring with Rest
+## 3. Rest dan Pengolahan Lanjutan
 
-Rest parameter juga sangat kuat saat digabungkan dengan **Array Destructuring** untuk mengekstrak elemen tertentu dan menampung sisanya.
+Rest parameter juga enak dipadukan dengan pola JavaScript modern lain, termasuk destructuring, forwarding, dan wrapper functions.
 
 ```javascript
 const [head, ...tail] = [1, 2, 3, 4, 5];

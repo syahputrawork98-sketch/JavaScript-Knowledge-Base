@@ -2,6 +2,10 @@
 
 > **"Closures adalah 'Baterai Memori' yang memungkinkan fungsi membawa data dari masa lalu ke masa depan. Meskipun ruangan (scope) asalnya sudah ditutup, fungsi ini tetap membawa 'Kabel Energi' ke tangki data yang ia tangkap."**
 
+## Source Hub
+- **Primary Source**: [MDN Web Docs - Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures)
+- **Technical Reference**: [ECMA-262 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
+
 **Closure** adalah kombinasi dari sebuah fungsi yang dibundel bersama dengan referensi ke lingkungan sekitarnya (lingkup leksikal). Secara sederhana, closure memberi fungsi akses ke lingkup luar bahkan setelah fungsi luar tersebut selesai dieksekusi.
 
 ---
@@ -11,6 +15,13 @@
 Bayangkan sebuah fungsi luar sebagai "Ruangan" yang memiliki "Baterai" (Variabel). Saat fungsi luar selesai bekerja, ruangannya "dihancurkan" dari memori utama. Namun, fungsi dalam (*inner function*) tetap memegang "Kabel" ke baterai tersebut. Ke mana pun fungsi dalam pergi, ia tetap bisa menarik energi dari baterai yang ia bawa.
 
 ![Closure Persistent Battery](./assets/closure_battery_premium.svg)
+
+```mermaid
+graph TD
+    Outer[Outer function runs] --> Inner[Inner function created]
+    Inner --> Capture[Captures outer variable]
+    Capture --> Later[Can still use it later]
+```
 
 ---
 

@@ -2,7 +2,11 @@
 
 > **"Di dalam Hub Energi, setiap unit pemrosesan memiliki 'Kabel Internal' (Internal Wiring). Aliran energi hanya bisa mengalir dari unit pusat ke unit cabang, bukan sebaliknya. Lexical Scoping adalah aturan yang menentukan jalur kabel tersebut berdasarkan tempat unit dipasang."**
 
-Lexical Scoping (juga dikenal sebagai Static Scoping) menentukan jangkauan (*scope*) variabel berdasarkan lokasi fisiknya di dalam kode sumber saat waktu kompilasi, bukan saat waktu eksekusi.
+## Source Hub
+- **Primary Source**: [MDN Web Docs - Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures)
+- **Technical Reference**: [ECMA-262 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
+
+Lexical Scoping (juga dikenal sebagai Static Scoping) menentukan jangkauan (*scope*) variabel berdasarkan lokasi penulisan fungsi dan variabel di dalam kode, bukan berdasarkan tempat fungsi itu dipanggil.
 
 ---
 
@@ -17,6 +21,13 @@ Unit yang berada di dalam memiliki pandangan tembus pandang ke arah luar (bisa m
 
 ![Lexical Containment Units](./assets/lexical_containment.svg)
 
+```mermaid
+graph TD
+    Global[Global Scope] --> Outer[Outer Function Scope]
+    Outer --> Inner[Inner Function Scope]
+    Inner --> ReadOuter[Can read outer bindings]
+```
+
 ---
 
 ## 2. Hirarki Rantai Lingkup (Scope Chain)
@@ -29,9 +40,9 @@ Saat JavaScript mencoba mengakses sebuah variabel, ia akan melakukan pencarian b
 
 ---
 
-## 3. Sifat Statis (Static Inheritance)
+## 3. Sifat Statis Saat Fungsi Dipanggil
 
-Keputusan "siapa memiliki akses ke mana" sudah final saat Anda menulis kode. Jika sebuah fungsi dideklarasikan di lingkup Global, ia akan selalu merujuk pada variabel Global tersebut, di mana pun fungsi itu nantinya dipanggil dalam program Anda.
+Keputusan "siapa bisa mengakses apa" ditentukan dari posisi deklarasi fungsi. Jadi, ketika sebuah fungsi dipindahkan, dikirim sebagai callback, atau dipanggil dari tempat lain, jalur akses variabelnya tetap mengikuti tempat ia didefinisikan.
 
 ```javascript
 const name = "Global-01";

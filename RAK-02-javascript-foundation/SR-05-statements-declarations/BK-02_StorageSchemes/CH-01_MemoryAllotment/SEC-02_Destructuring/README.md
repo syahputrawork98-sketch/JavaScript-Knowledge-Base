@@ -1,4 +1,4 @@
-# CH-02: Destructuring Assignment (The Unpacking Station)
+# SEC-02: Destructuring Assignment (The Unpacking Station)
 
 > **"Terkadang, energi yang datang ke Hub terbungkus dalam paket besar (Array) atau peti kontainer (Object). Destructuring adalah 'Stasiun Pembongkaran' (Unpacking Station) yang memungkinkan Anda mengambil komponen yang Anda butuhkan secara langsung tanpa harus membongkar seluruh isi peti."**
 

@@ -1,4 +1,4 @@
-# CH-01: Scoping & Initialization (The Storage Zones)
+# SEC-01: Scoping & Initialization (The Storage Zones)
 
 > **"Di dalam Hub Energi, cara Anda menyimpan energi (variabel) sama pentingnya dengan energi itu sendiri. Ada 'Zona Penyimpanan' yang bersifat publik dan ada yang sangat personal. Memilih antara `var`, `let`, atau `const` menentukan seberapa aman energi tersebut disimpan."**
 

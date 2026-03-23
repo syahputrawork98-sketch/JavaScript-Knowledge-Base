@@ -2,6 +2,10 @@
 
 > **"Sebuah Transformer membutuhkan bahan bakar untuk bekerja. Namun, jika operator lupa mengirimkan bahan bakar, Default Parameters adalah 'Cadangan Bahan Bakar' (Backup Fuel) otomatis yang memastikan mesin tidak berhenti bekerja secara mendadak."**
 
+## Source Hub
+- **Primary Source**: [MDN Web Docs - Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
+- **Technical Reference**: [ECMA-262 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
+
 Default parameters memungkinkan kita menginisialisasi parameter formal dengan nilai default jika tidak ada nilai atau `undefined` yang dikirimkan ke fungsi.
 
 ---
@@ -11,6 +15,12 @@ Default parameters memungkinkan kita menginisialisasi parameter formal dengan ni
 Bayangkan sebuah mesin generator. Pengguna seharusnya memasukkan jenis bahan bakar (misal: "Bensin"). Namun, jika pengguna mengosongkan tangki input, mesin memiliki cadangan internal berlabel "Listrik" yang akan digunakan sebagai cadangan agar sistem tetap menyala.
 
 ![Default Parameters Fuel](./assets/default_params_fuel.svg)
+
+```mermaid
+graph LR
+    Input[Argument Missing or undefined] --> Default[Use default value]
+    Provided[Argument provided] --> Keep[Use provided value]
+```
 
 ---
 
@@ -36,7 +46,7 @@ processData(); // 2 (getInitialValue dipanggil ulang)
 
 ## 3. Parameter Shadowing & Order
 
-Parameter yang dideklarasikan lebih awal tersedia untuk parameter yang dideklarasikan setelahnya. Ini disebut sebagai **Temporal Dead Zone** untuk parameter.
+Parameter yang dideklarasikan lebih awal tersedia untuk parameter yang dideklarasikan setelahnya. Karena itu, urutan parameter tetap penting saat Anda membuat default yang saling bergantung.
 
 ```javascript
 // Valid: 'b' menggunakan nilai 'a'
