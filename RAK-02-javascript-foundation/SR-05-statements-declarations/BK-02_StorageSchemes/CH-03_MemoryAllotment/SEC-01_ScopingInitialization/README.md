@@ -24,7 +24,7 @@ Dalam zona aman (Block Scope):
 
 ## 3. Mengapa Menghindari `var`?
 
-Sebagai teknisi modern, `var` dianggap sebagai "teknologi lama" yang berbahaya karena perilakunya yang tidak terduga (*hoisting* dan *re-declaration*) sering menyebabkan kebocoran energi (bug) antar sirkuit yang tidak seharusnya terhubung.
+Dalam kode modern, `var` lebih jarang dipilih karena semantics-nya berbeda dari `let` dan `const`: ia memakai function scope, mengizinkan re-declaration, dan sering membuat intent kode lebih sulit dibaca. Memahaminya tetap penting, terutama saat membaca kode lama atau menjelaskan perilaku hoisting di JavaScript.
 
 ---
 
@@ -33,7 +33,7 @@ Sebagai teknisi modern, `var` dianggap sebagai "teknologi lama" yang berbahaya k
 Sebagai arsitek memori:
 1.  Gunakan **`const`** secara default. Jika data tidak perlu berubah, kunci dia secara permanen.
 2.  Gunakan **`let`** hanya jika Anda tahu pasti nilai baterai tersebut akan berganti (misal: di dalam Loop).
-3.  Lupakan **`var`**. Biarkan dia menjadi sejarah di arsip Hub lama.
+3.  Pahami **`var`** sebagai bagian dari sejarah dan semantics JavaScript, tetapi pilihlah dengan sadar hanya saat Anda benar-benar membutuhkan perilakunya.
 
 ---
 

@@ -2,7 +2,7 @@
 
 > **"Terkadang, Anda sebagai pengelola Hub harus memutuskan kapan sebuah situasi dianggap sebagai 'Keadaan Darurat' dan mengaktifkan alarm secara manual. Pernyataan `throw` adalah tombol alarm yang menghentikan arus seketika dan mengirim sinyal ke Kotak Sekering terdekat."**
 
-Pernyataan `throw` memungkinkan kita untuk membuat (*trigger*) pengecualian kustom ketika kondisi tertentu tidak terpenuhi.
+Pernyataan `throw` memungkinkan kita untuk menghentikan alur saat kondisi tertentu dianggap tidak valid atau berbahaya, lalu meneruskan sinyal error ke mekanisme penanganan yang sesuai.
 
 ## 1. Mental Model: "Triggering Alarms"
 
@@ -36,7 +36,7 @@ try {
 
 ## 3. Custom Error Types
 
-Dalam Hub yang besar, Anda mungkin ingin membedakan antara "Alarm Bahan Bakar" dan "Alarm Pintu Terbuka". Anda bisa mengidentifikasinya lewat pesan atau jenis objeknya.
+Dalam sistem yang lebih besar, Anda mungkin ingin membedakan antara "Alarm Bahan Bakar" dan "Alarm Pintu Terbuka". Cara paling sehat adalah memakai objek error yang jelas, baik melalui pesan yang konsisten maupun tipe error kustom, agar penanganannya bisa lebih terarah.
 
 ---
 

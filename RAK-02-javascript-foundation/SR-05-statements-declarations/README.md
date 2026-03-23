@@ -27,16 +27,14 @@ Bayangkan Hub sebagai sebuah gedung pintar:
 - **Declarations**: Memasang label pada kotak penyimpanan dan memesan ruang di gudang memori.
 - **Statements**: Membuka pintu tertentu, memutar saklar, atau mengulang proses pengisian daya.
 
-![Memory Allotment](./BK-02_StorageSchemes/assets/memory_allotment_premium.svg)
-
 ---
 
 ## Arsitek Mindset: Struktur Tanpa Celah
 
 Sebagai arsitek Hub:
-- **Prefer `const` over `let`**: Selalu berikan perlindungan maksimal pada data dengan menguncinya (`const`). Hanya gunakan `let` jika data tersebut memang harus berubah di tengah jalan.
+- **Prefer `const` by default**: Jadikan `const` pilihan awal untuk binding yang memang tidak perlu di-reassign. Gunakan `let` ketika nilai binding perlu berubah selama alur program.
 - **Block Scoping**: Gunakan `let` dan `const` untuk menjaga agar variabel tidak "bocor" (leaking) keluar dari sirkuit lokalnya.
-- **Graceful Failure**: Selalu gunakan `try...catch` di gerbang masuk energi eksternal (seperti API) agar jika terjadi kegagalan, Hub Anda tidak mengalami mati total.
+- **Graceful Failure**: Gunakan `try...catch` secara sadar pada titik yang memang perlu memulihkan error sinkron atau membungkus operasi async dengan pola penanganan error yang tepat.
 
 ---
 

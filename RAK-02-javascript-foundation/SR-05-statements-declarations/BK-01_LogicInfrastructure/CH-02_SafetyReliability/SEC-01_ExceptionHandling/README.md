@@ -35,7 +35,7 @@ try {
 
 ## 3. Mengapa Ini Penting?
 
-Tanpa `try...catch`, sebuah error kecil di Hub (misal: variabel yang tidak ada) akan meruntuhkan seluruh sistem aplikasi. Di lingkungan asinkron atau saat berhadapan dengan data luar (API), ini adalah **Standard Operasi Prosedur (SOP)** yang wajib.
+`try...catch` penting saat Anda memang perlu mencegah sebuah error sinkron menghentikan alur yang sedang berjalan atau saat Anda ingin mengubah error menjadi respons yang lebih terkontrol. Namun, ia bukan solusi universal untuk semua masalah error. Pada alur asinkron, pola penanganannya bisa berbeda tergantung apakah Anda memakai callback, Promise, atau `async/await`.
 
 ---
 
@@ -43,7 +43,7 @@ Tanpa `try...catch`, sebuah error kecil di Hub (misal: variabel yang tidak ada) 
 
 Sebagai arsitek keamanan:
 - **Jangan menangkap error secara diam-diam** (silent catch). Berikan log atau notifikasi yang jelas.
-- Gunakan blok **`finally`** untuk menutup koneksi database, menghapus file temporer, atau melepaskan sumber daya memori lainnya agar tidak terjadi kebocoran (leakage).
+- Gunakan blok **`finally`** untuk cleanup yang memang harus selalu dijalankan, seperti menutup resource atau melepaskan state sementara.
 
 ---
 

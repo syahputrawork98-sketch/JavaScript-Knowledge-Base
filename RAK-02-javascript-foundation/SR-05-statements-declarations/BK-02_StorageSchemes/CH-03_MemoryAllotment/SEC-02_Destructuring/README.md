@@ -2,7 +2,7 @@
 
 > **"Terkadang, energi yang datang ke Hub terbungkus dalam paket besar (Array) atau peti kontainer (Object). Destructuring adalah 'Stasiun Pembongkaran' (Unpacking Station) yang memungkinkan Anda mengambil komponen yang Anda butuhkan secara langsung tanpa harus membongkar seluruh isi peti."**
 
-Destructuring adalah sintaksis khusus yang membuat kita bisa "membongkar" nilai dari array atau properti dari objek ke dalam variabel yang berbeda secara ringkas.
+Destructuring adalah sintaks khusus yang memungkinkan kita mengambil nilai dari array atau properti dari objek ke binding yang berbeda secara ringkas.
 
 ## 1. Mental Model: "The Unpacking Station"
 
@@ -45,8 +45,8 @@ console.log(`Koordinat Hub: ${longitude}, ${latitude}`);
 ## Arsitek Mindset: Membersihkan Sirkuit
 
 Sebagai arsitek Hub:
-- Gunakan destructuring pada parameter fungsi untuk membuat kode lebih bersih dan mudah dibaca (self-documenting).
-- Gunakan nilai default (`const { id = "Unknown" } = data`) untuk memastikan sirkuit tidak putus jika seandainya data yang diharapkan tidak ditemukan di dalam paket.
+- Gunakan destructuring pada parameter fungsi atau hasil pemanggilan API saat bentuk data sudah jelas dan stabil.
+- Gunakan nilai default (`const { id = "Unknown" } = data`) untuk menjaga alur tetap aman saat properti yang diharapkan tidak tersedia.
 
 ---
 
