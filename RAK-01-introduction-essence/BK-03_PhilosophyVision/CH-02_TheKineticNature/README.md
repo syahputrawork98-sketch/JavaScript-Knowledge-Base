@@ -1,25 +1,25 @@
 # CH-02: The Kinetic Nature (Event-Driven)
 
 **"Filosofi Enerjik Sang Detak Jantung Web"**
-*Target: Memahami sifat asinkron dan kinetik JS dalam waktu < 2 menit.*
+*Target: Memahami sifat event-driven JavaScript dalam waktu < 2 menit.*
 
-## 🔗 Source Hub
-- **Core Concept**: [Node.js Design Patterns - Reactor Pattern](https://www.nodejsdesignpatterns.com/)
-- **Visualization**: [What the heck is the event loop anyway? (Philip Roberts)](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+## Source Hub
+- **Core Concept**: [MDN Web Docs - JavaScript execution model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model)
+- **Runtime Perspective**: [Node.js - About Node.js](https://nodejs.org/en/about)
 
 ## 1. Definisi & Konsep (The Logic)
-JavaScript dirancang untuk terus bergerak. Alih-alih berhenti saat menunggu data (Blocking), ia menyerahkan tugas tersebut ke "latar belakang" dan terus melayani instruksi lain. Inilah yang kita sebut sebagai sifat **Kinetik**.
+JavaScript sering terasa "terus bergerak", tetapi yang penting dipahami adalah: kemampuan ini lahir dari kerja sama antara **bahasa JavaScript**, **engine**, dan **host environment** seperti browser atau Node.js. Saat aplikasi perlu menunggu timer, I/O, atau event pengguna, host/runtime menaruh penyelesaiannya ke antrean kerja sehingga thread utama tidak selalu berhenti total.
 
 ### Terminologi Utama (Senior Terms)
-- **Asynchronous & Non-blocking**: Mekanisme eksekusi yang tidak menghentikan urutan utama (Main Thread).
-- **Event Loop**: Jantung dari sifat kinetik JS yang mengatur antrean eksekusi secara efisien.
-- **The Kinetic Hub**: Konsep JavaScript sebagai pusat transmisi data yang tidak pernah berhenti berputar.
+- **Asynchronous & Non-blocking**: Pola runtime yang memungkinkan pekerjaan selesai tanpa menahan alur utama terus-menerus.
+- **Event Loop**: Mekanisme runtime/host yang mengatur kapan tugas berikutnya dieksekusi.
+- **The Kinetic Hub**: Konsep JavaScript sebagai pusat transmisi data yang tetap responsif saat sistem bekerja.
 
 ## 2. Rasionalitas (Why & How?)
-Web bersifat interaktif; pengguna bisa mengklik apa saja kapan saja. Bahasa yang kaku akan membuat web terasa "macet". Sifat kinetik memastikan pengalaman pengguna yang mulus meskipun sistem sedang memproses data berat.
+Web bersifat interaktif; pengguna bisa mengklik apa saja kapan saja. Jika semua pekerjaan harus selesai secara blocking di satu alur, antarmuka akan terasa macet. Karena itu, browser dan runtime modern membangun model eksekusi berbasis event loop, callback, dan queue agar JavaScript tetap responsif sambil menunggu kerja asynchronous selesai.
 
 ### Analogi Mendalam
-Bayangkan sebuah **Restoran yang Sangat Sibuk**. Pelayan (Main Thread) tidak bertugas memasak. Setelah menerima pesanan (Event), pelayan memberikan catatan ke dapur (Background) dan segera kembali melayani pelanggan lain. Pelayan tidak berdiri diam di dapur menunggu masakan matang; ia terus bergerak (Kinetik) sampai masakan siap diantarkan.
+Bayangkan sebuah **Restoran yang Sangat Sibuk**. Pelayan (main thread) tidak bertugas memasak. Setelah menerima pesanan (event), pelayan menyerahkan tiket ke dapur dan kembali melayani meja lain. Dapur, kasir, dan antrean pesanan adalah bagian dari sistem restoran, bukan pelayan itu sendiri. Begitu pesanan siap, sistem memanggil pelayan untuk menyelesaikan langkah berikutnya. Itulah model yang lebih tepat untuk memahami JavaScript dan runtime-nya.
 
 ## 3. Implementasi Utama (The Lab)
 > [!NOTE]

@@ -3,23 +3,23 @@
 **"Filosofi Belajar sang Arsitek"**
 *Target: Memahami alur belajar terbaik di perpustakaan ini dalam waktu < 2 menit.*
 
-## 🔗 Source Hub
-- **Meta Theory**: [The First Principles Thinking](https://fs.blog/first-principles/)
-- **Strategy**: [Active Recall & Spaced Repetition](https://en.wikipedia.org/wiki/Active_recall)
+## Source Hub
+- **Repository Standard**: [docs/standards/workflow.md](../../../docs/standards/workflow.md)
+- **Repository Architecture**: [docs/standards/architecture.md](../../../docs/standards/architecture.md)
 
 ## 1. Definisi & Konsep (The Logic)
-Belajar di **JavaScript Knowledge Base** bukan tentang menghafal sintaks, melainkan tentang membangun **Rigor** (ketajaman teknis) dan **Logic** (logika arsitektural). Kita menggunakan pendekatan **First Principles**—membedah sesuatu ke elemen terkecilnya sebelum membangunnya kembali.
+Belajar di **JavaScript Knowledge Base** bukan tentang menghafal sintaks, melainkan tentang membangun **rigor** dan **logic**. Repositori ini dirancang untuk mendorong pembaca memahami sumber resmi, model mental, dan hubungan antarbagian sistem sebelum masuk ke detail implementasi.
 
 ### Terminologi Utama (Senior Terms)
-- **Spec-Rigor**: Kebiasaan merujuk pada spesifikasi resmi (ECMA-262) sebagai sumber kebenaran tunggal.
-- **Mental Model**: Representasi internal tentang bagaimana sistem atau mesin bekerja dalam pikiran kita.
-- **PPM Consistency**: Ketaatan pada Prosedur Penulisan Materi untuk menjaga standar kualitas.
+- **Spec-Rigor**: Kebiasaan merujuk pada dokumentasi resmi atau spesifikasi sebagai sumber kebenaran.
+- **Mental Model**: Representasi internal tentang bagaimana sistem bekerja di balik permukaan API.
+- **PPM Consistency**: Ketaatan pada alur penulisan materi agar kualitas penjelasan tetap seragam.
 
 ## 2. Rasionalitas (Why & How?)
-Informasi di permukaan mudah kadaluarsa. Namun, pemahaman tentang "Bagaimana engine bekerja" atau "Kenapa prototipe ada" akan tetap relevan selama puluhan tahun. Kami merancang materi ini agar Anda menjadi **Internalist**, bukan sekadar pengguna API.
+Informasi di permukaan mudah berubah, tetapi pemahaman tentang fondasi, hubungan sistem, dan alasan desain bertahan jauh lebih lama. Karena itu, repositori ini disusun agar pembaca tidak berhenti pada "cara pakai", tetapi naik ke tingkat "cara kerja" dan "kenapa demikian".
 
 ### Analogi Mendalam
-Belajar di sini seperti **Mempelajari Mesin Pesawat**, bukan sekadar belajar cara menerbangkannya. Jika Anda tahu bagaimana mesin bekerja, Anda bisa memperbaiki pesawat apa pun, bahkan saat terjadi malfungsi mendadak. Anda tidak akan panik saat ada update bahasa baru, karena Anda sudah tahu fondasi dasarnya.
+Belajar di sini seperti **mempelajari mesin pesawat**, bukan sekadar belajar cara menekan tombol kokpit. Jika Anda memahami mesin dan alurnya, Anda akan jauh lebih tenang saat menghadapi perubahan panel, versi, atau instrumen baru.
 
 ## 3. Implementasi Utama (The Lab)
 > [!NOTE]

@@ -1,25 +1,25 @@
 # CH-01: Atwood's Law ("Anything can be written in JS")
 
-**"Prinsip Universitalitas JavaScript"**
+**"Prinsip Universalitas JavaScript"**
 *Target: Memahami hukum utama yang mendorong ekspansi ekosistem JS dalam waktu < 2 menit.*
 
-## 🔗 Source Hub
+## Source Hub
 - **Origin**: [Atwood's Law (Coding Horror)](https://blog.codinghorror.com/the-principle-of-least-power/)
-- **Context**: [Is there anything that can't be written in JavaScript? (StackOverflow)](https://stackoverflow.com/questions/2070327/is-there-anything-that-cant-be-written-in-javascript)
+- **Context**: [MDN Web Docs - About JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript)
 
 ## 1. Definisi & Konsep (The Logic)
-Jeff Atwood (Co-founder StackOverflow) pada 2007 menyatakan: *"Any application that can be written in JavaScript, will eventually be written in JavaScript."* Ini bukan sekadar candaan, melainkan refleksi dari fleksibilitas mentah bahasa ini.
+Jeff Atwood pada 2007 menyatakan: *"Any application that can be written in JavaScript, will eventually be written in JavaScript."* Ini bukan hukum ilmiah formal, melainkan observasi tajam tentang kecenderungan industri saat bahasa yang paling mudah didistribusikan mulai dipakai di semakin banyak domain.
 
 ### Terminologi Utama (Senior Terms)
 - **Atwood's Law**: Hukum empiris tentang dominasi JavaScript di berbagai domain perangkat lunak.
-- **Universal JavaScript**: Kemampuan kode yang sama untuk berjalan di server (Node.js) dan klien (Browser).
+- **Universal JavaScript**: Kemampuan JavaScript untuk hidup di lebih dari satu lingkungan eksekusi.
 - **Full-stack Shift**: Migrasi industri dari bahasa terpisah ke tumpukan teknologi tunggal berbasis JavaScript.
 
 ## 2. Rasionalitas (Why & How?)
-JavaScript tidak memiliki proses kompilasi yang kaku, mudah dipelajari, dan memiliki ekosistem npm yang masif. Hal ini membuat pengembang cenderung memilih JavaScript untuk memecahkan masalah baru (seperti IoT, AI, atau Desktop Apps).
+Pada 2007, kekuatan utama JavaScript bukanlah dominasi tooling modern seperti sekarang, melainkan distribusinya yang luar biasa: browser ada di mana-mana, dan JavaScript sudah menjadi bahasa bawaan web. Setelah Node.js dan ekosistem npm tumbuh besar, hukum ini terasa makin "terbukti" karena JavaScript tidak lagi terbatas pada sisi klien, tetapi merembet ke server, tooling, desktop, dan banyak domain lain.
 
 ### Analogi Mendalam
-Bayangkan JavaScript adalah **Lakban Ajaib (Duct Tape)**. Mungkin ia tidak sekuat baja atau semen murni, tapi karena sifatnya yang bisa menempel di permukaan apa pun dan sangat mudah dipasang, orang-orang mulai menggunakan lakban itu untuk membangun jembatan, gedung, hingga roket. "Jika bisa diperbaiki dengan lakban, pada akhirnya akan diperbaiki dengan lakban."
+Bayangkan JavaScript adalah **Lakban Ajaib (Duct Tape)**. Mungkin ia tidak sekuat baja atau semen murni, tapi karena sifatnya yang bisa menempel di banyak permukaan dan sangat mudah dipasang, orang-orang mulai menggunakannya di semakin banyak tempat. Jika sebuah masalah bisa diselesaikan dengan material yang paling mudah tersedia, cepat atau lambat orang akan mencobanya.
 
 ## 3. Implementasi Utama (The Lab)
 > [!NOTE]

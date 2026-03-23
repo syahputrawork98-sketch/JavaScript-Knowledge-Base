@@ -3,23 +3,23 @@
 **"Bahasa yang Berubah Seiring Waktu"**
 *Target: Memahami fleksibilitas tipe data JavaScript dalam waktu < 2 menit.*
 
-## 🔗 Source Hub
-- **Primary Source**: [MDN Web Docs - Dynamic Typing](https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing)
-- **Technical Reference**: [ECMA-262 - Types](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)
+## Source Hub
+- **Primary Source**: [MDN Web Docs - Dynamic typing](https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing)
+- **Technical Reference**: [ECMA-262 - ECMAScript Data Types and Values](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)
 
 ## 1. Definisi & Konsep (The Logic)
-JavaScript adalah bahasa dengan **Dynamic Typing**. Ini berarti variabel tidak terikat pada tipe data tertentu, melainkan nilainya yang menentukan tipenya saat runtime. Sebuah variabel bisa menyimpan string sekarang, dan angka beberapa detik kemudian.
+JavaScript adalah bahasa dengan **dynamic typing**. Ini berarti variabel tidak membawa tipe tetap seperti pada bahasa yang mewajibkan deklarasi tipe eksplisit; nilai yang sedang disimpanlah yang menentukan perilaku tipenya saat runtime. Satu variabel bisa menyimpan string sekarang, lalu number atau object di langkah berikutnya.
 
 ### Terminologi Utama (Senior Terms)
-- **Weakly Typed**: Bahasa yang memungkinkan konversi tipe data secara implisit (Type Coercion).
-- **Runtime Interpretation**: Penentuan tipe data yang dilakukan saat kode sedang dijalankan.
-- **Flexibility Over Rigidity**: Filosofi desain yang mengutamakan kecepatan pengembangan di atas ketatnya struktur data.
+- **Dynamic Typing**: Penentuan perilaku tipe yang terjadi saat runtime, bukan dibekukan saat deklarasi variabel.
+- **Type Coercion**: Konversi nilai yang bisa terjadi secara implisit atau eksplisit saat operasi dijalankan.
+- **Flexibility Over Rigidity**: Filosofi desain yang mengutamakan keluwesan penulisan di atas struktur tipe yang ketat sejak awal.
 
 ## 2. Rasionalitas (Why & How?)
-Fleksibilitas ini memungkinkan pengembang untuk menulis kode lebih cepat tanpa harus mendeklarasikan tipe secara eksplisit untuk setiap variabel. Namun, ini juga menuntut tanggung jawab lebih tinggi (Rigor) agar tidak terjadi bug tipe data di sistem yang kompleks.
+Fleksibilitas ini memungkinkan pengembang bergerak cepat, terutama pada scripting, prototyping, dan integrasi antarbagian sistem yang berubah cepat. Namun, keluwesan ini juga menuntut disiplin lebih tinggi karena kesalahan tipe sering baru terlihat saat kode benar-benar dieksekusi.
 
 ### Analogi Mendalam
-Bayangkan JavaScript adalah sebuah **Gelas Ajaib (Magic Glass)**. Gelas ini bisa menampung Air (String), Pasir (Number), atau bahkan Api (Object). Berbeda dengan wadah kaku yang hanya bisa menampung satu bentuk, Gelas Ajaib ini menyesuaikan bentuk dan perilakunya berdasarkan apa yang Anda tuangkan ke dalamnya.
+Bayangkan JavaScript adalah sebuah **Gelas Ajaib (Magic Glass)**. Gelas ini bisa menampung air, pasir, atau bahkan api. Berbeda dengan wadah kaku yang hanya dibuat untuk satu jenis isi, Gelas Ajaib ini menyesuaikan dirinya dengan apa yang Anda tuangkan. Kelebihannya adalah serbaguna; risikonya, Anda harus tahu betul apa yang sedang Anda pegang.
 
 ## 3. Implementasi Utama (The Lab)
 > [!NOTE]

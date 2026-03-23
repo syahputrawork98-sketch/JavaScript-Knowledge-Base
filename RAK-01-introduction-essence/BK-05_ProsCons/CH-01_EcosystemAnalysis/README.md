@@ -3,23 +3,23 @@
 **"Lautan Modul Terbesar di Dunia"**
 *Target: Memahami kekuatan dan tantangan ekosistem JavaScript dalam waktu < 2 menit.*
 
-## 🔗 Source Hub
-- **Primary Source**: [npm - About npm](https://www.npmjs.com/about)
-- **State of JS**: [State of JS - Ecology](https://2023.stateofjs.com/en-US/usage/)
+## Source Hub
+- **Primary Source**: [npm Docs - About npm](https://docs.npmjs.com/about-npm)
+- **Technical Reference**: [Node.js - About](https://nodejs.org/en/about)
 
 ## 1. Definisi & Konsep (The Logic)
-Ekosistem JavaScript didorong oleh **npm (Node Package Manager)**. Ini adalah registri perangkat lunak terbesar di dunia yang memungkinkan pengembang untuk berbagi dan menggunakan ribuan pustaka (*libraries*) secara instan.
+Ekosistem JavaScript didorong kuat oleh **npm** dan budaya berbagi paket. Ia memungkinkan pengembang untuk mendistribusikan utilitas, framework, toolchain, dan library secara sangat cepat, sehingga JavaScript berkembang bukan hanya sebagai bahasa, tetapi juga sebagai jaringan kolaborasi perangkat lunak.
 
 ### Terminologi Utama (Senior Terms)
-- **Dependency Hell**: Kondisi di mana tumpukan pustaka yang saling bergantung menjadi sulit dikelola.
-- **Micro-modules**: Tren di JS untuk membuat satu pustaka yang sangat spesifik (Hanya melakukan satu hal kecil).
-- **SemVer (Semantic Versioning)**: Standar versi (Major.Minor.Patch) yang krusial untuk menjaga stabilitas ekosistem.
+- **Dependency Hell**: Kondisi saat tumpukan pustaka dan versinya menjadi sulit dikelola.
+- **Micro-modules**: Kebiasaan memecah fungsionalitas ke paket-paket yang sangat kecil dan spesifik.
+- **SemVer (Semantic Versioning)**: Skema versi yang membantu perubahan paket dipahami dan diadopsi dengan lebih aman.
 
 ## 2. Rasionalitas (Why & How?)
-Kekuatan JS bukan hanya di bahasa kodenya, tapi di komunitasnya. Keuntungannya adalah Anda jarang perlu "memulai dari nol". Namun, tantangannya adalah ketergantungan pada kode orang lain yang mengharuskan kita lebih waspada terhadap keamanan dan pemeliharaan.
+Kekuatan JavaScript bukan hanya pada bahasa intinya, tetapi pada kecepatan distribusi solusi. Anda jarang perlu memulai dari nol. Namun, keuntungan ini datang bersama risiko: ketergantungan berlapis, kualitas paket yang beragam, dan kebutuhan audit keamanan yang lebih serius.
 
 ### Analogi Mendalam
-Bayangkan membangun rumah dengan **Blok LEGO (npm)**. Anda tidak perlu membuat batu bata sendiri. Anda cukup memesan blok yang sudah jadi—ada blok untuk Listrik, Jendela, hingga Atap. Anda bisa membangun istana dalam hitungan jam, namun Anda harus memastikan bahwa blok yang Anda pesan berkualitas tinggi dan tidak rapuh.
+Bayangkan membangun rumah dengan **Blok LEGO**. Anda tidak perlu mencetak batu bata sendiri; Anda tinggal mengambil komponen yang sudah tersedia. Anda bisa membangun sangat cepat, tetapi Anda harus tetap memastikan setiap blok yang dipakai memang kuat, cocok, dan tidak rapuh.
 
 ## 3. Implementasi Utama (The Lab)
 > [!NOTE]

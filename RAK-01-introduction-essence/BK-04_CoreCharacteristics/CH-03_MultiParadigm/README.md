@@ -3,23 +3,23 @@
 **"Satu Bahasa, Banyak Gaya"**
 *Target: Memahami kombinasi gaya pemrograman dalam JavaScript dalam waktu < 2 menit.*
 
-## 🔗 Source Hub
-- **Primary Source**: [MDN Web Docs - JavaScript Paradigms](https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript#paradigms)
-- **Deep Dive**: [Functionally Speaking (Douglas Crockford)](https://www.crockford.com/javascript/javascript.html)
+## Source Hub
+- **Primary Source**: [MDN Web Docs - About JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript)
+- **Technical Reference**: [MDN Web Docs - Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 
 ## 1. Definisi & Konsep (The Logic)
-JavaScript adalah bahasa **Multi-paradigma**. Ia tidak memaksa Anda menggunakan satu gaya tertentu. Anda bisa menulis kode secara Prosedural (langsung), Functional (menggunakan fungsi sebagai warga negara kelas satu), atau Object-Oriented (menggunakan prototipe dan kelas).
+JavaScript adalah bahasa **multi-paradigm**. Ia tidak memaksa satu gaya tunggal. Anda bisa menulis kode secara prosedural, memanfaatkan fungsi sebagai nilai utama, atau membangun model objek dengan prototipe dan class syntax modern di atas fondasi yang sama.
 
 ### Terminologi Utama (Senior Terms)
-- **First-Class Functions**: Fungsi yang diperlakukan seperti variabel (bisa dikirim, dikembalikan, dan disimpan).
-- **Functional Programming (FP)**: Paradigma yang berpusat pada fungsi murni dan data yang tidak bisa diubah (Immutability).
-- **Prototypal OOP**: Gaya pemrograman berorientasi objek yang unik untuk JS (Tanpa kelas statis tradisional).
+- **First-Class Functions**: Fungsi diperlakukan sebagai nilai yang bisa disimpan, dikirim, dan dikembalikan.
+- **Functional Style**: Pendekatan yang menekankan komposisi fungsi, transformasi data, dan pembatasan efek samping.
+- **Prototypal OOP**: Gaya pemrograman berorientasi objek di JavaScript yang tetap bertumpu pada prototipe, bahkan saat memakai syntax `class`.
 
 ## 2. Rasionalitas (Why & How?)
-Dunia perangkat lunak memiliki masalah yang beragam. Terkadang, gaya Functional lebih baik untuk pemrosesan data, sementara OOP lebih baik untuk memodelkan entitas yang kompleks. JavaScript memberikan kotak perkakas lengkap agar Anda bisa memilih alat yang tepat untuk masalah yang tepat.
+Dunia perangkat lunak memiliki masalah yang beragam. Terkadang gaya functional lebih baik untuk alur transformasi data, sementara pendekatan objek lebih nyaman untuk memodelkan entitas atau state yang kompleks. JavaScript bertahan lama salah satunya karena ia tidak terlalu cepat menutup pilihan pendekatan ini.
 
 ### Analogi Mendalam
-Bayangkan JavaScript adalah sebuah **Swiss Army Knife (Pisau Lipat Swiss)**. Anda punya Pisau (Prosedural), Gunting (Functional), dan Pembuka Botol (OOP). Anda tidak perlu membawa tiga alat terpisah. Anda cukup membawa satu Pisau Lipat ini dan membukanya sesuai kebutuhan situasi di lapangan.
+Bayangkan JavaScript adalah sebuah **Swiss Army Knife**. Anda punya pisau, gunting, dan pembuka botol dalam satu alat. Anda tidak perlu membawa tiga benda terpisah. Anda cukup memilih komponen yang paling cocok untuk situasi yang sedang dihadapi.
 
 ## 3. Implementasi Utama (The Lab)
 > [!NOTE]
