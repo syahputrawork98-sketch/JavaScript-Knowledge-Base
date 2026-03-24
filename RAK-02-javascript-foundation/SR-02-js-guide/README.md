@@ -14,9 +14,14 @@ SR-02 fokus pada mekanika inti JavaScript yang membedakannya dari bahasa pemrogr
 ---
 
 ## Status Audit
-`SR-02` memiliki materi yang substantif dan masih bernilai, tetapi strukturnya masih memakai pola legacy `CH > CH` alih-alih `CH > SEC`. Selain itu, banyak topiknya kini bertumpang tindih dengan paket yang sudah lebih terpisah dan modern di `SR-05`, `SR-06`, dan `SR-07`.
+`SR-02` memiliki materi yang substantif dan masih bernilai. Refactor struktur legacy untuk `BK-01_CoreMechanics` sekarang sudah selesai, sehingga seluruh unit di sub-rak ini telah dinormalisasi ke format `CH > SEC`.
 
-Sebagai hasil audit, `SR-02` belum layak ditutup ke Gold Standard. Sub-rak ini lebih tepat diperlakukan sebagai kandidat refactor arsitektur khusus, bukan quick fix biasa.
+Secara positioning, `SR-02` kini saya tetapkan sebagai **bridge layer** di `RAK-02`: ia merangkum mekanika inti dan menjembatani mental model sebelum pembaca masuk ke paket yang lebih terfokus seperti `SR-05`, `SR-06`, `SR-07`, dan padanan mekanismenya di `RAK-04`.
+
+Artinya:
+- `SR-02` bukan rumah utama untuk pembahasan paling detail.
+- `SR-02` dipertahankan untuk orientasi konseptual dan penghubung antartopik.
+- Paket yang lebih spesifik tetap menjadi rujukan utama untuk pendalaman modern.
 
 ---
-*Status: [/] Audited - Legacy structure and topic overlap require dedicated refactor.*
+*Status: [x] Complete (Bridge Layer) - 1 Book, 3 Chapters, 10 Sections.*

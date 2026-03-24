@@ -2,15 +2,19 @@
 
 Buku ini membedah bagaimana JavaScript mengelola ruang (Scope) dan waktu (Hoisting) eksekusi kode.
 
+## Source Hub
+- **Primary Source**: [MDN Web Docs - JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
+- **Technical Reference**: [ECMA-262 - ECMAScript Language Specification](https://tc39.es/ecma262/)
+
 ## Status Audit
-Chapter hub ini masih memakai struktur legacy karena unit di bawahnya masih `CH-01`, `CH-02`, dan `CH-03`, padahal pada standar saat ini level ini seharusnya mengarah ke `SEC`.
+Struktur lama `CH > CH` pada chapter ini sudah dinormalisasi menjadi `CH > SEC`, sehingga unit hoisting, lexical scope, dan closures sekarang selaras dengan standar arsitektur terbaru.
 
-Materinya juga bertumpang tindih langsung dengan `SR-05` dan `SR-06`, terutama pada area hoisting, lexical scope, dan closures.
+Di sisi domain, area ini tetap perlu dijaga sebagai jembatan konseptual karena bersinggungan langsung dengan `SR-05` dan `SR-06`.
 
-## Daftar Chapter
-1.  **[CH-01: Hoisting](./CH-01_Hoisting/README.md)**: Mengangkat pin energi sebelum dijalankan.
-2.  **[CH-02: Scope Chain & Lexical Environment](./CH-02_ScopeChainLexicalEnvironment/README.md)**: Batasan wadah energi.
-3.  **[CH-03: Closures](./CH-03_Closures/README.md)**: Memori energi yang persisten.
+## Daftar Section
+1.  **[SEC-01: Hoisting](./SEC-01_Hoisting/README.md)**: Persiapan deklarasi sebelum eksekusi berjalan.
+2.  **[SEC-02: Scope Chain & Lexical Environment](./SEC-02_ScopeChainLexicalEnvironment/README.md)**: Aturan akses variabel berdasarkan lokasi penulisan.
+3.  **[SEC-03: Closures](./SEC-03_Closures/README.md)**: Fungsi yang membawa memori dari scope asalnya.
 
 ---
-*Status: [/] Audited - Needs conversion from nested chapters to SEC units.*
+*Status: [x] Complete (3 Sections) - Bridge chapter finalized.*

@@ -14,9 +14,9 @@ Sub-Rak ini membedah mekanisme internal yang mengatur bagaimana JavaScript menge
 ---
 
 ## Status Audit
-Secara isi, `BK-01` masih kuat sebagai jembatan pedagogis. Namun secara struktur, buku ini belum mengikuti standar terbaru karena setiap chapter hub masih berisi chapter lagi, bukan section (`SEC`).
+Secara isi, `BK-01` masih kuat sebagai jembatan pedagogis. Secara struktur, ketiga chapter-nya kini sudah dinormalisasi ke format `CH > SEC`, sehingga buku ini tidak lagi memakai nesting chapter legacy.
 
-Di sisi domain, topik-topik `Hoisting`, `Closures`, `Arrow Functions`, `Recursion`, `this`, dan `Prototypes` kini sudah memiliki rumah yang lebih jelas di `SR-05`, `SR-06`, `SR-07`, dan sebagian padanan mekanisme di `RAK-04`. Karena itu buku ini perlu refactor dengan pemisahan boundary yang lebih tegas, bukan sekadar polishing ringan.
+Di sisi domain, topik-topik `Hoisting`, `Closures`, `Arrow Functions`, `Recursion`, `this`, dan `Prototypes` kini sudah memiliki rumah yang lebih jelas di `SR-05`, `SR-06`, `SR-07`, dan sebagian padanan mekanisme di `RAK-04`. Karena itu buku ini diposisikan sebagai pengantar menengah yang merangkum hubungan antar konsep, bukan sebagai rumah utama pembahasan paling detail.
 
 ---
-*Status: [/] Audited - Legacy chapter nesting and overlap require refactor.*
+*Status: [x] Complete (3 Chapters, 10 Sections) - Bridge-layer structure finalized.*
