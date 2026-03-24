@@ -47,7 +47,7 @@ Untuk lulus dari Stage 3, sebuah fitur harus:
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/decorators_preview.js` (membutuhkan Babel) untuk mencoba bagaimana Decorators bisa menyederhanakan arsitektur kelas di dalam aplikasi Hub Anda.
+Buka file `examples/01_future_sneak_peek.js` untuk mencoba simulasi proposal seperti Temporal dan immutable records sebagai gambaran fitur masa depan Hub.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

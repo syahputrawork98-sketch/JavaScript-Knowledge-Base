@@ -23,4 +23,4 @@ Buku ini membedah organisasi di balik layar JavaScript: **TC39** (Technical Comm
 3. Menguasai alur rilis tahunan (Jun/Jul) yang menggantikan rilis besar dekade lama.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-01](../README.md)*
+*Status: [x] Complete (2 Chapters).*

@@ -47,4 +47,4 @@ Bayangkan Hub sedang merancang tipe kabel baru.
 Cobalah proposal **Records & Tuples** menggunakan playground online TC39 untuk merasakan sensasi bekerja dengan struktur data yang tidak pernah bisa berubah.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

@@ -25,4 +25,4 @@ Buku ini membedah 5 tahap (Stages) yang harus dilalui oleh setiap fitur baru seb
 3. Menguasai alasan mengapa sebuah proposal bisa tertahan selamanya di Stage 1-2.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-01](../README.md)*
+*Status: [x] Complete (3 Chapters).*

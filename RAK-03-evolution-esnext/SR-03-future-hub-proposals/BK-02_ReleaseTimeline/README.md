@@ -1,22 +1,15 @@
-# BK-02: Release Timeline (ES2015 - ES2024+)
+# BK-02: Release Timeline
 
-> **"Kronologi Kemajuan Hub."**
+> **"Peta kronologis evolusi ECMAScript modern."**
 
-Buku ini melacak sejarah rilis tahunan ECMAScript sejak revolusi besar di tahun 2015. Ini membantu arsitek memahami kapan sebuah sirkuit diperkenalkan dan level dukungan engine saat ini.
-
----
-
-## Struktur Bab (Gold Standard)
-
-- **[CH-01: The Modern Era (ES2015-2019)](./CH-01_ModernEra/)**
-- **[CH-02: The Continuous Flux (ES2020-2024+)](./CH-02_ContinuousFlux/)**
+Buku ini memusatkan timeline rilis tahunan ECMAScript agar pembaca bisa membedakan gelombang modernisasi awal dan fase penyempurnaan berkelanjutan setelahnya.
 
 ---
 
-## Fokus Pembelajaran
-1. Memahami pergeseran dari rilis dekade (ES5) ke rilis tahunan.
-2. Mengenali fitur ikonik di setiap versi.
-3. Menggunakan data ini untuk menentukan base target kompilasi.
+## Struktur Bab
+
+- **[CH-01: The Modern Era](./CH-01_ModernEra/)**: ES2015-ES2019 sebagai fondasi modern JavaScript.
+- **[CH-02: The Continuous Flux](./CH-02_ContinuousFlux/)**: ES2020-ES2024+ sebagai fase penyempurnaan beruntun.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-03](../README.md)*
+*Status: [x] Complete (2 Chapters).*

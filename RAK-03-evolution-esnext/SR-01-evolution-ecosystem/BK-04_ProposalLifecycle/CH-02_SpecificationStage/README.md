@@ -48,4 +48,4 @@ graph LR
 Unit ini bersifat teoritis-spesifikasi. Pembuktian algoritma teks spesifikasi dapat dipelajari lebih lanjut di [RAK-04-core-specification](../../../../RAK-04-core-specification/).
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

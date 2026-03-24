@@ -12,7 +12,8 @@
 
 - Refactor root selesai pada 2026-03-24.
 - Struktur `RAK-03` kini kembali sinkron ke 3 sub-rak kanonis.
-- Detail temuan awal dan hasil refactor dicatat pada [root-architecture-audit.md](./root-architecture-audit.md).
+- Final pass docs-sync untuk `SR-01`, `SR-02`, dan `SR-03` telah diselesaikan.
+- Ringkasan akhir audit tersedia pada [final-audit-rak-03.md](./final-audit-rak-03.md).
 
 ---
 *Back to [RAK-03 README](../README.md)*

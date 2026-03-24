@@ -1,54 +1,14 @@
 # BK-01: TC39 Governance
 
-> **"Dewan Arsitek Hub. `TC39 Governance` membedah struktur komite yang bertanggung jawab atas evolusi JavaScript dan bagaimana konsensus dicapai."**
+> **"Pilar tata kelola evolusi bahasa."**
 
-**Source Hub**: 
-- [TC39: Participation](https://tc39.es/about/participation/)
-
----
-
-## 1. Konsep & Esensi
-
-**Definisi Arsitek**:
-**TC39 (Technical Committee 39)** adalah bagian dari ECMA International yang bertugas menstandarisasi JavaScript. Ia bukan sirkuit tunggal, melainkan sebuah dewan yang terdiri dari implementer engine (V8, WebKit, dst), akademisi, dan perusahaan teknologi besar yang bekerja berdasarkan model **Konsensus**.
-
-**Boundary**:
-`BK-01` adalah ringkasan konseptual tingkat buku. Jika Anda ingin pembahasan chapter-level tentang anggota, delegasi, dan ritme pengambilan keputusan, lanjutkan ke **[BK-03: Committee](../BK-03_Committee/)**.
+Buku ini memusatkan model besar tata kelola TC39 sebagai landasan untuk memahami bagaimana keputusan evolusi JavaScript dibentuk.
 
 ---
 
-## 2. Visualisasi Sistem: Consensus Pipeline
+## Struktur Bab
 
-```mermaid
-graph TD
-    P[Proposal Submitted] --> D[Developer Feedback]
-    D --> R[Review by Committee]
-    R --> C{Consensus Found?}
-    C -->|Yes| Next[Move to Next Stage]
-    C -->|No| Back[Request Revision]
-    
-    style C fill:#fff3e0,stroke:#e65100
-```
+- **[CH-01: Governance Overview](./CH-01_GovernanceOverview/)**: Ringkasan struktur komite, delegasi, dan mekanisme konsensus TC39.
 
 ---
-
-## 3. Mekanisme & Hubungan
-
-### Infrastruktur Tata Kelola
-1. **Delegasi Resmi**: Setiap anggota (Member) mengirimkan delegasi teknis untuk berdiskusi dalam rapat rutin 2 bulanan.
-2. **Model Konsensus**: Tidak ada voting mayoritas. Sebuah proposal hanya bisa maju jika *seluruh* delegasi setuju (atau setidaknya tidak ada yang keberatan secara fundamental).
-3. **Open Stewardship**: Meskipun eksklusif, proses ini transparan. Seluruh catatan rapat (Notes) dipublikasikan di GitHub untuk diaudit oleh publik.
-
----
-
-## 4. Arsitek Mindset
-Evolusi Hub bersifat sangat lambat dan hati-hati. Ini dilakukan untuk menjaga komparibilitas sirkuit lama agar tetap bisa berjalan di mesin modern (Prinsip "Don't Break the Web").
-
----
-
-## 5. Lab Praktis
-Eksperimen di folder `examples/` membedah pilar utama:
-1.  **[Governance Flow](./examples/01_governance_flow.js)**: Simulasi pengambilan keputusan berdasarkan konsensus delegasi.
-
----
-*Buku Status: [status.md](../../status.md)*
+*Status: [x] Complete (1 Chapter).*

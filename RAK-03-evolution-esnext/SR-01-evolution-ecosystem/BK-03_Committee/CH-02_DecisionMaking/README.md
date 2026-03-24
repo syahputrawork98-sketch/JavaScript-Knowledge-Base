@@ -48,4 +48,4 @@ graph LR
 Bacalah salah satu "Meeting Notes" dari repositori TC39 untuk merasakan ketegangan dan kedalaman teknis saat para delegasi berdebat tentang sebuah fitur kecil.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

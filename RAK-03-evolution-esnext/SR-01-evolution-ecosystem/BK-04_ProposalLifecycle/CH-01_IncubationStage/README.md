@@ -54,4 +54,4 @@ graph TD
 Unit ini tidak membutuhkan Lab Praktis kode karena bersifat kebijakan fundamental. Anda dapat melihat daftar proposal Stage 1 aktif di [TC39 Proposals Repo](https://github.com/tc39/proposals).
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

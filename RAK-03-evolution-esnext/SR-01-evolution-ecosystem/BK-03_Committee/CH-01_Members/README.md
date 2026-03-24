@@ -50,4 +50,4 @@ graph TD
 Kunjungi repositori [github.com/tc39/proposals](https://github.com/tc39/proposals) untuk melihat daftar delegasi yang sedang menjadi "Champions" untuk fitur-fitur baru.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

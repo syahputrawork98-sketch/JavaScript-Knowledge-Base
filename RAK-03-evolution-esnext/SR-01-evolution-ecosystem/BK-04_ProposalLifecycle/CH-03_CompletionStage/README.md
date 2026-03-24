@@ -53,4 +53,4 @@ Untuk mencapai garis finish, proposal harus memiliki:
 Unit ini tidak membutuhkan Lab Praktis kode khusus karena bersifat penjelasan proses standarisasi. Dokumentasi kriteria rilis dapat dilihat di folder `docs/`.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*
