@@ -1,4 +1,4 @@
-# BK-01: The Committee and Governance
+# BK-03: The Committee and Governance
 
 > **"Dewan Pengambil Keputusan Hub."**
 
@@ -6,16 +6,16 @@ Buku ini membedah organisasi di balik layar JavaScript: **TC39** (Technical Comm
 
 ---
 
-## 🏗️ Struktur Bab (Gold Standard)
+## Struktur Bab (Gold Standard)
 
 - **[CH-01: Members and Delegates](./CH-01_Members/)**
-  - Perusahaan teknologi, delegasi, dan peran kontributor independen.
+  Perusahaan teknologi, delegasi, dan peran kontributor independen.
 - **[CH-02: Consensus and Decision Making](./CH-02_DecisionMaking/)**
-  - Mengapa JavaScript tidak punya "Dictator" dan bagaimana konsensus dicapai.
+  Mengapa JavaScript tidak punya "Dictator" dan bagaimana konsensus dicapai.
 
 ---
 
-## 🎯 Fokus Pembelajaran
+## Fokus Pembelajaran
 1. Mengenali Ecma International sebagai payung hukum dari spesifikasi JavaScript.
 2. Memahami frekuensi pertemuan komite (biasanya setiap 2 bulan).
 3. Menguasai alur rilis tahunan (Jun/Jul) yang menggantikan rilis besar dekade lama.

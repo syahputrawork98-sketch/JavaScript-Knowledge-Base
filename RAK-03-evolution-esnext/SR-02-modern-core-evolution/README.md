@@ -2,12 +2,12 @@
 
 > **"Mutasi Genetik Hub. `SR-02` membedah fitur-fitur modern yang mengubah cara sirkuit JavaScript dibangun, dari penguatan leksikal hingga pemrosesan asinkron tak terbatas."**
 
-**Source Hub**: 
+**Source Hub**:
 - [ECMA-262: History and ESNext](https://tc39.es/ecma262/#sec-history)
 
 ---
 
-## 🏗️ The 4 Modern Pillars
+## The 7 Modern Pillars
 
 ```mermaid
 graph TD
@@ -15,15 +15,21 @@ graph TD
     P2["BK-02: Control Flow & Async"] --> Hub
     P3["BK-03: Data Resilience & Safety"] --> Hub
     P4["BK-04: Metaprogramming"] --> Hub
+    P5["BK-05: Reliability Patches"] --> Hub
+    P6["BK-06: Structural Reinforcement"] --> Hub
+    P7["BK-07: Modern Sifters"] --> Hub
 ```
 
 ---
 
 ## Koleksi Buku:
-1.  **[BK-01: Structural & Lexical](./BK-01_StructuralLexical/)**: Class, Modules, Arrow Functions, dan Lexical Scoping.
-2.  **[BK-02: Control Flow & Async](./BK-02_ControlFlowAsync/)**: Promises, Async/Await, dan Top-level Await.
-3.  **[BK-03: Data Resilience & Safety](./BK-03_DataResilience/)**: Optional Chaining, Nullish Coalescing, BigInt.
-4.  **[BK-04: Metaprogramming & Reflection](./BK-04_Metaprogramming/)**: Proxy, Reflect, Symbols.
+1. **[BK-01: Structural & Lexical](./BK-01_StructuralLexical/)**: Class, Modules, Arrow Functions, dan Lexical Scoping.
+2. **[BK-02: Control Flow & Async](./BK-02_ControlFlowAsync/)**: Promises, Async/Await, dan Top-level Await.
+3. **[BK-03: Data Resilience & Safety](./BK-03_DataResilience/)**: Optional Chaining, Nullish Coalescing, BigInt.
+4. **[BK-04: Metaprogramming & Reflection](./BK-04_Metaprogramming/)**: Proxy, Reflect, Symbols.
+5. **[BK-05: Reliability Patches](./BK-05_ReliabilityPatches/)**: Arsip ES2020-2021 untuk safety valves, logical assignment, dan promise settling.
+6. **[BK-06: Structural Reinforcement](./BK-06_StructuralReinforcement/)**: Arsip ES2022-2023 untuk top-level await, private fields, dan penguatan ergonomi struktur.
+7. **[BK-07: Modern Sifters](./BK-07_ModernSifters/)**: Arsip ES2024+ untuk change-array-by-copy dan grouping APIs.
 
 ---
 *Back to [RAK-03](../README.md)*
