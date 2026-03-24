@@ -4,6 +4,8 @@
 
 Buku ini membedah organisasi di balik layar JavaScript: **TC39** (Technical Committee 39). Kita akan melihat siapa yang memiliki hak suara dan bagaimana kebijakan Grid ditentukan.
 
+`BK-03` adalah deep dive pendamping untuk **[BK-01: TC39 Governance](../BK-01_Governance/)**. Gunakan `BK-01` untuk model besar, lalu masuk ke `BK-03` saat Anda butuh detail per chapter.
+
 ---
 
 ## Struktur Bab (Gold Standard)

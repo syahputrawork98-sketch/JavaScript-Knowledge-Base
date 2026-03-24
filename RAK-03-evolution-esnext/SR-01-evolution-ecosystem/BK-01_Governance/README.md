@@ -12,6 +12,9 @@
 **Definisi Arsitek**:
 **TC39 (Technical Committee 39)** adalah bagian dari ECMA International yang bertugas menstandarisasi JavaScript. Ia bukan sirkuit tunggal, melainkan sebuah dewan yang terdiri dari implementer engine (V8, WebKit, dst), akademisi, dan perusahaan teknologi besar yang bekerja berdasarkan model **Konsensus**.
 
+**Boundary**:
+`BK-01` adalah ringkasan konseptual tingkat buku. Jika Anda ingin pembahasan chapter-level tentang anggota, delegasi, dan ritme pengambilan keputusan, lanjutkan ke **[BK-03: Committee](../BK-03_Committee/)**.
+
 ---
 
 ## 2. Visualisasi Sistem: Consensus Pipeline

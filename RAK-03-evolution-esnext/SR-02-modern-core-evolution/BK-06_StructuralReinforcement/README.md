@@ -4,6 +4,9 @@
 
 Buku ini mengarsipkan fitur-fitur yang memperkuat batas modul, enkapsulasi class, dan pola inisialisasi modern di JavaScript.
 
+**Boundary**:
+`BK-06` adalah arsip kronologis untuk milestone ES2022-2023. Untuk mekanisme async modern sebagai tema besar, prioritaskan **[BK-02: Control Flow & Async](../BK-02_ControlFlowAsync/)**.
+
 ---
 
 ## Struktur Bab (Gold Standard)
@@ -19,4 +22,4 @@ Buku ini mengarsipkan fitur-fitur yang memperkuat batas modul, enkapsulasi class
 3. Melihat transisi JavaScript menuju struktur aplikasi yang lebih disiplin.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-02](../README.md)*
+*Status: [x] Complete (2 Chapters).*

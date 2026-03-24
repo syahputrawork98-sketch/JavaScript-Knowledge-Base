@@ -2,6 +2,9 @@
 
 > **"Mengatur ulang sirkuit energi tidak harus memakan banyak baris perintah. Logical Assignment adalah 'Relay Efisien' (Efficient Relays) yang menggabungkan pengecekan logika dan pengisian daya dalam satu gerakan singkat."**
 
+**Placement**:
+Chapter ini terutama berfungsi sebagai arsip ergonomi ekspresi ES2021. Ia tidak menduplikasi buku tematik utama, melainkan melengkapi peta evolusi fitur modern di `SR-02`.
+
 **Source Hub**: 
 - [MDN: Logical OR assignment (||=)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
 - [MDN: Logical AND assignment (&&=)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
@@ -69,7 +72,7 @@ const loadCapacity = 1_000_000_000; // Satu Miliar (Readable)
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/efficient_relays_lab.js` untuk melihat bagaimana menyederhanakan konfigurasi Hub menggunakan operator modern dan menguji presisi `??=` vs `||=`.
+Buka file `examples/01_efficient_relays_lab.js` untuk melihat bagaimana menyederhanakan konfigurasi Hub menggunakan operator modern dan menguji presisi `??=` vs `||=`.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

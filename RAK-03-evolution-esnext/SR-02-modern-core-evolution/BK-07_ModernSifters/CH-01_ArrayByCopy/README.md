@@ -14,6 +14,9 @@
 **Definisi Arsitek**:
 ES2023 memperkenalkan serangkaian metode prototipe Array yang mengembalikan salinan baru alih-alih melakukan modifikasi di tempat (*in-place mutation*). Ini murni mendukung paradigma pemrograman fungsional dan manajemen state imutabel di dalam Hub.
 
+**Placement**:
+Chapter ini adalah arsip fitur frontier yang belum punya padanan buku tematik khusus di `SR-02`. Posisinya adalah perluasan evolusi, bukan duplikasi.
+
 **Model Mental**:
 - **Metode Lama (`sort`, `reverse`, `splice`)**: Seperti mengubah susunan kabel di panel pusat secara langsung.
 - **Metode Baru (`toSorted`, `toReversed`, `toSpliced`, `with`)**: Seperti memotret panel tersebut, lalu mengatur ulang susunan kabel di dalam foto (salinan). Panel aslinya tetap aman.
@@ -39,7 +42,7 @@ graph LR
 ### Senjata Baru di Grid
 1.  **`.toSorted()`**: Mengembalikan array yang terurut.
 2.  **`.toReversed()`**: Mengembalikan array dengan urutan terbalik.
-3.  **`.toSpliced(start, deleteCount, ...items)`**: Mengembalikan array dengan bagian yang telah dipotog/ditambah.
+3.  **`.toSpliced(start, deleteCount, ...items)`**: Mengembalikan array dengan bagian yang telah dipotong/ditambah.
 4.  **`.with(index, value)`**: Mengembalikan array baru dengan satu elemen yang diubah.
 
 ### Arsitek Mindset: Integritas Data
@@ -49,7 +52,7 @@ graph LR
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/non_destructive_lab.js` untuk membandingkan bahaya metode lama dengan keamanan metode `toSorted` dan `with` dalam skenario Grid yang sibuk.
+Buka file `examples/01_non_destructive_lab.js` untuk membandingkan bahaya metode lama dengan keamanan metode `toSorted` dan `with` dalam skenario Grid yang sibuk.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

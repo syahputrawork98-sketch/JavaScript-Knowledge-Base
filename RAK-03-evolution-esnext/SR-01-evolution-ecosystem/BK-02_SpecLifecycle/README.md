@@ -12,6 +12,9 @@
 **Definisi Arsitek**:
 Sebuah fitur baru tidak langsung dipasang di Hub. Ia harus membuktikan kematangannya melalui **5 Pintu Gerbang (Stages)**. Tahap ini memastikan fitur tersebut memiliki desain teknis yang solid, dukungan implementasi engine, dan tes verifikasi yang lengkap.
 
+**Boundary**:
+`BK-02` adalah peta besar lifecycle proposal. Untuk breakdown chapter-level per rentang stage, gunakan **[BK-04: Proposal Lifecycle](../BK-04_ProposalLifecycle/)**.
+
 ---
 
 ## 2. Visualisasi Sistem: Stage Progress Gate

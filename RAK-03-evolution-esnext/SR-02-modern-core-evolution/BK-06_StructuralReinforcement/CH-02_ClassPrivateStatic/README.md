@@ -14,6 +14,9 @@
 **Definisi Arsitek**:
 ES2022 menyempurnakan enkapsulasi kelas dengan memperkenalkan **Private Fields** (`#`) dan **Static Initialization Blocks**. Private fields menjamin privasi data di level bahasa (hard-private), bukan sekadar konvensi (`_`), sementara static blocks memungkinkan inisialisasi logika statis yang kompleks di dalam lingkup kelas.
 
+**Placement**:
+Chapter ini adalah arsip penguatan struktur class di era ES2022. Ia memperluas cakupan `SR-02` dan tidak bertumpang tindih langsung dengan buku tematik lain.
+
 **Model Mental**:
 Bayangkan sebuah reaktor nuklir di dalam Hub:
 - **Public**: Lampu-lampu panel yang bisa dilihat semua orang.
@@ -72,7 +75,7 @@ class Hub {
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/core_lockdown_lab.js` untuk berlatih membangun reaktor yang aman dengan enkapsulasi total dan mencoba fitur `.at()` pada log sistem.
+Buka file `examples/01_core_lockdown_lab.js` dan `examples/02_static_init_lab.js` untuk berlatih membangun reaktor yang aman dengan enkapsulasi total dan inisialisasi statis yang terkendali.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

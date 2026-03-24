@@ -14,6 +14,9 @@
 **Definisi Arsitek**:
 ES2022 memungkinkan penggunaan kata kunci `await` di luar fungsi `async` pada level teratas sebuah modul. Ini mengubah modul menjadi unit asinkron yang memblokir eksekusi modul yang mengimpornya sampai janji (*promise*) terpenuhi, menjamin ketersediaan sumber daya sebelum kode konsumen berjalan.
 
+**Placement**:
+Chapter ini adalah arsip milestone ES2022. Untuk penjelasan mekanisme async sebagai tema besar, gunakan juga **[BK-02: Control Flow & Async](../../BK-02_ControlFlowAsync/README.md)**.
+
 **Model Model**:
 - **Dulu**: Anda harus membuat fungsi pembungkus seperti `async function init() { ... }` dan memanggilnya. Ini sering menyebabkan masalah urutan pemuatan (*race condition*).
 - **Sekarang**: Modul tersebut bisa langsung memanggil `await fetchConfig()`. Modul lain yang melakukan `import` akan menunggu secara otomatis sampai konfigurasi tersebut selesai dimuat sebelum melanjutkannya.
@@ -54,7 +57,7 @@ sequenceDiagram
 ---
 
 ## 4. Lab Praktis
-Buka folder `examples/top_level_await_lab.js` untuk melihat bagaimana Top-Level Await mempermudah integrasi data asinkron antar unit Hub tanpa race condition.
+Gunakan file `examples/01_instant_init_lab.mjs` dan `examples/02_dynamic_load_lab.mjs` untuk melihat bagaimana Top-Level Await mempermudah integrasi data asinkron antar unit Hub tanpa race condition.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

@@ -4,6 +4,8 @@
 
 Buku ini membedah 5 tahap (Stages) yang harus dilalui oleh setiap fitur baru sebelum ia sah menjadi bagian dari standar ECMAScript. Kita akan melihat filter ketat yang dilewati fitur di setiap tahapannya.
 
+`BK-04` adalah deep dive pendamping untuk **[BK-02: Spec Lifecycle](../BK-02_SpecLifecycle/)**. Gunakan `BK-02` untuk ringkasan gerbang besar, lalu `BK-04` untuk breakdown per rentang stage.
+
 ---
 
 ## Struktur Bab (Gold Standard)

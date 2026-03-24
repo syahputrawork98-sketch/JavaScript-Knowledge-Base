@@ -14,6 +14,9 @@
 **Definisi Arsitek**:
 ES2024 memperkenalkan `Object.groupBy()` dan `Map.groupBy()` sebagai metode statis untuk melakukan pengelompokan elemen koleksi (iterable) berdasarkan kriteria yang ditentukan dalam fungsi callback. Ini meniadakan kebutuhan akan logika `reduce` atau `forEach` manual untuk tugas pengelompokan yang umum.
 
+**Placement**:
+Chapter ini adalah arsip frontier ES2024+ dan saat ini tidak menduplikasi buku tematik lain di `SR-02`. Gunakan chapter ini sebagai titik masuk untuk fitur grouping modern.
+
 **Model Mental**:
 Bayangkan tumpukan sensor dari berbagai sektor (Alpha, Beta).
 - **Dulu**: Anda harus melakukan loop manual, mengecek kategori, dan mendorong data ke array yang tepat.
@@ -54,7 +57,9 @@ const grouped = Object.groupBy(drones, (d) => d.type);
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/energy_grouping_lab.js` untuk mencoba pengelompokan inventaris Hub berdasarkan level urgensi secara otomatis menggunakan `Object.groupBy`.
+Buka file `examples/01_energy_grouping_lab.js` untuk mencoba pengelompokan inventaris Hub berdasarkan level urgensi secara otomatis menggunakan `Object.groupBy`.
+
+Gunakan juga `examples/02_map_groupby_lab.js` untuk membandingkan kapan `Map.groupBy()` lebih tepat dipakai daripada hasil objek biasa.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

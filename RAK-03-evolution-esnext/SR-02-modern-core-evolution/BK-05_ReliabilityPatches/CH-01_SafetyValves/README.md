@@ -14,6 +14,9 @@
 **Definisi Arsitek**:
 ES2020 memperkenalkan dua operator krusial untuk menangani nilai `null` atau `undefined` secara deklaratif. **Optional Chaining** memungkinkan akses properti tanpa risiko `TypeError`, sementara **Nullish Coalescing** menyediakan nilai fallback yang presisi hanya untuk tipe data *nullish*.
 
+**Placement**:
+Chapter ini adalah arsip rilis ES2020. Untuk model mental lintas-era yang menempatkan fitur ini di dalam tema ketahanan data modern, baca juga **[BK-03: Data Resilience & Safety](../../BK-03_DataResilience/README.md)**.
+
 **Model Mental**:
 - **Optional Chaining (`?.`)**: Seperti memeriksa apakah sebuah pipa terhubung sebelum mencoba membukanya. Jika pipa tidak ada, aliran berhenti dengan aman (mengembalikan `undefined`) alih-alih meledakkan sistem.
 - **Nullish Coalescing (`??`)**: Seperti katup cadangan yang hanya terbuka jika sumber utama benar-benar kosong (`null` atau `undefined`), bukan sekadar bertekanan rendah (seperti angka `0` atau string kosong `""`).
@@ -60,7 +63,9 @@ const load = signal.load ?? 100;
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/safety_valves_lab.js` untuk menguji ketahanan sistem saat mengakses sensor-sensor Grid yang tidak stabil dalam simulasi asinkron.
+Buka file `examples/01_safety_valves_lab.js` untuk menguji fallback nullish dan akses properti aman pada skenario umum.
+
+Gunakan juga `examples/02_deep_access_lab.js` untuk mensimulasikan akses data bertingkat yang rawan putus di tengah jalur.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete.*

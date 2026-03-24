@@ -4,6 +4,9 @@
 
 Buku ini mengarsipkan fitur-fitur ES2020 dan ES2021 yang memperkuat keandalan aliran data dan ergonomi ekspresi JavaScript modern.
 
+**Boundary**:
+`BK-05` adalah arsip kronologis. Untuk penjelasan tematik lintas-era tentang ketahanan data dan semantics inti, prioritaskan **[BK-03: Data Resilience & Safety](../BK-03_DataResilience/)**.
+
 ---
 
 ## Struktur Bab (Gold Standard)
@@ -19,4 +22,4 @@ Buku ini mengarsipkan fitur-fitur ES2020 dan ES2021 yang memperkuat keandalan al
 3. Membaca fase awal gelombang fitur reliabilitas yang membentuk JavaScript modern.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-02](../README.md)*
+*Status: [x] Complete (2 Chapters).*
