@@ -4,11 +4,11 @@
 
 Dalam dunia asinkron, kita sering melakukan tugas yang hasilnya tidak instan. Alih-alih membekukan sistem, kita memberikan sebuah **Callback** — yaitu fungsi yang akan dijalankan "nanti" setelah tugas utama selesai.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Callback functions](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
 - **Practical Guide**: [Understanding JavaScript Callbacks](https://www.freecodecamp.org/news/javascript-callback-functions-what-are-callbacks-in-js-and-how-to-use-them/)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Callback Hell**: Kondisi di mana terlalu banyak fungsi callback yang bersarang (`nested`) sehingga kode menjadi sulit dibaca dan dipelihara.
 - **Error-First Callback**: Pola penulisan di mana parameter pertama dari callback digunakan untuk menangkap error, baru diikuti oleh data hasil.
 - **Inversion of Control**: Masalah di mana kita menyerahkan kendali eksekusi kode kita kepada fungsi pihak ketiga (Library) melalui callback.

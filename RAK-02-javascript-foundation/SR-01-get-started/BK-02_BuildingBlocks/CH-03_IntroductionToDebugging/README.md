@@ -4,11 +4,11 @@
 
 Dalam dunia JavaScript, kesalahan (bug) adalah hal yang wajar. Namun, membiarkannya tetap ada di sirkuit Hub adalah bahaya. Dalam bab ini, kita akan mempelajari cara menggunakan **Circuit Tester** (Alat Tes Sirkuit) untuk mendiagnosis masalah.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - What went wrong? Troubleshooting JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong)
 - **Technical Tooling**: [Chrome DevTools - Debug JavaScript](https://developer.chrome.com/docs/devtools/javascript/)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Static vs Runtime Error**: Perbedaan antara kesalahan penulisan kode (syntax) dengan kesalahan yang baru muncul saat kode dijalankan.
 - **Stack Trace**: Laporan yang menunjukkan urutan pemanggilan fungsi yang berujung pada terjadinya error.
 - **Breakpoint**: Titik di mana kita memerintahkan browser untuk menghentikan eksekusi kode sementara agar kita bisa memeriksa kondisi sirkuit.

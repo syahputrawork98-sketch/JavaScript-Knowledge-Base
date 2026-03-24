@@ -4,11 +4,11 @@
 
 Dalam bab sebelumnya, kita belajar cara menyimpan daftar dalam **Array**. Sekarang, kita akan mempelajari instruksi otomatis (Methods) untuk mengelola isi rak tersebut dengan cepat dan presisi.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - **Interactive Guide**: [Array Methods Explorer](https://arrayexplorer.netlify.app/)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Higher-Order Functions**: Fungsi yang bisa menerima fungsi lain sebagai parameter (seperti `map`, `filter`, `forEach`).
 - **Callback Function**: Fungsi yang "dikirim balik" untuk dieksekusi di dalam fungsi lain.
 - **Immutable vs Mutable Methods**: Perbedaan antara metode yang mengubah data asli dengan metode yang menghasilkan data baru (Prinsip Arsitek: Prioritaskan immutability).

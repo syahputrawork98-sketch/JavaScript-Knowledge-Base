@@ -4,11 +4,11 @@
 
 Hingga saat ini, kita hanya menyimpan satu nilai energi dalam satu variabel. Namun, sebuah Web Hub yang nyata memiliki banyak sensor, banyak sektor, dan banyak rincian status. Untuk mengelola ini, kita menggunakan **Object** dan **Array**.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source (Arrays)**: [MDN Web Docs - Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - **Primary Source (Objects)**: [MDN Web Docs - JavaScript object basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Data Structure**: Cara mengorganisir dan menyimpan data agar dapat diakses dan dimanipulasi secara efisien.
 - **Key-Value Pair**: Struktur dasar Objek di mana setiap nilai (value) memiliki label pengenal (key/property).
 - **Index-Based Access**: Cara mengakses elemen dalam Array menggunakan urutan angka (dimulai dari `0`).

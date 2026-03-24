@@ -4,11 +4,11 @@
 
 Callback memiliki banyak kelemahan, terutama saat tugas menjadi kompleks. **Promise** hadir sebagai solusi modern untuk menstandarisasi hasil dari proses asinkron.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 - **Technical Reference**: [ECMA-262 - Promise Objects](https://tc39.es/ecma262/#sec-promise-objects)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Promise States**: Tiga kondisi Promise: `Pending` (berjalan), `Fulfilled` (berhasil), dan `Rejected` (gagal).
 - **Consuming Promises**: Menggunakan `.then()` untuk hasil sukses, `.catch()` untuk error, dan `.finally()` untuk akhir proses.
 - **Promise Chaining**: Teknik menghubungkan beberapa operasi asinkron secara berurutan tanpa terjebak dalam Callback Hell.

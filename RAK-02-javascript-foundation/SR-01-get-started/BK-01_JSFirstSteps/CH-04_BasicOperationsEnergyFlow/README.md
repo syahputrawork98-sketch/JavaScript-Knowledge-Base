@@ -4,11 +4,11 @@
 
 Setelah kita memiliki baterai (variabel) dan bentuk energi (tipe data), kita perlu cara untuk memanipulasi energi tersebut. Dalam JavaScript, kita menggunakan **Operator** untuk menciptakan aliran energi.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Basic math in JavaScript — numbers and operators](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Math)
 - **Technical Reference**: [ECMA-262 - Arithmetic Operators](https://tc39.es/ecma262/#sec-arithmetic-operators)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Operand**: Nilai atau variabel yang dioperasikan oleh operator.
 - **Arithmetic Precedence**: Aturan urutan operasi (Prioritas matematika).
 - **Template Literals**: Cara modern menyisipkan variabel ke dalam string menggunakan backticks (`` ` ``) dan `${}`.

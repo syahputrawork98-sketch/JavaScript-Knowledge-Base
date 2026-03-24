@@ -4,11 +4,11 @@
 
 Dalam bab sebelumnya, kita belajar bahwa JavaScript menghidupkan web. Namun, energi tersebut perlu disimpan dan diberi label agar bisa digunakan kembali. Di sinilah **Variabel** berperan.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Storing the information you need — Variables](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables)
 - **Technical Reference**: [ECMA-262 - Lexical Declarations](https://tc39.es/ecma262/#sec-let-and-const-declarations)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Memory Allocation**: Proses di mana engine JavaScript memesan ruang di memori untuk menyimpan nilai variabel.
 - **Lexical Scoping**: Aturan yang menentukan di mana sebuah variabel bisa diakses berdasarkan posisi deklarasinya di dalam kode.
 - **Hoisting**: Perilaku di mana deklarasi variabel "diangkat" ke puncak cakupan sebelum eksekusi kode (terjadi pada `var`).

@@ -4,11 +4,11 @@
 
 Setelah memiliki baterai (variabel) untuk menyimpan energi, kita perlu tahu **jenis energi** apa yang disimpan di dalamnya. Dalam JavaScript, "bentuk energi" ini disebut sebagai **Tipe Data**.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 - **Deep Dive**: [You Don't Know JS: Types & Grammar](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/types%20%26%20grammar/ch1.md)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Primitives**: Tipe data dasar yang nilainya tidak dapat diubah (immutable) (String, Number, BigInt, Boolean, Undefined, Symbol, Null).
 - **Type Coercion**: Konversi otomatis dari satu tipe data ke tipe data lain yang dilakukan oleh engine JS.
 - **Static vs Dynamic Typing**: Perbedaan cara bahasa pemrograman menangani pengecekan tipe data variabel.

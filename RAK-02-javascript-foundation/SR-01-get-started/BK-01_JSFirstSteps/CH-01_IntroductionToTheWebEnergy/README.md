@@ -4,11 +4,11 @@
 
 Selamat datang di langkah pertama Anda. Sebelum menulis kode yang rumit, Anda harus memahami di mana posisi JavaScript dalam ekosistem web.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - About JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript)
 - **Conceptual Guide**: [The Web Platform](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **The Kinetic Hub**: Konsep JavaScript sebagai pusat penggerak interaksi dalam arsitektur web.
 - **Client-Side Scripting**: Eksekusi kode langsung di perangkat pengguna (browser), bukan di server.
 - **DOM (Document Object Model)**: Representasi struktur data halaman web yang dimanipulasi oleh JavaScript.

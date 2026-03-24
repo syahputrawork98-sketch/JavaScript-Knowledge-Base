@@ -4,11 +4,11 @@
 
 Dalam bab sebelumnya, kita sudah mengenal klik tombol. Sekarang, kita akan membangun **Sensor Array** — sistem yang memantau berbagai jenis interaksi pengguna untuk memberikan respons yang lebih halus dan canggih.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Introduction to events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
 - **Technical Reference**: [UI Events W3C Working Draft](https://www.w3.org/TR/uievents/)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Event Bubbling**: Proses di mana sebuah event "merambat" dari elemen target ke atas hingga ke elemen root.
 - **Event Delegation**: Teknik mengelola banyak event melalui satu elemen induk untuk efisiensi memorinya.
 - **Prevent Default**: Cara menghentikan perilaku bawaan browser (misal: mencegah form me-refresh halaman saat disubmit).

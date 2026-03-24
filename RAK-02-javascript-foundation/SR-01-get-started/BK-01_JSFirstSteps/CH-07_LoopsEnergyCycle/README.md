@@ -4,11 +4,11 @@
 
 Dalam sebuah Hub Energi, kita sering melakukan hal yang sama berulang kali: mengecek status 100 baterai, mengisi daya 5 sektor secara bergantian, atau menunggu hingga tegangan stabil. Inilah fungsi **Loop (Perulangan)**.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Looping code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code)
 - **Technical Reference**: [ECMA-262 - Iteration Statements](https://tc39.es/ecma262/#sec-iteration-statements)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Iteration**: Satu putaran lengkap dari sebuah perulangan.
 - **Infinite Loop**: Kondisi di mana perulangan tidak pernah berhenti (Bug kritis yang bisa menghabiskan sumber daya).
 - **Exit Condition**: Kondisi atau pernyataan yang mengakhiri siklus perulangan (misal: `break`).

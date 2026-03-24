@@ -4,11 +4,11 @@
 
 Dalam bab sebelumnya, kita belajar tentang gerbang logika. Sekarang, kita akan menggunakan gerbang tersebut untuk membangun **Sirkuit Multipath** — sirkuit yang bisa berubah jalur secara dinamis.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Making decisions in your code — conditionals](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
 - **Technical Reference**: [ECMA-262 - The if Statement](https://tc39.es/ecma262/#sec-if-statement)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Conditional Branching**: Aksi di mana program memilih satu di antara beberapa jalur eksekusi yang memungkinkan.
 - **Switch Case**: Struktur kontrol alternatif untuk pengkondisian yang melibatkan banyak nilai tetap.
 - **Nested Conditionals**: Penggunaan struktur `if` di dalam `if` lain (Arsitek Mindset: Batasi kedalaman nesting demi keterbacaan).

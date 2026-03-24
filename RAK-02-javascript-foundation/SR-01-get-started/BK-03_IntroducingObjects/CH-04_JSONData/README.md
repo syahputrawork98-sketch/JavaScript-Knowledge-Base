@@ -4,11 +4,11 @@
 
 Saat kita ingin mengirimkan data objek JavaScript ke sistem lain (seperti server atau database), kita tidak bisa mengirimkan "objek hidup" tersebut secara langsung. Kita perlu mengemasnya menjadi teks terstandarisasi yang disebut **JSON** (JavaScript Object Notation).
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Working with JSON](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
 - **Technical Specification**: [ECMA-404 JSON Data Interchange Standard](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **JSON (JavaScript Object Notation)**: Format pertukaran data yang ringan dan mudah dibaca oleh manusia maupun mesin.
 - **Serialization**: Proses mengubah objek JavaScript menjadi format string JSON untuk transmisi.
 - **Deserialization**: Proses mengubah string JSON kembali menjadi objek JavaScript yang bisa dimanipulasi.

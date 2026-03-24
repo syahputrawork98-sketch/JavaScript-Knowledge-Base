@@ -4,11 +4,11 @@
 
 Bayangkan Web Hub Anda memiliki banyak kabel dan baterai. Tanpa **Fungsi**, Anda harus menulis ulang sirkuit yang sama setiap kali ingin menghitung daya. Fungsi memungkinkan kita untuk membungkus logika sirkuit ke dalam sebuah "perangkat" yang bisa dipanggil kapan saja.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Functions — reusable blocks of code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions)
 - **Technical Reference**: [ECMA-262 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Parameters vs Arguments**: Parameter adalah slot input (di posisi deklarasi), sedangkan argumen adalah nilai nyata (di posisi pemanggilan).
 - **Return Value**: Nilai yang dikirimkan kembali ke pemanggil setelah fungsi selesai dieksekusi.
 - **Arrow Functions**: Sintaks penulisan fungsi yang lebih ringkas menggunakan simbol `=>`.

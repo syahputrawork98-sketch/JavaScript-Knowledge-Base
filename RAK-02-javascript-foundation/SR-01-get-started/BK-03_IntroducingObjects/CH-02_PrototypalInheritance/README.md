@@ -4,11 +4,11 @@
 
 Dalam bab sebelumnya, kita menaruh fungsi `reportStatus` di dalam konstruktor. Ini berarti jika kita punya 1.000 sektor, kita punya 1.000 salinan fungsi yang sama di memori. Ini sangat tidak efisien. Solusinya adalah **Prototypal Inheritance**.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 - **Deep Dive**: [Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Prototype Chain**: Mekanisme pencarian di mana JavaScript mencari properti dari objek hingga ke akarnya (`Object.prototype`).
 - **Shadowing Properties**: Kondisi di mana sebuah objek memiliki properti dengan nama yang sama dengan prototipenya, sehingga menutupi nilai dari prototipe tersebut.
 - **`__proto__` vs `prototype`**: Perbedaan antara link internal sebuah instance dengan properti yang dimiliki oleh fungsi constructor.

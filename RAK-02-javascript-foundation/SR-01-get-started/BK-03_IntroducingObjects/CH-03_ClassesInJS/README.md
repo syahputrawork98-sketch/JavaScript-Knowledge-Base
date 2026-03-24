@@ -4,11 +4,11 @@
 
 Meskipun Prototipe dan Konstruktor yang kita pelajari sebelumnya bekerja dengan baik, JavaScript modern (ES6+) memberikan cara penulisan yang jauh lebih bersih dan intuitif melalui kata kunci **`class`**. Mari kita beralih ke **Modern Design Suite**.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 - **Technical Reference**: [ECMA-262 - Class Definitions](https://tc39.es/ecma262/#sec-class-definitions)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Syntactic Sugar**: Sintaks dalam bahasa pemrograman yang dirancang untuk membuat hal-hal lebih mudah dibaca atau diekspresikan, tanpa mengubah fungsionalitas di bawahnya.
 - **Constructor Method**: Metode khusus di dalam kelas untuk inisialisasi objek (pengganti Constructor Function lama).
 - **Inheritance (`extends`)**: Cara sebuah kelas mewarisi seluruh kemampuan dari kelas lain (Parent-Child relationship).

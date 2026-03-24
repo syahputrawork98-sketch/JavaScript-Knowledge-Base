@@ -4,11 +4,11 @@
 
 Sebuah Hub Energi yang canggih tidak hanya mengalirkan listrik secara buta. Ia harus tahu kapan harus mengaktifkan generator, kapan harus menghemat daya, dan kapan harus memberikan peringatan. Di sinilah kita menggunakan **Operator Perbandingan** dan **Operator Logika**.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#logical_operators)
 - **Technical Reference**: [ECMA-262 - Binary Logical Operators](https://tc39.es/ecma262/#sec-binary-logical-operators)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Equality (Strict vs Loose)**: Perbedaan antara `===` (memeriksa nilai & tipe) dengan `==` (memeriksa nilai saja).
 - **Short-Circuit Evaluation**: Perilaku operator `&&` dan `||` yang berhenti mengecek kondisi jika hasil sudah bisa ditentukan.
 - **Truthiness & Falsiness**: Konsep di mana nilai non-boolean (seperti `0` atau `""`) dievaluasi sebagai `true` atau `false`.

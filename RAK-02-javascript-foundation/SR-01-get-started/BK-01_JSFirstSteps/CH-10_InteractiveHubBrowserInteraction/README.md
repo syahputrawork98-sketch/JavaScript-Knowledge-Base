@@ -4,11 +4,11 @@
 
 Hingga bab ini, kita hanya melihat hasil kerja JavaScript di dalam log terminal (hitam-putih). Namun, kekuatan sesungguhnya dari JavaScript adalah kemampuannya untuk berinteraksi dengan **Browser** (Peramban) dan mengubah tampilan halaman secara instan (Kinetic).
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - JavaScript on the web](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#what_can_it_really_do)
 - **Deep Dive**: [Introduction to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **DOM (Document Object Model)**: Interface yang memperlakukan halaman web sebagai struktur pohon (tree) yang dapat kita manipulasi.
 - **Event Listener**: Mekanisme yang "mendengarkan" aktivitas pengguna (seperti klik atau ketik) untuk memicu aliran energi (fungsi).
 - **Synchronous vs Asynchronous (Intro)**: Perbedaan antara kode yang berjalan bergantian (satu per satu) dengan kode yang bisa berjalan di latar belakang.

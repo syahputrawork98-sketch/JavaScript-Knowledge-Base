@@ -4,11 +4,11 @@
 
 Promises sudah sangat hebat, tapi menulis rantai `.then()` yang sangat panjang bisa melelahkan mata. **Async/Await** adalah "Syntactic Sugar" di atas Promise yang membuat kode asinkron kita terlihat sangat bersih dan elegan.
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 - **Deep Dive**: [Asynchronous JavaScript: async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises#async_and_await)
 
-## 🎓 Senior Terminology
+## Senior Terminology
 - **Async Function**: Fungsi yang secara otomatis membungkus hasilnya ke dalam sebuah Promise.
 - **Await Keyword**: Perintah untuk "menunggu" hingga sebuah Promise selesai, tanpa membekukan Main Thread.
 - **Try/Catch Block**: Teknik penanganan error standar yang kini bisa digunakan di dalam alur asinkron berkat Async/Await.
