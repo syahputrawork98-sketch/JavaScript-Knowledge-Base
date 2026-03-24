@@ -9,7 +9,7 @@
 | **SR-04** | Executable Code and Contexts | Audit queue | [ ] Verification Pending |
 | **SR-05** | Ordinary and Exotic Objects | Audit queue | [ ] Verification Pending |
 | **SR-06** | Lexical Grammar | Audit queue | [ ] Verification Pending |
-| **SR-07** | Expressions and Operators | Audit queue | [ ] Verification Pending |
+| **SR-07** | Expressions and Operators | Structure, lab, and status sync complete | [/] Partial |
 | **SR-08** | Statements and Declarations | Structure, lab, and status sync complete | [/] Partial |
 | **SR-09** | Functions and Classes | Structure, lab, and status sync complete | [/] Partial |
 | **SR-10** | Scripts and Modules | Structure, lab, and status sync complete | [/] Partial |
@@ -20,7 +20,7 @@
 ## Audit Note
 
 - Klaim `100% Gold Standard` sedang diturunkan sementara sampai audit struktur dan isi selesai.
-- `SR-08`, `SR-09`, `SR-10`, dan `SR-11` sudah melewati pass sinkronisasi struktur, lab, dan status.
+- `SR-07`, `SR-08`, `SR-09`, `SR-10`, dan `SR-11` sudah melewati pass sinkronisasi struktur, lab, dan status.
 - Klaim final tetap ditahan sampai audit lintas sub-rak dan boundary pass selesai.
 
 ---

@@ -1,52 +1,36 @@
-# CH-04: Binary Bitwise and Logical Ops
+# CH-04: Bitwise and Logical
 
-> **"Logika biner murni. `Binary Bitwise and Logical Ops` adalah sirkuit pengambilan keputusan tingkat rendah yang bekerja langsung pada status bit atau aliran boolean."**
+> **"Operator bitwise dan logical memproses nilai pada level bit atau memilih jalur truthy-falsy dasar."**
 
-**Source Hub**: 
+**Source Hub**:
 - [ECMA-262: Binary Bitwise Operators](https://tc39.es/ecma262/#sec-binary-bitwise-operators)
 - [ECMA-262: Binary Logical Operators](https://tc39.es/ecma262/#sec-binary-logical-operators)
 
 ---
 
-## 1. Konsep & Esensi
-
-**Definisi Arsitek**:
-Operator **Binary Bitwise** (`&`, `|`, `^`) bekerja pada representasi biner 32-bit dari operannya. Operator **Logical** (`&&`, `||`, `??`) digunakan untuk mengatur aliran eksekusi berdasarkan nilai kebenaran (*truthiness*). Khusus untuk `&&` dan `||`, mereka memiliki perilaku **Short-circuiting**.
-
-**Model Mental**:
-- **Bitwise**: Gerbang logika fisik di sirkuit Hub. AND hanya menyala jika kedua kabel aktif.
-- **Logical**: Saklar cadangan di rumah. "Gunakan lampu utama (A) ATAU lampu cadangan (B)". Jika lampu utama menyala, Anda tidak perlu memeriksa lampu cadangan.
-
----
-
-## 2. Visualisasi Sistem: Short-Circuit Logic
+## Mekanisme Inti
 
 ```mermaid
 graph TD
-    Start[A || B] --> CheckA{Is A Truthy?}
-    CheckA -->|Yes| EndA[Result: A / Skip B]
-    CheckA -->|No| CheckB[Result: B]
-    
-    style CheckA fill:#f1c40f,stroke:#333
-    style EndA fill:#a8e6cf,stroke:#333
+    Inputs[Evaluate operands] --> Kind{Bitwise or logical?}
+    Kind --> Bits[Normalize to integer-like bits]
+    Kind --> Logic[Check truthy/falsy flow]
+    Bits --> Result[Produce final value]
+    Logic --> Result
 ```
 
 ---
 
-## 3. Mekanisme & Hubungan
-
-### Operator Modern
-1. **Nullish Coalescing (`??`)**: Hanya beralih ke operand kedua jika yang pertama adalah `null` atau `undefined`. Berbeda dengan `||` yang beralih jika nilai pertama adalah "falsy" (termasuk `0` atau `""`).
-2. **Short-circuiting**: Penting untuk performa. Jika operand pertama `&&` sudah `false`, Hub tidak akan membuang energi untuk mengevaluasi operand kedua.
-3. **Bitwise AND/OR/XOR**: Digunakan untuk manipulasi flag status dalam satu variabel.
-
-### Arsitek Mindset: The "Truthy" Trap
-- Selalu hargai perbedaan antara `||` dan `??`. Dalam arsitektur konfigurasi, seringkali nilai `0` atau `false` adalah nilai yang valid. Menggunakan `||` untuk memberikan nilai default dalam kasus tersebut akan me-reset sirkuit ke default secara tidak sengaja.
+## Fokus Audit
+1. Bitwise operators mendorong operand ke representasi integer-like sebelum evaluasi.
+2. Logical operators tidak selalu mengembalikan boolean; mereka bisa mengembalikan salah satu operand.
+3. Short-circuit detail akan diperdalam lagi di `BK-07`.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/logical_shortcircuit_lab.js` untuk melihat bagaimana Hub menghentikan eksekusi di tengah jalan melalui mekanisme short-circuit.
+## Lab Praktis
+
+Buka file `examples/01_bitwise_logical_lab.js` untuk membandingkan hasil operator bitwise dan logical pada operand yang sama.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

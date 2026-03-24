@@ -1,24 +1,25 @@
-# BK-03: Logic and Assignment (Clause 13.14-13.16)
+# BK-03: Logic and Assignment
 
-> **"Pengambilan Keputusan dan Distribusi Energi."**
+> **"Jalur inti untuk operator pemilih jalur dan operator yang menyalurkan hasil evaluasi ke target reference."**
 
-Buku ini membedah operator tingkat tinggi yang digunakan untuk percabangan logika singkat dan bagaimana Hub mendistribusikan nilai ke dalam variabel melalui penugasan.
-
----
-
-## 🏗️ Struktur Bab (Gold Standard)
-
-- **[CH-01: Conditional and Logical Assignment](./CH-01_ConditionalAssignment/)**
-  - Operator Ternary (`? :`) dan operator logika gabungan (`&&=`, `||=`, `??=`).
-- **[CH-02: Assignment and Comma Operators](./CH-02_AssignmentAndComma/)**
-  - Penugasan sederhana, Destructuring, dan operator Comma.
+**Source Hub**:
+- [ECMA-262: Conditional Operator](https://tc39.es/ecma262/#sec-conditional-operator)
+- [ECMA-262: Assignment Operators](https://tc39.es/ecma262/#sec-assignment-operators)
+- [ECMA-262: Comma Operator](https://tc39.es/ecma262/#sec-comma-operator)
 
 ---
 
-## 🎯 Fokus Pembelajaran
-1. Memahami alur evaluasi operator Kondisional (Ternary).
-2. Mengenali perilaku "Short-circuit" pada operator Logical Assignment modern.
-3. Menguasai mekanisme Penugasan Destructuring (Array/Object) di level spesifikasi.
+## Struktur Bab
+
+1. **[CH-01: Conditional Assignment](./CH-01_ConditionalAssignment/)**: ternary, logical assignment, dan jalur evaluasi bersyarat.
+2. **[CH-02: Assignment and Comma](./CH-02_AssignmentAndComma/)**: simple assignment, compound assignment, destructuring, dan comma evaluation.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-07](../README.md)*
+
+## Fokus Audit
+1. Bedakan operator logika pengambil jalur dari operator assignment yang menulis hasil.
+2. Jaga reference semantics dan `PutValue` tetap terlihat di chapter assignment.
+3. Gunakan buku ini sebagai penutup jalur inti sebelum pendalaman `BK-04` dan `BK-05`.
+
+---
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-07](../README.md)*

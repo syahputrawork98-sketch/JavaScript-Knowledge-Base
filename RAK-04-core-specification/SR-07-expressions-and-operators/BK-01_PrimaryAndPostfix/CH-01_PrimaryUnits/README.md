@@ -1,51 +1,35 @@
-# CH-01: Primary Units and Initializers
+# CH-01: Primary Units
 
-> **"Blok bangunan energi paling dasar. `Primary Units and Initializers` mendefinisikan atom-atom yang menjadi asal muasal setiap perhitungan di Hub."**
+> **"Primary expressions membentuk nilai dasar sebelum operator lain mulai memprosesnya."**
 
-**Source Hub**: 
+**Source Hub**:
 - [ECMA-262: Primary Expressions](https://tc39.es/ecma262/#sec-primary-expressions)
 
 ---
 
-## 1. Konsep & Esensi
-
-**Definisi Arsitek**:
-**Primary Expressions** adalah ekspresi yang tidak bisa diuraikan lagi secara struktural tanpa kehilangan maknanya. Ini mencakup kata kunci `this`, Identifier (nama variabel), Literals (angka, string), serta inisialisasi kompleks seperti Array dan Object literal.
-
-**Model Mental**:
-Bayangkan Hub sebagai pabrik perakitan. Primary Units adalah komponen mentah (seperti baut, kabel, atau baterai) yang belum disambungkan ke sirkuit apa pun. Mereka adalah sumber daya murni.
-
----
-
-## 2. Visualisasi Sistem: Primary Resolution
+## Mekanisme Inti
 
 ```mermaid
 graph TD
-    Code[Expression: {x: 1}] --> Type{Type Check}
-    Type -->|this| This[Get [[ThisValue]] from Context]
-    Type -->|Identifier| Resolve[Lookup Name in Env Record]
-    Type -->|Object| Init[Execute Object Literal Algorithm]
-    
-    style Init fill:#a8e6cf,stroke:#333
-    style This fill:#e1f5fe,stroke:#01579b
+    Expr[Encounter primary expression] --> Kind{Identifier / this / literal / initializer}
+    Kind --> Resolve[Resolve name or literal value]
+    Kind --> Build[Build composite literal result]
+    Resolve --> Value[Produce value or reference]
+    Build --> Value
 ```
 
 ---
 
-## 3. Mekanisme & Hubungan
-
-### Komponen Utama (Clause 13.2)
-1. **Identifier Reference**: Proses mencari nama variabel di dalam Environment Record. Jika tidak ditemukan, Hub melempar **ReferenceError**.
-2. **Object Initializer**: Bukan sekadar wadah data, tapi serangkaian instruksi untuk menjalankan operasi `[[DefineOwnProperty]]` satu per satu.
-3. **Function/Class Expressions**: Primary units yang menciptakan objek fungsi atau class secara anonim atau bernama di dalam lingkup lokal.
-
-### Arsitek Mindset: The Value of "this"
-- `this` adalah unit primer yang paling dinamis. Nilainya tidak tetap, melainkan ditentukan oleh "siapa" yang memanggil sirkuit tersebut. Memahami `this` berarti Anda memahami kontrol akses di level arsitektur.
+## Fokus Audit
+1. Identifier reference dan literal value tidak melalui jalur evaluasi yang sama.
+2. `this` adalah primary expression yang nilainya datang dari execution context.
+3. Initializer menghasilkan struktur nilai melalui langkah pembentukan internal, bukan sekadar teks literal.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/primary_units_lab.js` untuk melihat bagaimana Hub mengevaluasi identitas `this` dan resolusi identifier di berbagai tingkat scope.
+## Lab Praktis
+
+Buka file `examples/01_primary_units_lab.js` untuk membandingkan resolusi identifier, `this`, dan object initializer dalam satu alur pendek.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*
