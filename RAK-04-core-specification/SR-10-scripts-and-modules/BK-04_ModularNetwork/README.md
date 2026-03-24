@@ -21,4 +21,5 @@ Buku ini memperdalam cara modul diidentifikasi sebagai graph, disiapkan sebagai 
 3. Menyediakan hub navigasi yang sinkron dengan chapter nyata.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-10](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-10](../README.md)*
+

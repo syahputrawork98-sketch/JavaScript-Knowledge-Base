@@ -21,4 +21,5 @@ Buku ini memperdalam generator dan async functions sebagai jalur eksekusi spesia
 3. Menormalkan buku paralel lama menjadi jalur resmi.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-09](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-09](../README.md)*
+

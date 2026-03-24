@@ -21,4 +21,5 @@ Buku ini memperdalam dua keluarga built-ins yang paling sering dipakai untuk men
 3. Menjaga hubungan eksplisit antara koleksi kuat dan weak collections.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-11](../README.md)*
+

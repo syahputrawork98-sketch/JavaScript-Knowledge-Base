@@ -21,4 +21,5 @@ Buku ini memfokuskan pendalaman pada objek global dan unit bawaan yang langsung 
 3. Menyediakan jalur baca lanjutan untuk pembaca yang ingin bedah mekanik lebih rinci.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-11](../README.md)*
+

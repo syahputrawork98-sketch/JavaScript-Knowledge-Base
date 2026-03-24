@@ -50,4 +50,4 @@ graph TD
 Buka file `examples/01_async_v_generator_lab.js` untuk melihat perbedaan bentuk alur antara generator dan async function.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

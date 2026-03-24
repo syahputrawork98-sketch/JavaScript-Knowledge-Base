@@ -21,4 +21,5 @@ Buku ini memperdalam fase-fase yang dilalui modul sebelum dan saat energi akhirn
 3. Menormalisasi buku paralel menjadi bagian resmi `SR-10`.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-10](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-10](../README.md)*
+

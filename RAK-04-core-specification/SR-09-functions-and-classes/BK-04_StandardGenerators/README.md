@@ -23,4 +23,5 @@ Buku ini memperdalam fungsi biasa, arrow functions, dan perilaku binding konteks
 3. Menormalkan buku paralel lama menjadi hub resmi.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-09](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-09](../README.md)*
+

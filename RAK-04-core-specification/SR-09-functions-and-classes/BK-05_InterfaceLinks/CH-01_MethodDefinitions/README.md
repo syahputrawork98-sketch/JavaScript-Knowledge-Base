@@ -1,50 +1,39 @@
-# CH-01: Method Definitions (Object Connectors)
+# CH-01: Method Definitions
 
-> **"Sebuah unit mandiri (Object) membutuhkan jalur untuk melakukan aksi. `Method Definitions` adalah 'Konektor Objek' (Object Connectors)—fungsi yang terpasang langsung pada sirkuit objek untuk memanipulasi datanya."**
+> **"Cara objek menerima perilaku yang tetap terhubung ke rumahnya sendiri."**
 
-*Pemetaan ECMA-262: Clause 15.4*
+**Source Hub**:
+- [ECMA-262: Method Definitions](https://tc39.es/ecma262/#sec-method-definitions)
+
+---
 
 ## 1. Mental Model: "The Integrated Connector"
 
-Metode adalah fungsi yang hidup di dalam konteks objek. Sejak standar Hub modern (ES6+), kita tidak lagi membutuhkan kata kunci `function` untuk memasang metode:
-```javascript
-const hub = {
-    id: "H1",
-    activate() { // Sintaks ringkas (Method Definition)
-        console.log(`Activating ${this.id}`);
-    }
-};
+Method definition menempelkan fungsi langsung ke objek atau class dengan sintaks yang lebih ringkas dan kontrak internal yang lebih kaya.
+
+---
+
+## 2. Visualisasi Sistem: HomeObject Link
+
+```mermaid
+graph LR
+    Method[Method] --> HomeObject[[HomeObject]]
+    HomeObject --> Super[super Resolution]
 ```
 
 ---
 
-## 2. Keunggulan Internal
+## 3. Mekanisme & Hubungan
 
-Metode yang didefinisikan dengan sintaks ringkas memiliki akses ke kata kunci **`super`** (untuk menembus ke prototipe atas) dan secara otomatis memiliki label internal `[[HomeObject]]` yang mengikatnya ke objek tempat ia didefinisikan.
-
----
-
-## 3. Praktik Lapangan (Lab)
-
-```javascript
-const station = {
-    voltage: 0,
-    setVoltage(v) {
-        this.voltage = v;
-        console.log(`Station Voltage: ${this.voltage}V`);
-    }
-};
-
-station.setVoltage(220);
-```
+1. Method definition dapat membawa `[[HomeObject]]`.
+2. Slot ini penting untuk perilaku `super`.
+3. Sintaks metode ringkas bukan sekadar gaya, tetapi membawa konsekuensi semantik.
 
 ---
 
-## Arsitek Mindset: Metode vs Properti Fungsi
+## 4. Lab Praktis
 
-Sebagai arsitek Hub:
-- Gunakan sintaks metode ringkas `{ fn() {} }` untuk semua fungsi yang menempel pada objek. Ini lebih bersih dan memberikan kemampuan `super` yang tidak dimiliki oleh properti fungsi biasa `{ fn: function() {} }`.
-- Ingat bahwa metode objek standar memiliki `this` yang dinamis, berbeda dengan Arrow Functions yang `this`-nya statis.
+Buka file `examples/01_method_definitions_lab.js` untuk melihat metode ringkas bekerja sebagai konektor perilaku objek.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

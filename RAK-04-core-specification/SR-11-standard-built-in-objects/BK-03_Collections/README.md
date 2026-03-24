@@ -23,4 +23,5 @@ Buku ini membedah bagaimana Hub mengelola teks melalui **String** dan **RegExp**
 3. Mengenali perbedaan performa antara `Map` vs Objek biasa untuk penyimpanan kunci dinamis.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-11](../README.md)*
+

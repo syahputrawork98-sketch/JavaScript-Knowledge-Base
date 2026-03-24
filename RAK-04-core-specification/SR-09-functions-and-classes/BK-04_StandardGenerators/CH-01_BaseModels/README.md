@@ -1,51 +1,43 @@
-# CH-01: Base Models (Standard Power Plants)
+# CH-01: Base Models
 
-> **"Di dalam Grid, logika tidak boleh dibiarkan liar. `Standard Generators` adalah 'Pembangkit Tenaga' (Power Plants)—unit pembungkus kode yang dirancang untuk menerima input energi (Parameters), mengolahnya, dan mengirimkan output (Return)."**
+> **"Model dasar fungsi biasa sebagai pembangkit kerja utama di Grid."**
 
-*Pemetaan ECMA-262: Clause 15.2*
+**Source Hub**:
+- [ECMA-262: Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
+
+---
 
 ## 1. Mental Model: "The Power Plant"
 
-Fungsi standar bertindak sebagai blueprint tetap:
-- **Function Declaration**: Unit yang terpasang permanen di dalam Hub sebelum Grid dinyalakan (Hoisted). Anda bisa memanggilnya meskipun unitnya tertulis di bagian bawah blueprint.
-- **Function Expression**: Unit portabel yang disimpan di dalam slot variabel. Ia hanya bisa digunakan setelah jalur energinya dideklarasikan (Not Hoisted).
+Fungsi biasa adalah unit kerja yang:
+- menerima parameter,
+- menjalankan body,
+- mengirim hasil melalui `return`,
+- dapat dideklarasikan sebagai declaration atau expression.
 
 ---
 
-## 2. Anatomy of a Generator
+## 2. Visualisasi Sistem: Function Processing Core
 
-Setiap unit fungsional memiliki:
-1.  **Input Chutes (Parameters)**: Tempat masuknya data.
-2.  **Internal Reactor (Body)**: Tempat pengolahan logika.
-3.  **Output Transmission (Return)**: Tempat mengirimkan hasil akhir. Jika tidak ada, ia tetap mengirimkan sinyal kosong (`undefined`).
-
----
-
-## 3. Praktik Lapangan (Lab)
-
-```javascript
-// Declaration (Hoisted)
-activateCore(); 
-
-function activateCore() {
-    console.log("CORE_STATUS: ONLINE");
-}
-
-// Expression (Non-Hoisted)
-const pumpEnergy = function(amount) {
-    return amount * 1.5;
-};
-
-console.log(`Energy Pumped: ${pumpEnergy(10)}`);
+```mermaid
+graph LR
+    Input[Parameters] --> Body[Function Body]
+    Body --> Output[Return Value]
 ```
 
 ---
 
-## Arsitek Mindset: Disiplin Nama
+## 3. Mekanisme & Hubungan
 
-Sebagai arsitek Hub:
-- Berikan nama yang deskriptif untuk setiap unit (seperti `calculateLoad` daripada `fn1`). Nama fungsi adalah label pada panel kontrol yang membantu teknisi lain memahami fungsi sirkuit tersebut tanpa harus membedah isinya.
-- Pahami perbedaan *Shadowing*. Variabel di dalam "Reactor" fungsi tidak akan mempengaruhi variabel dengan nama yang sama di luar fungsi (Environment Records).
+1. Function declaration terdaftar saat inisialisasi scope.
+2. Function expression baru bisa dipakai setelah binding variabelnya tersedia.
+3. Model dasar ini menjadi fondasi bagi seluruh keluarga fungsi lain di `SR-09`.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+
+## 4. Lab Praktis
+
+Buka file `examples/01_base_models_lab.js` untuk membandingkan declaration dan expression dalam satu eksperimen sederhana.
+
+---
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

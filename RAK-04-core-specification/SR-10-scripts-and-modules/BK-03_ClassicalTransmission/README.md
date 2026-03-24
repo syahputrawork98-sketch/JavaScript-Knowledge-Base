@@ -21,4 +21,5 @@ Buku ini memperdalam perilaku script tradisional ketika kode dimuat langsung ke 
 3. Menormalkan buku paralel menjadi hub resmi yang sinkron dengan struktur folder.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-10](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-10](../README.md)*
+

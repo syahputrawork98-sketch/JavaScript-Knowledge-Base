@@ -21,4 +21,5 @@ Buku ini memperdalam bagaimana sinyal ekspor-impor dialirkan secara permanen mau
 3. Menyediakan buku pendalaman yang cocok untuk audit boundary `RAK-04`.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-10](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-10](../README.md)*
+

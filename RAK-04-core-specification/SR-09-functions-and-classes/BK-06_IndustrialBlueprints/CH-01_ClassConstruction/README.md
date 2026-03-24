@@ -1,50 +1,43 @@
-# CH-01: Class Construction (Hub Blueprints)
+# CH-01: Class Construction
 
-> **"Untuk membangun infrastruktur Hub yang masif dan terstandarisasi, kita membutuhkan cetak biru yang kaku namun modular. `Classes` adalah 'Cetak Biru Industri' (Hub Blueprints)—sistem perakitan objek yang elegan di atas fondasi prototipe."**
+> **"Cara blueprint class membentuk instance dan private state."**
 
-*Pemetaan ECMA-262: Clause 15.7*
+**Source Hub**:
+- [ECMA-262: Class Definitions](https://tc39.es/ecma262/#sec-class-definitions)
+
+---
 
 ## 1. Mental Model: "The Blueprint"
 
-Kelas di JavaScript bertindak sebagai instruksi perakitan:
-- **`constructor`**: Ruang instalasi awal. Sinyal yang masuk ke sini akan menetapkan status awal unit (Properti).
-- **Prototypal Foundation**: Di balik layar, Hub tidak menciptakan tipe data baru, melainkan menggunakan sistem **Prototype** yang sudah kita pelajari di SR-05 namun dengan sintaks yang lebih manusiawi.
+Class mendeskripsikan proses perakitan objek:
+- constructor menetapkan state awal,
+- metode dibagikan melalui prototype,
+- private fields menjaga state internal tetap tertutup.
 
 ---
 
-## 2. Public vs Private Slots
+## 2. Visualisasi Sistem: Class Construction Flow
 
-Standar Hub modern (ES2022+) mengizinkan pemasangan **Private Fields** (`#field`). Ini adalah slot energi yang terkunci rapat di dalam blueprint dan tidak bisa diakses oleh teknisi luar, bahkan dengan paksaan.
-
----
-
-## 3. Praktik Lapangan (Lab)
-
-```javascript
-class PowerStation {
-    #serialNumber = "SN-999"; // Private Slot
-    
-    constructor(name) {
-        this.name = name; // Public Slot
-    }
-    
-    boot() {
-        console.log(`Booting ${this.name}... Serial: ${this.#serialNumber}`);
-    }
-}
-
-const myStation = new PowerStation("Alpha-1");
-myStation.boot();
-// console.log(myStation.#serialNumber); // ERROR: Private access denied!
+```mermaid
+graph TD
+    Class[Class Definition] --> Constructor[constructor]
+    Constructor --> Instance[Instance]
+    Class --> Prototype[Prototype Methods]
 ```
 
 ---
 
-## Arsitek Mindset: Kelas vs Objek Literal
+## 3. Mekanisme & Hubungan
 
-Sebagai arsitek Hub:
-- Gunakan **Classes** saat Anda butuh menciptakan banyak unit dengan perilaku (Metode) yang sama. Ini jauh lebih hemat memori karena metode hanya disimpan satu kali di prototipe.
-- Gunakan **Object Literals** jika Anda hanya butuh satu unit unik (*Singular Unit*) tanpa perlu proses perakitan berulang.
+1. Class tetap berdiri di atas sistem prototype, bukan tipe baru yang terpisah.
+2. Constructor berjalan pada saat `new` dipanggil.
+3. Private field memberi isolasi data yang lebih kuat dibanding pola lama berbasis konvensi.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+
+## 4. Lab Praktis
+
+Buka file `examples/01_class_construction_lab.js` untuk melihat constructor dan private field bekerja bersama.
+
+---
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

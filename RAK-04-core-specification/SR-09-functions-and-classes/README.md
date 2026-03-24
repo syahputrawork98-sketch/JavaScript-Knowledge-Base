@@ -53,4 +53,4 @@ graph TD
 - `BK-04` sampai `BK-07` adalah jalur pendalaman yang sebelumnya hidup sebagai struktur paralel dan kini dinormalisasi sebagai buku eksplisit.
 
 ---
-*Status: [/] Partial | [status.md](../../status.md) | Back to [RAK-04](../README.md)*
+*Status: [/] Partial | [status.md](../docs/status.md) | Back to [RAK-04](../README.md)*

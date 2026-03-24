@@ -1,24 +1,23 @@
-# BK-03: Variable Bindings and Modules (Clause 14.16-16)
+# BK-03: Variable Bindings and Modules
 
-> **"Alokasi Memori dan Struktur Global."**
+> **"Jalur inti untuk statement-level bindings dan hubungan deklarasi dengan root code units."**
 
-Buku ini membedah bagaimana Hub melakukan pengikatan variabel ke dalam lingkupnya serta bagaimana unit-unit kode besar (**Scripts** dan **Modules**) diorganisir.
-
----
-
-## 🏗️ Struktur Bab (Gold Standard)
-
-- **[CH-01: Variable Bindings and Hoisting](./CH-01_VariableBindings/)**
-  - Deklarasi `var`, `let`, `const`, dan mekanisme pendaftaran deklarasi.
-- **[CH-02: Scripts and Modules](./CH-02_ScriptsAndModules/)**
-  - Evaluasi root, ekspor/impor, dan perbedaan antara Script vs Module.
+**Source Hub**:
+- [ECMA-262: Statements and Declarations](https://tc39.es/ecma262/#sec-ecmascript-language-statements-and-declarations)
 
 ---
 
-## 🎯 Fokus Pembelajaran
-1. Memahami perbedaan antara penugasan nilai dan pengikatan (Binding) leksikal.
-2. Mengenali alasan mengapa `const` menuntut inisialisasi instan di level spec.
-3. Menguasai siklus hidup Module (Parse, Instantiate, Evaluate).
+## Struktur Bab
+
+1. **[CH-01: Variable Bindings](./CH-01_VariableBindings/)**: `var`, `let`, `const`, hoisting, dan deklarasi binding.
+2. **[CH-02: Scripts and Modules](./CH-02_ScriptsAndModules/)**: jembatan statement-level ke script/module roots.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-08](../README.md)*
+
+## Fokus Audit
+1. Pastikan pembahasan binding tidak tumpang tindih berlebihan dengan `SR-10`.
+2. Verifikasi pembedaan lexical binding vs variable environment.
+3. Gunakan buku ini sebagai inti sebelum pendalaman `BK-06`.
+
+---
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-08](../README.md)*

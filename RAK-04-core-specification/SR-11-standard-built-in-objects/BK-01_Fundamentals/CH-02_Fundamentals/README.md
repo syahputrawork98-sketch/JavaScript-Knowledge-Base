@@ -48,4 +48,4 @@ graph LR
 Buka file `examples/01_fundamental_intrinsics_lab.js` untuk melihat bagaimana penggunaan `Symbol` dapat menyembunyikan properti sensitif dari iterasi standar `for...in`.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

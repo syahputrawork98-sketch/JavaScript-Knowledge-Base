@@ -49,4 +49,4 @@ graph TD
 Buka file `examples/01_script_global_leak_lab.js` untuk melihat bagaimana deklarasi `var` di satu skrip mencemari scope di skrip lainnya di dalam Hub yang sama.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

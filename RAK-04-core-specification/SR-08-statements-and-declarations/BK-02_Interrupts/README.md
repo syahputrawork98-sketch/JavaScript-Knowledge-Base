@@ -1,24 +1,23 @@
-# BK-02: Signal Interrupts and Exceptions (Clause 14.9-14.15)
+# BK-02: Signal Interrupts and Exceptions
 
-> **"Interupsi dan Pengalihan Arus Energi."**
+> **"Jalur inti untuk memahami bagaimana statement dapat memutus, mengalihkan, atau menangkap aliran eksekusi."**
 
-Buku ini membedah bagaimana Hub menangani interupsi aliran eksekusi, baik yang disengaja (**Control Transfer**) maupun yang tidak terduga (**Exceptions**).
-
----
-
-## 🏗️ Struktur Bab (Gold Standard)
-
-- **[CH-01: Control Transfer and Signal Interrupts](./CH-01_ControlTransfer/)**
-  - Mekanisme `break`, `continue`, `return`, dan penggunaan `labels`.
-- **[CH-02: Exception Handling and Throwing](./CH-02_ExceptionHandling/)**
-  - Sirkuit pengaman `try-catch-finally` dan pelepasan energi error melalui `throw`.
+**Source Hub**:
+- [ECMA-262: Statements and Declarations](https://tc39.es/ecma262/#sec-ecmascript-language-statements-and-declarations)
 
 ---
 
-## 🎯 Fokus Pembelajaran
-1. Memahami bagaimana `return` menghentikan seluruh sirkuit fungsi dan mengirim balik muatan.
-2. Menguasai aturan "Completion Record" yang menentukan urutan prioritas antara `catch` dan `finally`.
-3. Mengenali `label` sebagai cara untuk melakukan interupsi pada sirkuit bersarang yang dalam.
+## Struktur Bab
+
+1. **[CH-01: Control Transfer](./CH-01_ControlTransfer/)**: `break`, `continue`, `return`, dan completion flow.
+2. **[CH-02: Exception Handling](./CH-02_ExceptionHandling/)**: `throw`, `try`, `catch`, dan `finally`.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-08](../README.md)*
+
+## Fokus Audit
+1. Pastikan completion records dijelaskan sebagai mekanisme inti, bukan sekadar gejala runtime.
+2. Verifikasi relasi antara interrupt statements dan penargetan label.
+3. Gunakan buku ini sebagai fondasi sebelum pendalaman `BK-05` dan `BK-07`.
+
+---
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-08](../README.md)*

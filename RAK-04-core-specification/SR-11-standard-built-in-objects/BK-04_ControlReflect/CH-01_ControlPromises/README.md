@@ -54,4 +54,4 @@ graph LR
 Buka file `examples/01_promise_concurrency_lab.js` untuk menguji perbedaan perilaku antara `Promise.all` dan `Promise.allSettled` saat salah satu sirkuit mengalami kegagalan.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

@@ -51,4 +51,4 @@ graph TD
 Buka file `examples/01_class_inheritance_lab.js` untuk membedah bagaimana rantai prototipe diciptakan saat menggunakan `extends`.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

@@ -10,18 +10,18 @@
 | **SR-05** | Ordinary and Exotic Objects | Audit queue | [ ] Verification Pending |
 | **SR-06** | Lexical Grammar | Audit queue | [ ] Verification Pending |
 | **SR-07** | Expressions and Operators | Audit queue | [ ] Verification Pending |
-| **SR-08** | Statements and Declarations | Audit queue | [ ] Verification Pending |
-| **SR-09** | Functions and Classes | Audit queue | [ ] Verification Pending |
-| **SR-10** | Scripts and Modules | Audit queue | [ ] Verification Pending |
-| **SR-11** | Standard Built-in Objects | Structural sync in progress | [/] Partial |
+| **SR-08** | Statements and Declarations | Structure, lab, and status sync complete | [/] Partial |
+| **SR-09** | Functions and Classes | Structure, lab, and status sync complete | [/] Partial |
+| **SR-10** | Scripts and Modules | Structure, lab, and status sync complete | [/] Partial |
+| **SR-11** | Standard Built-in Objects | Structure, lab, and status sync complete | [/] Partial |
 | **SR-12** | Memory Management and GC | Audit queue | [ ] Verification Pending |
 
 ---
 ## Audit Note
 
 - Klaim `100% Gold Standard` sedang diturunkan sementara sampai audit struktur dan isi selesai.
-- `SR-11` menjadi sub-rak pertama yang masuk fase eksekusi dan kini sudah disinkronkan ulang di level struktur buku.
-- Sub-rak lain akan diperbarui statusnya setelah melewati pass yang sama.
+- `SR-08`, `SR-09`, `SR-10`, dan `SR-11` sudah melewati pass sinkronisasi struktur, lab, dan status.
+- Klaim final tetap ditahan sampai audit lintas sub-rak dan boundary pass selesai.
 
 ---
 *Back to [RAK-04 README](../README.md)*

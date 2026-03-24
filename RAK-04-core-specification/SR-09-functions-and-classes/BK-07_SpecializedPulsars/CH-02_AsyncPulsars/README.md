@@ -1,43 +1,40 @@
-# CH-02: Async Pulsars (Delayed Transmission)
+# CH-02: Async Pulsars
 
-> **"Dalam Grid yang luas, beberapa sinyal membutuhkan waktu untuk sampai dari server jauh. `Async Pulsars` adalah 'Pulsar Tunda' (Delayed Transmission)—unit yang memungkinkan Hub menunggu sinyal eksternal tanpa membekukan seluruh sistem (Non-blocking)."**
+> **"Fungsi spesialis yang menunda kelanjutan eksekusi sampai sinyal asinkron siap."**
 
-*Pemetaan ECMA-262: Clause 15.8 (v2025)*
+**Source Hub**:
+- [ECMA-262: Async Function Definitions](https://tc39.es/ecma262/#sec-async-function-definitions)
+
+---
 
 ## 1. Mental Model: "The Non-Blocking Wait"
 
-- **`async`**: Memberi label pada unit bahwa ia akan selalu mengembalikan **Promise** (Janji Energi).
-- **`await`**: Instruksi untuk "Istirahat sejenak" di baris tersebut sampai Promise terpenuhi. Hub akan melepaskan resource untuk mengerjakan tugas lain sambil menunggu sinyal ini kembali.
+Async function memecah alur kerja menjadi segmen sebelum dan sesudah `await`, sambil mengembalikan Promise sebagai kontrak luarnya.
 
 ---
 
-## 2. Microtask Integration
+## 2. Visualisasi Sistem: Await Continuation
 
-Secara internal, saat `await` dipicu, Hub memecah fungsi menjadi dua bagian. Bagian setelah `await` dijadwalkan masuk ke **Microtask Queue**—jalur prioritas tinggi yang akan dijalankan segera setelah sirkuit utama saat ini selesai.
-
----
-
-## 3. Praktik Lapangan (Lab)
-
-```javascript
-async function fetchPowerGrid() {
-    try {
-        console.log("Requesting external energy...");
-        const response = await promiseBasedAPI(); // Menunggu tanpa membeku
-        console.log("Energy Received:", response);
-    } catch (err) {
-        console.log("Transmission Failed");
-    }
-}
+```mermaid
+graph TD
+    Run[Run Async Function] --> Await[await]
+    Await --> Queue[Queue Continuation]
+    Queue --> Resume[Resume Later]
 ```
 
 ---
 
-## Arsitek Mindset: Disiplin Asinkron
+## 3. Mekanisme & Hubungan
 
-Sebagai arsitek Hub:
-- Gunakan `async/await` daripada `Promise.then()` yang bersarang (Callback Hell) untuk menjaga blueprint tetap bersih dan mudah dibaca secara linier.
-- Selalu bungkus `await` di dalam **try-catch** karena malfungsi pada sinyal asinkron bisa menyebabkan kegagalan fatal yang sulit dilacak jika tidak ditangkap.
+1. Async function selalu menghasilkan Promise.
+2. `await` menangguhkan kelanjutan dan menjadwalkannya kembali sebagai microtask.
+3. Ini membuat async function menjadi jembatan penting antara model fungsi dan model Promise.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+
+## 4. Lab Praktis
+
+Buka file `examples/01_async_pulsars_lab.js` untuk melihat async function menunggu Promise lalu melanjutkan eksekusi.
+
+---
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

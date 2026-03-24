@@ -49,4 +49,4 @@ graph TD
 Buka file `examples/01_module_namespace_lab.mjs` untuk melihat bagaimana objek namespace modul berperilaku dan mengapa Anda tidak bisa mengubah nilainya dari luar.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

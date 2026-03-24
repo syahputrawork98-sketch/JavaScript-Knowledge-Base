@@ -21,4 +21,5 @@ Buku ini memperdalam hubungan antara function objects dengan permukaan objek mel
 3. Menormalkan buku paralel lama menjadi jalur pendalaman resmi.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-09](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-09](../README.md)*
+

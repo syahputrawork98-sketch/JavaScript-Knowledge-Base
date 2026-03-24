@@ -21,4 +21,5 @@ Buku ini memperdalam dua kelompok built-ins yang berkaitan dengan representasi t
 3. Menyediakan hub yang sinkron dengan chapter nyata di folder buku ini.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-11](../README.md)*
+

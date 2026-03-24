@@ -1,24 +1,23 @@
-# BK-01: Control Flow and Blocks (Clause 14.1-14.8)
+# BK-01: Control Flow and Blocks
 
-> **"Logika Pengarahan Arus Energi."**
+> **"Jalur utama yang mengarahkan eksekusi statement dari blok ke percabangan dan iterasi."**
 
-Buku ini membedah bagaimana Hub mengelompokkan instruksi ke dalam blok dan bagaimana ia memutuskan jalur eksekusi melalui sirkuit redundan (Loops dan Selection).
-
----
-
-## 🏗️ Struktur Bab (Gold Standard)
-
-- **[CH-01: Blocks and Lexical Scoping](./CH-01_BlocksAndScope/)**
-  - Pembatasan energi melalui `{ }` dan pembuatan Environment Record baru.
-- **[CH-02: Selection and Iteration Units](./CH-02_SelectionIteration/)**
-  - Algoritma `if-else`, loops (`for`, `while`), dan evaluasi kondisinya.
+**Source Hub**:
+- [ECMA-262: Statements and Declarations](https://tc39.es/ecma262/#sec-ecmascript-language-statements-and-declarations)
 
 ---
 
-## 🎯 Fokus Pembelajaran
-1. Memahami mengapa `{ }` menciptakan scope baru untuk `let/const` tapi tidak untuk `var`.
-2. Menguasai mekanisme iterasi pada `for...of` yang melibatkan protokol iterator.
-3. Mengenali perbedaan antara evaluasi blok biasa vs blok fungsi di level spec.
+## Struktur Bab
+
+1. **[CH-01: Blocks and Scope](./CH-01_BlocksAndScope/)**: block statement, lexical environment, dan batas visibilitas binding.
+2. **[CH-02: Selection and Iteration](./CH-02_SelectionIteration/)**: `if`, `switch`, loop statements, dan evaluasi kondisi.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-08](../README.md)*
+
+## Fokus Audit
+1. Pastikan penjelasan blok vs lexical scope tetap spec-oriented.
+2. Verifikasi hubungan selection/iteration dengan completion flow.
+3. Gunakan buku ini sebagai jalur inti sebelum masuk pendalaman `BK-04`.
+
+---
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-08](../README.md)*

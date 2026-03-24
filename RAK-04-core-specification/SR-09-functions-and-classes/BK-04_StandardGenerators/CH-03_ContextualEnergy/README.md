@@ -1,48 +1,46 @@
-# CH-03: Contextual Energy (The this Binding)
+# CH-03: Contextual Energy (`this`)
 
-> **"Di dalam Hub, identitas unit ditentukan oleh di mana sirkuit dijalankan. `this` adalah 'Energi Kontekstual' (Contextual Energy)—pointer dinamis yang menentukan objek mana yang saat ini memegang kendali atas eksekusi fungsi."**
+> **"Pointer dinamis yang berubah berdasarkan bagaimana fungsi dipanggil."**
 
-*Pemetaan ECMA-262: Clause 10.2.1*
-
-## 1. Empat Aturan Pengaliran `this`
-
-1.  **Default Binding**: Di luar sirkuit formal (Global), `this` merujuk pada Global Object (atau `undefined` dalam Strict Mode).
-2.  **Implicit Binding**: Saat fungsi dipanggil sebagai metode objek (`obj.fn()`), `this` merujuk pada `obj` tersebut.
-3.  **Explicit Binding**: Menggunakan unit pengarah `call`, `apply`, atau `bind` untuk memaksa `this` merujuk pada target tertentu.
-4.  **New Binding**: Saat fungsi digunakan sebagai konstruktor (`new Fn()`), `this` merujuk pada objek baru yang baru saja dirakit.
+**Source Hub**:
+- [ECMA-262: OrdinaryCallBindThis](https://tc39.es/ecma262/#sec-ordinarycallbindthis)
 
 ---
 
-## 2. Bind: Perekat Konteks Permanen
+## 1. Mental Model: "The Binding Rules"
 
-Unit `.bind()` menciptakan fungsi baru dengan konteks `this` yang sudah dikunci secara permanen. Bahkan jika fungsi tersebut dipindahkan ke objek lain, ia tetap setia pada identitas aslinya.
+Nilai `this` muncul dari mode pemanggilan:
+- default binding,
+- implicit binding,
+- explicit binding,
+- `new` binding,
+- lexical binding pada arrow function.
 
 ---
 
-## 3. Praktik Lapangan (Lab)
+## 2. Visualisasi Sistem: This Binding Routes
 
-```javascript
-function showIdentity() {
-    console.log(`Active Unit ID: ${this.id || 'GLOBAL'}`);
-}
-
-const unitA = { id: "UNIT_A", show: showIdentity };
-const unitB = { id: "UNIT_B" };
-
-unitA.show(); // Implicit: UNIT_A
-showIdentity.call(unitB); // Explicit: UNIT_B
-
-const lockedA = showIdentity.bind(unitA);
-lockedA(); // Locked: UNIT_A
+```mermaid
+graph TD
+    Call[Function Call] --> Default[Default Binding]
+    Call --> Implicit[Implicit Binding]
+    Call --> Explicit[call/apply/bind]
+    Call --> New[new Binding]
 ```
 
 ---
 
-## Arsitek Mindset: Keamanan Konteks
+## 3. Mekanisme & Hubungan
 
-Sebagai arsitek Hub:
-- Gunakan **Strict Mode** (`"use strict"`) untuk mencegah `this` secara tidak sengaja merujuk ke Global Object, yang bisa menyebabkan manipulasi data global yang berbahaya.
-- Pahami bahwa Arrow Functions adalah satu-satunya unit yang **kebal** terhadap aturan `call/apply/bind` terkait `this`, karena mereka selalu menggunakan Lexical `this`.
+1. Nilai `this` tidak melekat ke fungsi sekali untuk selamanya.
+2. Binding rules menjelaskan mengapa pemanggilan yang tampak mirip bisa menghasilkan target konteks berbeda.
+3. Arrow function memotong jalur dinamis ini karena mengambil `this` secara leksikal.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+
+## 4. Lab Praktis
+
+Buka file `examples/01_contextual_energy_lab.js` untuk membandingkan implicit, explicit, dan locked binding melalui `bind`.
+
+---
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

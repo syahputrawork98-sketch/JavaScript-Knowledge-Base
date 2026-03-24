@@ -47,4 +47,4 @@ graph LR
 Buka file `examples/01_function_arrow_comparison.js` untuk membuktikan perbedaan nilai `this` antara fungsi biasa dan arrow function.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

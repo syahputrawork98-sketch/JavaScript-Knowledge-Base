@@ -21,4 +21,5 @@ Buku ini memperdalam built-ins yang bergerak di wilayah meta: lifecycle asinkron
 3. Menyediakan navigasi buku yang sinkron dengan chapter riil.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-11](../README.md)*
+

@@ -21,4 +21,5 @@ Buku ini membedah sintaksis dan semantik dari unit-unit yang dapat dipanggil di 
 3. Mengenali mekanisme internal `MethodDefinition` yang secara otomatis mengeset `HomeObject`.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-09](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-09](../README.md)*
+

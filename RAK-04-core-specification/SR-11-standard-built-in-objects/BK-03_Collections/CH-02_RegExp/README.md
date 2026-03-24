@@ -51,4 +51,4 @@ graph TD
 Buka file `examples/01_regex_performance_audit.js` untuk membandingkan kecepatan antara pola "Greedy" vs "Lazy" pada selembar teks panjang.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

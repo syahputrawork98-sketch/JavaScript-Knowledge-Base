@@ -48,4 +48,4 @@ graph TD
 Buka file `examples/01_async_infinite_stream.js` untuk melihat aliran nilai yang dihasilkan oleh async generator secara bertahap.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

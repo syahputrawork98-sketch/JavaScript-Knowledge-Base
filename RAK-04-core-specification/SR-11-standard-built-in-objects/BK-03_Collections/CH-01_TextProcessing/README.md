@@ -47,4 +47,4 @@ graph LR
 Buka file `examples/01_string_surrogate_lab.js` untuk melihat bagaimana Hub menangani karakter Emoji yang sebenarnya terdiri dari dua unit kode 16-bit.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

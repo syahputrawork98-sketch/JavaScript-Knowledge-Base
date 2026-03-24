@@ -50,4 +50,4 @@ graph TD
 Buka file `examples/01_accessor_validation_lab.js` untuk membuat objek "SafeStorage" yang memvalidasi tipe data sebelum menyimpannya melalui setter.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

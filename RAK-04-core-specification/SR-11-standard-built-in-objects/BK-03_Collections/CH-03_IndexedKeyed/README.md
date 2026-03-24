@@ -57,4 +57,4 @@ graph TD
 Buka file `examples/01_collection_performance_lab.js` untuk menguji kecepatan akses data antara `Map` vs `Object` pada serangkaian entri data dinamis.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

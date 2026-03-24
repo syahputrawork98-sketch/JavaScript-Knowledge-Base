@@ -53,4 +53,4 @@ graph TD
 Buka file `examples/01_date_math_lab.js` untuk mensimulasikan perhitungan durasi waktu eksekusi sirkuit dan membedakan berbagai metode pembulatan `Math`.
 
 ---
-*Status: [x] Complete | [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../docs/status.md)*

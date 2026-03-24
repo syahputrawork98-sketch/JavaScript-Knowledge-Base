@@ -19,4 +19,5 @@ Buku ini membedah bagaimana Hub mengevaluasi unit kode **Script** tradisional, y
 3. Mengenali perilaku "Sloppy Mode" yang masih diizinkan di dalam Skrip.
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-10](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../docs/status.md) | Kembali ke [SR-10](../README.md)*
+
