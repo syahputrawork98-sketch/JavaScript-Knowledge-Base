@@ -20,8 +20,8 @@ Mempelajari sintaks dasar dan eksekusi instruksi JavaScript bersumber dari takso
 ### III. RAK-03-evolution-esnext (History & Future)
 Mendokumentasikan evolusi spesifikasi ECMAScript dari masa ke masa (ES6 sampai ESNext) dan proses komite TC39.
 
-### IV. RAK-04-core-specification (The Internal Logic)
-Dekonstruksi ECMA-262 (Spec-Rigor). Fokus pada Mekanisme Alur Internal, Execution Context, ECMAScript Algorithms, dan OOP/Prototype.
+### IV. RAK-04-core-specification (Core Semantics & Specification)
+Dekonstruksi ECMA-262 pada level semantics dan specification mechanics. Fokus pada aturan formal bahasa, execution context, abstract operations, object semantics, module semantics, dan mekanisme internal yang menjelaskan mengapa JavaScript berperilaku seperti yang terlihat di permukaan.
 
 ### V. RAK-05-runtime-apis (The Environments)
 Eksplorasi Runtime Environment di luar core language: Browser (DOM/BOM APIs), **Node.js**, **Bun**, dan **Deno**.

@@ -1,4 +1,4 @@
-# Status: RAK-04 Core Specification (The Brain Pillars)
+# Status: RAK-04 Core Semantics & Specification (The Brain Pillars)
 **Aggregated Progress: Audit in Progress - Gold Standard claims under revalidation**
 
 | Sub-Rak | Judul | Progress | Status |

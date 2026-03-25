@@ -13,7 +13,7 @@ graph TD
     RAK01["RAK-01-introduction-essence<br/>(The Why & What)"]
     RAK02["RAK-02-javascript-foundation<br/>(The Entry Point)"]
     RAK03["RAK-03-evolution-esnext<br/>(The History & Future)"]
-    RAK04["RAK-04-core-specification<br/>(The Internal Logic)"]
+    RAK04["RAK-04-core-specification<br/>(Core Semantics & Specification)"]
     RAK05["RAK-05-runtime-apis<br/>(The Environments)"]
     RAK06["RAK-06-engines-internals<br/>(The Machine Room)"]
     
@@ -42,7 +42,7 @@ Seluruh sintaks dan fitur standar JavaScript (MDN-Mirror).
 Evolusi bahasa, proses TC39, dan fitur-fitur masa depan (ESNext).
 
 ### 4. [RAK-04-core-specification](./RAK-04-core-specification/)
-Dekonstruksi teknis **ECMA-262**. Membedah algoritma, memori, dan internal spesifikasi.
+Dekonstruksi teknis **ECMA-262** pada level semantics dan specification mechanics. Membedah aturan formal, algoritma spesifikasi, binding, context, object behavior, dan module semantics.
 
 ### 5. [RAK-05-runtime-apis](./RAK-05-runtime-apis/)
 Eksplorasi lingkungan eksekusi: Node.js, Bun, Deno, dan Web Platform APIs.

@@ -1,10 +1,17 @@
-# Rak 04: Core Specification
+# Rak 04: Core Semantics & Specification
 *Rak Status: [docs/status.md](./docs/status.md) (Aggregated Progress: Audit in Progress - Gold Standard claims under revalidation)*
 (The Brain Pillars)
 
 *Level: Practitioner/Architect*
 
 Rak ini merupakan jantung dari perpustakaan `JavaScript-Knowledge-Base`. Di sini, pilar-pilar bahasa JavaScript dibedah secara mendalam menggunakan pemetaan granular 12 Sub-Rak yang terinspirasi langsung dari struktur Clause spesifikasi **ECMA-262**.
+
+Fokus utama `RAK-04` adalah **semantics** dan **specification mechanics** dari bahasa JavaScript:
+- mengapa sebuah fitur berperilaku seperti itu,
+- aturan spesifikasi apa yang mengaturnya,
+- dan bagaimana mekanisme internal bahasa bekerja di balik sintaks yang terlihat di permukaan.
+
+Rak ini bukan jalur fondasi penggunaan, bukan arsip evolusi fitur, dan bukan bedah implementasi engine. Perannya adalah menjembatani permukaan bahasa dengan aturan formal yang mendasarinya.
 
 Status global `RAK-04` sedang diaudit ulang. `SR-11` telah memasuki fase sinkronisasi struktur, sementara sub-rak lain masih menunggu pass validasi yang sama.
 
@@ -23,4 +30,4 @@ Status global `RAK-04` sedang diaudit ulang. `SR-11` telah memasuki fase sinkron
 11. **[SR-11-standard-built-in-objects](./SR-11-standard-built-in-objects/)** (Clause 18-28)
 12. **[SR-12-memory-management-and-gc](./SR-12-memory-management-and-gc/)** (Clause 28.3 - 28.5)
 
-*Setiap Sub-Rak berisi Buku-buku tematik yang membedah topik secara naratif dan praktis.*
+*Setiap Sub-Rak berisi Buku-buku tematik yang membedah topik secara formal, mekanis, dan tetap komunikatif.*
