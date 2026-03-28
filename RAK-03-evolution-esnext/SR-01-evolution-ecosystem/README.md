@@ -1,35 +1,30 @@
-# SR-01: Evolution Ecosystem (The Stewardship)
+# SR-01: Evolution Ecosystem
 
-> **"Mekanisme Kemajuan Hub. `SR-01` membedah bagaimana standar bermanuver, siapa yang memegang kendali, dan bagaimana sebuah ide bertransformasi menjadi spesifikasi resmi."**
+![Ecosystem](https://img.shields.io/badge/ECOSYSTEM-TC39-f7df1e?style=for-the-badge)
 
-**Source Hub**:
-- [TC39: About](https://tc39.es/about/)
-- [ECMA-262: Introduction](https://tc39.es/ecma262/#sec-introduction)
+> **"Ekosistem Evolusi: Membedah Tata Kelola, Komite, dan Proses Standarisasi yang Menggerakkan Mutasi JavaScript."**
 
 ---
 
-## The Stewardship Pillars
+## Ecosystem Architecture
 
-```mermaid
-graph TD
-    Gov["BK-01: TC39 Governance"] --> Spec["Official Hub Specification"]
-    Life["BK-02: Spec Lifecycle (Stages)"] --> Spec
-    Committee["BK-03: Committee Deep Dive"] --> Spec
-    Stages["BK-04: Proposal Lifecycle Deep Dive"] --> Spec
-```
+`SR-01` berfungsi sebagai pusat komando yang menjelaskan bagaimana aturan main di JavaScript dibuat. Kita bergerak dari pemahaman tentang siapa yang memegang kendali (Governance) hingga bagaimana sebuah fitur secara teknis divalidasi (The Process).
 
 ---
 
-## Koleksi Buku:
-1. **[BK-01: TC39 Governance](./BK-01_Governance/)**: Peta konsep dan sintesis tata kelola TC39.
-2. **[BK-02: Spec Lifecycle](./BK-02_SpecLifecycle/)**: Ringkasan mekanisme Stage 0-4 sebagai model besar.
-3. **[BK-03: Committee](./BK-03_Committee/)**: Deep dive chapter-level untuk anggota, delegasi, dan konsensus.
-4. **[BK-04: Proposal Lifecycle](./BK-04_ProposalLifecycle/)**: Deep dive chapter-level untuk perjalanan proposal dari inkubasi hingga Stage 4.
+## 🏛️ Book Collection
 
-### Boundary
+### 1. [BK-01: Governance Hub](./BK-01_GovernanceHub/)
+Membedah otoritas **TC39**, peran delegasi industri, dan mekanisme pengambilan keputusan berbasis konsensus global.
 
-- `BK-01` dan `BK-02` berperan sebagai buku payung konseptual.
-- `BK-03` dan `BK-04` berperan sebagai ekspansi detail, bukan pengganti dua buku payung di atas.
+### 2. [BK-02: TC39 Process](./BK-02_TC39-Process/)
+Membedah **5 Tahap Pipeline (0-4)** yang harus dilewati oleh setiap proposal fitur dari ide kasar hingga masuk ke spesifikasi resmi.
 
 ---
-*Back to [RAK-03](../README.md)*
+
+## Architectural Goal
+
+Tujuan dari Sub-Rak ini adalah memberikan konteks politis dan teknis tentang standarisasi global. Ini adalah fondasi kunci sebelum Anda melihat mutasi fitur secara fisik di **SR-02**.
+
+---
+*Status: [x] Reconstructed (Consolidated to Professional Hubs).*

@@ -1,41 +1,36 @@
-# SR-02: Modern Core Evolution (ES2015 - ES2024)
+# SR-02: Modern Core Evolution
 
-> **"Mutasi Genetik Hub. `SR-02` membedah fitur-fitur modern yang mengubah cara sirkuit JavaScript dibangun, dari penguatan leksikal hingga pemrosesan asinkron tak terbatas."**
+![Modern Core](https://img.shields.io/badge/CORE-ES6+-f7df1e?style=for-the-badge&logo=javascript)
 
-**Source Hub**:
-- [ECMA-262: History and ESNext](https://tc39.es/ecma262/#sec-history)
-
----
-
-## The 7 Modern Pillars
-
-```mermaid
-graph TD
-    P1["BK-01: Structural & Lexical"] --> Hub["Modern Hub Core"]
-    P2["BK-02: Control Flow & Async"] --> Hub
-    P3["BK-03: Data Resilience & Safety"] --> Hub
-    P4["BK-04: Metaprogramming"] --> Hub
-    P5["BK-05: Reliability Patches"] --> Hub
-    P6["BK-06: Structural Reinforcement"] --> Hub
-    P7["BK-07: Modern Sifters"] --> Hub
-```
+> **"Evolusi Inti: Membedah Transformasi Struktural dan Paradigma Fungsional yang Memodernisasi Arsitektur JavaScript."**
 
 ---
 
-## Koleksi Buku:
-1. **[BK-01: Structural & Lexical](./BK-01_StructuralLexical/)**: Pilar tematik untuk class, modules, arrow functions, dan lexical scoping.
-2. **[BK-02: Control Flow & Async](./BK-02_ControlFlowAsync/)**: Pilar tematik untuk promises, async/await, dan model aliran asinkron.
-3. **[BK-03: Data Resilience & Safety](./BK-03_DataResilience/)**: Pilar tematik untuk optional chaining, nullish coalescing, dan BigInt.
-4. **[BK-04: Metaprogramming & Reflection](./BK-04_Metaprogramming/)**: Pilar tematik untuk proxy, reflect, dan symbols.
-5. **[BK-05: Reliability Patches](./BK-05_ReliabilityPatches/)**: Arsip kronologis ES2020-2021.
-6. **[BK-06: Structural Reinforcement](./BK-06_StructuralReinforcement/)**: Arsip kronologis ES2022-2023.
-7. **[BK-07: Modern Sifters](./BK-07_ModernSifters/)**: Arsip kronologis ES2024+.
+## Evolution Geography
 
-### Boundary
-
-- `BK-01` sampai `BK-04` adalah buku payung tematik untuk memahami mekanisme inti modern JavaScript.
-- `BK-05` sampai `BK-07` adalah arsip era/rilis yang memberi konteks kronologis dan chapter detail tambahan.
-- Jika topik tampak beririsan, prioritaskan buku tematik untuk model mental dan buku arsip untuk jejak evolusinya.
+`SR-02` berfungsi sebagai pusat dekonstruksi fitur modern. Kita bergerak dari pembaruan struktur sintaksis hingga mekanisme perlindungan data yang menjamin ketahanan Hub aplikasi Anda di lingkungan produksi yang dinamis.
 
 ---
-*Back to [RAK-03](../README.md)*
+
+## 🏛️ Book Collection
+
+### 1. [BK-01: Structural & Lexical Mutation](./BK-01_Structural-Mutation/)
+Membedah perombakan anatomi bahasa: **Scoping**, **Destructuring**, **Spread/Rest**, dan **Template Interpolation**.
+
+### 2. [BK-02: Logical Flow & Meta](./BK-02_Logical-Flow/)
+Membedah mutasi alur kontrol: **Revolutionary Async Flow** (Async/Await) dan **Metaprogramming Interceptors** (Proxy/Reflect).
+
+### 3. [BK-03: Resilience & Safety Hub](./BK-03_Resilience-Hub/)
+Membedah mekanisme pertahanan data: **Optional Chaining**, **Nullish Coalescing**, dan **Logical Assignment**.
+
+### 4. [BK-04: Modern Sifters](./BK-04_Modern-Sifters/)
+Membedah transformasi pemrosesan koleksi: **Grouping Logic** dan **Immutable Array Manipulation**.
+
+---
+
+## Architectural Goal
+
+Tujuan dari Sub-Rak ini adalah memastikan Anda memiliki kematangan teknis dalam menggunakan fitur modern bukan sekadar sebagai "gula sintaksis", melainkan sebagai instrumen arsitektural yang presisi dan aman.
+
+---
+*Status: [x] Reconstructed (7 Legacy Books $\rightarrow$ 4 Strategic Hubs).*
