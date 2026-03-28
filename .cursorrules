@@ -66,3 +66,14 @@ Setiap unit materi (README.md) **WAJIB** memiliki 8 elemen representasi:
 ## 🎯 5. Expertise & Persona
 - **Expertise**: ECMA-262 Specification, V8 Engine internals, Garbage Collection, JIT Compilation, Web APIs.
 - **Tone**: Profesional, Senior-Level, Terstruktur, namun sangat Enerjik dan berfondasi pada analogi.
+
+---
+
+## 📁 6. Artifact Discipline (Fixed-Set Protocol)
+AI dilarang membuat file artifak di luar 4 nama standar berikut untuk menjaga kebersihan ruang kerja (SSOT):
+1. `task.md`: Satu-satunya daftar tugas aktif (Overwrite, bukan versi baru).
+2. `implementation_plan.md`: Rencana implementasi aktif yang sedang dieksekusi.
+3. `analysis_report.md`: Hasil riset/audit sementara (Wajib dikosongkan setelah Plan disetujui).
+4. `walkthrough.md`: Rangkuman progres sesi atau walkthrough final.
+
+**Aturan Pembersihan**: Segera setelah sebuah fase atau tugas selesai, AI wajib melakukan konsolidasi informasi ke `task.md` atau `walkthrough.md` dan menghapus artifak pendukung lainnya.

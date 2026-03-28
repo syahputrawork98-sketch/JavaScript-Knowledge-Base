@@ -1,7 +1,7 @@
 # SR-08: Memory & Resource Landscape
 
 ![SR Hub](https://img.shields.io/badge/SR--08-MEMORY-red?style=for-the-badge)
-![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD_IN_PROGRESS-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
 > **"Sistem Ekosistem & Daur Ulang: Menyeimbangkan Alokasi Partikel Baru dan Pembersihan Residu untuk Stabilitas Reaktor."**
 
