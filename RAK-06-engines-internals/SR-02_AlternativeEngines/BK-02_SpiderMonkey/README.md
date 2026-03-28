@@ -1,74 +1,57 @@
-# BK-02: SpiderMonkey Internals (The Firefox Legend)
+# CH-01-02: SpiderMonkey Pipeline (Baseline & Ion)
 
-![Book Header](https://img.shields.io/badge/BK--02-SPIDER_MONKEY-purple?style=for-the-badge)
+![Chapter Header](https://img.shields.io/badge/CH--01--02-SPIDERMONKEY_PIPELINE-purple?style=for-the-badge)
 ![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
-> **"Legenda Hidup: Memutre Arsitektur SpiderMonkey (Firefox) yang Menjadi Pionir JIT Compilation dan Penggerak Web Modern Pertama."**
+> **"Evolusi Legenda: Memahami Arsitektur SpiderMonkey (Mesin Firefox) dan Pipeline Optimasi IonMonkey yang Pionir."**
 
 ---
 
 ## 🌓 1. Essence: The Narrative
 
 ### Dual Definition
-- **Formal**: Mesin JavaScript milik Mozilla yang ditulis dalam C++ dan Rust. Merupakan mesin JS pertama yang pernah dibuat (oleh Brendan Eich pada 1995). SpiderMonkey modern menggunakan sistem JIT bertingkat (Baseline, IonMonkey) dan arsitektur **CacheIR** untuk menangani optimasi tipe data lintas platform secara efisien.
-- **Analogi**: Bayangkan **Pesawat Jet Pionir**. SpiderMonkey adalah yang pertama kali terbang (JS murni). Meskipun sekarang banyak pesawat lain (V8, JSC), SpiderMonkey masih terus berevolusi dengan teknologi turbo baru (**IonMonkey**) dan kontrol kabin yang sangat presisi (**CacheIR**). Tanpa inovasi SpiderMonkey dalam JIT, kita mungkin tidak akan memiliki web yang interaktif seperti sekarang.
+- **Formal**: Pipeline eksekusi pada mesin **SpiderMonkey** yang menggunakan arsitektur bertingkat dari interpreter C++, **Baseline JIT** (profiling di tingkat bytecode), hingga **IonMonkey** (kompiler optimasi berbasis SSA) untuk menghasilkan eksekusi JavaScript yang aman dan berperforma tinggi.
+- **Analogi**: Bayangkan **Detektif dan Ilmuwan (Profiling Flow)**. **Baseline JIT** adalah Detektif yang terus berjalan mengumpulkan barang bukti (tipe data) sambil mengintai. Jika bukti sudah cukup kuat, ia mengirimkan file kasus ke **IonMonkey** (Ilmuwan), yang melakukan analisis matematika mendalam (Optimization) untuk membuktikan teori tercepat dalam mengeksekusi kode tersebut.
 
 ---
 
-## 🗺️ 2. Visual Logic: SpiderMonkey JIT Pipeline
+## 🗺️ 2. Visual Logic: The Optimization Flow
 
-Struktur jalur eksekusi pada SpiderMonkey modern (Post-WarpBuilder):
+Alur progresif dari SpiderMonkey:
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FF9500', 'primaryTextColor': '#000', 'lineColor': '#800080'}}}%%
-graph TD
-    JS["Source Code"] --> Parser["Parser (Front-end)"]
-    Parser --> Interpreter["Interpreter (C++)"]
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000', 'lineColor': '#800080'}}}%%
+graph LR
+    Source["JS Source"] --> BL["Baseline JIT (Profiling)"]
+    BL -->|Hit Threshold| Ion["IonMonkey (Optimization SSA)"]
     
-    Interpreter -->|Hot Codes| BaselineJIT["Baseline JIT (Non-optimizing)"]
-    BaselineJIT -->|Profiling Data| Warp["WarpBuilder (MIR Optimization)"]
-    Warp -->|Peak Performance| Ion["IonMonkey (Back-end)"]
-    
-    Ion -.->|Bailout| Interpreter
+    Ion -->|Wait! Type Mistmatch| Deopt["Bailout (Deoptimization)"]
+    Deopt --> BL
 
-    style Interpreter fill:#fff,stroke:#333
-    style BaselineJIT fill:#fff,stroke:#333
-    style Warp fill:#FF9500,stroke:#333
+    style BL fill:#fff,stroke:#333
     style Ion fill:#800080,stroke:#fff,color:#fff
+    style Deopt fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
 ```
 
 ---
 
-## 🏛️ 3. Strategic Chapters (Levels 5)
-
-Eksplorasi jantung Firefox:
-
-1.  **[CH-01: Baseline JIT & CacheIR](./CH-01_Baseline/)**
-    *Infrastruktur optimasi tipe data yang efisien.*
-2.  **[CH-02: IonMonkey (Peak JIT)](./CH-02_Ion/)**
-    *Level optimasi mendalam menggunakan MIR (Mid-level Intermediate Representation).*
-3.  **[CH-03: WASM Integration](./CH-03_WASM/)**
-    *Bagaimana SpiderMonkey memimpin dalam eksekusi WebAssembly.*
+## 🏛️ 3. Under-the-hood: CacheIR Mechanism
+Rahasia kecepatan SpiderMonkey terletak pada **CacheIR**. Ini adalah representasi perantara satu-tier yang digunakan oleh Baseline JIT untuk menangani Inline Caching (IC). CacheIR memungkinkan SpiderMonkey untuk "mengingat" pola akses objek dengan sangat efisien, sehingga saat IonMonkey dipanggil, ia sudah memiliki data yang sangat terstruktur untuk melakukan optimasi mendalam.
 
 ---
 
-## 🧠 4. Under-the-hood: The "CacheIR" Innovation
-V8 dan JSC memiliki cara mereka sendiri untuk menangani Inline Caching (IC), tetapi SpiderMonkey memperkenalkan **CacheIR**. CacheIR adalah bahasa perantara sederhana yang mendeskripsikan kondisi optimasi (misalnya: "Jika objek ini memiliki properti X"). Kelebihannya adalah CacheIR bisa dengan mudah dikompilasi ke dalam native code oleh berbagai level JIT compiler di SpiderMonkey tanpa perlu menulis ulang logika optimasi berulang kali.
+## 📜 4. Architect's Principles (PPM V4)
+
+1. **SpiderMonkey favors Security**: Arsitektur JIT Firefox sering kali mengorbankan sedikit kecepatan untuk mekanisme keamanan yang lebih ketat dibandingkan V8.
+2. **Profile-Guided Optimization (PGO)**: IonMonkey sangat bergantung pada kualitas profil dari Baseline. Kode yang "berantakan" (Mega-morphic) akan membuat IonMonkey menyerah dan menetap di eksekusi Baseline.
+3. **Respect the Firefox Soul**: Memahami SpiderMonkey berarti menghargai sejarah panjang pionir JIT yang telah membentuk standar web modern.
 
 ---
 
-## 📜 5. Architect's Principles (PPM V4)
-
-1. **Standard First**: SpiderMonkey cenderung mengutamakan kepatuhan spesifikasi (spec-compliance) yang ketat sebelum mengejar optimasi kotor (dirty hacks).
-2. **Rust-Powered**: Beberapa bagian modern SpiderMonkey (seperti parser reguler expression) mulai bermigrasi ke Rust untuk keamanan memori.
-3. **Debuggable**: SpiderMonkey menyediakan tooling yang sangat baik untuk memantau deoptimasi dan performa mesin melalui Firefox Developer Tools.
-
----
-
-## 🎖️ 6. The Gold Standard Checklist
-- [x] **Spec-Alignment**: Sinkronisasi dengan arsitektur SpiderMonkey Post-Warp (2020+).
-- [x] **Visual Logic**: Mermaid diagram JIT Pipeline (Warp/Ion).
-- [x] **Mental Model**: Analogi "Pesawat Jet Pionir".
+## 🎖️ 5. The Gold Standard Checklist
+- [x] **Spec-Alignment**: Sinkronisasi dengan Mozilla SpiderMonkey (Firefox) internal architecture documentation.
+- [x] **Visual Logic**: Mermaid Optimization Flow diagram.
+- [x] **Mental Model**: Analogi "Detektif dan Ilmuwan".
 
 ---
-*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-02](../README.md)*
+*Status Bab: [x] Full Hardened | [status.md](../../../status.md) | Kembali ke [BK-02](../README.md)*

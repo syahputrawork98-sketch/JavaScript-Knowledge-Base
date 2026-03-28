@@ -1,40 +1,59 @@
-# CH-03: TurboFan (The Optimizing Compiler)
+# CH-03: TurboFan (The Peak Optimizer)
 
-TurboFan adalah "senjata rahasia" V8 yang mengubah JavaScript menjadi kode mesin yang sangat efisien, setara dengan performa C++ melalui teknik **Just-In-Time (JIT) Compilation**.
+![Chapter Header](https://img.shields.io/badge/CH--03-TURBOFAN-purple?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
-## 🚀 Optimization Cycle
-V8 tidak mengoptimasi semua kode, melainkan hanya kode yang dianggap "Hot" (sering dipanggil).
-
-```mermaid
-graph TD
-    IG[Ignition Bytecode] -->|Hot Function Found| TF[TurboFan Optimizer]
-    TF -->|Speculative Optimization| MC[Optimized Machine Code]
-    MC -->|Stable| Run[Direct Hardware Execution]
-    Run -->|Type Mismatch| DE[Deoptimization / Bailout]
-    DE -->|Back to| IG
-    
-    style TF fill:#f1c40f,stroke:#333
-    style MC fill:#2ecc71,stroke:#333
-    style DE fill:#e74c3c,stroke:#333
-```
-
-## 🛠️ Speculative Optimization
-TurboFan menggunakan **Feedback Data** dari Ignition untuk membuat asumsi cerdas (Spekulasi). 
-- Jika Ignition mencatat bahwa fungsi `add(a, b)` selalu menerima `Number`, TurboFan akan membuat kode mesin yang langsung melakukan operasi penambahan bit tanpa melakukan pemeriksaan tipe data (type checking) lagi.
-- Ini menghilangkan overhead yang biasanya membuat bahasa dinamis terasa lambat.
-
-## 🌊 Sea-of-Nodes
-Di balik layar, TurboFan merepresentasikan kode Anda dalam bentuk **Sea-of-Nodes**. Berbeda dengan AST yang berbentuk pohon kaku, Sea-of-Nodes adalah representasi grafik yang memungkinkan optimizer untuk melakukan:
-1. **Dead Code Elimination**: Menghapus kode yang tidak pernah dieksekusi.
-2. **Inlining**: Memasukkan isi fungsi kecil langsung ke tempat pemanggilannya untuk mengurangi overhead call stack.
-3. **Constant Folding**: Menghitung hasil operasi statis (misal `2 + 3`) saat kompilasi.
-
-## ⚠️ Deoptimization (The Bailout)
-Jika spekulasi TurboFan salah (misal: fungsi `add` tiba-tiba dipanggil dengan `String`), V8 akan melakukan **Deoptimization**. Kode mesin yang cepat akan dibuang, dan eksekusi dipindahkan kembali ke **Ignition Interpreted Bytecode**. 
-
-> [!CAUTION]
-> **Performance Killer**: Terlalu sering memicu deoptimasi (misal dengan mengganti-ganti tipe parameter fungsi) akan membuat V8 menyerah untuk mengoptimasi fungsi tersebut, atau biasa disebut sebagai **Optimization Hell**.
+> **"Kompilasi Puncak: Menyelami Arsitektur TurboFan dan Representasi Sea-of-Nodes untuk Menghasilkan Native Code dengan Performa Maksimal."**
 
 ---
-*Lihat Lab: [Tes Optimasi](./examples/optimization_test.js)*  
-*Kembali ke [BK-01](../README.md)*
+
+## 🌓 1. Essence: The Narrative
+
+### Dual Definition
+- **Formal**: Kompiler optimasi tingkat tinggi (Top-tier JIT) pada V8 yang menggunakan representasi perantara berbasis graf (**Sea of Nodes**) untuk melakukan optimasi matematika dan logika yang sangat kompleks (seperti Inlining, Loop Unrolling, dan Range Analysis) sebelum menghasilkan instruksi mesin (*Architecture-specific machine code*).
+- **Analogi**: Jika Ignition adalah **Chef yang Memasak Cepat (Interpreter)**, maka TurboFan adalah **Pabrik Manufaktur Robotik Otomatis**. Ia tidak langsung memasak; ia mengambil resep (Bytecode), menganalisis aliran data antar stasiun kerja (Sea-of-Nodes), merampingkan jalur produksi (Optimization), dan akhirnya membangun mesin yang bisa memproses pesanan secara instan dan masif.
+
+---
+
+## 🗺️ 2. Visual Logic: Sea of Nodes Representation
+
+TurboFan tidak melihat kode sebagai urutan linear, melainkan sebagai aliran data dan kontrol di dalam graf:
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000', 'lineColor': '#800080'}}}%%
+graph LR
+    Input["Input Data"] --> Node1["Math Node (+)"]
+    Input2["Input Data"] --> Node1
+    
+    Node1 --> Node2["Range Check Node"]
+    Node2 --> Node3["Effect Node (Memory Write)"]
+    
+    Control["Control Flow"] -.-> Node2
+    Control -.-> Node3
+
+    style Node1 fill:#fff,stroke:#333
+    style Node3 fill:#800080,stroke:#fff,color:#fff
+```
+
+---
+
+## 🏛️ 3. Under-the-hood: Speculative Optimization & Bailout
+Kunci kecepatan TurboFan adalah **Spekulasi**. Ia berasumsi bahwa jika Anda memberikan angka ke fungsi `add(a, b)` sebanyak 1000 kali, maka panggilan ke-1001 juga akan berupa angka. Jika asumsi ini benar, TurboFan menghasilkan kode mesin yang sangat dioptimalkan. Jika salah (misalnya Anda memasukkan string), TurboFan akan melakukan **Deoptimization (Bailout)** dan kembali ke interpreter.
+
+---
+
+## 📜 4. Architect's Principles (PPM V4)
+
+1. **Be Predictable**: Pastikan tipe data input ke fungsi yang kritis tetap konsisten (Monomorphic) agar TurboFan tidak perlu sering melakukan deoptimasi.
+2. **Small Functions for Inlining**: TurboFan sangat ahli dalam melakukan *Inlining* (memasukkan isi fungsi kecil langsung ke tempat pemanggilnya) untuk menghilangkan overhead pemanggilan fungsi.
+3. **Avoid Hidden Class Mutations**: Perubahan struktur objek di tengah loop yang panas akan membatalkan optimasi TurboFan.
+
+---
+
+## 🎖️ 5. The Gold Standard Checklist
+- [x] **Spec-Alignment**: Sinkronisasi dengan V8 TurboFan IR (Sea of Nodes) architecture.
+- [x] **Visual Logic**: Mermaid Sea of Nodes graph.
+- [x] **Mental Model**: Analogi "Pabrik Manufaktur Robotik".
+
+---
+*Status Bab: [x] Full Hardened | [status.md](../../status.md) | Kembali ke [BK-01](../README.md)*
