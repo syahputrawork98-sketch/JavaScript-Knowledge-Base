@@ -1,33 +1,50 @@
-# CH-01: The Dark Ages (1996 - 2008)
+# CH-01: The Dark Ages (1995 - 2008)
 
-**"Era Perang Browser & Fragmentasi"**
-*Target: Memahami periode standarisasi dan fragmentasi awal JS dalam waktu < 2 menit.*
+![Status](https://img.shields.io/badge/STATUS-COMPLETE-green?style=for-the-badge)
 
-## Source Hub
-- **Standard Reference**: [ECMA-262 1st Edition (1997)](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)
-- **Historical Reference**: [MDN Web Docs - About JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript)
+> **"Era di Mana Web Adalah Medan Perang Tanpa Standar Tunggal."**
 
-## 1. Definisi & Konsep (The Logic)
-Tahun 1996-1997 menandai lahirnya ECMAScript sebagai upaya standarisasi resmi. Namun di lapangan, Netscape dan Microsoft membawa implementasi serta API browser yang tidak selalu sejalan. Periode ini memicu "Perang Browser" dan membuat banyak kode web menjadi rapuh, vendor-specific, dan sulit dipindahkan antar browser.
+---
 
-### Terminologi Utama (Senior Terms)
-- **Browser Wars**: Persaingan sengit antara Netscape dan Internet Explorer yang menyebabkan inkompatibilitas kode.
-- **EcmaSync**: Proses sinkronisasi fitur bahasa ke standar ECMAScript.
-- **Vendor Divergence**: Kondisi saat implementasi browser menyimpang dari perilaku yang diharapkan secara lintas platform.
+## 🔗 Source Hub
+- **Archive**: [The Browser Wars History](https://en.wikipedia.org/wiki/Browser_wars)
+- **Primary Source**: [JS History on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript)
 
-## 2. Rasionalitas (Why & How?)
-Standarisasi diperlukan agar kode bisa berjalan di mana saja. Masalahnya, vendor browser sering menambah API, perilaku DOM, dan kompatibilitas JavaScript dengan prioritas kompetitif masing-masing. Akibatnya, pengembang harus menulis banyak percabangan dan workaround hanya untuk menjaga perilaku tetap konsisten.
+---
 
-### Analogi Mendalam
-Bayangkan setiap pompa bensin memiliki mulut pipa dan tekanan yang berbeda. Anda harus membawa adaptor, peta catatan, dan trik khusus untuk setiap kota. Periode ini adalah masa ketika pengembang web hidup dengan kumpulan workaround agar aplikasi tidak rusak saat berpindah browser.
+## 🌓 1. Essence: The Logic
+Era Kegelapan (*The Dark Ages*) ditandai dengan ketidakkonsistenan yang parah di antara browser. Microsoft (Internet Explorer) merilis **JScript** sebagai tandingan balasan untuk **JavaScript** milik Netscape. Akibatnya, pengembang harus menulis kode yang berbeda untuk setiap browser, melahirkan era `if (document.all)` dan `if (document.layers)`.
 
-## 3. Implementasi Utama (The Lab)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+Misi era ini adalah **Kelangsungan Hidup**. Tanpa desakan untuk standarisasi (ECMAScript), JavaScript hampir punah karena reputasinya sebagai bahasa yang "rusak" dan "lambat".
 
-## 4. Model Mental Visual (The Assets)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+---
+
+## 🎨 2. Visual Logic: The Browser War
+Pemisahan implementasi di era 1990-an:
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph TD
+    User[Developer Code]
+    
+    subgraph Browser_Conflict
+    User -- "Different APIs" --> NS[Netscape: JavaScript]
+    User -- "Different APIs" --> IE[MS: JScript]
+    end
+    
+    NS --> App1[App Works Only in Navigator]
+    IE --> App2[App Works Only in IE]
+    
+    style User fill:#f7df1e,stroke:#333
+    style App1 fill:#f96
+    style App2 fill:#f96
+```
+
+---
+
+## ⚠️ 3. Common Pitfalls & Myths
+- **Mitos**: "JScript dan JavaScript adalah hal yang sama." (Sama secara konsep, tapi implementasi API-nya sangat berbeda di masa lalu).
+- **Mitos**: "Era ini tidak penting." (Era ini justru sangat krusial karena melahirkan **jQuery** dan usaha standarisasi TC39).
 
 ---
 *Back to [Evolutionary Timeline](../README.md)*

@@ -1,33 +1,48 @@
 # CH-01: Ecosystem Analysis (The npm Power)
 
-**"Lautan Modul Terbesar di Dunia"**
-*Target: Memahami kekuatan dan tantangan ekosistem JavaScript dalam waktu < 2 menit.*
+![Status](https://img.shields.io/badge/STATUS-COMPLETE-green?style=for-the-badge)
 
-## Source Hub
-- **Primary Source**: [npm Docs - About npm](https://docs.npmjs.com/about-npm)
+> **"Membangun dengan Komponen, Bukan dari Nol."**
+
+---
+
+## 🔗 Source Hub
+- **npm Docs**: [About npm](https://docs.npmjs.com/about-npm)
 - **Technical Reference**: [Node.js - About](https://nodejs.org/en/about)
 
-## 1. Definisi & Konsep (The Logic)
-Ekosistem JavaScript didorong kuat oleh **npm** dan budaya berbagi paket. Ia memungkinkan pengembang untuk mendistribusikan utilitas, framework, toolchain, dan library secara sangat cepat, sehingga JavaScript berkembang bukan hanya sebagai bahasa, tetapi juga sebagai jaringan kolaborasi perangkat lunak.
+---
 
-### Terminologi Utama (Senior Terms)
-- **Dependency Hell**: Kondisi saat tumpukan pustaka dan versinya menjadi sulit dikelola.
-- **Micro-modules**: Kebiasaan memecah fungsionalitas ke paket-paket yang sangat kecil dan spesifik.
-- **SemVer (Semantic Versioning)**: Skema versi yang membantu perubahan paket dipahami dan diadopsi dengan lebih aman.
+## 🌓 1. Essence: The Logic
+Kekuatan sejati JavaScript bukan hanya pada bahasanya, melainkan pada **Lautan Modul** yang tersedia di **npm**. Budaya berbagi paket mikro (*micro-modules*) memungkinkan pengembang untuk mempercepat pembangunan aplikasi secara dramatis.
 
-## 2. Rasionalitas (Why & How?)
-Kekuatan JavaScript bukan hanya pada bahasa intinya, tetapi pada kecepatan distribusi solusi. Anda jarang perlu memulai dari nol. Namun, keuntungan ini datang bersama risiko: ketergantungan berlapis, kualitas paket yang beragam, dan kebutuhan audit keamanan yang lebih serius.
+Namun, ketergantungan ini menciptakan tantangan baru: **Dependency Management**. Setiap paket yang Anda pasang mungkin memiliki puluhan dependensi lain di belakangnya, menciptakan "pohon" yang sangat besar yang harus diaudit secara berkala.
 
-### Analogi Mendalam
-Bayangkan membangun rumah dengan **Blok LEGO**. Anda tidak perlu mencetak batu bata sendiri; Anda tinggal mengambil komponen yang sudah tersedia. Anda bisa membangun sangat cepat, tetapi Anda harus tetap memastikan setiap blok yang dipakai memang kuat, cocok, dan tidak rapuh.
+---
 
-## 3. Implementasi Utama (The Lab)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+## 🎨 2. Visual Logic: The Dependency Tree
+Struktur paket di dalam proyek:
 
-## 4. Model Mental Visual (The Assets)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph TD
+    App[Your App]
+    
+    App --> Framework[Framework: React/Express]
+    App --> Utils[Utility: Lodash/Zod]
+    
+    Framework --> Core[Core Engine]
+    Framework --> Plugin[Plugins]
+    
+    Utils --> Micro[Micro-Dependency]
+    
+    style App fill:#f7df1e,stroke:#333,stroke-width:2px
+```
+
+---
+
+## ⚠️ 3. Common Pitfalls & Myths
+- **Mitos**: "Semua paket di npm aman." (Sama sekali tidak, audit keamanan rutin sangat wajib dilakukan).
+- **Mitos**: "Semakin besar `node_modules`, semakin lambat aplikasinya." (Belum tentu saat runtime karena proses *bundling*, namun pasti memperlambat waktu install & CI/CD).
 
 ---
 *Back to [Pros & Cons](../README.md)*

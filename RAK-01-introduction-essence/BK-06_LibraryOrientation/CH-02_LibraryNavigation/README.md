@@ -1,46 +1,51 @@
-# CH-02: Library Navigation (The 6-Rack Map)
+# CH-02: Library Navigation Portals
 
-**"Kompas sang Penjelajah Kode"**
-*Target: Memahami cara navigasi antar Rak dalam waktu < 2 menit.*
+![Status](https://img.shields.io/badge/STATUS-COMPLETE-green?style=for-the-badge)
 
-## Source Hub
-- **Universal Standard**: [docs/standards/architecture.md](../../../docs/standards/architecture.md)
-- **Master Plan**: [docs/repository-plan/README.md](../../../docs/repository-plan/README.md)
+> **"Gunakan Jenjang 6-Level: Dari Portal ke Unit Terkecil."**
 
-## 1. Definisi & Konsep (The Logic)
-Perpustakaan ini dibagi menjadi **6 Rak Utama**. Setiap Rak memiliki tugas spesifik:
-1. **RAK-01**: Orientasi (Apa & Kenapa).
-2. **RAK-02**: Fondasi (Cara Pakai).
-3. **RAK-03**: Masa Depan (Update TC39).
-4. **RAK-04**: Spesifikasi (Aturan Formal).
-5. **RAK-05**: Lingkungan (Node/Bun/Deno).
-6. **RAK-06**: Mesin (V8/Internals).
+---
 
-### Terminologi Utama (Senior Terms)
-- **Cross-Rack Linking**: Kemampuan mengaitkan materi di satu Rak dengan detail yang lebih dalam di Rak lainnya.
-- **Granularity Level**: Tingkatan kedalaman materi (dari Bab hingga Section granular).
-- **Navigation Efficiency**: Kemampuan menemukan informasi teknis dalam waktu sesingkat mungkin.
+## 🔗 Source Hub
+- **Standard**: [Repo Standards - Hierarchy & Conventions](../../../docs/standards/repository-standards.md)
+- **Conceptual Parent**: [RAK-01 Essence](../README.md)
 
-## 2. Rasionalitas (Why & How?)
-Dokumentasi yang tidak teratur adalah beban. Dengan pembagian 6-Rak, kita memisahkan "Kapan harus tahu cara pakai" dengan "Kapan harus tahu cara kerjanya". Ini meminimalkan kelelahan kognitif (*Cognitive Overload*).
+---
 
-### Analogi Mendalam
-Bayangkan **Sebuah Bengkel Otomotif Terpadu**.
-- Rak 1 adalah Meja Penerima Tamu.
-- Rak 2 adalah Ruang Perkakas.
-- Rak 3 adalah Bagian Inovasi.
-- Rak 4 adalah Buku Panduan Pabrik.
-- Rak 5 adalah Trek Balap/Uji.
-- Rak 6 adalah Ruang Mesin Utama.
-Anda akan tahu persis ke ruangan mana harus pergi tergantung apa yang ingin Anda lakukan.
+## 🌓 1. Essence: The Logic
+Menavigasi dalam ribuan unit materi di dalam repositori ini bisa membingungkan jika Anda tidak memiliki struktur berpikir yang benar. Gunakan **Hierarchy 6-Level** sebagai kompas navigasi:
 
-## 3. Implementasi Utama (The Lab)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+1. **Root**: Gerbang Utama.
+2. **Rak**: Domain Besar (ES-DNA).
+3. **Sub-Rak**: Track Spesifik.
+4. **Buku**: Koleksi Materi Terintegrasi.
+5. **Bab**: Unit Koding Teknis.
+6. **Section**: Detail Kedalaman Mesin.
 
-## 4. Model Mental Visual (The Assets)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+---
+
+## 🎨 2. Visual Logic: The Hierarchy Tree
+Struktur Navigasi:
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph TD
+    A[Root: JavaScript Knowledge Base]
+    
+    A --> B[Rak: RAK-01 to RAK-06]
+    B --> C[Book: BK-xx]
+    C --> D[Chapter: CH-xx]
+    D --> E[Section: SEC-xx]
+    
+    style A fill:#f7df1e,stroke:#333,stroke-width:2px
+    style E fill:#fff,stroke:#333
+```
+
+---
+
+## ⚠️ 3. Common Pitfalls & Myths
+- **Mitos**: "Setiap file README isinya sama." (Sama sekali tidak, setiap file memiliki **Visual Logic** unik yang dibangun untuk bagian materi tersebut saja).
+- **Mitos**: "Nama folder adalah hal yang paling penting." (Faktanya, tautan antar file melalui **Source Hub** dan **Landscape** jauh lebih penting untuk kemudahan navigasi).
 
 ---
 *Back to [Library Orientation](../README.md)*

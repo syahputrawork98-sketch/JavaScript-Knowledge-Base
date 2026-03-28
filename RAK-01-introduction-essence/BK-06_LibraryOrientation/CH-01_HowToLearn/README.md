@@ -1,33 +1,47 @@
-# CH-01: How to Learn (Rigor & Discipline)
+# CH-01: How to Learn JavaScript Effectively
 
-**"Filosofi Belajar sang Arsitek"**
-*Target: Memahami alur belajar terbaik di perpustakaan ini dalam waktu < 2 menit.*
+![Status](https://img.shields.io/badge/STATUS-COMPLETE-green?style=for-the-badge)
 
-## Source Hub
-- **Repository Standard**: [docs/standards/workflow.md](../../../docs/standards/workflow.md)
-- **Repository Architecture**: [docs/standards/architecture.md](../../../docs/standards/architecture.md)
+> **"Kuasai Logika, Baru Sintaks. Kuasai Engine, Baru Spesifikasi."**
 
-## 1. Definisi & Konsep (The Logic)
-Belajar di **JavaScript Knowledge Base** bukan tentang menghafal sintaks, melainkan tentang membangun **rigor** dan **logic**. Repositori ini dirancang untuk mendorong pembaca memahami sumber resmi, model mental, dan hubungan antarbagian sistem sebelum masuk ke detail implementasi.
+---
 
-### Terminologi Utama (Senior Terms)
-- **Spec-Rigor**: Kebiasaan merujuk pada dokumentasi resmi atau spesifikasi sebagai sumber kebenaran.
-- **Mental Model**: Representasi internal tentang bagaimana sistem bekerja di balik permukaan API.
-- **PPM Consistency**: Ketaatan pada alur penulisan materi agar kualitas penjelasan tetap seragam.
+## 🔗 Source Hub
+- **Learning Principles**: [Pillar Doc: Content Workflow](../../../docs/standards/content-workflow.md)
+- **Conceptual Parent**: [RAK-01 Essence](../README.md)
 
-## 2. Rasionalitas (Why & How?)
-Informasi di permukaan mudah berubah, tetapi pemahaman tentang fondasi, hubungan sistem, dan alasan desain bertahan jauh lebih lama. Karena itu, repositori ini disusun agar pembaca tidak berhenti pada "cara pakai", tetapi naik ke tingkat "cara kerja" dan "kenapa demikian".
+---
 
-### Analogi Mendalam
-Belajar di sini seperti **mempelajari mesin pesawat**, bukan sekadar belajar cara menekan tombol kokpit. Jika Anda memahami mesin dan alurnya, Anda akan jauh lebih tenang saat menghadapi perubahan panel, versi, atau instrumen baru.
+## 🌓 1. Essence: The Logic
+Belajar JavaScript seringkali membingungkan karena banyaknya framework dan library baru setiap harinya. Strategi belajar yang efektif adalah dengan **Mendekonstruksi Dasar-dasarnya**. Jangan hanya menghafal sintaks `if/else`, melainkan pahami bagaimana **Execution Context** bekerja di belakang layar.
 
-## 3. Implementasi Utama (The Lab)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+Metode kami adalah **Intuisi Kinetik**: Kami menggunakan analogi dunia nyata untuk membangun model mental sebelum Anda melihat baris kode yang sebenarnya.
 
-## 4. Model Mental Visual (The Assets)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+---
+
+## 🎨 2. Visual Logic: The Learning Pyramid
+Struktur kedalaman pemahaman:
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph TD
+    A[Apex: Application/Frameworks]
+    B[Level 3: Web & Engine APIs]
+    C[Level 2: Core Language & Spec]
+    D[Level 1: Philosophical Essence]
+    
+    A --- B
+    B --- C
+    C --- D
+    
+    style D fill:#f7df1e,stroke:#333,stroke-width:2px
+```
+
+---
+
+## ⚠️ 3. Common Pitfalls & Myths
+- **Mitos**: "Saya harus belajar framework (React/Vue) dulu agar bisa cari kerja." (Faktanya, tanpa dasar JavaScript yang kuat, Anda akan kesulitan saat menghadapi bug arsitektural yang kompleks).
+- **Mitos**: "Belajar spesifikasi ECMA membosankan." (Faktanya, memahami spesifikasi adalah satu-satunya cara untuk menjadi pengembang senior tingkat mahir).
 
 ---
 *Back to [Library Orientation](../README.md)*

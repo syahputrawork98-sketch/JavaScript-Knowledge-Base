@@ -1,33 +1,43 @@
-# CH-03: Modern ECMAScript Era (2015 - Now)
+# CH-03: The Modern ECMAScript Era (2015+)
 
-**"Zaman Keemasan Fitur & Konsistensi"**
-*Target: Memahami rilis tahunan ECMAScript (ESNext) dalam waktu < 2 menit.*
+![Status](https://img.shields.io/badge/STATUS-COMPLETE-green?style=for-the-badge)
+
+> **"Era Standarisasi: Menuju Kematangan Bahasa."**
+
+---
 
 ## 🔗 Source Hub
-- **Committee**: [TC39 - Ecma Technical Committee 39](https://tc39.es/)
-- **Proposal Tracking**: [TC39 Proposals (GitHub)](https://github.com/tc39/proposals)
+- **TC39 proposals**: [TC39 - Finished Proposals](https://github.com/tc39/proposals/blob/main/finished-proposals.md)
+- **ECMAScript Standard**: [ECMA-262 (Current Edition)](https://tc39.es/ecma262/)
 
-## 1. Definisi & Konsep (The Logic)
-Rilis **ES6 (ECMAScript 2015)** membawa revisi terbesar dalam sejarah bahasa ini. Sejak itu, TC39 (komite pengawas) mengadopsi model rilis tahunan untuk memastikan JavaScript terus mendapatkan fitur-fitur baru secara konsisten tanpa merusak ekosistem yang ada.
+---
 
-### Terminologi Utama (Senior Terms)
-- **ESNext**: Nama payung untuk fitur-fitur JavaScript terbaru yang sedang atau baru saja disahkan.
-- **TC39**: Panitia teknis yang bertanggung jawab atas pengembangan spesifikasi ECMAScript.
-- **Backward Compatibility**: Jaminan bahwa kode lama dari 20 tahun lalu harus tetap bisa dijalankan oleh browser modern (Don't break the web).
+## 🌓 1. Essence: The Logic
+Tahun 2015, **ES6** (atau ES2015) merombak desain bahasa dengan fitur-fitur modern (Classes, Arrow Functions, Modules). Sejak itu, **TC39** merilis standar baru setiap Juni untuk menghindari "revolusi yang terlalu besar" dan menjaga ritme evolusi yang stabil.
 
-## 2. Rasionalitas (Why & How?)
-Bahasa yang tidak berkembang akan mati. Model tahunan memungkinkan adopsi fitur (seperti `async/await`, `Optional Chaining`) secara bertahap sehingga lingkungan pengembangan (Tooling) punya waktu untuk beradaptasi.
+Karakteristik era ini adalah **Spec-Rigor**. Setiap fitur baru sekarang melalui 4 tahap proposal yang ketat sebelum diimplementasikan oleh engine browser.
 
-### Analogi Mendalam
-Bayangkan sebuah bandara raksasa yang tidak pernah tutup. Anda tidak bisa merenovasinya secara total sekaligus. Jadi, Anda merenovasi satu terminal setiap tahun. Bandara tetap beroperasi (kode lama jalan), tapi penumpangnya terus mendapatkan kenyamanan baru dari terminal yang telah diupdate.
+---
 
-## 3. Implementasi Utama (The Lab)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+## 🎨 2. Visual Logic: The Yearly Rhythm
+Siklus rilis ECMAScript modern:
 
-## 4. Model Mental Visual (The Assets)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+timeline
+    title The Yearly Evolution (ESNext)
+    2015 : ES6 (The Giant Leap)
+    2016 : Array.includes & Exp Operator
+    2017 : Async/Await & Shared Memory
+    2020 : Optional Chaining & Nullish Coalescing
+    2023 : Change Array by Copy & Symbols as Keys
+```
+
+---
+
+## ⚠️ 3. Common Pitfalls & Myths
+- **Mitos**: "ES6 adalah versi terakhir." (ES6 hanyalah awal dari era rilis tahunan).
+- **Mitos**: "Setengah fitur baru tidak bisa dipakai." (Kita punya **Babel** dan **Polyfills** agar fitur terbaru tetap jalan di browser lama).
 
 ---
 *Back to [Evolutionary Timeline](../README.md)*

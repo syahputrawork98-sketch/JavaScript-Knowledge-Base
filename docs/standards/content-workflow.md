@@ -35,21 +35,27 @@ Referensi ke skrip di folder `examples/` yang memverifikasi teori di atas.
 
 ---
 
-## 🏛️ 3. Standar Unified 8-Point README
+## 🏛️ 3. Adaptive Gold Standard (4 Pilar + X Modul)
 
-Setiap file `README.md` (Level 2-6) **WAJIB** memiliki 8 elemen berikut:
-1. **Header & Analogi**: Judul + Metafora singkat.
-2. **🌐 Source Hub**: Tautan resmi ke MDN/ECMA.
-3. **The Essence**: Deskripsi teknis & Rasionalitas.
-4. **The Landscape**: Navigasi ke tingkat di bawahnya (Sub-levels).
-5. **Visual Logic**: Diagram Mermaid inline.
-6. **Internals**: Mekanisme balik layar (Spec/Engine logic).
-7. **The Lab**: Referensi ke skrip praktis di `examples/`.
-8. **Pitfalls & Anti-Patterns**: Jebakan umum dan praktik buruk.
+Untuk menjaga kualitas premium tanpa terjebak dalam redundansi, setiap unit (`README.md`) menggunakan struktur **4 Pilar Inti (Wajib)** dan **Modul Kontekstual (Pilihan)** sesuai tipe materinya.
+
+### A. 4 Pilar Inti (Wajib di Setiap Unit)
+1.  **Header (Identity)**: Judul Kinetik + Badge Status (`Draft`, `Partial`, `Complete`).
+2.  **🌐 Source Hub (Authority)**: Tautan balik ke Blueprint Induk & Sumber Primer (MDN/ECMA-262).
+3.  **The Essence (Narrative)**: Deskripsi logika, sejarah, atau rasionalitas dalam bentuk naratif yang mengalir.
+4.  **Visual Logic (Mermaid)**: Representasi grafis wajib (Timeline, Flowchart, atau Memory Map) secara **inline**.
+
+### B. Modul Kontekstual (Pilihan Sesuai Kebutuhan)
+Tambahkan modul berikut hanya jika relevan dengan materi:
+- **🌍 Landscape**: Pemetaan navigasi unit di bawahnya (Gunakan untuk Level 2-4).
+- **🧪 The Lab (Specimens)**: Referensi ke kode praktis di folder `examples/`.
+- **⚙️ Spec-Internals**: Bedah algoritma spesifikasi atau mekanisme engine mendalam.
+- **⚠️ Pitfalls**: Mitigasi kesalahan umum dan mitos teknologi.
 
 ---
 
-## 📜 4. Pengecualian "Nil Content"
-Jika materi bersifat murni sejarah atau konseptual (terutama RAK-01):
-- Sertakan penafian: *"Unit ini bersifat penjelasan naratif, tidak membutuhkan Lab Praktis."*
-- **Dilarang** membuat folder `examples/` atau `assets/` yang kosong.
+## 📜 4. Klasifikasi Unit Materi
+Saat menyusun materi, identifikasi profil unit untuk menentukan modul yang aktif:
+1.  **N-Type (Narrative)**: Fokus pada Sejarah/Filosofi. (Gunakan: Core + Landscape + Pitfalls).
+2.  **C-Type (Conceptual)**: Fokus pada Sintaks/API Dasar. (Gunakan: Core + The Lab + Pitfalls).
+3.  **S-Type (Spec-Rigor)**: Fokus pada Mekanika Internal. (Gunakan: Core + Spec-Internals + The Lab).

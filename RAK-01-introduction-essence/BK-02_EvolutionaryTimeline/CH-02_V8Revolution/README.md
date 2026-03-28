@@ -1,33 +1,46 @@
 # CH-02: V8 Revolution & Node.js (2008 - 2012)
 
-**"Kelahiran Kecepatan Tingkat Mesin"**
-*Target: Memahami transformasi JS dari bahasa skrip lambat ke performa tinggi dalam waktu < 2 menit.*
+![Status](https://img.shields.io/badge/STATUS-COMPLETE-green?style=for-the-badge)
+
+> **"Kelahiran Kecepatan: Transformasi Sepeda Jadi Mesin F1."**
+
+---
 
 ## 🔗 Source Hub
-- **V8 Engine**: [V8 Project - Introduction](https://v8.dev/)
-- **Node.js**: [Node.js - About](https://nodejs.org/en/about/)
+- **V8 Engine**: [V8 Project - Blog History](https://v8.dev/blog)
+- **Node.js**: [Node.js - Internal Architecture](https://nodejs.org/en/about)
 
-## 1. Definisi & Konsep (The Logic)
-Tahun 2008, Google merilis V8 Engine yang mengompilasi JavaScript langsung ke kode mesin (Native Machine Code). Tahun 2009, Ryan Dahl merilis Node.js, memungkinkan eksekusi JavaScript di sisi server—keluar dari batasan browser.
+---
 
-### Terminologi Utama (Senior Terms)
-- **JIT Compilation (Just-In-Time)**: Teknik mengompilasi kode saat sedang dijalankan (bukan sebelumnya).
-- **V8 Engine**: Engine open-source berperforma tinggi milik Google (sekarang menjadi jantung Chrome & Node.js).
-- **Node.js**: Runtime JavaScript di luar lingkungan browser (Server-side JS).
+## 🌓 1. Essence: The Logic
+Tahun 2008 adalah titik balik fundamental. Google merilis **V8 Engine** yang tidak lagi sekadar menginterpretasi baris per baris, melainkan menggunakan teknik **JIT (Just-In-Time) Compilation**. Hal ini meningkatkan kecepatan JavaScript hingga ribuan kali lipat.
 
-## 2. Rasionalitas (Why & How?)
-Dunia butuh web yang lebih cepat dan responsif. V8 mengubah segalanya dengan teknik optimasi mesin (seperti *Hidden Classes*). Node.js memungkinkan arsitektur asinkron di server dengan efisiensi memori yang luar biasa.
+Puncaknya tahun 2009, Ryan Dahl membawa V8 keluar dari browser dan merilis **Node.js**, memungkinkan JavaScript menguasai backend enterprise.
 
-### Analogi Mendalam
-Dulu, JavaScript adalah sepeda yang hanya bisa digunakan untuk berkeliling taman (browser). V8 menggantinya menjadi mesin Formula 1. Node.js kemudian membawa mesin itu ke jalan raya utama (server), membuktikan bahwa mesin ini sanggup menarik beban ribuan kontainer data secara bersamaan.
+---
 
-## 3. Implementasi Utama (The Lab)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+## 🎨 2. Visual Logic: JIT Acceleration
+Aliran eksekusi V8:
 
-## 4. Model Mental Visual (The Assets)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph LR
+    Source[JS Code] --> Parser[Parser]
+    Parser --> Interpreter[Ignition Interpreter]
+    Interpreter -- "Fast Start" --> Machine[Machine Code]
+    
+    Interpreter -- "Identify Hot Functions" --> Optimizer[TurboFan Compiler]
+    Optimizer -- "JIT Compilation" --> Machine
+    
+    style Source fill:#f7df1e,stroke:#333
+    style Machine fill:#90EE90,stroke:#333
+```
+
+---
+
+## ⚠️ 3. Common Pitfalls & Myths
+- **Mitos**: "Node.js adalah bahasa pemrograman baru." (Sama sekali bukan, Node.js adalah **Runtime** yang menggunakan bahasa JavaScript).
+- **Mitos**: "V8 hanya ada di Chrome." (Banyak runtime lain, seperti Node.js dan Electron, juga menggunakan V8).
 
 ---
 *Back to [Evolutionary Timeline](../README.md)*

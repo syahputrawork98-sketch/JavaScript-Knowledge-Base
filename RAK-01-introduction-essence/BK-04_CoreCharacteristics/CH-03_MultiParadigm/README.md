@@ -1,33 +1,50 @@
-# CH-03: Multi-Paradigm (The Chameleon)
+# CH-03: Multi-Paradigm Flexibility
 
-**"Satu Bahasa, Banyak Gaya"**
-*Target: Memahami kombinasi gaya pemrograman dalam JavaScript dalam waktu < 2 menit.*
+![Status](https://img.shields.io/badge/STATUS-COMPLETE-green?style=for-the-badge)
 
-## Source Hub
-- **Primary Source**: [MDN Web Docs - About JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript)
-- **Technical Reference**: [MDN Web Docs - Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+> **"Satu Bahasa, Banyak Gaya: Fungsional, OOP, dan Event-Driven."**
 
-## 1. Definisi & Konsep (The Logic)
-JavaScript adalah bahasa **multi-paradigm**. Ia tidak memaksa satu gaya tunggal. Anda bisa menulis kode secara prosedural, memanfaatkan fungsi sebagai nilai utama, atau membangun model objek dengan prototipe dan class syntax modern di atas fondasi yang sama.
+---
 
-### Terminologi Utama (Senior Terms)
-- **First-Class Functions**: Fungsi diperlakukan sebagai nilai yang bisa disimpan, dikirim, dan dikembalikan.
-- **Functional Style**: Pendekatan yang menekankan komposisi fungsi, transformasi data, dan pembatasan efek samping.
-- **Prototypal OOP**: Gaya pemrograman berorientasi objek di JavaScript yang tetap bertumpu pada prototipe, bahkan saat memakai syntax `class`.
+## 🔗 Source Hub
+- **MDN Guide**: [Principles of Functional Programming](https://developer.mozilla.org/en-US/docs/Glossary/Functional_programming)
+- **Technical Reference**: [JavaScript MDN - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
-## 2. Rasionalitas (Why & How?)
-Dunia perangkat lunak memiliki masalah yang beragam. Terkadang gaya functional lebih baik untuk alur transformasi data, sementara pendekatan objek lebih nyaman untuk memodelkan entitas atau state yang kompleks. JavaScript bertahan lama salah satunya karena ia tidak terlalu cepat menutup pilihan pendekatan ini.
+---
 
-### Analogi Mendalam
-Bayangkan JavaScript adalah sebuah **Swiss Army Knife**. Anda punya pisau, gunting, dan pembuka botol dalam satu alat. Anda tidak perlu membawa tiga benda terpisah. Anda cukup memilih komponen yang paling cocok untuk situasi yang sedang dihadapi.
+## 🌓 1. Essence: The Logic
+JavaScript adalah bahasa yang tidak memaksa pengembangnya untuk mengikuti satu gaya koding tertentu. Ia mendukung gaya **Imperative** (langkah-langkah instruksi), **Object-Oriented** (berbasis objek/prototipe), dan yang paling populer saat ini: **Functional Programming** (fungsi murni, map/filter/reduce).
 
-## 3. Implementasi Utama (The Lab)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+Fleksibilitas ini menjadikannya bahasa yang ideal untuk berbagai tingkat sistem—dari manipulasi UI yang sederhana hingga orkestrasi data backend yang kompleks secara asinkron.
 
-## 4. Model Mental Visual (The Assets)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+---
+
+## 🎨 2. Visual Logic: Paradigm Hub
+Tiga pilar gaya koding di JavaScript:
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph LR
+    JS[JavaScript]
+    
+    subgraph Paradigms
+    OOP[Object-Oriented: Prototypal Chain, Classes]
+    FP[Functional: Pure Functions, Higher-Order]
+    ED[Event-Driven: Listeners, Promises/Async]
+    end
+    
+    JS --- OOP
+    JS --- FP
+    JS --- ED
+    
+    style JS fill:#f7df1e,stroke:#333,stroke-width:2px
+```
+
+---
+
+## ⚠️ 3. Common Pitfalls & Myths
+- **Mitos**: "JavaScript hanyalah bahasa untuk fungsi anonim sederhana." (Sama sekali tidak, JS kini memiliki sintaks `class` dan *Private Methods* yang sangat matang untuk koding OOP skala besar).
+- **Mitos**: "Gaya Functional di JavaScript lambat." (Berkat optimasi di JIT Compiler modern, operasi fungsional praktis setara kecepatannya dengan loop imperative tradisional).
 
 ---
 *Back to [Core Characteristics](../README.md)*

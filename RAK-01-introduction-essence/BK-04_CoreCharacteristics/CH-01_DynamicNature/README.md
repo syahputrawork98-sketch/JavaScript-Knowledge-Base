@@ -1,33 +1,48 @@
 # CH-01: Dynamic Nature (Typing & Flexibility)
 
-**"Bahasa yang Berubah Seiring Waktu"**
-*Target: Memahami fleksibilitas tipe data JavaScript dalam waktu < 2 menit.*
+![Status](https://img.shields.io/badge/STATUS-COMPLETE-green?style=for-the-badge)
 
-## Source Hub
-- **Primary Source**: [MDN Web Docs - Dynamic typing](https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing)
-- **Technical Reference**: [ECMA-262 - ECMAScript Data Types and Values](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)
+> **"Bentuk yang Menyesuaikan, Bukan yang Terkunci."**
 
-## 1. Definisi & Konsep (The Logic)
-JavaScript adalah bahasa dengan **dynamic typing**. Ini berarti variabel tidak membawa tipe tetap seperti pada bahasa yang mewajibkan deklarasi tipe eksplisit; nilai yang sedang disimpanlah yang menentukan perilaku tipenya saat runtime. Satu variabel bisa menyimpan string sekarang, lalu number atau object di langkah berikutnya.
+---
 
-### Terminologi Utama (Senior Terms)
-- **Dynamic Typing**: Penentuan perilaku tipe yang terjadi saat runtime, bukan dibekukan saat deklarasi variabel.
-- **Type Coercion**: Konversi nilai yang bisa terjadi secara implisit atau eksplisit saat operasi dijalankan.
-- **Flexibility Over Rigidity**: Filosofi desain yang mengutamakan keluwesan penulisan di atas struktur tipe yang ketat sejak awal.
+## 🔗 Source Hub
+- **TC39 Spec**: [ECMA-262 Data Types & Values](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)
+- **MDN Glossary**: [Dynamic typing](https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing)
 
-## 2. Rasionalitas (Why & How?)
-Fleksibilitas ini memungkinkan pengembang bergerak cepat, terutama pada scripting, prototyping, dan integrasi antarbagian sistem yang berubah cepat. Namun, keluwesan ini juga menuntut disiplin lebih tinggi karena kesalahan tipe sering baru terlihat saat kode benar-benar dieksekusi.
+---
 
-### Analogi Mendalam
-Bayangkan JavaScript adalah sebuah **Gelas Ajaib (Magic Glass)**. Gelas ini bisa menampung air, pasir, atau bahkan api. Berbeda dengan wadah kaku yang hanya dibuat untuk satu jenis isi, Gelas Ajaib ini menyesuaikan dirinya dengan apa yang Anda tuangkan. Kelebihannya adalah serbaguna; risikonya, Anda harus tahu betul apa yang sedang Anda pegang.
+## 🌓 1. Essence: The Logic
+JavaScript adalah bahasa dengan **Dynamic Typing**. Ini berarti tipe data tidak melekat pada nama variabel saat dideklarasikan, melainkan pada **Nilai** yang sedang dikandungnya saat runtime. Satu variabel bisa menyimpan `string`, lalu berubah menjadi `number` atau `object` di langkah berikutnya.
 
-## 3. Implementasi Utama (The Lab)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+Fleksibilitas ini memungkinkan penulisan kode yang sangat cepat dan adaptif, namun menuntut pemahaman mendalam tentang **Type Coercion** (konversi tipe otomatis) agar tidak terjadi bug yang sulit dilacak.
 
-## 4. Model Mental Visual (The Assets)
-> [!NOTE]
-> Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif (RAK-01 Exception).
+---
+
+## 🎨 2. Visual Logic: Typing Comparison
+Pemisahan antara Static vs Dynamic:
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#000', 'primaryTextColor': '#000'}}}%%
+graph LR
+    subgraph Static_Typing_Language
+    A[Box: INT] -- "Only Numbers" --> B[101]
+    end
+    
+    subgraph JavaScript_Dynamic
+    C[Box: Variable] -- "Phase 1" --> D["ABC (String)"]
+    C -- "Phase 2" --> E[123 (Number)]
+    C -- "Phase 3" --> F["{ } (Object)"]
+    end
+    
+    style C fill:#f7df1e,stroke:#333,stroke-width:2px
+```
+
+---
+
+## ⚠️ 3. Common Pitfalls & Myths
+- **Mitos**: "Dynamic Typing sama dengan Untyped." (Sama sekali tidak, JS tetap memiliki tipe data yang kuat di level internal, hanya saja pemeriksaannya dilakukan saat eksekusi).
+- **Mitos**: "Dynamic Typing mempercepat aplikasi." (Secara performa, ini justru memberikan beban tambahan pada JIT Compiler untuk melakukan profiling tipe).
 
 ---
 *Back to [Core Characteristics](../README.md)*
